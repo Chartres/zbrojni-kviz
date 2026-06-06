@@ -1,0 +1,97 @@
+{
+  "source": "Ministerstvo vnitra ČR — Soubor testových otázek pro teoretickou část zkoušky odborné způsobilosti a komisionální zkoušku (platné od 2026-01-01, zákon 90/2024 Sb.)",
+  "sourceUrl": "https://mv.gov.cz/soubor/mv-soubor-testovych-otazek-pro-teoretickou-cast-zkousky-odborne-zpusobilosti-a-komisionalni-zkousku.aspx",
+  "totalQuestions": 837,
+  "categories": [
+    {
+      "id": "zakon",
+      "name": "Zákon o zbraních",
+      "group": "pravni",
+      "range": [
+        1,
+        561
+      ],
+      "count": 561
+    },
+    {
+      "id": "provadeci",
+      "name": "Prováděcí předpisy",
+      "group": "pravni",
+      "range": [
+        562,
+        609
+      ],
+      "count": 48
+    },
+    {
+      "id": "jine",
+      "name": "Jiné předpisy",
+      "group": "pravni",
+      "range": [
+        610,
+        648
+      ],
+      "count": 39
+    },
+    {
+      "id": "nauka",
+      "name": "Nauka o zbraních",
+      "group": "nauka",
+      "range": [
+        649,
+        799
+      ],
+      "count": 151
+    },
+    {
+      "id": "zdravotnicke",
+      "name": "Zdravotnické minimum",
+      "group": "zdravotnicke",
+      "range": [
+        800,
+        837
+      ],
+      "count": 38
+    }
+  ],
+  "exam": {
+    "totalQuestions": 60,
+    "composition": [
+      {
+        "group": "pravni",
+        "categories": [
+          "Zákon o zbraních",
+          "Prováděcí předpisy",
+          "Jiné předpisy"
+        ],
+        "count": 52
+      },
+      {
+        "group": "nauka",
+        "categories": [
+          "Nauka o zbraních"
+        ],
+        "count": 5
+      },
+      {
+        "group": "zdravotnicke",
+        "categories": [
+          "Zdravotnické minimum"
+        ],
+        "count": 3
+      }
+    ],
+    "passThreshold": 57,
+    "timeLimitMinutes": 80
+  },
+  "duplicatePairs": [
+    [
+      523,
+      529
+    ],
+    [
+      587,
+      590
+    ]
+  ]
+}
