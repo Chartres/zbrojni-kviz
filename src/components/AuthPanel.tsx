@@ -52,7 +52,7 @@ export function AuthPanel() {
       {open && (
         <div className="absolute right-0 z-10 mt-2 w-72 rounded-card border border-steel-700 bg-steel-900 p-4 shadow-xl">
           <p className="mb-3 text-sm text-steel-300">
-            Přihlaste se a synchronizujte svůj postup mezi zařízeními.
+            Synchronizace postupu mezi zařízeními.
           </p>
           <button
             type="button"
@@ -67,7 +67,7 @@ export function AuthPanel() {
           </div>
           {sent ? (
             <p className="text-sm text-verdigris-400">
-              Odeslali jsme vám přihlašovací odkaz na e-mail.
+              Odkaz jsme poslali na e-mail.
             </p>
           ) : (
             <form onSubmit={submitEmail}>

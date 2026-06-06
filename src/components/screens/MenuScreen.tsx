@@ -34,8 +34,7 @@ export function MenuScreen() {
           Zbrojní oprávnění
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-pretty text-steel-300">
-          Procvičte si všech {META.totalQuestions} oficiálních testových otázek.
-          Klid, přesnost, zvládnutí — teorie je to, na čem zkoušky padají.
+          {META.totalQuestions} oficiálních testových otázek k procvičení.
         </p>
       </header>
 
@@ -109,21 +108,21 @@ export function MenuScreen() {
       <section className="grid gap-3 sm:grid-cols-2">
         <ActionCard
           title="Procvičování"
-          desc="Otázky s okamžitou zpětnou vazbou. Učte se z chyb."
+          desc="Otázky s okamžitou zpětnou vazbou."
           primary
           onClick={() => dispatch({ type: 'startPractice', rng: rng() })}
         />
         <ActionCard
           title="Zkušební test"
-          desc="60 otázek, 80 minut, jako u zkoušky. Projdete na 57/60."
+          desc="60 otázek, 80 minut. Uspějete od 57 správných."
           onClick={() => dispatch({ type: 'startExam', rng: rng(), now: Date.now() })}
         />
         <ActionCard
           title="Opakovat chyby"
           desc={
             reviewCount > 0
-              ? `${reviewCount} otázek čeká na zvládnutí.`
-              : 'Zatím nic k opakování — jen tak dál.'
+              ? `${reviewCount} otázek k procvičení.`
+              : 'Zatím žádné chyby.'
           }
           disabled={reviewCount === 0}
           onClick={() => dispatch({ type: 'startReview', rng: rng() })}
@@ -132,8 +131,8 @@ export function MenuScreen() {
           title="Záložky"
           desc={
             bookmarkCount > 0
-              ? `${bookmarkCount} uložených otázek.`
-              : 'Označte si otázky hvězdičkou.'
+              ? `${bookmarkCount} otázek.`
+              : 'Žádné uložené otázky.'
           }
           disabled={bookmarkCount === 0}
           onClick={() => dispatch({ type: 'startBookmarks', rng: rng() })}

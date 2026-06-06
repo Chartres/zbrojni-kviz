@@ -146,10 +146,10 @@ export function QuestionCard({
                 isCorrect ? 'text-verdigris-400' : 'text-rust-400'
               }`}
             >
-              {isCorrect ? 'Správně.' : 'Nesprávně — zapamatujte si správnou odpověď výše.'}
+              {isCorrect ? 'Správně' : 'Nesprávně'}
             </p>
           ) : (
-            <span className="text-sm text-steel-400">Odpověď uložena.</span>
+            <span className="text-sm text-steel-400">Uloženo</span>
           )}
           <button
             type="button"

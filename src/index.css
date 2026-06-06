@@ -6,29 +6,29 @@
   Calm, precise, machined — never tactical or alarming.
 */
 @theme {
-  /* Gunmetal neutrals (cool, slightly blue-grey) */
-  --color-steel-50: #f5f6f7;
-  --color-steel-100: #e7e9ec;
-  --color-steel-200: #cdd2d8;
-  --color-steel-300: #a7b0ba;
-  --color-steel-400: #7b8694;
-  --color-steel-500: #5a6573;
-  --color-steel-600: #454e5a;
-  --color-steel-700: #353c46;
-  --color-steel-800: #262b33;
-  --color-steel-900: #1a1d23;
-  --color-steel-950: #111317;
+  /* Gunmetal neutrals (cool, slightly blue-grey) — tuned for strong contrast */
+  --color-steel-50: #f7f8f9;
+  --color-steel-100: #eef0f2;
+  --color-steel-200: #d8dde2;
+  --color-steel-300: #bcc4cd;
+  --color-steel-400: #9aa5b2;
+  --color-steel-500: #7e8997;
+  --color-steel-600: #5e6877;
+  --color-steel-700: #3c434e;
+  --color-steel-800: #232830;
+  --color-steel-900: #161a20;
+  --color-steel-950: #0d0f13;
 
   /* Brass / amber accent — focus, selection, "correct" highlight */
-  --color-brass-300: #e7c890;
-  --color-brass-400: #d6b06a;
-  --color-brass-500: #c2954a;
+  --color-brass-300: #f0d49c;
+  --color-brass-400: #ddb874;
+  --color-brass-500: #c89a4e;
   --color-brass-600: #a87b35;
 
   /* Calm semantic feedback (never harsh) */
-  --color-verdigris-400: #6fae9b;
+  --color-verdigris-400: #82c4af;
   --color-verdigris-500: #4f8d7b;
-  --color-rust-400: #c98b6b;
+  --color-rust-400: #d99877;
   --color-rust-500: #b06f4f;
 
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',

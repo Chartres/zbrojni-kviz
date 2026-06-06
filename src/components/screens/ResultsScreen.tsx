@@ -34,7 +34,7 @@ export function ResultsScreen() {
         </div>
         {isExam && examResult && (
           <p className="mt-2 text-sm text-steel-400">
-            K úspěchu je potřeba {examResult.passThreshold} z {total} správně.
+            Pro úspěch {examResult.passThreshold} z {total}.
           </p>
         )}
       </div>
