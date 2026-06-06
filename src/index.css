@@ -74,6 +74,59 @@ body {
     );
 }
 
+/* Prose styling for the study guide (no typography plugin) */
+.study-prose h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-brass-300);
+  border-bottom: 1px solid var(--color-steel-700);
+  padding-bottom: 0.4rem;
+}
+.study-prose h3 {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-steel-100);
+}
+.study-prose h4 {
+  margin: 1rem 0 0.4rem;
+  font-weight: 600;
+  color: var(--color-steel-200);
+}
+.study-prose p {
+  margin: 0.6rem 0;
+  line-height: 1.7;
+  color: var(--color-steel-300);
+}
+.study-prose ul,
+.study-prose ol {
+  margin: 0.6rem 0 0.6rem 1.25rem;
+  list-style: disc;
+  color: var(--color-steel-300);
+  line-height: 1.7;
+}
+.study-prose li {
+  margin: 0.25rem 0;
+}
+.study-prose strong {
+  color: var(--color-steel-100);
+  font-weight: 600;
+}
+.study-prose table {
+  width: 100%;
+  margin: 1rem 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.study-prose th,
+.study-prose td {
+  border: 1px solid var(--color-steel-700);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  color: var(--color-steel-300);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
