@@ -1,4 +1,6 @@
 import { AppProvider, useApp } from '@/app/AppContext'
+import { AuthProvider } from '@/auth/AuthContext'
+import { AuthPanel } from '@/components/AuthPanel'
 import { MenuScreen } from '@/components/screens/MenuScreen'
 import { QuizScreen } from '@/components/screens/QuizScreen'
 import { ResultsScreen } from '@/components/screens/ResultsScreen'
@@ -25,16 +27,21 @@ function CurrentView() {
 
 export function App() {
   return (
-    <AppProvider>
-      <div className="min-h-full metal-grain">
-        <main className="min-h-full">
-          <CurrentView />
-        </main>
-        <footer className="border-t border-steel-800 py-6 text-center text-xs text-steel-600">
-          Neoficiální procvičovací nástroj · otázky © Ministerstvo vnitra ČR ·
-          zákon 90/2024 Sb.
-        </footer>
-      </div>
-    </AppProvider>
+    <AuthProvider>
+      <AppProvider>
+        <div className="flex min-h-full flex-col metal-grain">
+          <header className="flex items-center justify-end px-4 py-3">
+            <AuthPanel />
+          </header>
+          <main className="flex-1">
+            <CurrentView />
+          </main>
+          <footer className="border-t border-steel-800 py-6 text-center text-xs text-steel-600">
+            Neoficiální procvičovací nástroj · otázky © Ministerstvo vnitra ČR ·
+            zákon 90/2024 Sb.
+          </footer>
+        </div>
+      </AppProvider>
+    </AuthProvider>
   )
 }
