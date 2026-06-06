@@ -13,7 +13,9 @@ export function StudyScreen() {
       >
         ← Zpět
       </button>
-      <h1 className="text-3xl font-bold text-steel-50">Studijní průvodce</h1>
+      <h1 className="font-display text-3xl font-bold uppercase tracking-tight text-steel-50">
+        Studijní průvodce
+      </h1>
       <p className="mt-2 text-sm text-steel-400">
         Zkouška: {META.exam.totalQuestions} otázek, {META.exam.timeLimitMinutes}{' '}
         minut, k úspěchu {META.exam.passThreshold} správně. Zdroj otázek:{' '}

@@ -28,7 +28,7 @@ export function ExamTimer({ endsAt, onExpire }: ExamTimerProps) {
   const urgent = remaining <= 5 * 60 * 1000
   return (
     <span
-      className={`rounded-full border px-3 py-1 font-mono text-sm tabular-nums ${
+      className={`border px-3 py-1 font-mono text-sm tabular-nums ${
         urgent
           ? 'border-rust-500 text-rust-400'
           : 'border-steel-700 text-steel-300'

@@ -13,13 +13,13 @@ export function ProgressBar({ value, max, label, tone = 'brass' }: ProgressBarPr
       {label && (
         <div className="mb-1 flex justify-between text-xs text-steel-400">
           <span>{label}</span>
-          <span className="tabular-nums">
+          <span className="font-mono tabular-nums">
             {value}/{max}
           </span>
         </div>
       )}
       <div
-        className="h-2 overflow-hidden rounded-full bg-steel-800"
+        className="h-1.5 overflow-hidden rounded-[1px] bg-steel-800"
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin={0}
@@ -27,7 +27,7 @@ export function ProgressBar({ value, max, label, tone = 'brass' }: ProgressBarPr
         aria-label={label}
       >
         <div
-          className={`h-full rounded-full transition-[width] duration-500 ${fill}`}
+          className={`h-full rounded-[1px] transition-[width] duration-500 ${fill}`}
           style={{ width: `${pct}%` }}
         />
       </div>

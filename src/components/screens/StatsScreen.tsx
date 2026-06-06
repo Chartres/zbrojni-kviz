@@ -17,23 +17,25 @@ export function StatsScreen() {
       >
         ← Zpět
       </button>
-      <h1 className="mb-6 text-2xl font-bold text-steel-50">Statistiky</h1>
+      <h1 className="mb-6 font-display text-3xl font-bold uppercase tracking-tight text-steel-50">
+        Statistiky
+      </h1>
 
       <div className="mb-8 grid grid-cols-3 gap-4 rounded-card border border-steel-700 bg-steel-800/40 p-5 text-center">
         <div>
-          <div className="text-2xl font-bold text-brass-300 tabular-nums">
+          <div className="font-mono text-2xl font-semibold text-brass-300 tabular-nums">
             {sum.mastered}
           </div>
           <div className="text-xs uppercase tracking-wide text-steel-500">Zvládnuto</div>
         </div>
         <div>
-          <div className="text-2xl font-bold text-brass-300 tabular-nums">
+          <div className="font-mono text-2xl font-semibold text-brass-300 tabular-nums">
             {sum.answered}
           </div>
           <div className="text-xs uppercase tracking-wide text-steel-500">Procvičeno</div>
         </div>
         <div>
-          <div className="text-2xl font-bold text-brass-300 tabular-nums">
+          <div className="font-mono text-2xl font-semibold text-brass-300 tabular-nums">
             {Math.round(sum.accuracy * 100)}%
           </div>
           <div className="text-xs uppercase tracking-wide text-steel-500">Úspěšnost</div>

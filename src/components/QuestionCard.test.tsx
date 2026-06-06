@@ -56,6 +56,14 @@ describe('QuestionCard', () => {
     expect(onAnswer).toHaveBeenCalledWith('b')
   })
 
+  it('supports keyboard selection by letter (a/b/c, case-insensitive)', async () => {
+    const { onAnswer } = setup()
+    await userEvent.keyboard('c')
+    expect(onAnswer).toHaveBeenCalledWith('c')
+    await userEvent.keyboard('A')
+    expect(onAnswer).toHaveBeenCalledWith('a')
+  })
+
   it('reveals the correct answer after a wrong choice (control of error)', () => {
     setup({ chosen: 'b' })
     // the correct option is marked, regardless of what was chosen

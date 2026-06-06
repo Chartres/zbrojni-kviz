@@ -16,19 +16,19 @@ export function ResultsScreen() {
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-10">
-      <div className="rounded-card border border-steel-700 bg-steel-800/40 p-6 text-center metal-grain">
+      <div className="instrument rounded-card border border-steel-700 bg-steel-800/40 p-6 text-center metal-grain">
         {isExam && examResult && (
           <div
-            className={`mb-3 inline-block rounded-full px-4 py-1 text-sm font-semibold uppercase tracking-wide ${
+            className={`mb-3 inline-block border px-4 py-1 font-mono text-sm font-semibold uppercase tracking-[0.15em] ${
               examResult.passed
-                ? 'bg-verdigris-500/20 text-verdigris-400'
-                : 'bg-rust-500/20 text-rust-400'
+                ? 'border-verdigris-500 text-verdigris-400'
+                : 'border-rust-500 text-rust-400'
             }`}
           >
             {examResult.passed ? 'Prospěl(a)' : 'Neprospěl(a)'}
           </div>
         )}
-        <div className="text-5xl font-bold text-brass-300 tabular-nums">
+        <div className="font-mono text-6xl font-semibold text-brass-300 tabular-nums">
           {correct}
           <span className="text-2xl text-steel-500"> / {total}</span>
         </div>

@@ -27,10 +27,10 @@ export function MenuScreen() {
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-10">
       <header className="mb-10 text-center">
-        <p className="mb-2 text-xs uppercase tracking-[0.3em] text-brass-400">
+        <p className="mb-2 font-mono text-xs uppercase tracking-[0.3em] text-brass-400">
           Zkouška odborné způsobilosti · 2026
         </p>
-        <h1 className="text-balance text-4xl font-bold text-steel-50 sm:text-5xl">
+        <h1 className="font-display text-5xl font-bold uppercase tracking-tight text-steel-50 sm:text-6xl">
           Zbrojní oprávnění
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-pretty text-steel-300">
@@ -39,7 +39,7 @@ export function MenuScreen() {
       </header>
 
       {/* Progress dashboard */}
-      <section className="mb-8 rounded-card border border-steel-700 bg-steel-800/40 p-5 metal-grain">
+      <section className="instrument mb-8 rounded-card border border-steel-700 bg-steel-800/40 p-5 metal-grain">
         <div className="mb-4 grid grid-cols-3 gap-4 text-center">
           <Stat label="Zvládnuto" value={sum.mastered} suffix={`/ ${sum.total}`} />
           <Stat label="Procvičeno" value={sum.answered} suffix={`/ ${sum.total}`} />
@@ -59,7 +59,7 @@ export function MenuScreen() {
 
       {/* Categories */}
       <section className="mb-6">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-steel-400">
+        <h2 className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-steel-400">
           Okruhy
         </h2>
         <div className="flex flex-wrap gap-2">
@@ -72,14 +72,14 @@ export function MenuScreen() {
                 type="button"
                 onClick={() => toggleCat(c.name)}
                 aria-pressed={active}
-                className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors ${
+                className={`border px-3.5 py-1.5 text-sm transition-colors ${
                   active
                     ? 'border-brass-500 bg-brass-500/15 text-brass-300'
                     : 'border-steel-700 text-steel-300 hover:border-steel-500'
                 }`}
               >
                 {c.name}
-                <span className="ml-2 text-xs text-steel-500 tabular-nums">
+                <span className="ml-2 font-mono text-xs text-steel-500 tabular-nums">
                   {cat ? cat.mastered : 0}/{c.count}
                 </span>
               </button>
@@ -154,11 +154,13 @@ export function MenuScreen() {
 function Stat({ label, value, suffix }: { label: string; value: number; suffix?: string }) {
   return (
     <div>
-      <div className="text-2xl font-bold text-brass-300 tabular-nums">
+      <div className="font-mono text-2xl font-semibold text-brass-300 tabular-nums">
         {value}
         {suffix && <span className="ml-1 text-sm font-normal text-steel-500">{suffix}</span>}
       </div>
-      <div className="text-xs uppercase tracking-wide text-steel-500">{label}</div>
+      <div className="mt-0.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-steel-500">
+        {label}
+      </div>
     </div>
   )
 }
@@ -179,11 +181,13 @@ function ActionCard({ title, desc, primary, disabled, onClick }: ActionCardProps
       disabled={disabled}
       className={`rounded-card border p-4 text-left transition-all disabled:cursor-not-allowed disabled:opacity-50 ${
         primary
-          ? 'border-brass-500/60 bg-brass-500/10 hover:bg-brass-500/15'
+          ? 'glow-brass border-brass-500/70 bg-brass-500/10 hover:bg-brass-500/20'
           : 'border-steel-700 bg-steel-800/40 hover:border-steel-500'
       }`}
     >
-      <div className="font-semibold text-steel-50">{title}</div>
+      <div className="font-display text-lg font-semibold uppercase tracking-wide text-steel-50">
+        {title}
+      </div>
       <div className="mt-1 text-sm text-steel-400">{desc}</div>
     </button>
   )
