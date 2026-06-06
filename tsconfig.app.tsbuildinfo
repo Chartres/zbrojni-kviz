@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/__envcheck.test.ts","./src/main.tsx","./src/test-harness.test.ts","./src/vite-env.d.ts","./src/domain/questions.test.ts","./src/domain/questions.ts","./src/domain/types.ts","./data/meta.json","./data/questions.json"],"version":"6.0.3"}
