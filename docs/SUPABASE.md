@@ -41,12 +41,14 @@ create table public.events (
   id         bigint generated always as identity primary key,
   event      text not null,
   props      jsonb not null default '{}',
-  session_id text,
+  session_id text,                   -- one per browser tab session
+  visitor_id text,                   -- stable per browser → unique visitors
   created_at timestamptz not null default now()
 );
 alter table public.events enable row level security;
 grant insert on table public.events to anon, authenticated;
 create index events_created_at_idx on public.events (created_at);
+create index events_visitor_idx on public.events (visitor_id);
 -- anyone may log a KNOWN event; nobody can read them back via the public API
 create policy "anyone can log known events" on public.events
   for insert to anon, authenticated
@@ -58,6 +60,7 @@ create policy "anyone can log known events" on public.events
     )
     and char_length(event) <= 40
     and char_length(coalesce(session_id, '')) <= 64
+    and char_length(coalesce(visitor_id, '')) <= 64
   );
 ```
 
@@ -66,10 +69,26 @@ See your usage anytime in the SQL Editor:
 ```sql
 -- events by type
 select event, count(*) from public.events group by event order by 2 desc;
--- daily active sessions (last 30 days)
-select created_at::date as day, count(distinct session_id) as sessions
+
+-- DAU / WAU / MAU (unique visitors)
+select
+  count(distinct visitor_id) filter (where created_at > now() - interval '1 day')  as dau,
+  count(distinct visitor_id) filter (where created_at > now() - interval '7 days')  as wau,
+  count(distinct visitor_id) filter (where created_at > now() - interval '30 days') as mau
+from public.events;
+
+-- unique visitors & sessions per day (last 30 days)
+select created_at::date as day,
+       count(distinct visitor_id) as visitors,
+       count(distinct session_id) as sessions
 from public.events where created_at > now() - interval '30 days'
 group by day order by day desc;
+
+-- funnel: lessons started vs completed
+select
+  count(*) filter (where event = 'start_lesson')    as lessons_started,
+  count(*) filter (where event = 'lesson_complete')  as lessons_completed
+from public.events;
 ```
 
 ## 3. Auth providers

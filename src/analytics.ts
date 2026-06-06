@@ -6,18 +6,28 @@ import { supabase } from './auth/supabase'
  * No-ops when Supabase isn't configured (local/tests). See docs/SUPABASE.md.
  */
 
-function sessionId(): string {
+function id(storage: Storage | undefined, key: string): string {
   try {
-    const key = 'zk:sid'
-    let id = sessionStorage.getItem(key)
-    if (!id) {
-      id = crypto.randomUUID()
-      sessionStorage.setItem(key, id)
+    if (!storage) return 'anon'
+    let v = storage.getItem(key)
+    if (!v) {
+      v = crypto.randomUUID()
+      storage.setItem(key, v)
     }
-    return id
+    return v
   } catch {
     return 'anon'
   }
+}
+
+// session_id: one per browser tab session (sessionStorage).
+// visitor_id: stable per browser across sessions (localStorage) → unique
+// visitors and DAU/WAU/MAU.
+function sessionId() {
+  return id(typeof sessionStorage !== 'undefined' ? sessionStorage : undefined, 'zk:sid')
+}
+function visitorId() {
+  return id(typeof localStorage !== 'undefined' ? localStorage : undefined, 'zk:vid')
 }
 
 export function track(event: string, props?: Record<string, unknown>): void {
@@ -25,7 +35,12 @@ export function track(event: string, props?: Record<string, unknown>): void {
   try {
     void supabase
       .from('events')
-      .insert({ event, props: props ?? {}, session_id: sessionId() })
+      .insert({
+        event,
+        props: props ?? {},
+        session_id: sessionId(),
+        visitor_id: visitorId(),
+      })
       .then(
         () => {},
         () => {},

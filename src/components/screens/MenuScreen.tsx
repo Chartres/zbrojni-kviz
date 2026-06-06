@@ -6,6 +6,7 @@ import { LESSON_SIZE } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { InfoDot } from '@/components/ui/InfoDot'
 import type { CategoryName } from '@/domain/types'
 
 export function MenuScreen() {
@@ -39,12 +40,46 @@ export function MenuScreen() {
           Zkouška odborné způsobilosti · 2026
         </p>
         <h1 className="font-display text-5xl font-bold uppercase tracking-tight text-steel-50 sm:text-6xl">
-          Zbrojní oprávnění
+          Zbrojní kviz
         </h1>
         <p className="mx-auto mt-3 max-w-xl text-pretty text-steel-300">
-          {META.totalQuestions} oficiálních testových otázek k procvičení.
+          {META.totalQuestions} oficiálních testových otázek ke zkoušce na
+          zbrojní oprávnění.
         </p>
       </header>
+
+      {/* Progress dashboard */}
+      <section className="instrument mb-6 rounded-card border border-steel-700 bg-steel-800/40 p-5 metal-grain">
+        <div className="mb-4 grid grid-cols-3 gap-4 text-center">
+          <Stat
+            testId="stat-mastered"
+            label="Zvládnuto"
+            value={sum.mastered}
+            suffix={`/ ${sum.total}`}
+            info="Otázky zodpovězené správně 2× po sobě — pak je považujeme za naučené."
+          />
+          <Stat
+            testId="stat-answered"
+            label="Procvičeno"
+            value={sum.answered}
+            suffix={`/ ${sum.total}`}
+            info="Kolik různých otázek jste už alespoň jednou viděli."
+          />
+          <Stat
+            testId="stat-accuracy"
+            label="Úspěšnost"
+            value={Math.round(sum.accuracy * 100)}
+            suffix="%"
+            info="Podíl správných odpovědí ze všech vašich pokusů."
+          />
+        </div>
+        <ProgressBar
+          value={sum.mastered}
+          max={sum.total}
+          tone="verdigris"
+          label="Celkové zvládnutí"
+        />
+      </section>
 
       {/* Daily lesson — the primary, always-finishable entry point */}
       <button
@@ -72,32 +107,6 @@ export function MenuScreen() {
           </div>
         </div>
       </button>
-
-      {/* Progress dashboard */}
-      <section className="instrument mb-8 rounded-card border border-steel-700 bg-steel-800/40 p-5 metal-grain">
-        <div className="mb-4 grid grid-cols-3 gap-4 text-center">
-          <Stat label="Zvládnuto" value={sum.mastered} suffix={`/ ${sum.total}`} />
-          <Stat label="Procvičeno" value={sum.answered} suffix={`/ ${sum.total}`} />
-          <Stat
-            label="Úspěšnost"
-            value={Math.round(sum.accuracy * 100)}
-            suffix="%"
-          />
-        </div>
-        <ProgressBar
-          value={sum.mastered}
-          max={sum.total}
-          tone="verdigris"
-          label="Celkové zvládnutí"
-        />
-        <p className="mt-3 text-xs leading-relaxed text-steel-500">
-          <span className="text-steel-400">Procvičeno</span> = kolik otázek jste
-          už viděli. <span className="text-steel-400">Zvládnuto</span> = otázky
-          zodpovězené správně 2× po sobě (pak je považujeme za naučené).{' '}
-          <span className="text-steel-400">Úspěšnost</span> = podíl správných
-          odpovědí.
-        </p>
-      </section>
 
       {/* Categories */}
       <section className="mb-6">
@@ -192,15 +201,31 @@ export function MenuScreen() {
   )
 }
 
-function Stat({ label, value, suffix }: { label: string; value: number; suffix?: string }) {
+function Stat({
+  label,
+  value,
+  suffix,
+  info,
+  testId,
+}: {
+  label: string
+  value: number
+  suffix?: string
+  info?: string
+  testId?: string
+}) {
   return (
     <div>
-      <div className="font-mono text-2xl font-semibold text-brass-300 tabular-nums">
+      <div
+        data-testid={testId}
+        className="font-mono text-2xl font-semibold text-brass-300 tabular-nums"
+      >
         {value}
         {suffix && <span className="ml-1 text-sm font-normal text-steel-500">{suffix}</span>}
       </div>
       <div className="mt-0.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-steel-500">
         {label}
+        {info && <InfoDot text={info} />}
       </div>
     </div>
   )

@@ -3,10 +3,32 @@ import { useApp } from '@/app/AppContext'
 import { ALL_QUESTIONS, META } from '@/domain/questions'
 import { summary } from '@/domain/progress'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { InfoDot } from '@/components/ui/InfoDot'
 
 export function StatsScreen() {
   const { state, dispatch } = useApp()
   const sum = useMemo(() => summary(state.progress, ALL_QUESTIONS), [state.progress])
+
+  const stats = [
+    {
+      testId: 'stat-mastered',
+      label: 'Zvládnuto',
+      value: sum.mastered,
+      info: 'Otázky zodpovězené správně 2× po sobě — pak je považujeme za naučené.',
+    },
+    {
+      testId: 'stat-answered',
+      label: 'Procvičeno',
+      value: sum.answered,
+      info: 'Kolik různých otázek jste už alespoň jednou viděli.',
+    },
+    {
+      testId: 'stat-accuracy',
+      label: 'Úspěšnost',
+      value: `${Math.round(sum.accuracy * 100)}%`,
+      info: 'Podíl správných odpovědí ze všech vašich pokusů.',
+    },
+  ]
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-10">
@@ -22,40 +44,41 @@ export function StatsScreen() {
       </h1>
 
       <div className="mb-8 grid grid-cols-3 gap-4 rounded-card border border-steel-700 bg-steel-800/40 p-5 text-center">
-        <div>
-          <div className="font-mono text-2xl font-semibold text-brass-300 tabular-nums">
-            {sum.mastered}
+        {stats.map((s) => (
+          <div key={s.label}>
+            <div
+              data-testid={s.testId}
+              className="font-mono text-2xl font-semibold text-brass-300 tabular-nums"
+            >
+              {s.value}
+            </div>
+            <div className="mt-0.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-steel-500">
+              {s.label}
+              <InfoDot text={s.info} />
+            </div>
           </div>
-          <div className="text-xs uppercase tracking-wide text-steel-500">Zvládnuto</div>
-        </div>
-        <div>
-          <div className="font-mono text-2xl font-semibold text-brass-300 tabular-nums">
-            {sum.answered}
-          </div>
-          <div className="text-xs uppercase tracking-wide text-steel-500">Procvičeno</div>
-        </div>
-        <div>
-          <div className="font-mono text-2xl font-semibold text-brass-300 tabular-nums">
-            {Math.round(sum.accuracy * 100)}%
-          </div>
-          <div className="text-xs uppercase tracking-wide text-steel-500">Úspěšnost</div>
-        </div>
+        ))}
       </div>
 
-      <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-steel-400">
-        Zvládnutí podle okruhů
+      <h2 className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-steel-400">
+        Pokrok podle okruhů
       </h2>
-      <div className="space-y-4">
+      <div className="space-y-5">
         {META.categories.map((c) => {
           const b = sum.byCategory[c.name]
+          const seen = b ? b.seen : 0
+          const mastered = b ? b.mastered : 0
           return (
-            <ProgressBar
-              key={c.id}
-              label={c.name}
-              value={b ? b.mastered : 0}
-              max={c.count}
-              tone="verdigris"
-            />
+            <div key={c.id}>
+              <div className="mb-1 flex items-baseline justify-between gap-2 text-sm">
+                <span className="text-steel-200">{c.name}</span>
+                <span className="font-mono text-xs text-steel-500 tabular-nums">
+                  {mastered} zvládnuto · {seen} procvičeno / {c.count}
+                </span>
+              </div>
+              {/* procvičeno (seen) as the bar; mastered shown numerically above */}
+              <ProgressBar value={seen} max={c.count} tone="brass" />
+            </div>
           )
         })}
       </div>

@@ -1,4 +1,5 @@
 import { AppProvider, useApp } from '@/app/AppContext'
+import { META } from '@/domain/questions'
 import { AuthProvider } from '@/auth/AuthContext'
 import { AuthPanel } from '@/components/AuthPanel'
 import { MenuScreen } from '@/components/screens/MenuScreen'
@@ -36,9 +37,17 @@ export function App() {
           <main className="flex-1">
             <CurrentView />
           </main>
-          <footer className="border-t border-steel-800 py-6 text-center text-xs text-steel-600">
-            Neoficiální procvičovací nástroj · otázky © Ministerstvo vnitra ČR ·
-            zákon 90/2024 Sb.
+          <footer className="border-t border-steel-800 px-4 py-6 text-center text-xs text-steel-600">
+            Neoficiální procvičovací nástroj · zákon 90/2024 Sb. · otázky ©
+            Ministerstvo vnitra ČR —{' '}
+            <a
+              href={META.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-steel-400 underline hover:text-brass-400"
+            >
+              oficiální PDF s otázkami
+            </a>
           </footer>
         </div>
       </AppProvider>
