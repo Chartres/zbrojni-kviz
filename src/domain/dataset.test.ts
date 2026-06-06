@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { ALL_QUESTIONS, META, getQuestion } from './domain/questions'
+import { ALL_QUESTIONS, META, getQuestion } from './questions'
 
 // Dataset invariants that protect against regressions in data/extract.py.
 describe('dataset invariants', () => {
