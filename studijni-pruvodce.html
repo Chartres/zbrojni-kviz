@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Průvodce zkouškou zbrojního oprávnění</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .highlight-box { background: rgba(251, 191, 36, 0.1); border-left: 4px solid #fbbf24; }
+        .section-nav { max-height: 80vh; overflow-y: auto; }
+        .key-fact { background: rgba(251, 191, 36, 0.15); border: 1px solid #fbbf24; }
+        .sidebar-nav { position: sticky; top: 0; }
+        a.toc-link { color: #fbbf24; transition: color 0.2s; }
+        a.toc-link:hover { color: #fcd34d; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-800 border-r border-gray-700 sidebar-nav">
+            <div class="p-6 border-b border-gray-700">
+                <h1 class="text-xl font-bold text-amber-400">Zbrojní oprávnění</h1>
+                <p class="text-xs text-gray-400 mt-1">Průvodce zkouškou</p>
+            </div>
+            <div class="p-4 section-nav">
+                <input type="text" id="searchInput" placeholder="Hledat..." class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-sm mb-4 text-gray-100 placeholder-gray-500">
+                <nav class="space-y-2">
+                    <a href="#zakon-o-zbrani" class="toc-link block px-3 py-2 rounded hover:bg-gray-700">1. Zákon o zbraních</a>
+                    <a href="#provadeci-predpisy" class="toc-link block px-3 py-2 rounded hover:bg-gray-700">2. Prováděcí předpisy</a>
+                    <a href="#jine-pravni-predpisy" class="toc-link block px-3 py-2 rounded hover:bg-gray-700">3. Jiné právní předpisy</a>
+                    <a href="#nauka-o-zbrani" class="toc-link block px-3 py-2 rounded hover:bg-gray-700">4. Nauka o zbraních</a>
+                    <a href="#zdravotnicke-minimum" class="toc-link block px-3 py-2 rounded hover:bg-gray-700">5. Zdravotnické minimum</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <div class="max-w-4xl mx-auto p-8">
+                <!-- Header -->
+                <div class="mb-12">
+                    <h1 class="text-4xl font-bold text-amber-400 mb-2">Průvodce zkouškou zbrojního oprávnění</h1>
+                    <p class="text-gray-400">Komplexní studijní materiál ke všem pěti částem zkoušky</p>
+                </div>
+
+                <!-- Section 1: Zákon o zbraních -->
+                <section id="zakon-o-zbrani" class="mb-16">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 pb-3 border-b border-gray-700">1. Zákon o zbraních</h2>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Základní pojmy</h3>
+                        <div class="space-y-3">
+                            <div><strong>Zbraň:</strong> Předmět konstruovaný či upraven k likvidaci nebo zranění osob, zvířat nebo věcí</div>
+                            <div><strong>Palná zbraň:</strong> Zbraň, která používá chemickou energii střelného prachu k vymrštění projektilu</div>
+                            <div><strong>Náboj:</strong> Střela, nábojnice, výmetná náplň a zápalka v jedné jednotce</div>
+                            <div><strong>Držitel zbraně:</strong> Fyzická osoba oprávněná zbraň vlastnit a mít v držení</div>
+                            <div><strong>Nabyvatel:</strong> Osoba, která si připravuje nabýt zbraň</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Kategorie zbraní</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b border-gray-600">
+                                        <th class="text-left py-2 px-2 text-amber-400">Kategorie</th>
+                                        <th class="text-left py-2 px-2 text-amber-400">Popis</th>
+                                        <th class="text-left py-2 px-2 text-amber-400">Oprávnění</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="space-y-2">
+                                    <tr class="border-b border-gray-700">
+                                        <td class="py-2 px-2 font-semibold">R1</td>
+                                        <td class="py-2 px-2">Pistole, revolvery s ráží ≥6mm, automatické zbraně</td>
+                                        <td class="py-2 px-2">Rozšířené</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700">
+                                        <td class="py-2 px-2 font-semibold">R2</td>
+                                        <td class="py-2 px-2">Pistole <6mm, dlouhé zbraně s vlastníma ryčením či automatikou</td>
+                                        <td class="py-2 px-2">Rozšířené</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700">
+                                        <td class="py-2 px-2 font-semibold">R3</td>
+                                        <td class="py-2 px-2">Dlouhé zbraně bez vlastního ryčení či automatisky</td>
+                                        <td class="py-2 px-2">Rozšířené</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700">
+                                        <td class="py-2 px-2 font-semibold">R4</td>
+                                        <td class="py-2 px-2">Vzduchovky ≥4,5mm, airsoft pistole ≥0,5J, kyje atd.</td>
+                                        <td class="py-2 px-2">Běžné</td>
+                                    </tr>
+                                    <tr class="border-b border-gray-700">
+                                        <td class="py-2 px-2 font-semibold">PO</td>
+                                        <td class="py-2 px-2">Střelné nebo bodné zbraně bez zbrojního oprávnění</td>
+                                        <td class="py-2 px-2">Bez oprávnění</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-2 font-semibold">NO</td>
+                                        <td class="py-2 px-2">Zbraně používané pouze bezpečnostními složkami</td>
+                                        <td class="py-2 px-2">Bez oprávnění</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="key-fact p-4 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">Kategorie zbraní - Vizuální přehled</h4>
+                        <svg viewBox="0 0 800 400" class="w-full h-auto">
+                            <defs>
+                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.3" />
+                                    <stop offset="100%" style="stop-color:#fbbf24;stop-opacity:0.1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- R1 -->
+                            <rect x="20" y="50" width="140" height="120" fill="url(#grad1)" stroke="#fbbf24" stroke-width="2" rx="5"/>
+                            <text x="90" y="75" font-size="18" font-weight="bold" fill="#fbbf24" text-anchor="middle">R1</text>
+                            <text x="90" y="100" font-size="12" fill="#e5e7eb" text-anchor="middle">Pistole, revolvery</text>
+                            <text x="90" y="120" font-size="12" fill="#e5e7eb" text-anchor="middle">ráží ≥6mm</text>
+                            <text x="90" y="160" font-size="11" fill="#fbbf24" text-anchor="middle" font-weight="bold">Rozšířené</text>
+                            <!-- R2 -->
+                            <rect x="180" y="50" width="140" height="120" fill="url(#grad1)" stroke="#fbbf24" stroke-width="2" rx="5"/>
+                            <text x="250" y="75" font-size="18" font-weight="bold" fill="#fbbf24" text-anchor="middle">R2</text>
+                            <text x="250" y="100" font-size="12" fill="#e5e7eb" text-anchor="middle">Pistole <6mm</text>
+                            <text x="250" y="120" font-size="12" fill="#e5e7eb" text-anchor="middle">Dlouhé zbraně</text>
+                            <text x="250" y="160" font-size="11" fill="#fbbf24" text-anchor="middle" font-weight="bold">Rozšířené</text>
+                            <!-- R3 -->
+                            <rect x="340" y="50" width="140" height="120" fill="url(#grad1)" stroke="#fbbf24" stroke-width="2" rx="5"/>
+                            <text x="410" y="75" font-size="18" font-weight="bold" fill="#fbbf24" text-anchor="middle">R3</text>
+                            <text x="410" y="100" font-size="12" fill="#e5e7eb" text-anchor="middle">Dlouhé zbraně</text>
+                            <text x="410" y="120" font-size="12" fill="#e5e7eb" text-anchor="middle">bez automatisky</text>
+                            <text x="410" y="160" font-size="11" fill="#fbbf24" text-anchor="middle" font-weight="bold">Rozšířené</text>
+                            <!-- R4 -->
+                            <rect x="500" y="50" width="140" height="120" fill="url(#grad1)" stroke="#10b981" stroke-width="2" rx="5"/>
+                            <text x="570" y="75" font-size="18" font-weight="bold" fill="#10b981" text-anchor="middle">R4</text>
+                            <text x="570" y="100" font-size="12" fill="#e5e7eb" text-anchor="middle">Vzduchovky</text>
+                            <text x="570" y="120" font-size="12" fill="#e5e7eb" text-anchor="middle">Kyje, zápalovací</text>
+                            <text x="570" y="160" font-size="11" fill="#10b981" text-anchor="middle" font-weight="bold">Běžné</text>
+                            <!-- PO/NO -->
+                            <rect x="660" y="50" width="120" height="120" fill="url(#grad1)" stroke="#ef4444" stroke-width="2" rx="5"/>
+                            <text x="720" y="90" font-size="14" font-weight="bold" fill="#ef4444" text-anchor="middle">PO / NO</text>
+                            <text x="720" y="115" font-size="11" fill="#e5e7eb" text-anchor="middle">Bez oprávnění</text>
+                            <text x="720" y="160" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="bold">Zakázáno</text>
+                        </svg>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Zbrojní oprávnění</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-amber-200 mb-2">Běžné zbrojní oprávnění</h4>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li>Umožňuje nabýt a držet zbraně kategorie R4</li>
+                                    <li>Vydává se na dobu určitou (obvykle 5 let)</li>
+                                    <li>Podmínka: věk 21+, způsobilost, bezúhonnost</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200 mb-2">Rozšířené zbrojní oprávnění</h4>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li>Umožňuje nabýt a držet zbraně R1, R2, R3, R4</li>
+                                    <li>Důvod: sportovní střelba, myslivost, vědecký účel</li>
+                                    <li>Přesnější podmínky a důkladnější prověrka</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Podmínky vydání zbrojního oprávnění</h3>
+                        <div class="space-y-3">
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Věk:</strong> Minimálně 21 let (výjimky možné od 18 let)
+                            </div>
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Způsobilost:</strong> Mentální a fyzická schopnost bezpečného zacházení se zbraněmi
+                            </div>
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Bezúhonnost:</strong> Bez odsouzení za záležitosti týkající se zbraní
+                            </div>
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Důvod:</strong> Při rozšířeném oprávnění: relevantní důvod (sport, myslivost atd.)
+                            </div>
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Zdravotní stav:</strong> Absolvování zdravotní prohlídky
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Nakládání se zbraněmi</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-amber-200 mb-2">Nošení zbraně</h4>
+                                <p class="text-sm mb-2">Přenášení zbraně při sobě mimo domů či střelnice. Vyžaduje písemný souhlas CRZ (Česká registrační služba).</p>
+                                <ul class="list-disc list-inside text-sm space-y-1">
+                                    <li>Typicky pouze pro bezpečnostní pracovníky</li>
+                                    <li>Skrytí i zjevně nošená zbraň</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200 mb-2">Přeprava zbraně</h4>
+                                <p class="text-sm mb-2">Přemisťování zbraně z jednoho místa na druhé. Zbraň musí být vybalená, bez nábojů, uložená v tašce či kufru.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200 mb-2">Držení zbraně</h4>
+                                <p class="text-sm mb-2">Vlastnictví zbraně, obvykle v domě. Musí být bezpečně uložena.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200 mb-2">Uložení zbraně</h4>
+                                <p class="text-sm mb-2">Zbraně musí být uloženy v uzamčeném trezoru, skříni či bezpečnostním zařízení. Náboje odděleny a také uzamčeny.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-fact p-4 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">Důležitá čísla a limity</h4>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="bg-gray-700 p-3 rounded">
+                                <div class="text-amber-400 font-semibold">5 ks</div>
+                                <div class="text-gray-300">Max. zbraní na jedno oprávnění (R1)</div>
+                            </div>
+                            <div class="bg-gray-700 p-3 rounded">
+                                <div class="text-amber-400 font-semibold">10 ks</div>
+                                <div class="text-gray-300">Max. zbraní kategorie R3</div>
+                            </div>
+                            <div class="bg-gray-700 p-3 rounded">
+                                <div class="text-amber-400 font-semibold">500 nábojů</div>
+                                <div class="text-gray-300">Limit na držení (bez souhasu CRZ)</div>
+                            </div>
+                            <div class="bg-gray-700 p-3 rounded">
+                                <div class="text-amber-400 font-semibold">5 let</div>
+                                <div class="text-gray-300">Doba platnosti zbrojního oprávnění</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Povinnosti držitele zbraně</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start"><span class="text-amber-400 mr-3">•</span> Bezpečně uskladňovat zbraně a náboje</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3">•</span> Vést seznam vlastněných zbraní</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3">•</span> Oznamovat změny CRZ (prodej, ztrátu, krádež atd.)</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3">•</span> Zajistit pojištění odpovědnosti</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3">•</span> Nechat vykonávat kontroly</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3">•</span> Podléhat zákazu nošení při jisté diagnóze</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3">•</span> Při prodeji provést řádný přepis vlastnictví</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Střelnice</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Definice:</strong> Místo určené pro sportovní či praktickou střelbu, provozované podle speciálního řádu</li>
+                            <li><strong>Provoz:</strong> Vyžaduje registraci a schválení projektů</li>
+                            <li><strong>Bezpečnost:</strong> Musí mít bezpečnostní zóny, stěny, záchytné prostředky</li>
+                            <li><strong>Personál:</strong> Musí být vedena řídícím střelnice s patřičnou kvalifikací</li>
+                            <li><strong>Provozní řád:</strong> Vydává se místním úřadem, zachází pravidla chování</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Zbrojní licence a registrace</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Registro zbraní (CRZ)</h4>
+                                <p class="text-sm mt-1">Česká registrační služba vede veřejný registr všech zbraní v ČR. Každá zbraň musí být registrována a musí nést registrační značku.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Licence pro prodej</h4>
+                                <p class="text-sm mt-1">Osoba prodávající zbraně nebo střelivo musí mít zbrojní licenci. Vydává ji místní úřad na základě žádosti.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 2: Prováděcí předpisy -->
+                <section id="provadeci-predpisy" class="mb-16">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 pb-3 border-b border-gray-700">2. Prováděcí předpisy</h2>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Technické požadavky na zbraně</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Palné zbraně:</strong> Musí splňovat bezpečnostní normy EU, mít bezpečnostní pojistky</li>
+                            <li><strong>Označování:</strong> Zbraně musí být označeny výrobcem, razítkem země a seriovým číslem</li>
+                            <li><strong>Bezpečnostní prvky:</strong> Pojistka, bezpečnostní závěr, indikátor nabití</li>
+                            <li><strong>Kontrola:</strong> Zbraň musí být technicky bezpečná a funkční</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Zabezpečení zbraní a střeliva</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-amber-200 mb-2">Trezory a bezpečnostní skříně</h4>
+                                <p class="text-sm">Zbraně musí být uloženy v schváleném trezoru či skříni s nejméně jedním zámkem. Náboje odděleny v samostatném uzamčeném prostoru.</p>
+                                <div class="key-fact p-3 rounded mt-2 text-sm">
+                                    <strong>Třída trezoru:</strong> Minimálně A (odolnost min. 10 minut proti vylomení)
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200 mb-2">Transpor a manipulace</h4>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li>Zbraň vždy bez nábojů při přepravě</li>
+                                    <li>Uložena v neprůhledné tašce či kufru</li>
+                                    <li>Náboje odděleny a bezpečně uloženy</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-fact p-4 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">Množstevní limity střeliva</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-600">
+                                <span>Běžné držení bez souhlasu CRZ:</span>
+                                <span class="text-amber-400 font-semibold">max. 500 nábojů</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-600">
+                                <span>Se souhlasem CRZ pro sport:</span>
+                                <span class="text-amber-400 font-semibold">až 3000 nábojů</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span>Profesionální - bez limitu:</span>
+                                <span class="text-amber-400 font-semibold">dle smlouvy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Provozní řád střelnic</h3>
+                        <div class="space-y-3 text-sm">
+                            <div><strong>Bezpečnost:</strong> Střelník musí být instruován a seznámen s pravidly</li>
+                            <div><strong>Střelný řád:</strong> Střelit lze pouze na určené části střelnice na cíl</strong></div>
+                            <div><strong>Dohled:</strong> Střelnice musí být vedena kvalifikovaným vedením</div>
+                            <div><strong>Zákaz:</strong> Je zakázáno: střílení v opilosti, za provozu bez řídícího, bezpečnostních prvků</div>
+                            <div><strong>Evidence:</strong> Vedení seznamu střelníků a střeliby.</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Evidence a označování</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Evidence zbraní:</strong> Majitel musí vést seznam s popisem, sériovým číslem, datumem nabytí</li>
+                            <li><strong>Evidence nábojů:</strong> Nákup a prodej musí být zaznamenán</li>
+                            <li><strong>Registrační značka:</strong> CRZ přiděluje značku (obvykle číslo se zemí označením)</li>
+                            <li><strong>Kontrola:</strong> Místní úřad má právo provádět kontroly</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 3: Jiné právní předpisy -->
+                <section id="jine-pravni-predpisy" class="mb-16">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 pb-3 border-b border-gray-700">3. Jiné právní předpisy</h2>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Nutná obrana (§29 Trestního zákona)</h3>
+                        <p class="text-sm mb-4">Oprávnění se bránit proti útoku, který porušuje právní povinnosti. Musí být přiměřená a aktuální.</p>
+                        <div class="space-y-3">
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Podmínky:</strong> Útok již probíhá nebo je bezprostředně hrozící
+                            </div>
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Přiměřenost:</strong> Obranu je třeba vést s přihlédnutím k povaze útoku
+                            </div>
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Sebevědomá obrana:</strong> Osoba se brání bez nadměrné síly či agresivity
+                            </div>
+                            <div class="highlight-box p-3 rounded">
+                                <strong>Překročení:</strong> Pokud přesáhne přiměřenost, může být protiprávní
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Krajní nouze (§28 Trestního zákona)</h3>
+                        <p class="text-sm mb-4">Situace, kdy grozi nebezpečí života či zdraví a jediný způsob, jak se mu vyhnout, je porušit právní povinnost.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Příklad:</strong> Střelit dveře, aby se pomohlo osobě v ohní</li>
+                            <li><strong>Podmínka:</strong> Škoda či nebezpečí musí být větší, než je škoda způsobená obranou</li>
+                            <li><strong>Bezpečnostní složky:</strong> Jsou oprávněny používat zbraň za přesně vymezených podmínek</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Trestné činy související se zbraněmi</h3>
+                        <div class="space-y-3 text-sm">
+                            <div class="border-l-4 border-red-500 pl-4 py-2">
+                                <strong>§279 Trestního zákona - Nedovolené ozbrojování:</strong> Nelegální nabytí, držení nebo poskytnutí zbraně. Trest: až 5 let vězení.
+                            </div>
+                            <div class="border-l-4 border-red-500 pl-4 py-2">
+                                <strong>Neoprávněný prodej:</strong> Prodej zbraně osobě bez oprávnění. Trest: až 3 roky.
+                            </div>
+                            <div class="border-l-4 border-red-500 pl-4 py-2">
+                                <strong>Krádež zbraně:</strong> Ztížená kvalifikace, vyšší tresty.
+                            </div>
+                            <div class="border-l-4 border-red-500 pl-4 py-2">
+                                <strong>Střelné poranění:</strong> Při způsobení poranění zbraní - kvalifikovaný trestný čin.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Přestupky související se zbraněmi</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>Nošení zbraně bez souhasu - pokuta 50 000 Kč</li>
+                            <li>Nedostatečné zabezpečení - pokuta 10 000-20 000 Kč</li>
+                            <li>Neohlášená ztráta či krádež - pokuta 5 000 Kč</li>
+                            <li>Porušení provozu střelnice - pokuta 10 000 Kč</li>
+                            <li>Přechod zbraně bez registrace - pokuta 20 000 Kč</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Oprávněné použití zbraně bezpečnostními složkami</h3>
+                        <p class="text-sm mb-4">Policie, horská služba, vězeňská služba a záchranný sbor mohou používat zbraně za těchto podmínek:</p>
+                        <ul class="space-y-2 text-sm">
+                            <li>Jsou oprávněny se bránit útoku</li>
+                            <li>Mohou vynucovat plnění zákonných příkazů</li>
+                            <li>Musí upozornit na záměr střílení ("Zastavte! Budu střílet!")</li>
+                            <li>Mohou střílat jen jako poslední prostředek</li>
+                            <li>Musí dokumentovat všechny střely</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section 4: Nauka o zbraních -->
+                <section id="nauka-o-zbrani" class="mb-16">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 pb-3 border-b border-gray-700">4. Nauka o zbraních a střelivu</h2>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Základní typy palných zbraní</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Pistole</h4>
+                                <p class="text-sm">Krátká zbraň určená pro jednu ruku. Náboje v zásobníku pod spouští. Hlavní typy: samonabíjecí (na základě zpětného rázu) nebo ruční.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Revolver</h4>
+                                <p class="text-sm">Pistole se válcovým bubnem obsahujícím obvykle 5-8 nábojů. Při každém stlačení spouště se bubínek otočí a náboj se zapaližuje.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Puška (rifle)</h4>
+                                <p class="text-sm">Dlouhá zbraň s nařezáním (rifling) v hlavni pro přesnější střelbu. Používá se pro lov, sport, vojenské účely.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Brokovnice (shotgun)</h4>
+                                <p class="text-sm">Dlouhá zbraň se hladkou hlavní, střílí brokové (kulovité) projektily. Používá se hlavně k lovu ptáků a zvěře.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Mechanismy nabíjení a střelby</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Samonabíjecí mechanismus</h4>
+                                <p class="text-sm">Po jedné střele se zbraň sama připraví na další (díky zpětnému rázu nebo plynům z výstřelu). Jeden stisk spouště = jeden výstřel.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Samočinný mechanismus</h4>
+                                <p class="text-sm">Zbraň pokračuje v střelbě, pokud drží stisk spouště. Vícenásobné výstřely při jednom stisku. V ČR je tato funkce zakázána pro civilisty.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Ruční nabíjení</h4>
+                                <p class="text-sm">Střelec ručně připraví zbraň na příští náboj (např. u brokovnic s přednímací pákou).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-fact p-4 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">Části palné zbraně</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-gray-700 p-2 rounded"><strong>Hlaveň:</strong> Část zbraně, kterou procházejí projektily. Má nařezání (rifling) pro spinaci projektilu.</div>
+                            <div class="bg-gray-700 p-2 rounded"><strong>Závěr:</strong> Mechanismus, který uzavírá hlaveň během výstřelu.</div>
+                            <div class="bg-gray-700 p-2 rounded"><strong>Rám (receiver):</strong> Hlavní část, do které se montují ostatní součásti.</div>
+                            <div class="bg-gray-700 p-2 rounded"><strong>Spoušť:</strong> Součást, kterou stiskne střelec k vyslání výstřelu.</div>
+                            <div class="bg-gray-700 p-2 rounded"><strong>Zásobník:</strong> Nádoba na náboje, která alimentuje zbraň.</div>
+                            <div class="bg-gray-700 p-2 rounded"><strong>Pojistka:</strong> Mechanismus, který brání nechtěnému výstřelu.</div>
+                            <div class="bg-gray-700 p-2 rounded"><strong>Ostíka (sight/iron sight):</strong> Pomůcka pro zaměření cíle.</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">Anatomie náboje (střeliva)</h4>
+                        <svg viewBox="0 0 600 300" class="w-full h-auto">
+                            <!-- Cartridge case -->
+                            <path d="M 150 100 L 180 100 L 175 200 L 155 200 Z" fill="#d97706" stroke="#fbbf24" stroke-width="2"/>
+                            <!-- Bullet -->
+                            <path d="M 180 100 Q 220 50 220 100 L 220 150 Q 220 180 180 200 Z" fill="#9ca3af" stroke="#fbbf24" stroke-width="2"/>
+                            <!-- Powder area -->
+                            <ellipse cx="165" cy="140" rx="12" ry="30" fill="#6b7280" stroke="#fbbf24" stroke-width="1" opacity="0.7"/>
+                            <!-- Primer -->
+                            <circle cx="165" cy="190" r="6" fill="#ef4444" stroke="#fbbf24" stroke-width="1"/>
+
+                            <!-- Labels -->
+                            <text x="240" y="85" font-size="16" font-weight="bold" fill="#fbbf24">Střela</text>
+                            <line x1="225" y1="90" x2="240" y2="85" stroke="#fbbf24" stroke-width="2"/>
+
+                            <text x="280" y="145" font-size="16" font-weight="bold" fill="#fbbf24">Výmetná náplň (prach)</text>
+                            <line x1="180" y1="140" x2="280" y2="140" stroke="#fbbf24" stroke-width="2"/>
+
+                            <text x="230" y="215" font-size="16" font-weight="bold" fill="#fbbf24">Zápalka</text>
+                            <line x1="185" y1="190" x2="230" y2="210" stroke="#fbbf24" stroke-width="2"/>
+
+                            <text x="90" y="155" font-size="16" font-weight="bold" fill="#fbbf24">Nábojnice</text>
+                            <line x1="145" y1="155" x2="90" y2="160" stroke="#fbbf24" stroke-width="2"/>
+
+                            <!-- Title -->
+                            <text x="300" y="30" font-size="20" font-weight="bold" fill="#fbbf24" text-anchor="middle">Anatomie náboje (Cartridge)</text>
+                        </svg>
+                        <div class="mt-4 space-y-2 text-sm">
+                            <div><strong>Střela (Bullet):</strong> Kovový projektil. Různé tvary: s ploškou (FMJ), s měkkou špičkou (HP), apod.</div>
+                            <div><strong>Nábojnice (Case):</strong> Obal z mosazi, který drží ostatní komponenty pohromadě.</div>
+                            <div><strong>Výmetná náplň (Powder):</strong> Střelný prach. Spálením vytvoří plyny, které vymrští střelu.</div>
+                            <div><strong>Zápalka (Primer):</strong> Malý výbušný prvek, který zapálí prach při úderu zápalky.</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Ráže (Caliber)</h3>
+                        <p class="text-sm mb-4">Průměr střely měřený v milimetrech nebo tisícinách palce. Příklady:</p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="bg-gray-700 p-3 rounded"><strong>9×19 mm (9mm Luger):</strong> Běžná vojenská ráž</div>
+                            <div class="bg-gray-700 p-3 rounded"><strong>.45 ACP:</strong> 11,43 mm, velký projektil</div>
+                            <div class="bg-gray-700 p-3 rounded"><strong>.308 Winchester:</strong> Běžná puškařská ráž</div>
+                            <div class="bg-gray-700 p-3 rounded"><strong>12/70:</strong> Brokovnice - 12 gauge, 70 mm pouzdro</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Balistika</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Vnitřní balistika</h4>
+                                <p class="text-sm">Pohyb projektilu v barvě zbraně. Spalování prachu vytváří tlak, který urychluje projektil. Doba: cca 0,5-2 ms.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Vnější balistika</h4>
+                                <p class="text-sm">Pohyb projektilu po opuštění hlavně. Ovlivňuje: prvotní rychlost, směr, vzdálenost, padající palebná křivka (travers), spin.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Koncová balistika</h4>
+                                <p class="text-sm">Co se děje při zásahu: penetrace, expanze, energie přenesená na cíl. Důležitá pro lov a sebeobranný účel.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Střelivo - Kulové vs Brokové</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Kulové střelivo</h4>
+                                <ul class="list-disc list-inside text-sm space-y-1">
+                                    <li>Jeden velký projektil (kulka)</li>
+                                    <li>Používá se na větší zvěř, vojenské a policejní účely</li>
+                                    <li>Větší penetrace, menší rozptyl</li>
+                                    <li>Typické ráže: .308, .30-06, 9×19 mm</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Brokové střelivo</h4>
+                                <ul class="list-disc list-inside text-sm space-y-1">
+                                    <li>Více malých kuliček (broků) v jednom náboji</li>
+                                    <li>Používá se na ptáky a malou zvěř</li>
+                                    <li>Větší rozptyl, menší průnik jednotlivé kuličky</li>
+                                    <li>Typické ráže: 12/70, 20/76 (gauge označení)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-fact p-4 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">Bezpečná manipulace se zbraněmi</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="bg-gray-700 p-2 rounded flex items-start"><span class="text-amber-400 mr-2 font-bold">1.</span> <span>Vždy zacházej se zbraní, jako by byla nabitá</span></div>
+                            <div class="bg-gray-700 p-2 rounded flex items-start"><span class="text-amber-400 mr-2 font-bold">2.</span> <span>Nikdy nemiř zbraní na cokoli, co nechceš zničit</span></div>
+                            <div class="bg-gray-700 p-2 rounded flex items-start"><span class="text-amber-400 mr-2 font-bold">3.</span> <span>Udržuj prst mimo spoušť, dokud nemáš cíl</span></div>
+                            <div class="bg-gray-700 p-2 rounded flex items-start"><span class="text-amber-400 mr-2 font-bold">4.</span> <span>Měj absolutní jistotu o cíli a co je za ním</span></div>
+                            <div class="bg-gray-700 p-2 rounded flex items-start"><span class="text-amber-400 mr-2 font-bold">5.</span> <span>Zbraň bezpečně uskladuj mimo dosah nepovolaných osob</span></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 5: Zdravotnické minimum -->
+                <section id="zdravotnicke-minimum" class="mb-16">
+                    <h2 class="text-3xl font-bold text-amber-400 mb-6 pb-3 border-b border-gray-700">5. Zdravotnické minimum</h2>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Tísňová volání</h3>
+                        <div class="grid grid-cols-2 gap-4 text-sm mb-4">
+                            <div class="key-fact p-3 rounded">
+                                <div class="text-amber-400 font-semibold text-lg">155</div>
+                                <div class="text-gray-300">Hasičský záchranný sbor</div>
+                            </div>
+                            <div class="key-fact p-3 rounded">
+                                <div class="text-amber-400 font-semibold text-lg">150</div>
+                                <div class="text-gray-300">Policejní záchranná služba</div>
+                            </div>
+                            <div class="key-fact p-3 rounded">
+                                <div class="text-amber-400 font-semibold text-lg">158</div>
+                                <div class="text-gray-300">Zdravotnická záchranná služba</div>
+                            </div>
+                            <div class="key-fact p-3 rounded">
+                                <div class="text-amber-400 font-semibold text-lg">112</div>
+                                <div class="text-gray-300">Jednotné tísňové volání (EU)</div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400">Řekni: Kde jsi? Co se stalo? Kolik zraněných? Jak dlouho čekáš pomoc?</p>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Ošetření krvácení</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Lehké krvácení (řízení)</h4>
+                                <ul class="list-disc list-inside text-sm space-y-1">
+                                    <li>Umyj čistou vodou</li>
+                                    <li>Aplikuj tlakový obvaz</li>
+                                    <li>Pozoruj infekci (známky: erytém, horko)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Silné krvácení (arterialis/venovní)</h4>
+                                <ul class="list-disc list-inside text-sm space-y-1">
+                                    <li>Zastaví krvácení zvednutím předmětů nad srdce</li>
+                                    <li>Aplikuj silný tlakový obvaz (gáza + elastický obvaz)</li>
+                                    <li>V případě neúspěchu: <strong>turniket</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-fact p-4 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">Turniket - Správné umístění</h4>
+                        <svg viewBox="0 0 400 500" class="w-full h-auto">
+                            <!-- Body outline -->
+                            <ellipse cx="200" cy="80" rx="40" ry="50" fill="none" stroke="#9ca3af" stroke-width="2"/>
+                            <!-- Torso -->
+                            <rect x="160" y="120" width="80" height="100" fill="none" stroke="#9ca3af" stroke-width="2" rx="5"/>
+                            <!-- Left arm -->
+                            <rect x="100" y="140" width="60" height="30" fill="none" stroke="#9ca3af" stroke-width="2" rx="3"/>
+                            <!-- Right arm -->
+                            <rect x="240" y="140" width="60" height="30" fill="none" stroke="#9ca3af" stroke-width="2" rx="3"/>
+                            <!-- Left leg -->
+                            <rect x="140" y="240" width="40" height="150" fill="none" stroke="#9ca3af" stroke-width="2" rx="3"/>
+                            <!-- Right leg -->
+                            <rect x="220" y="240" width="40" height="150" fill="none" stroke="#9ca3af" stroke-width="2" rx="3"/>
+
+                            <!-- Tourniquet on upper left arm (CORRECT) -->
+                            <rect x="95" y="135" width="70" height="12" fill="#10b981" opacity="0.7"/>
+                            <text x="130" y="155" font-size="12" fill="#10b981" font-weight="bold" text-anchor="middle">SPRÁVNĚ</text>
+
+                            <!-- X mark on forearm (WRONG) -->
+                            <circle cx="180" cy="180" r="30" fill="none" stroke="#ef4444" stroke-width="3"/>
+                            <line x1="160" y1="160" x2="200" y2="200" stroke="#ef4444" stroke-width="3"/>
+                            <line x1="200" y1="160" x2="160" y2="200" stroke="#ef4444" stroke-width="3"/>
+                            <text x="180" y="225" font-size="12" fill="#ef4444" font-weight="bold" text-anchor="middle">ŠPATNĚ</text>
+
+                            <!-- Info box -->
+                            <rect x="50" y="420" width="300" height="70" fill="#374151" stroke="#fbbf24" stroke-width="1" rx="4"/>
+                            <text x="200" y="440" font-size="13" fill="#fbbf24" font-weight="bold" text-anchor="middle">Umístěni turnike</text>
+                            <text x="60" y="462" font-size="11" fill="#e5e7eb">• 2-3 cm nad zraněním (mezi zraněním a srdcem)</text>
+                            <text x="60" y="478" font-size="11" fill="#e5e7eb">• NIKDY na předloktí (vede k amputaci)</text>
+                        </svg>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Kardiopulmonální resuscitace (KPR)</h3>
+                        <div class="space-y-4">
+                            <p class="text-sm">Kombinace masáže srdce a umělého dýchání pro obnovu krevního oběhu a dýchání.</p>
+                            <div class="key-fact p-4 rounded">
+                                <h4 class="font-semibold text-amber-300 mb-3">Postup 30:2 (Nový standard)</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div><strong>1. Kontrola vědomí:</strong> Poklepej na rameno, zeptej se hlasitě "Slyšíš mě?"</div>
+                                    <div><strong>2. Volání pomoci:</strong> Zavolej 155/112 a požádej o AED</div>
+                                    <div><strong>3. Poloha:</strong> Polož oběť na záda na pevný povrch</div>
+                                    <div><strong>4. Masáž srdce (30×):</strong> Umístění: střed hrudníku, hloubka 5-6 cm, frekvence 100-120/min</div>
+                                    <div><strong>5. Umělé dýchání (2×):</strong> Uzavři nos, foukej do pusy, trvání 1 vteřinu</div>
+                                    <div><strong>6. Opakování:</strong> Pokračuj v poměru 30:2 do příjezdu pomoci nebo obnovy vědomí</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-fact p-4 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">KPR - Vizuální průvodce (30:2)</h4>
+                        <svg viewBox="0 0 800 300" class="w-full h-auto">
+                            <!-- Step 1: 30 chest compressions -->
+                            <g>
+                                <rect x="20" y="20" width="170" height="260" fill="#374151" stroke="#fbbf24" stroke-width="2" rx="4"/>
+                                <text x="105" y="50" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">Krok 1</text>
+                                <text x="105" y="75" font-size="12" fill="#e5e7eb" text-anchor="middle">30× masáž srdce</text>
+
+                                <!-- Body -->
+                                <ellipse cx="105" cy="120" rx="25" ry="35" fill="#6b7280" stroke="#9ca3af" stroke-width="1"/>
+                                <circle cx="105" cy="85" r="15" fill="#6b7280" stroke="#9ca3af" stroke-width="1"/>
+
+                                <!-- Hands compression -->
+                                <rect x="90" y="110" width="30" height="8" fill="#ef4444" opacity="0.7" rx="2"/>
+                                <text x="105" y="195" font-size="11" fill="#e5e7eb" text-anchor="middle">Hloubka: 5-6 cm</text>
+                                <text x="105" y="210" font-size="11" fill="#e5e7eb" text-anchor="middle">Tempo: 100-120/min</text>
+                                <text x="105" y="225" font-size="11" fill="#e5e7eb" text-anchor="middle">(zhruba rytmus hudby)</text>
+                                <text x="105" y="250" font-size="10" fill="#fbbf24" font-weight="bold" text-anchor="middle">Počet: 30</text>
+                            </g>
+
+                            <!-- Arrow -->
+                            <path d="M 210 150 L 240 150" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+                            <!-- Step 2: 2 rescue breaths -->
+                            <g>
+                                <rect x="250" y="20" width="170" height="260" fill="#374151" stroke="#fbbf24" stroke-width="2" rx="4"/>
+                                <text x="335" y="50" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">Krok 2</text>
+                                <text x="335" y="75" font-size="12" fill="#e5e7eb" text-anchor="middle">2× umělé dýchání</text>
+
+                                <!-- Body -->
+                                <ellipse cx="335" cy="120" rx="25" ry="35" fill="#6b7280" stroke="#9ca3af" stroke-width="1"/>
+                                <circle cx="335" cy="85" r="15" fill="#6b7280" stroke="#9ca3af" stroke-width="1"/>
+
+                                <!-- Breath arrows -->
+                                <path d="M 335 95 Q 345 85 340 75" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+                                <path d="M 320 95 Q 310 85 315 75" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+
+                                <text x="335" y="195" font-size="11" fill="#e5e7eb" text-anchor="middle">Uzavři nos</text>
+                                <text x="335" y="210" font-size="11" fill="#e5e7eb" text-anchor="middle">Foukej do pusy</text>
+                                <text x="335" y="225" font-size="11" fill="#e5e7eb" text-anchor="middle">Trvání: 1 vteřina</text>
+                                <text x="335" y="250" font-size="10" fill="#fbbf24" font-weight="bold" text-anchor="middle">Počet: 2</text>
+                            </g>
+
+                            <!-- Arrow -->
+                            <path d="M 440 150 L 470 150" stroke="#fbbf24" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+                            <!-- Step 3: Repeat -->
+                            <g>
+                                <rect x="480" y="20" width="170" height="260" fill="#374151" stroke="#fbbf24" stroke-width="2" rx="4"/>
+                                <text x="565" y="50" font-size="14" font-weight="bold" fill="#fbbf24" text-anchor="middle">Opakuj</text>
+                                <text x="565" y="75" font-size="12" fill="#e5e7eb" text-anchor="middle">Poměr 30:2</text>
+
+                                <!-- Cycle -->
+                                <circle cx="565" cy="140" r="35" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="5,5"/>
+                                <path d="M 565 110 L 595 140 L 565 170 L 535 140 Z" fill="#10b981" opacity="0.5"/>
+
+                                <text x="565" y="195" font-size="11" fill="#e5e7eb" text-anchor="middle">Pokračuj dokud:</text>
+                                <text x="565" y="210" font-size="10" fill="#e5e7eb" text-anchor="middle">• Není vědomí</text>
+                                <text x="565" y="223" font-size="10" fill="#e5e7eb" text-anchor="middle">• Není teplota</text>
+                                <text x="565" y="236" font-size="10" fill="#e5e7eb" text-anchor="middle">• Není rigor mortis</text>
+                                <text x="565" y="250" font-size="10" fill="#fbbf24" font-weight="bold" text-anchor="middle">Nepřestávej!</text>
+                            </g>
+
+                            <defs>
+                                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#fbbf24" />
+                                </marker>
+                                <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#10b981" />
+                                </marker>
+                            </defs>
+                        </svg>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Automatický externí defibrilátor (AED)</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Použití:</strong> Při zástave srdce (fibrilace). Aplikuje elektrický impuls.</li>
+                            <li><strong>Postup:</strong> Vyndej z krytu → Připoj elektrody na hruď → Zapni → Poslouchej pokyny</li>
+                            <li><strong>Součinnost s KPR:</strong> Používej KPR během nabíjení AED</li>
+                            <li><strong>Elektronické pokyny:</strong> AED sám řekne, co dělat (naslouchej zvukovým signálům)</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Další zdravotnické postupy</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Šok (anafylaktický, traumatický)</h4>
+                                <ul class="list-disc list-inside text-sm space-y-1">
+                                    <li>Příznaky: bledost, studený pot, slabý puls, zmatenost</li>
+                                    <li>Léčba: Leť oběť na záda s nohama zvýšenými, zavřej ji do spacáku</li>
+                                    <li>Volej 155/112 a monituj vitální funkce</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-200">Bezvědomí</h4>
+                                <ul class="list-disc list-inside text-sm space-y-1">
+                                    <li>Kontrola vědomí: poklepej na rameno a zeptej se "Slyšíš mě?"</li>
+                                    <li>Pokud nereaguje: Dej do zotavovací polohy (viz níže)</li>
+                                    <li>Volej pomoc a monitoruj dýchání</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="key-fact p-4 rounded-lg mb-8">
+                        <h4 class="font-semibold text-amber-300 mb-3">Zotavovací poloha (Stabilizovaná poloha)</h4>
+                        <svg viewBox="0 0 500 400" class="w-full h-auto">
+                            <!-- Head -->
+                            <circle cx="250" cy="80" r="25" fill="#9ca3af" stroke="#fbbf24" stroke-width="2"/>
+
+                            <!-- Torso -->
+                            <ellipse cx="250" cy="150" rx="35" ry="50" fill="#9ca3af" stroke="#fbbf24" stroke-width="2"/>
+
+                            <!-- Left arm (under head) -->
+                            <path d="M 215 140 Q 150 120 130 100" fill="none" stroke="#9ca3af" stroke-width="8"/>
+                            <circle cx="130" cy="100" r="8" fill="#9ca3af" stroke="#fbbf24" stroke-width="1"/>
+
+                            <!-- Right arm (supports head) -->
+                            <path d="M 285 130 Q 320 110 340 105" fill="none" stroke="#9ca3af" stroke-width="8"/>
+                            <circle cx="340" cy="105" r="8" fill="#9ca3af" stroke="#fbbf24" stroke-width="1"/>
+
+                            <!-- Left leg (bent) -->
+                            <path d="M 230 200 L 220 280 Q 210 300 190 310" fill="none" stroke="#9ca3af" stroke-width="8"/>
+
+                            <!-- Right leg (extended) -->
+                            <path d="M 270 200 L 300 270 L 350 280" fill="none" stroke="#9ca3af" stroke-width="8"/>
+
+                            <!-- Head position indicator -->
+                            <path d="M 245 100 Q 260 90 270 95" stroke="#fbbf24" stroke-width="2" fill="none"/>
+                            <text x="280" y="95" font-size="12" fill="#fbbf24">Hlava zpět</text>
+
+                            <!-- Instructions -->
+                            <rect x="20" y="330" width="460" height="60" fill="#374151" stroke="#fbbf24" stroke-width="1" rx="4"/>
+                            <text x="250" y="350" font-size="12" fill="#fbbf24" font-weight="bold" text-anchor="middle">Postup zotavovací polohy</text>
+                            <text x="30" y="370" font-size="11" fill="#e5e7eb">1. Polož oběť na bok</text>
+                            <text x="30" y="385" font-size="11" fill="#e5e7eb">2. Horní noha ohnut v koleni</text>
+                            <text x="280" y="370" font-size="11" fill="#e5e7eb">3. Hlava hlasitě zpět</text>
+                            <text x="280" y="385" font-size="11" fill="#e5e7eb">4. Dej ji pod hlavu podušku</text>
+                        </svg>
+                    </div>
+
+                    <div class="bg-gray-800 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-semibold text-amber-300 mb-4">Dalších onemocnění a poranění</h3>
+                        <div class="space-y-3 text-sm">
+                            <div><strong>Zlomeniny:</strong> Omezit pohyb (imobilizace), chladit ledovkou (20 min), zvednout nebo znehybnik elastickým obvazem</div>
+                            <div><strong>Popáleniny:</strong> Chladit studenou vodou (min. 15-20 minut), neoklád hmotu na ránu, zakrytí sterilním obvazem</div>
+                            <div><strong>Střelné poranění:</strong> Urgentně volej 155, nezdržuj se, kontroluj dýchání, aplikuj tlakový obvaz na vchod a vývod</div>
+                            <div><strong>Otravy:</strong> Kontaktuj Toxikologické centrum (Emergency: 155), měj lahvičku s jedem pro lékařů</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Final Summary -->
+                <section class="mb-8">
+                    <div class="bg-gradient-to-r from-amber-900 to-gray-800 p-8 rounded-lg border border-amber-400">
+                        <h2 class="text-2xl font-bold text-amber-400 mb-4">Příprava na zkoušku</h2>
+                        <p class="text-gray-300 mb-4">Tento průvodce pokrývá všechny pět sekcí zkoušky zbrojního oprávnění. Důležité je:</p>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-start"><span class="text-amber-400 mr-3 font-bold">✓</span> Prostuduj si všechny kategorie zbraní a jejich vlastnosti</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3 font-bold">✓</span> Zapamatuj si důležitá čísla a limity (věk, počty, limity nábojů)</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3 font-bold">✓</span> Porozumění bezpečnosti se zbraněmi je klíčové</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3 font-bold">✓</span> Zdravotnické postupy mohou zachránit život</li>
+                            <li class="flex items-start"><span class="text-amber-400 mr-3 font-bold">✓</span> Znalost právního rámce je nezbytná pro bezpečný provoz</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const sections = document.querySelectorAll('main section');
+
+        searchInput.addEventListener('keyup', function() {
+            const query = this.value.toLowerCase();
+            if (query.length === 0) {
+                sections.forEach(section => section.style.display = 'block');
+                return;
+            }
+
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                section.style.display = text.includes(query) ? 'block' : 'none';
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
