@@ -17,7 +17,7 @@ import fitz  # PyMuPDF
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PDF = os.path.join(ROOT, "data", "source", "mv-2026-otazky-full.pdf")
 IMG_DIR = os.path.join(ROOT, "img")
-JSX = os.path.join(ROOT, "zbrojni-kviz.jsx")
+JSX = os.path.join(ROOT, "legacy", "zbrojni-kviz.jsx")
 OUT = os.path.join(ROOT, "data", "questions.json")
 
 # Category by question-number range (continuous numbering in the PDF).
@@ -195,7 +195,9 @@ def join_spans(spans):
             gap = x0 - px1
             if (not same_line) or gap > 1.0:
                 if not out[-1].endswith(" ") and not t.startswith(" "):
-                    out.append(" ")
+                    # don't split a hyphenated word that wraps across a line
+                    if not (not same_line and out[-1].rstrip().endswith("-")):
+                        out.append(" ")
         out.append(t)
         prev = s
     return "".join(out)
@@ -296,7 +298,11 @@ def parse_pdf():
             m_opt = opt_re.match(txt)
             if m_opt:
                 cur_opt = m_opt.group(1).lower()
-                cur[cur_opt].append(sub_span(s, m_opt.group(2)))
+                # Preserve the remainder's original spacing (a trailing space here
+                # matters when the next span continues the line, e.g. "s " + glyph).
+                raw_rem = re.match(r"^\s*[ABCabc]\)(.*)$", raw, re.S)
+                rem = raw_rem.group(1) if raw_rem else m_opt.group(2)
+                cur[cur_opt].append(sub_span(s, rem))
                 if in_highlight(s):
                     mark(cur_opt, "highlight")
                 elif italic:
@@ -335,6 +341,8 @@ def map_images(qid):
 
 
 def parse_jsx():
+    if not os.path.exists(JSX):
+        return {}
     txt = open(JSX, encoding="utf-8").read()
     out = {}
     rec = re.compile(

@@ -172,10 +172,12 @@ export function QuestionCard({
           <button
             type="button"
             onClick={onNext}
-            className="glow-brass rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 transition-colors hover:bg-brass-400"
+            className="glow-brass inline-flex items-center gap-2 rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 transition-colors hover:bg-brass-400"
           >
-            {index + 1 === total ? 'Dokončit' : 'Další'}{' '}
-            <span className="font-mono text-xs opacity-70">↵</span>
+            <span>{index + 1 === total ? 'Dokončit' : 'Další'}</span>
+            <kbd className="flex h-5 min-w-5 items-center justify-center rounded-[2px] border border-steel-950/30 px-1 font-mono text-xs leading-none">
+              ↵
+            </kbd>
           </button>
         </footer>
       )}
