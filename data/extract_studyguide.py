@@ -55,6 +55,17 @@ p = Extract()
 p.feed(open(SRC, encoding="utf-8").read())
 html = " ".join(p.out)
 html = re.sub(r"\s+", " ", html)
+
+# The legacy guide is NOT a ministry document — strip the author's English-term
+# glosses, e.g. "Ráže (Caliber)" -> "Ráže". (Czech notes & abbreviations like
+# (AED), (KPR), (EU), (FMJ) are kept.)
+ENGLISH_GLOSSES = (
+    "Caliber|Bullet|Powder|Primer|Case|receiver|rifle|rifling|shotgun|travers|"
+    "heel of hand"
+)
+html = re.sub(rf"\s*\((?:{ENGLISH_GLOSSES})\)", "", html, flags=re.I)
+
+html = re.sub(r"\s+", " ", html)
 html = re.sub(r"\s+</", "</", html)
 html = re.sub(r"<(p|li|h[234])>\s+", r"<\1>", html)
 

@@ -52,7 +52,7 @@ export function AuthPanel() {
       {open && (
         <div className="absolute right-0 z-10 mt-2 w-72 rounded-card border border-steel-700 bg-steel-900 p-4 shadow-xl">
           <p className="mb-3 text-sm text-steel-300">
-            Synchronizace postupu mezi zařízeními.
+            Synchronizujte pokrok mezi zařízeními.
           </p>
           <button
             type="button"
