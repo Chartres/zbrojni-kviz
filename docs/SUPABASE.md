@@ -40,13 +40,25 @@ usage events (app opens, lessons/exams started & completed):
 create table public.events (
   id         bigint generated always as identity primary key,
   event      text not null,
-  props      jsonb,
+  props      jsonb not null default '{}',
   session_id text,
   created_at timestamptz not null default now()
 );
 alter table public.events enable row level security;
--- anyone may log an event; nobody can read them back via the public API
-create policy "anyone can log" on public.events for insert with check (true);
+grant insert on table public.events to anon, authenticated;
+create index events_created_at_idx on public.events (created_at);
+-- anyone may log a KNOWN event; nobody can read them back via the public API
+create policy "anyone can log known events" on public.events
+  for insert to anon, authenticated
+  with check (
+    event in (
+      'app_open','start_lesson','start_practice','start_exam',
+      'start_review','start_bookmarks','lesson_complete',
+      'exam_finish','session_finish'
+    )
+    and char_length(event) <= 40
+    and char_length(coalesce(session_id, '')) <= 64
+  );
 ```
 
 See your usage anytime in the SQL Editor:
