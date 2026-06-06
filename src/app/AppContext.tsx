@@ -10,6 +10,7 @@ import { loadProgress, saveProgress } from '@/domain/storage'
 import { useAuth } from '@/auth/AuthContext'
 import { supabaseStore } from '@/auth/supabaseStore'
 import { syncProgress } from '@/auth/sync'
+import { track } from '@/analytics'
 
 interface AppContextValue {
   state: AppState
@@ -25,6 +26,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // Hydrate persisted progress once on mount.
   useEffect(() => {
     dispatch({ type: 'hydrate', progress: loadProgress() })
+    track('app_open')
   }, [])
 
   // Persist progress locally whenever it changes (offline-first source of truth).

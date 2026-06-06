@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '@/auth/AuthContext'
 
 export function AuthPanel() {
-  const { configured, user, signInWithGoogle, signInWithEmail, signOut } = useAuth()
+  const { configured, user, signInWithEmail, signOut } = useAuth()
   const [open, setOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [sent, setSent] = useState(false)
@@ -52,19 +52,9 @@ export function AuthPanel() {
       {open && (
         <div className="absolute right-0 z-10 mt-2 w-72 rounded-card border border-steel-700 bg-steel-900 p-4 shadow-xl">
           <p className="mb-3 text-sm text-steel-300">
-            Synchronizujte pokrok mezi zařízeními.
+            Synchronizujte pokrok mezi zařízeními. Pošleme vám přihlašovací odkaz
+            na e-mail.
           </p>
-          <button
-            type="button"
-            onClick={() => signInWithGoogle()}
-            className="mb-3 w-full rounded-card bg-steel-100 px-4 py-2 text-sm font-semibold text-steel-900 hover:bg-white"
-          >
-            Pokračovat přes Google
-          </button>
-          <div className="my-3 flex items-center gap-2 text-xs text-steel-600">
-            <span className="h-px flex-1 bg-steel-700" /> nebo{' '}
-            <span className="h-px flex-1 bg-steel-700" />
-          </div>
           {sent ? (
             <p className="text-sm text-verdigris-400">
               Odkaz jsme poslali na e-mail.

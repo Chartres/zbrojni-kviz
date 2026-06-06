@@ -4,6 +4,7 @@ import { ALL_QUESTIONS, META } from '@/domain/questions'
 import { summary, needsReviewIds } from '@/domain/progress'
 import { LESSON_SIZE } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
+import { track } from '@/analytics'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import type { CategoryName } from '@/domain/types'
 
@@ -24,6 +25,12 @@ export function MenuScreen() {
   }
 
   const rng = () => makeRng(timeSeed())
+  const start = (type: 'startLesson' | 'startPractice' | 'startExam' | 'startReview' | 'startBookmarks') => {
+    track(type.replace('start', 'start_').toLowerCase())
+    if (type === 'startExam')
+      dispatch({ type, rng: rng(), now: Date.now() })
+    else dispatch({ type, rng: rng() })
+  }
 
   return (
     <div className="mx-auto w-full max-w-3xl px-4 py-10">
@@ -42,7 +49,7 @@ export function MenuScreen() {
       {/* Daily lesson — the primary, always-finishable entry point */}
       <button
         type="button"
-        onClick={() => dispatch({ type: 'startLesson', rng: rng() })}
+        onClick={() => start('startLesson')}
         className="glow-brass instrument mb-8 flex w-full items-center justify-between gap-4 rounded-card border border-brass-500/70 bg-brass-500/10 p-5 text-left transition-colors hover:bg-brass-500/20"
       >
         <div>
@@ -83,6 +90,13 @@ export function MenuScreen() {
           tone="verdigris"
           label="Celkové zvládnutí"
         />
+        <p className="mt-3 text-xs leading-relaxed text-steel-500">
+          <span className="text-steel-400">Procvičeno</span> = kolik otázek jste
+          už viděli. <span className="text-steel-400">Zvládnuto</span> = otázky
+          zodpovězené správně 2× po sobě (pak je považujeme za naučené).{' '}
+          <span className="text-steel-400">Úspěšnost</span> = podíl správných
+          odpovědí.
+        </p>
       </section>
 
       {/* Categories */}
@@ -137,12 +151,12 @@ export function MenuScreen() {
         <ActionCard
           title="Volné procvičování"
           desc="Vybrané okruhy s okamžitou zpětnou vazbou."
-          onClick={() => dispatch({ type: 'startPractice', rng: rng() })}
+          onClick={() => start('startPractice')}
         />
         <ActionCard
           title="Zkušební test"
           desc="60 otázek, 80 minut. Uspějete od 57 správných."
-          onClick={() => dispatch({ type: 'startExam', rng: rng(), now: Date.now() })}
+          onClick={() => start('startExam')}
         />
         <ActionCard
           title="Opakovat chyby"
@@ -152,7 +166,7 @@ export function MenuScreen() {
               : 'Zatím žádné chyby.'
           }
           disabled={reviewCount === 0}
-          onClick={() => dispatch({ type: 'startReview', rng: rng() })}
+          onClick={() => start('startReview')}
         />
         <ActionCard
           title="Záložky"
@@ -162,7 +176,7 @@ export function MenuScreen() {
               : 'Žádné uložené otázky.'
           }
           disabled={bookmarkCount === 0}
-          onClick={() => dispatch({ type: 'startBookmarks', rng: rng() })}
+          onClick={() => start('startBookmarks')}
         />
       </section>
 

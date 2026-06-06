@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { useApp } from '@/app/AppContext'
+import { track } from '@/analytics'
 import { score, wrongAnswers } from '@/domain/session'
 import { getQuestion } from '@/domain/questions'
 import { makeRng, timeSeed } from '@/domain/rng'
@@ -14,6 +16,13 @@ export function ResultsScreen() {
   const wrong = wrongAnswers(session)
   const isExam = mode === 'exam'
   const isLesson = mode === 'lesson'
+
+  useEffect(() => {
+    const name = isExam ? 'exam_finish' : isLesson ? 'lesson_complete' : 'session_finish'
+    track(name, { mode, score: correct, total, passed: examResult?.passed })
+    // fire once per results view
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-10">

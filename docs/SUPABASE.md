@@ -31,6 +31,35 @@ create policy "own progress - update" on public.progress
   for update using (auth.uid() = user_id) with check (auth.uid() = user_id);
 ```
 
+## 2b. (Optional) Light usage analytics
+
+First-party, cookie-free, no third party. Run this once to capture anonymous
+usage events (app opens, lessons/exams started & completed):
+
+```sql
+create table public.events (
+  id         bigint generated always as identity primary key,
+  event      text not null,
+  props      jsonb,
+  session_id text,
+  created_at timestamptz not null default now()
+);
+alter table public.events enable row level security;
+-- anyone may log an event; nobody can read them back via the public API
+create policy "anyone can log" on public.events for insert with check (true);
+```
+
+See your usage anytime in the SQL Editor:
+
+```sql
+-- events by type
+select event, count(*) from public.events group by event order by 2 desc;
+-- daily active sessions (last 30 days)
+select created_at::date as day, count(distinct session_id) as sessions
+from public.events where created_at > now() - interval '30 days'
+group by day order by day desc;
+```
+
 ## 3. Auth providers
 In **Authentication → Sign In / Providers**:
 
