@@ -13,10 +13,26 @@ export function ResultsScreen() {
   const correct = score(session)
   const wrong = wrongAnswers(session)
   const isExam = mode === 'exam'
+  const isLesson = mode === 'lesson'
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-10">
       <div className="instrument rounded-card border border-steel-700 bg-steel-800/40 p-6 text-center metal-grain">
+        {isLesson && (
+          <div className="mb-4">
+            <div className="font-display text-2xl font-bold uppercase tracking-tight text-verdigris-400">
+              Lekce dokončena
+            </div>
+            <div className="mt-2 inline-flex items-center gap-2 rounded-card border border-brass-500/60 bg-brass-500/10 px-4 py-1.5">
+              <span className="font-mono text-lg font-semibold tabular-nums text-brass-300">
+                {state.progress.streak.current}
+              </span>
+              <span className="font-mono text-xs uppercase tracking-[0.15em] text-steel-400">
+                {state.progress.streak.current === 1 ? 'den' : 'dní'} v řadě
+              </span>
+            </div>
+          </div>
+        )}
         {isExam && examResult && (
           <div
             className={`mb-3 inline-block border px-4 py-1 font-mono text-sm font-semibold uppercase tracking-[0.15em] ${
@@ -80,11 +96,20 @@ export function ResultsScreen() {
       )}
 
       <div className="mt-8 flex flex-wrap justify-center gap-3">
+        {isLesson && (
+          <button
+            type="button"
+            onClick={() => dispatch({ type: 'startLesson', rng: makeRng(timeSeed()) })}
+            className="glow-brass rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 hover:bg-brass-400"
+          >
+            Další lekce
+          </button>
+        )}
         {wrong.length > 0 && (
           <button
             type="button"
             onClick={() => dispatch({ type: 'startReview', rng: makeRng(timeSeed()) })}
-            className="rounded-card bg-brass-500 px-5 py-2.5 font-semibold text-steel-950 hover:bg-brass-400"
+            className="rounded-card border border-steel-600 px-5 py-2.5 font-semibold text-steel-200 hover:border-steel-400"
           >
             Opakovat chyby
           </button>

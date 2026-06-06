@@ -83,6 +83,21 @@ describe('app store', () => {
     expect(s.progress.bookmarks).toContain(3)
   })
 
+  it('runs a finishable daily lesson and bumps the streak on completion', () => {
+    let s = start()
+    s = reducer(s, { type: 'startLesson', rng: makeRng(2) })
+    expect(s.mode).toBe('lesson')
+    expect(s.session?.questions.length).toBe(12)
+    const total = s.session!.questions.length
+    for (let i = 0; i < total; i++) {
+      const cur = currentQuestion(s.session!)!
+      s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
+      s = reducer(s, { type: 'next', today: '2026-06-06' })
+    }
+    expect(s.view).toBe('results')
+    expect(s.progress.streak.current).toBe(1)
+  })
+
   it('returns to the menu and clears the active session', () => {
     let s = start()
     s = reducer(s, { type: 'startExam', rng: makeRng(1), now: 0 })

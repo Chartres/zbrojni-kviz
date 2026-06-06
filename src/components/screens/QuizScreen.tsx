@@ -5,9 +5,11 @@ import { isBookmarked } from '@/domain/progress'
 import { QuestionCard } from '@/components/QuestionCard'
 import { ExamTimer } from '@/components/ExamTimer'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { todayStr } from '@/lib/date'
 import type { Choice } from '@/domain/types'
 
 const MODE_LABEL: Record<string, string> = {
+  lesson: 'Dnešní lekce',
   practice: 'Procvičování',
   review: 'Opakování chyb',
   bookmarks: 'Záložky',
@@ -71,7 +73,7 @@ export function QuizScreen() {
         index={session.index}
         total={session.questions.length}
         onAnswer={(choice) => dispatch({ type: 'answer', choice, now: Date.now() })}
-        onNext={() => dispatch({ type: 'next' })}
+        onNext={() => dispatch({ type: 'next', today: todayStr() })}
         onToggleBookmark={() =>
           dispatch({ type: 'toggleBookmark', id: question.id })
         }

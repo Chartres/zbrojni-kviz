@@ -1,5 +1,6 @@
 import {
   emptyProgress,
+  emptyStreak,
   PROGRESS_VERSION,
   type ProgressData,
 } from './progress'
@@ -26,6 +27,7 @@ export function loadProgress(): ProgressData {
       version: PROGRESS_VERSION,
       stats: parsed.stats ?? {},
       bookmarks: parsed.bookmarks ?? [],
+      streak: parsed.streak ?? emptyStreak(),
       updatedAt: parsed.updatedAt ?? 0,
     }
   } catch {

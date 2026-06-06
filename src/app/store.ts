@@ -17,13 +17,15 @@ import { buildExam, evaluateExam, EXAM, type ExamResult } from '@/domain/exam'
 import {
   emptyProgress,
   recordAnswer,
+  recordLessonComplete,
   toggleBookmark,
   type ProgressData,
 } from '@/domain/progress'
+import { buildLesson } from '@/domain/lesson'
 import { shuffle } from '@/domain/rng'
 
 export type View = 'menu' | 'quiz' | 'exam' | 'results' | 'study' | 'stats'
-export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam'
+export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam' | 'lesson'
 
 export interface AppState {
   view: View
@@ -53,12 +55,13 @@ export type Action =
   | { type: 'hydrate'; progress: ProgressData }
   | { type: 'setCategories'; categories: Set<CategoryName> }
   | { type: 'setSearch'; search: string }
+  | { type: 'startLesson'; rng: Rng }
   | { type: 'startPractice'; rng: Rng }
   | { type: 'startReview'; rng: Rng }
   | { type: 'startBookmarks'; rng: Rng }
   | { type: 'startExam'; rng: Rng; now: number }
   | { type: 'answer'; choice: Choice; now: number }
-  | { type: 'next' }
+  | { type: 'next'; today?: string }
   | { type: 'finishExam' }
   | { type: 'toggleBookmark'; id: number }
   | { type: 'goMenu' }
@@ -85,6 +88,13 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'setSearch':
       return { ...state, search: action.search }
+
+    case 'startLesson':
+      return begin(
+        state,
+        'lesson',
+        createSession(buildLesson(state.progress, action.rng)),
+      )
 
     case 'startPractice': {
       const qs = buildPractice(
@@ -136,6 +146,10 @@ export function reducer(state: AppState, action: Action): AppState {
           session,
           view: 'results',
           examResult: state.mode === 'exam' ? evaluateExam(session) : null,
+          progress:
+            state.mode === 'lesson' && action.today
+              ? recordLessonComplete(state.progress, action.today)
+              : state.progress,
         }
       }
       return { ...state, session }

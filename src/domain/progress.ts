@@ -11,17 +11,59 @@ export interface QuestionStat {
   lastCorrect: boolean
 }
 
+export interface Streak {
+  current: number
+  best: number
+  /** ISO date (YYYY-MM-DD) of the last completed lesson. */
+  lastDate: string
+}
+
 export interface ProgressData {
   version: number
   stats: Record<number, QuestionStat>
   bookmarks: number[]
+  streak: Streak
   updatedAt: number
 }
 
 export const PROGRESS_VERSION = 1
 
+export function emptyStreak(): Streak {
+  return { current: 0, best: 0, lastDate: '' }
+}
+
 export function emptyProgress(): ProgressData {
-  return { version: PROGRESS_VERSION, stats: {}, bookmarks: [], updatedAt: 0 }
+  return {
+    version: PROGRESS_VERSION,
+    stats: {},
+    bookmarks: [],
+    streak: emptyStreak(),
+    updatedAt: 0,
+  }
+}
+
+/** True if `today` (YYYY-MM-DD) is exactly the day after `prev`. */
+function isNextDay(prev: string, today: string): boolean {
+  if (!prev) return false
+  const [py, pm, pd] = prev.split('-').map(Number)
+  const [ty, tm, td] = today.split('-').map(Number)
+  const a = Date.UTC(py, pm - 1, pd)
+  const b = Date.UTC(ty, tm - 1, td)
+  return b - a === 86_400_000
+}
+
+/** Record that the learner completed a lesson on `today` (YYYY-MM-DD). */
+export function recordLessonComplete(
+  p: ProgressData,
+  today: string,
+): ProgressData {
+  const s = p.streak ?? emptyStreak()
+  if (s.lastDate === today) return p // already counted today
+  const current = isNextDay(s.lastDate, today) ? s.current + 1 : 1
+  return {
+    ...p,
+    streak: { current, best: Math.max(s.best, current), lastDate: today },
+  }
 }
 
 export function statFor(p: ProgressData, id: number): QuestionStat {
@@ -161,10 +203,14 @@ export function mergeProgress(
     const existing = stats[id]
     if (!existing || s.lastSeen >= existing.lastSeen) stats[id] = s
   }
+  const sa = a.streak ?? emptyStreak()
+  const sb = b.streak ?? emptyStreak()
+  const latest = sb.lastDate >= sa.lastDate ? sb : sa
   return {
     version: PROGRESS_VERSION,
     stats,
     bookmarks: [...new Set([...a.bookmarks, ...b.bookmarks])],
+    streak: { ...latest, best: Math.max(sa.best, sb.best) },
     updatedAt: Math.max(a.updatedAt, b.updatedAt),
   }
 }

@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { ALL_QUESTIONS, META } from '@/domain/questions'
 import { summary, needsReviewIds } from '@/domain/progress'
+import { LESSON_SIZE } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import type { CategoryName } from '@/domain/types'
@@ -37,6 +38,33 @@ export function MenuScreen() {
           {META.totalQuestions} oficiálních testových otázek k procvičení.
         </p>
       </header>
+
+      {/* Daily lesson — the primary, always-finishable entry point */}
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'startLesson', rng: rng() })}
+        className="glow-brass instrument mb-8 flex w-full items-center justify-between gap-4 rounded-card border border-brass-500/70 bg-brass-500/10 p-5 text-left transition-colors hover:bg-brass-500/20"
+      >
+        <div>
+          <div className="font-mono text-xs uppercase tracking-[0.2em] text-brass-400">
+            Dnešní lekce
+          </div>
+          <div className="mt-1 font-display text-2xl font-bold uppercase tracking-tight text-steel-50">
+            Procvičit {LESSON_SIZE} otázek
+          </div>
+          <div className="mt-1 text-sm text-steel-400">
+            Mix opakování a nových otázek na míru.
+          </div>
+        </div>
+        <div className="shrink-0 text-center">
+          <div className="font-mono text-3xl font-semibold tabular-nums text-brass-300">
+            {state.progress.streak.current}
+          </div>
+          <div className="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-steel-500">
+            {state.progress.streak.current === 1 ? 'den' : 'dní'} v řadě
+          </div>
+        </div>
+      </button>
 
       {/* Progress dashboard */}
       <section className="instrument mb-8 rounded-card border border-steel-700 bg-steel-800/40 p-5 metal-grain">
@@ -107,9 +135,8 @@ export function MenuScreen() {
       {/* Actions */}
       <section className="grid gap-3 sm:grid-cols-2">
         <ActionCard
-          title="Procvičování"
-          desc="Otázky s okamžitou zpětnou vazbou."
-          primary
+          title="Volné procvičování"
+          desc="Vybrané okruhy s okamžitou zpětnou vazbou."
           onClick={() => dispatch({ type: 'startPractice', rng: rng() })}
         />
         <ActionCard

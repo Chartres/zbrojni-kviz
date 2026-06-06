@@ -14,6 +14,7 @@ import {
   dueForReview,
   summary,
   mergeProgress,
+  recordLessonComplete,
   MASTERY_STREAK,
 } from './progress'
 
@@ -114,6 +115,40 @@ describe('summary', () => {
       seen: 1,
       mastered: 0,
     })
+  })
+})
+
+describe('daily streak', () => {
+  it('starts a streak on the first completed lesson', () => {
+    const p = recordLessonComplete(emptyProgress(), '2026-06-06')
+    expect(p.streak).toMatchObject({ current: 1, best: 1, lastDate: '2026-06-06' })
+  })
+
+  it('increments on a consecutive day', () => {
+    let p = recordLessonComplete(emptyProgress(), '2026-06-06')
+    p = recordLessonComplete(p, '2026-06-07')
+    expect(p.streak.current).toBe(2)
+    expect(p.streak.best).toBe(2)
+  })
+
+  it('does not double-count a second lesson on the same day', () => {
+    let p = recordLessonComplete(emptyProgress(), '2026-06-06')
+    p = recordLessonComplete(p, '2026-06-06')
+    expect(p.streak.current).toBe(1)
+  })
+
+  it('resets after a missed day but keeps the best', () => {
+    let p = recordLessonComplete(emptyProgress(), '2026-06-06')
+    p = recordLessonComplete(p, '2026-06-07') // best 2
+    p = recordLessonComplete(p, '2026-06-10') // gap → reset
+    expect(p.streak.current).toBe(1)
+    expect(p.streak.best).toBe(2)
+  })
+
+  it('handles month boundaries', () => {
+    let p = recordLessonComplete(emptyProgress(), '2026-06-30')
+    p = recordLessonComplete(p, '2026-07-01')
+    expect(p.streak.current).toBe(2)
   })
 })
 
