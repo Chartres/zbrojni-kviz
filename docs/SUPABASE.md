@@ -7,7 +7,8 @@ RLS-protected key meant to ship in the client.
 
 ## 1. Create a Supabase project
 1. Sign up at [supabase.com](https://supabase.com) → **New project** (pick a region near you).
-2. Project → **Settings → API**: copy the **Project URL** and the **anon public** key.
+2. Project → **Settings → API**: copy the **Project URL** and the **publishable** key
+   (`sb_publishable_…`). The legacy *anon* key still works but is being phased out by end of 2026.
 
 ## 2. Create the progress table + row-level security
 Open **SQL Editor** and run:
@@ -49,8 +50,9 @@ In **Authentication → URL Configuration**, set the **Site URL** to
 ## 4. Wire the keys
 - **Local dev:** copy `.env.example` → `.env` and fill in the two values.
 - **Deployed site:** GitHub repo → **Settings → Secrets and variables → Actions → New repository
-  secret** — add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. The deploy workflow already
-  passes them to the build; push any commit (or re-run the workflow) to rebuild with auth enabled.
+  secret** — add `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`. The deploy workflow
+  already passes them to the build; push any commit (or re-run the workflow) to rebuild with auth
+  enabled. (`VITE_SUPABASE_ANON_KEY` is still accepted as a legacy fallback.)
 
 ## How sync behaves
 - On sign-in, local and cloud progress are **merged** (last-write-wins per question, union of
