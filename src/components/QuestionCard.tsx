@@ -137,12 +137,14 @@ export function QuestionCard({
               <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border border-steel-500/60 font-mono text-xs font-semibold uppercase">
                 {opt}
               </span>
-              <span className="leading-relaxed">{question[opt]}</span>
-              {reveal && state === 'correct' && (
-                <span className="ml-auto whitespace-nowrap text-xs font-semibold text-verdigris-400">
-                  Správná odpověď
-                </span>
-              )}
+              <span className="min-w-0 flex-1 leading-relaxed">
+                {question[opt]}
+                {reveal && state === 'correct' && (
+                  <span className="ml-2 whitespace-nowrap text-xs font-semibold text-verdigris-400">
+                    ✓ Správná odpověď
+                  </span>
+                )}
+              </span>
             </button>
           )
         })}
@@ -155,10 +157,13 @@ export function QuestionCard({
       )}
 
       {answered && (
-        <footer className="mt-5 flex items-center justify-between gap-4">
+        <footer
+          className="sticky bottom-0 z-10 -mx-4 mt-5 flex items-center justify-between gap-3 border-t border-steel-700 bg-steel-950/95 px-4 py-3 backdrop-blur sm:rounded-card sm:border"
+          style={{ paddingBottom: 'max(0.75rem, env(safe-area-inset-bottom))' }}
+        >
           {reveal ? (
             <p
-              className={`text-sm font-medium ${
+              className={`min-w-0 text-sm font-medium ${
                 isCorrect ? 'text-verdigris-400' : 'text-rust-400'
               }`}
             >
@@ -172,7 +177,7 @@ export function QuestionCard({
           <button
             type="button"
             onClick={onNext}
-            className="glow-brass inline-flex items-center gap-2 rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 transition-colors hover:bg-brass-400"
+            className="glow-brass inline-flex shrink-0 items-center gap-2 rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 transition-colors hover:bg-brass-400"
           >
             <span>{index + 1 === total ? 'Dokončit' : 'Další'}</span>
             <kbd className="flex h-5 min-w-5 items-center justify-center rounded-[2px] border border-steel-950/30 px-1 font-mono text-xs leading-none">
