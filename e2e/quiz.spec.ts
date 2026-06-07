@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test('practice journey: home → practice tab → answer → feedback', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'Zbrojní kviz' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Zbrojní kvíz' })).toBeVisible()
 
   // Go to the Practice tab, narrow to the smallest category, start.
   await page.getByRole('button', { name: 'Procvičovat' }).click()

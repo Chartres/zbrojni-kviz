@@ -21,7 +21,7 @@ export function HomeScreen() {
     <div className="mx-auto w-full max-w-xl px-4 pt-2">
       <header className="mb-4 flex items-center justify-between">
         <h1 className="font-display text-xl font-bold uppercase tracking-tight text-steel-50">
-          Zbrojní kviz
+          Zbrojní kvíz
         </h1>
         <div className="flex items-center gap-2 rounded-card border border-steel-700 px-3 py-1.5">
           <span aria-hidden className="text-brass-400">
