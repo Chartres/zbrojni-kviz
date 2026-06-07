@@ -60,12 +60,17 @@ body {
 }
 
 body {
-  /* faint engineering grid + cool top light — atmosphere, not a flat fill */
+  /* clean gunmetal: a soft top light over a vertical gradient (no tiling) */
+  background-color: var(--color-steel-950);
   background-image:
-    linear-gradient(rgba(124, 137, 151, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 137, 151, 0.035) 1px, transparent 1px),
-    radial-gradient(900px 520px at 50% -8%, rgba(125, 134, 148, 0.14), transparent 70%);
-  background-size: 56px 56px, 56px 56px, 100% 100%;
+    radial-gradient(1100px 620px at 50% -12%, rgba(125, 134, 148, 0.18), transparent 60%),
+    linear-gradient(180deg, #13161c 0%, var(--color-steel-950) 45%);
+  background-repeat: no-repeat;
+}
+
+/* Prevent horizontal overflow (e.g. edge tooltips) without breaking sticky/fixed. */
+#root {
+  overflow-x: clip;
 }
 
 ::selection {

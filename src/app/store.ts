@@ -24,8 +24,15 @@ import {
 import { buildLesson } from '@/domain/lesson'
 import { shuffle } from '@/domain/rng'
 
-export type View = 'menu' | 'quiz' | 'exam' | 'results' | 'study' | 'stats'
+// Bottom-tab destinations (persistent nav) + focused full-screen flows.
+export type TabView = 'home' | 'practice' | 'stats' | 'guide'
+export type View = TabView | 'quiz' | 'exam' | 'results'
 export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam' | 'lesson'
+
+export const TAB_VIEWS: TabView[] = ['home', 'practice', 'stats', 'guide']
+export function isTabView(v: View): v is TabView {
+  return (TAB_VIEWS as string[]).includes(v)
+}
 
 export interface AppState {
   view: View
@@ -40,7 +47,7 @@ export interface AppState {
 
 export function initialState(): AppState {
   return {
-    view: 'menu',
+    view: 'home',
     mode: null,
     session: null,
     examResult: null,
@@ -65,8 +72,7 @@ export type Action =
   | { type: 'finishExam' }
   | { type: 'toggleBookmark'; id: number }
   | { type: 'goMenu' }
-  | { type: 'goStudy' }
-  | { type: 'goStats' }
+  | { type: 'navigate'; view: TabView }
 
 function begin(state: AppState, mode: Mode, questions: SessionState): AppState {
   return {
@@ -171,18 +177,15 @@ export function reducer(state: AppState, action: Action): AppState {
     case 'goMenu':
       return {
         ...state,
-        view: 'menu',
+        view: 'home',
         mode: null,
         session: null,
         examResult: null,
         examEndsAt: null,
       }
 
-    case 'goStudy':
-      return { ...state, view: 'study' }
-
-    case 'goStats':
-      return { ...state, view: 'stats' }
+    case 'navigate':
+      return { ...state, view: action.view }
 
     default:
       return state

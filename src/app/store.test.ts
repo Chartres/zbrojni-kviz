@@ -102,7 +102,7 @@ describe('app store', () => {
     let s = start()
     s = reducer(s, { type: 'startExam', rng: makeRng(1), now: 0 })
     s = reducer(s, { type: 'goMenu' })
-    expect(s.view).toBe('menu')
+    expect(s.view).toBe('home')
     expect(s.session).toBeNull()
     expect(s.examEndsAt).toBeNull()
   })

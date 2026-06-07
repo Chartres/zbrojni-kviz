@@ -1,35 +1,30 @@
 import { test, expect } from '@playwright/test'
 
-test('practice journey: menu → answer → feedback → results', async ({ page }) => {
+test('practice journey: home → practice tab → answer → feedback', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'Zbrojní kviz' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Dobrý den' })).toBeVisible()
 
-  // Narrow to the smallest category for a quick run.
+  // Go to the Practice tab, narrow to the smallest category, start.
+  await page.getByRole('button', { name: 'Procvičovat' }).click()
   await page.getByRole('button', { name: /Zdravotnické minimum/ }).click()
   await page.screenshot({ path: 'test-results/menu.png', fullPage: true })
+  await page.getByRole('button', { name: 'Spustit procvičování' }).click()
 
-  await page.getByRole('button', { name: /Volné procvičování/ }).click()
-
-  // Answer the first question (option a) and expect immediate feedback.
-  await expect(page.getByText(/1 \/ 38/)).toBeVisible()
+  await expect(page.getByText('01 / 38')).toBeVisible()
   await page.locator('button[data-state="idle"]').first().click()
-  await expect(
-    page.locator('button[data-state="correct"]'),
-  ).toBeVisible()
+  await expect(page.locator('button[data-state="correct"]')).toBeVisible()
   await page.screenshot({ path: 'test-results/feedback.png', fullPage: true })
 
-  // Advance.
   await page.getByRole('button', { name: /Další|Dokončit/ }).click()
-  await expect(page.getByText(/2 \/ 38/)).toBeVisible()
+  await expect(page.getByText('02 / 38')).toBeVisible()
 })
 
-test('daily lesson: finishable 12-question session with completion + streak', async ({
+test('daily lesson from home: 12 questions with completion + streak', async ({
   page,
 }) => {
   await page.goto('/')
   await page.getByRole('button', { name: /Dnešní lekce/ }).click()
-  await expect(page.getByText(/1 \/ 12/)).toBeVisible()
-  // answer all 12: pick whichever option is marked correct after a guess
+  await expect(page.getByText('01 / 12')).toBeVisible()
   for (let i = 0; i < 12; i++) {
     await page.locator('button[data-state="idle"]').first().click()
     await page.getByRole('button', { name: /Další|Dokončit/ }).click()
@@ -38,24 +33,23 @@ test('daily lesson: finishable 12-question session with completion + streak', as
   await expect(page.getByText(/den.*v řadě|dní.*v řadě/)).toBeVisible()
 })
 
-test('exam mode starts 60 questions with a timer', async ({ page }) => {
+test('exam mode from practice tab: 60 questions with a timer', async ({ page }) => {
   await page.goto('/')
+  await page.getByRole('button', { name: 'Procvičovat' }).click()
   await page.getByRole('button', { name: /Zkušební test/ }).click()
-  await expect(page.getByText(/1 \/ 60/)).toBeVisible()
+  await expect(page.getByText('01 / 60')).toBeVisible()
   await expect(page.getByRole('timer')).toBeVisible()
-  // No correctness revealed in exam mode after answering.
   await page.locator('button[data-state="idle"]').first().click()
   await expect(page.locator('button[data-state="correct"]')).toHaveCount(0)
 })
 
-test('study guide and stats are reachable', async ({ page }) => {
+test('guide and stats tabs are reachable', async ({ page }) => {
   await page.goto('/')
-  await page.getByRole('button', { name: 'Studijní průvodce' }).click()
+  await page.getByRole('button', { name: 'Průvodce' }).click()
   await expect(page.getByRole('heading', { name: 'Studijní průvodce' })).toBeVisible()
   await expect(
     page.getByRole('heading', { name: 'Kategorie zbraní', exact: true }),
   ).toBeVisible()
-  await page.getByRole('button', { name: '← Zpět' }).click()
-  await page.getByRole('button', { name: 'Statistiky' }).click()
+  await page.getByRole('button', { name: 'Postup' }).click()
   await expect(page.getByRole('heading', { name: 'Statistiky' })).toBeVisible()
 })

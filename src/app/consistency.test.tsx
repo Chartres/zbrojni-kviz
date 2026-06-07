@@ -36,14 +36,14 @@ describe('cross-screen data consistency', () => {
 
     const num = (el: HTMLElement | null) => parseInt(el?.textContent ?? '', 10)
 
-    // Menu reflects the seeded progress (the user's complaint: it must show up).
+    // Home reflects the seeded progress (the user's complaint: it must show up).
     const answered = num(await screen.findByTestId('stat-answered'))
     const mastered = num(screen.getByTestId('stat-mastered'))
     expect(answered).toBe(5) // 5 distinct questions seen
     expect(mastered).toBe(3) // 3 answered correctly twice
 
-    // Navigate to Statistiky and assert the very same numbers.
-    fireEvent.click(screen.getByRole('button', { name: 'Statistiky' }))
+    // Navigate to the Postup (stats) tab and assert the very same numbers.
+    fireEvent.click(screen.getByRole('button', { name: 'Postup' }))
     expect(num(screen.getByTestId('stat-answered'))).toBe(answered)
     expect(num(screen.getByTestId('stat-mastered'))).toBe(mastered)
   })

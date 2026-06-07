@@ -1,0 +1,135 @@
+import { useMemo } from 'react'
+import { useApp } from '@/app/AppContext'
+import { ALL_QUESTIONS } from '@/domain/questions'
+import { summary, needsReviewIds } from '@/domain/progress'
+import { LESSON_SIZE } from '@/domain/lesson'
+import { timeSeed, makeRng } from '@/domain/rng'
+import { track } from '@/analytics'
+import { ProgressBar } from '@/components/ui/ProgressBar'
+
+export function HomeScreen() {
+  const { state, dispatch } = useApp()
+  const sum = useMemo(() => summary(state.progress, ALL_QUESTIONS), [state.progress])
+  const reviewCount = useMemo(
+    () => needsReviewIds(state.progress).length,
+    [state.progress],
+  )
+  const streak = state.progress.streak.current
+  const rng = () => makeRng(timeSeed())
+
+  return (
+    <div className="mx-auto w-full max-w-xl px-4 pt-6">
+      <header className="mb-6 flex items-center justify-between">
+        <div>
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.25em] text-brass-400">
+            Zbrojní kviz
+          </p>
+          <h1 className="font-display text-2xl font-bold uppercase tracking-tight text-steel-50">
+            Dobrý den
+          </h1>
+        </div>
+        <div className="flex items-center gap-2 rounded-card border border-steel-700 px-3 py-1.5">
+          <span aria-hidden className="text-brass-400">
+            ▲
+          </span>
+          <span className="font-mono text-lg font-semibold tabular-nums text-brass-300">
+            {streak}
+          </span>
+          <span className="font-mono text-[0.65rem] uppercase tracking-wide text-steel-500">
+            {streak === 1 ? 'den' : 'dní'}
+          </span>
+        </div>
+      </header>
+
+      {/* Primary job: today's lesson */}
+      <button
+        type="button"
+        onClick={() => {
+          track('start_lesson')
+          dispatch({ type: 'startLesson', rng: rng() })
+        }}
+        className="glow-brass instrument mb-4 block w-full rounded-card border border-brass-500/70 bg-brass-500/10 p-6 text-left transition-colors hover:bg-brass-500/20"
+      >
+        <div className="font-mono text-xs uppercase tracking-[0.2em] text-brass-400">
+          Dnešní lekce
+        </div>
+        <div className="mt-1 font-display text-3xl font-bold uppercase tracking-tight text-steel-50">
+          Procvičit {LESSON_SIZE} otázek
+        </div>
+        <div className="mt-1 text-sm text-steel-300">
+          Krátká dávka na míru — opakování slabých míst i nové otázky.
+        </div>
+        <div className="mt-4 inline-flex items-center gap-2 rounded-card bg-brass-500 px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide text-steel-950">
+          Začít →
+        </div>
+      </button>
+
+      {/* Quick review of weak spots */}
+      {reviewCount > 0 && (
+        <button
+          type="button"
+          onClick={() => {
+            track('start_review')
+            dispatch({ type: 'startReview', rng: rng() })
+          }}
+          className="mb-6 flex w-full items-center justify-between rounded-card border border-steel-700 bg-steel-800/40 px-5 py-3.5 text-left transition-colors hover:border-steel-500"
+        >
+          <span className="font-medium text-steel-100">Opakovat chyby</span>
+          <span className="font-mono text-sm text-rust-400 tabular-nums">
+            {reviewCount} otázek →
+          </span>
+        </button>
+      )}
+
+      {/* Compact progress — details live under Postup */}
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'navigate', view: 'stats' })}
+        className="block w-full rounded-card border border-steel-700 bg-steel-800/40 p-5 text-left transition-colors hover:border-steel-500"
+      >
+        <div className="mb-3 flex items-baseline justify-between">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-steel-400">
+            Můj postup
+          </span>
+          <span className="text-xs text-brass-400">Podrobnosti →</span>
+        </div>
+        <div className="grid grid-cols-3 gap-3 text-center">
+          <Mini testId="stat-mastered" value={sum.mastered} label="Zvládnuto" />
+          <Mini testId="stat-answered" value={sum.answered} label="Procvičeno" />
+          <Mini
+            testId="stat-accuracy"
+            value={`${Math.round(sum.accuracy * 100)}%`}
+            label="Úspěšnost"
+          />
+        </div>
+        <div className="mt-4">
+          <ProgressBar value={sum.mastered} max={sum.total} tone="verdigris" />
+        </div>
+      </button>
+    </div>
+  )
+}
+
+function Mini({
+  value,
+  label,
+  testId,
+}: {
+  value: number | string
+  label: string
+  testId?: string
+}) {
+  return (
+    <div>
+      <div
+        data-testid={testId}
+        className="font-mono text-xl font-semibold text-brass-300 tabular-nums"
+      >
+        {value}
+      </div>
+      <div className="mt-0.5 font-mono text-[0.6rem] uppercase tracking-[0.12em] text-steel-500">
+        {label}
+      </div>
+    </div>
+  )
+}
