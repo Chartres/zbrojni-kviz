@@ -4,8 +4,8 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'node:url'
 
-// Project site at https://chartres.github.io/zbrojni-kviz/
-const base = process.env.GITHUB_ACTIONS ? '/zbrojni-kviz/' : '/'
+// Served at the custom domain root https://zbrojnikviz.dravec.org/ (and locally at /).
+const base = '/'
 
 export default defineConfig({
   base,
