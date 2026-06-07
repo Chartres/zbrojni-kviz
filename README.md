@@ -1,6 +1,6 @@
 # Zbrojní oprávnění — practice trainer
 
-**Live:** https://chartres.github.io/zbrojni-kviz/
+**Live:** https://zbrojnikviz.dravec.org
 
 A free, beautiful, self-paced trainer for the Czech firearms-licence theory exam
 (*zkouška odborné způsobilosti pro zbrojní oprávnění*, Act 90/2024 Sb., valid from 2026).

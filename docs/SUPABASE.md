@@ -104,7 +104,7 @@ In **Authentication → Sign In / Providers**:
   3. Paste the Client ID + secret into Supabase's Google provider and enable it.
 
 In **Authentication → URL Configuration**, set the **Site URL** to
-`https://chartres.github.io/zbrojni-kviz/` and add it to **Redirect URLs** (plus
+`https://zbrojnikviz.dravec.org` and add it to **Redirect URLs** (plus
 `http://localhost:5173/` for local dev).
 
 ## 4. Wire the keys

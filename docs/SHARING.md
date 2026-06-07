@@ -1,6 +1,6 @@
 # Sharing the app
 
-Live: https://chartres.github.io/zbrojni-kviz/ · Repo: https://github.com/Chartres/zbrojni-kviz
+Live: https://zbrojnikviz.dravec.org · Repo: https://github.com/Chartres/zbrojni-kviz
 
 Be a good citizen: post where project shares / "how do I prep" questions belong, disclose
 it's free, open-source, made-for-myself and **unofficial**. Don't spam multiple groups at once.
@@ -25,7 +25,7 @@ it's free, open-source, made-for-myself and **unofficial**. Don't spam multiple 
 > Ahoj, připravoval jsem se na zkoušku odborné způsobilosti (nové zbrojní oprávnění, zákon 90/2024)
 > a chyběl mi pořádný nástroj na procvičování, tak jsem si jeden udělal a dávám ho k dispozici —
 > zdarma a jako open-source:
-> https://chartres.github.io/zbrojni-kviz/
+> https://zbrojnikviz.dravec.org
 >
 > Co v něm je:
 > • **všech 837 oficiálních otázek** doslovně z MV, včetně obrázků
@@ -39,7 +39,7 @@ it's free, open-source, made-for-myself and **unofficial**. Don't spam multiple 
 ## Draft message (EN, for r/europeanguns)
 
 > I was prepping for the Czech firearms-licence theory exam (new 2026 law) and couldn't find a good
-> practice tool, so I built one and put it out free & open-source: https://chartres.github.io/zbrojni-kviz/
+> practice tool, so I built one and put it out free & open-source: https://zbrojnikviz.dravec.org
 > All 837 official questions (verbatim, with images), a linear study guide covering every topic
 > (incl. an image atlas of cartridges/weapons/marks) with sources, a personalised daily lesson with
 > streaks, a full mock exam (60q/80min), and mistake review. No ads, works offline, progress syncs.
