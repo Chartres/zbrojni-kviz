@@ -9,6 +9,7 @@ test('mobile UX walkthrough with screenshots', async ({ page }) => {
 
   // Practise the legal section (longest questions) to stress the layout.
   await page.getByRole('button', { name: 'Procvičovat' }).click()
+  await page.screenshot({ path: 'test-results/m-practice.png', fullPage: true })
   await page.getByRole('button', { name: /Zákon o zbraních/ }).click()
   await page.getByRole('button', { name: 'Spustit procvičování' }).click()
   await expect(page.getByText(/01 \//)).toBeVisible()

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test('practice journey: home → practice tab → answer → feedback', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'Dobrý den' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Zbrojní kviz' })).toBeVisible()
 
   // Go to the Practice tab, narrow to the smallest category, start.
   await page.getByRole('button', { name: 'Procvičovat' }).click()
@@ -47,9 +47,7 @@ test('guide and stats tabs are reachable', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Průvodce' }).click()
   await expect(page.getByRole('heading', { name: 'Studijní průvodce' })).toBeVisible()
-  await expect(
-    page.getByRole('heading', { name: 'Kategorie zbraní', exact: true }),
-  ).toBeVisible()
+  await expect(page.getByRole('heading', { name: /Kategorie zbraní/ })).toBeVisible()
   await page.getByRole('button', { name: 'Postup' }).click()
   await expect(page.getByRole('heading', { name: 'Statistiky' })).toBeVisible()
 })

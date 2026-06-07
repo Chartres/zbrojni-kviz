@@ -6,7 +6,7 @@ import { ProgressBar } from '@/components/ui/ProgressBar'
 import { InfoDot } from '@/components/ui/InfoDot'
 
 export function StatsScreen() {
-  const { state, dispatch } = useApp()
+  const { state } = useApp()
   const sum = useMemo(() => summary(state.progress, ALL_QUESTIONS), [state.progress])
 
   const stats = [
@@ -31,15 +31,8 @@ export function StatsScreen() {
   ]
 
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 py-10">
-      <button
-        type="button"
-        onClick={() => dispatch({ type: 'goMenu' })}
-        className="mb-6 text-sm text-steel-400 hover:text-brass-400"
-      >
-        ← Zpět
-      </button>
-      <h1 className="mb-6 font-display text-3xl font-bold uppercase tracking-tight text-steel-50">
+    <div className="mx-auto w-full max-w-2xl px-4 pt-2">
+      <h1 className="mb-5 font-display text-2xl font-bold uppercase tracking-tight text-steel-50">
         Statistiky
       </h1>
 
