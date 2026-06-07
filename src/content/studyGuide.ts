@@ -9,11 +9,17 @@ export interface LessonSource {
   label: string
   url: string
 }
+export interface Figure {
+  img: string
+  caption: string
+}
 export interface Lesson {
   id: string
   title: string
   html: string
   source: LessonSource
+  /** Captioned question images (the image-based questions) for visual learning. */
+  figures?: Figure[]
 }
 
 const ZAKON: LessonSource = {
@@ -297,6 +303,13 @@ export const LESSONS: Lesson[] = [
 <li>Při překročení mezí obrany soud přihlédne jako k <strong>polehčující okolnosti</strong>.</li>
 <li><strong>Ověřování zbraní:</strong> provádí <strong>ČÚZZS</strong>; zkušební značky osvědčují splnění technických požadavků (uznávané dle úmluvy <strong>C.I.P.</strong>); „<strong>X</strong>“ přes značky = neověřená. <strong>Munici</strong> upravuje zákon 91/2024, <strong>vojenský materiál</strong> zákon 38/1994. <strong>Nedovolené ozbrojování</strong> (výroba/držení bez povolení, mazání označení) je trestný čin.</li>
 </ul>`,
+    figures: [
+      { img: 'q716_0.png', caption: 'Ověření státní autoritou ČR — od r. 2000 Český úřad pro zkoušení zbraní a střeliva.' },
+      { img: 'q717_0.png', caption: 'Jednotná zkušební značka (obyčejná zkouška), uznávaná dle úmluvy C.I.P.' },
+      { img: 'q715_0.png', caption: 'Značka dovolující střelbu ocelovými broky (brokovnice).' },
+      { img: 'q608_0.png', caption: 'Kontrolní znehodnocovací značka — vyznačí ji ZL1 ihned po znehodnocení.' },
+      { img: 'q609_0.png', caption: 'Verifikační znehodnocovací značka — ČÚZZS/MO potvrzuje řádné znehodnocení.' },
+    ],
   },
   {
     id: 'nauka-strelivo',
@@ -310,6 +323,37 @@ export const LESSONS: Lesson[] = [
 <li><strong>Školní (cvičný) náboj</strong> = bez prachu a zápalky, rozměrově odpovídá náboji, slouží k nácviku. <strong>Flobert</strong> = okrajový zápal, ráže 4/6/9 mm.</li>
 <li><strong>Ráže</strong> kulové zbraně = průměr vodicí části vývrtu / popis komory a náboje; brokové = smluvní průměr + délka nábojnice. <strong>Zahrdlení</strong> = úprava ústí brokové hlavně ovlivňující krytí.</li>
 </ul>`,
+    figures: [
+      { img: 'q649_0.png', caption: 'Brokový náboj ráže 12.' },
+      { img: 'q650_0.png', caption: 'Broková jednotná střela typu Brenneke.' },
+      { img: 'q651_0.png', caption: 'Údaj na nábojnici (např. 67,5) = nejmenší délka komory.' },
+      { img: 'q652_0.png', caption: 'Šipka: kování brokového náboje.' },
+      { img: 'q653_0.png', caption: 'Šipka: zápalka.' },
+      { img: 'q654_0.png', caption: 'Šipka: zápalka — iniciuje (zažehne) prachovou náplň.' },
+      { img: 'q655_0.png', caption: 'Šipka NEukazuje na zápalku.' },
+      { img: 'q656_0.png', caption: 'Větší ráži má náboj 12 (oproti 20).' },
+      { img: 'q657_0.png', caption: 'Náboj ráže 20 v komoře ráže 12 → destrukce zbraně (ráže 20 bývá žlutá).' },
+      { img: 'q658_0.png', caption: '7,5×55 a 7,62×54R — pro dlouhé drážkované zbraně (pušky).' },
+      { img: 'q659_0.png', caption: 'Tvar nábojnice: lahvovitý.' },
+      { img: 'q660_0.png', caption: 'Kulový náboj = nábojnice, střela, prach, zápalka.' },
+      { img: 'q661_0.png', caption: 'Liší se nábojnicí: s drážkou vs. s okrajem.' },
+      { img: 'q662_0.png', caption: 'Orientačně ~780 m/s, ~3500 J, dostřel ~4000 m.' },
+      { img: 'q663_0.png', caption: 'Původně vojenské; vyhovující lze i pro sport.' },
+      { img: 'q664_0.png', caption: '7,62×39 — střední výkon, dnes i sport.' },
+      { img: 'q665_0.png', caption: 'Horní = školní (vybíjecí) náboj pro nácvik.' },
+      { img: 'q666_0.png', caption: 'Dostřel ~2800 m, po celé dráze potenciálně smrtící.' },
+      { img: 'q667_0.png', caption: 'Okrajový zápal: č. 1 (.22 LR) a č. 2 (9 mm Flobert).' },
+      { img: 'q668_0.png', caption: 'Poloplášťová střela: č. 4 (9 mm Luger).' },
+      { img: 'q669_0.png', caption: 'Č. 3 (7,65 Browning) a 4 (9 mm Luger) — pro krátké samonabíjecí zbraně.' },
+      { img: 'q670_0.png', caption: 'Dostřel ~1500 m+; nejnižší má 9 mm Flobert.' },
+      { img: 'q671_0.png', caption: 'Flobert — pro krátké i dlouhé zbraně (často hladký vývrt).' },
+      { img: 'q672_0.png', caption: 'Nábojnice: č. 1–2 okraj, č. 3–5 drážka (č. 3 = polookraj).' },
+      { img: 'q673_0.png', caption: 'Šipka: nábojnice.' },
+      { img: 'q674_0.png', caption: 'Šipka: směr vkládání náboje do komory.' },
+      { img: 'q675_0.png', caption: 'Šipka: střela (projektil).' },
+      { img: 'q676_0.png', caption: 'Šipka: směr vytahování nábojnice z komory.' },
+      { img: 'q677_0.png', caption: 'Předmět je municí podle zákona o munici.' },
+    ],
   },
   {
     id: 'nauka-zbrane',
@@ -323,6 +367,45 @@ export const LESSONS: Lesson[] = [
 <li><strong>Hlavní části</strong> ve smyslu zákona: hlaveň, tělo zbraně, válec revolveru, závěr. Funkční cyklus: revolver/opakovačka = ruční; samonabíjecí pistole = zpětný ráz; samonabíjecí puška = tlak plynů.</li>
 <li><strong>Zkušební značka</strong> potvrzuje ověření (od r. 2000 ČÚZZS), uznávané dle <strong>C.I.P.</strong>; speciální značka dovoluje střelbu ocelovými broky.</li>
 </ul>`,
+    figures: [
+      { img: 'q678_0.png', caption: 'Nevratná úprava: zhotovení řezu.' },
+      { img: 'q681_0.png', caption: 'Revolver — krátká kulová opakovací zbraň.' },
+      { img: 'q683_0.png', caption: 'Č. 3 = revolverový válec (hlavní část).' },
+      { img: 'q684_0.png', caption: 'Č. 2 (červené) = výklopná konzole válce.' },
+      { img: 'q685_0.png', caption: 'Vnější bicí kohout = č. 5.' },
+      { img: 'q686_0.png', caption: 'Havárie: poškozen rám a válec.' },
+      { img: 'q687_0.png', caption: 'Příčina havárie: nepříslušné střelivo / ucpaný vývrt.' },
+      { img: 'q688_0.png', caption: 'Lankasterka (dvojka s vnějšími kohouty).' },
+      { img: 'q689_0.png', caption: 'Šipka: temenní klička (lůžkový závěr).' },
+      { img: 'q690_0.png', caption: 'Kozlice — dvě hlavně nad sebou.' },
+      { img: 'q691_0.png', caption: 'Broková zbraň s lůžkovým závěrem a sklopným svazkem.' },
+      { img: 'q692_0.png', caption: 'Vodorovná šipka = pažba, svislá = předpažbí.' },
+      { img: 'q693_0.png', caption: 'Perkusní revolver (černý prach).' },
+      { img: 'q694_0.png', caption: 'Dělené střelivo, iniciace perkusními zápalkami.' },
+      { img: 'q695_0.png', caption: 'Křesadlový zámkový systém.' },
+      { img: 'q696_0.png', caption: 'Nelze určit nabito/vybito → nutná kontrola stavu.' },
+      { img: 'q679_0.png', caption: 'Tělo pistole = č. 3 (hlavní část).' },
+      { img: 'q680_0.png', caption: 'Lučík = č. 2.' },
+      { img: 'q682_0.png', caption: 'Určení zbraně: ochrana života/zdraví/majetku.' },
+      { img: 'q697_0.png', caption: 'Umístění zásobníku: č. 2 a 5.' },
+      { img: 'q698_0.png', caption: 'Č. 1 = výhozné okénko (vidět komoru).' },
+      { img: 'q699_0.png', caption: 'Ústí hlavně = č. 3.' },
+      { img: 'q700_0.png', caption: 'Č. 3, 5, 6 = NEjsou hlavní části zbraně.' },
+      { img: 'q701_0.png', caption: 'Č. 1, 2, 4 = hlavní části zbraně.' },
+      { img: 'q702_0.png', caption: 'Hlavní části = č. 1, 2, 4.' },
+      { img: 'q703_0.png', caption: 'Č. 1 = kluzný pistolový závěr (hlavní část).' },
+      { img: 'q704_0.png', caption: 'Č. 2 = hlaveň (s uzamykacími ozuby).' },
+      { img: 'q705_0.png', caption: 'Č. 3 = předsuvná (vratná) pružina s vodítkem.' },
+      { img: 'q706_0.png', caption: 'Č. 4 = tělo zbraně.' },
+      { img: 'q707_0.png', caption: 'Č. 6 = zásobník.' },
+      { img: 'q708_0.png', caption: 'Vnější manuální pojistka není označena žádným číslem.' },
+      { img: 'q709_0.png', caption: 'Bicí mechanismus s přímoběžným úderníkem.' },
+      { img: 'q710_0.png', caption: 'Samonabíjecí pistole, odnímatelný zásobník, pevná mířidla.' },
+      { img: 'q711_0.png', caption: 'Závěr = č. 3 a 2; č. 4 uvnitř lučíku (spoušť).' },
+      { img: 'q712_0.png', caption: 'Palná opakovací zbraň.' },
+      { img: 'q713_0.png', caption: 'Viditelné: pažba, lučík, spoušť, klika a pouzdro závěru, pojistka, okénko, hlaveň, hledí, dno zásobníku.' },
+      { img: 'q714_0.png', caption: 'Šipka nad zbraní = k ústí (směr střely); pod zbraní = k rameni.' },
+    ],
   },
   {
     id: 'nauka-balistika',

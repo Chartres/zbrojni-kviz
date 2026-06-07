@@ -18,4 +18,11 @@ test('no horizontal overflow on any tab (mobile)', async ({ page }) => {
     await page.getByRole('button', { name: tab }).click()
     expect(await overflow(page), `overflow on ${tab}`).toBeLessThanOrEqual(0)
   }
+
+  // Capture the guide image atlas for visual review.
+  await page.getByRole('button', { name: 'Průvodce' }).click()
+  await page.getByRole('link', { name: /Nauka — zbraně/ }).click()
+  await page.getByRole('img', { name: /Kozlice/ }).scrollIntoViewIfNeeded()
+  await page.waitForTimeout(400)
+  await page.screenshot({ path: 'test-results/m-guide-figures.png', fullPage: false })
 })

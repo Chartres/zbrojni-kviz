@@ -1,5 +1,6 @@
 import { META } from '@/domain/questions'
 import { LESSONS } from '@/content/studyGuide'
+import { imageUrl } from '@/lib/assets'
 
 export function StudyScreen() {
   return (
@@ -43,6 +44,26 @@ export function StudyScreen() {
             {l.title}
           </h2>
           <article className="study-prose" dangerouslySetInnerHTML={{ __html: l.html }} />
+          {l.figures && (
+            <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {l.figures.map((f) => (
+                <figure
+                  key={f.img}
+                  className="overflow-hidden rounded-card border border-steel-700 bg-steel-800/40"
+                >
+                  <img
+                    src={imageUrl(f.img)}
+                    alt={f.caption}
+                    loading="lazy"
+                    className="h-28 w-full bg-steel-50 object-contain p-2"
+                  />
+                  <figcaption className="px-2 py-1.5 text-xs leading-snug text-steel-300">
+                    {f.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
           <p className="mt-3 border-t border-steel-800 pt-2 text-xs text-steel-500">
             Zdroj a více informací:{' '}
             <a
