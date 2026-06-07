@@ -27,13 +27,20 @@ it's free, open-source, made-for-myself and **unofficial**. Don't spam multiple 
 > zdarma a jako open-source:
 > https://chartres.github.io/zbrojni-kviz/
 >
-> Jsou tam **všechny oficiální otázky** (doslovně z MV, včetně obrázků), **denní lekce**, **zkušební
-> test** (60 otázek / 80 min) a **opakování chyb**. Bez reklam, funguje i offline, postup se ukládá.
-> Je to neoficiální pomůcka, ne náhrada zákona. Budu rád za zpětnou vazbu i nahlášení chyb.
+> Co v něm je:
+> • **všech 837 oficiálních otázek** doslovně z MV, včetně obrázků
+> • **studijní průvodce** — látka ke všem otázkám v souvislém textu (i obrazový atlas nábojů, zbraní a značek), s odkazy na zdroje
+> • **denní lekce** na míru (opakuje vaše slabá místa) + série dnů „v řadě“
+> • **zkušební test** jako u zkoušky (60 otázek / 80 min, projdete na 57) a **opakování chyb**
+>
+> Bez reklam, funguje i offline, postup se ukládá (volitelně i napříč zařízeními). Je to neoficiální
+> pomůcka, ne náhrada zákona. Budu rád za zpětnou vazbu i nahlášení chyb.
 
 ## Draft message (EN, for r/europeanguns)
 
 > I was prepping for the Czech firearms-licence theory exam (new 2026 law) and couldn't find a good
 > practice tool, so I built one and put it out free & open-source: https://chartres.github.io/zbrojni-kviz/
-> All official questions (verbatim, with images), a daily lesson, a full mock exam, and mistake review.
-> No ads, works offline. Unofficial study aid. Feedback welcome.
+> All 837 official questions (verbatim, with images), a linear study guide covering every topic
+> (incl. an image atlas of cartridges/weapons/marks) with sources, a personalised daily lesson with
+> streaks, a full mock exam (60q/80min), and mistake review. No ads, works offline, progress syncs.
+> Unofficial study aid. Feedback welcome.
