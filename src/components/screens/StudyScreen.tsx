@@ -1,5 +1,5 @@
 import { META } from '@/domain/questions'
-import { STUDY_GUIDE_HTML } from '@/content/studyGuide'
+import { LESSONS } from '@/content/studyGuide'
 
 export function StudyScreen() {
   return (
@@ -8,8 +8,8 @@ export function StudyScreen() {
         Studijní průvodce
       </h1>
       <p className="mt-1 text-sm text-steel-400">
-        Zkouška: {META.exam.totalQuestions} otázek, {META.exam.timeLimitMinutes}{' '}
-        minut, k úspěchu {META.exam.passThreshold} správně. Zdroj otázek:{' '}
+        Lekce postupně pokrývají látku ke všem {META.totalQuestions} oficiálním
+        otázkám. Zdroj otázek:{' '}
         <a
           href={META.sourceUrl}
           target="_blank"
@@ -21,10 +21,41 @@ export function StudyScreen() {
         .
       </p>
 
-      <article
-        className="study-prose mt-6"
-        dangerouslySetInnerHTML={{ __html: STUDY_GUIDE_HTML }}
-      />
+      {/* Table of contents */}
+      <nav aria-label="Obsah" className="mt-5 rounded-card border border-steel-700 bg-steel-800/40 p-4">
+        <h2 className="mb-2 font-mono text-xs font-medium uppercase tracking-[0.2em] text-steel-400">
+          Obsah
+        </h2>
+        <ol className="space-y-1">
+          {LESSONS.map((l) => (
+            <li key={l.id}>
+              <a href={`#${l.id}`} className="text-sm text-steel-300 hover:text-brass-400">
+                {l.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      {LESSONS.map((l) => (
+        <section key={l.id} id={l.id} className="mt-8 scroll-mt-4">
+          <h2 className="mb-3 font-display text-xl font-bold uppercase tracking-tight text-brass-300">
+            {l.title}
+          </h2>
+          <article className="study-prose" dangerouslySetInnerHTML={{ __html: l.html }} />
+          <p className="mt-3 border-t border-steel-800 pt-2 text-xs text-steel-500">
+            Zdroj a více informací:{' '}
+            <a
+              href={l.source.url}
+              target="_blank"
+              rel="noreferrer"
+              className="text-brass-400 underline"
+            >
+              {l.source.label}
+            </a>
+          </p>
+        </section>
+      ))}
     </div>
   )
 }
