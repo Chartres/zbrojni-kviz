@@ -4,7 +4,13 @@
       "mcp__plugin_supabase_supabase__list_projects",
       "mcp__plugin_supabase_supabase__list_tables",
       "mcp__plugin_supabase_supabase__execute_sql",
-      "mcp__plugin_supabase_supabase__get_advisors"
+      "mcp__plugin_supabase_supabase__get_advisors",
+      "mcp__plugin_cloudflare_cloudflare-docs__search_cloudflare_documentation",
+      "mcp__plugin_cloudflare_cloudflare-api__search",
+      "mcp__plugin_cloudflare_cloudflare-api__execute",
+      "mcp__plugin_resend_resend__list-domains",
+      "mcp__plugin_supabase_supabase__get_publishable_keys",
+      "mcp__plugin_supabase_supabase__get_project_url"
     ]
   }
 }
