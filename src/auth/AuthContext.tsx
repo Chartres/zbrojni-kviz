@@ -6,6 +6,7 @@ import {
   type ReactNode,
 } from 'react'
 import { supabase, isAuthConfigured } from './supabase'
+import { identify } from '../analytics'
 
 export interface AuthUser {
   id: string
@@ -32,11 +33,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     supabase.auth.getSession().then(({ data }) => {
       const u = data.session?.user
       setUser(u ? { id: u.id, email: u.email ?? undefined } : null)
+      identify(u?.id ?? null) // cross-product identity on the shared platform
       setLoading(false)
     })
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
       const u = session?.user
       setUser(u ? { id: u.id, email: u.email ?? undefined } : null)
+      identify(u?.id ?? null)
     })
     return () => sub.subscription.unsubscribe()
   }, [])
