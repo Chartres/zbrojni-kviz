@@ -5,15 +5,15 @@ test.use({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true
 
 test('mobile UX walkthrough with screenshots', async ({ page }) => {
   await page.goto('/')
-  await page.screenshot({ path: 'test-results/m-menu.png', fullPage: true })
+  await page.screenshot({ path: 'e2e/shots/m-menu.png', fullPage: true })
 
   // Practise the legal section (longest questions) to stress the layout.
   await page.getByRole('button', { name: 'Procvičovat' }).click()
-  await page.screenshot({ path: 'test-results/m-practice.png', fullPage: true })
+  await page.screenshot({ path: 'e2e/shots/m-practice.png', fullPage: true })
   await page.getByRole('button', { name: /Zákon o zbraních/ }).click()
   await page.getByRole('button', { name: 'Spustit procvičování' }).click()
   await expect(page.getByText(/01 \//)).toBeVisible()
-  await page.screenshot({ path: 'test-results/m-question.png', fullPage: true })
+  await page.screenshot({ path: 'e2e/shots/m-question.png', fullPage: true })
 
   // Answer the first option (locks + reveals verdict).
   await page.locator('button[data-state="idle"]').first().click()
@@ -23,10 +23,10 @@ test('mobile UX walkthrough with screenshots', async ({ page }) => {
   await page.evaluate(() => window.scrollTo(0, 0))
   const nextBtn = page.getByRole('button', { name: /Další|Dokončit/ })
   await expect(nextBtn).toBeInViewport()
-  await page.screenshot({ path: 'test-results/m-answered-top.png' })
+  await page.screenshot({ path: 'e2e/shots/m-answered-top.png' })
 
   // Full page too, to inspect the reflow of the correct-answer label.
-  await page.screenshot({ path: 'test-results/m-answered-full.png', fullPage: true })
+  await page.screenshot({ path: 'e2e/shots/m-answered-full.png', fullPage: true })
 
   await nextBtn.click()
   await expect(page.getByText(/02 \//)).toBeVisible()

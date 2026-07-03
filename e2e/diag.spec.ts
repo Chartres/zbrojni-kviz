@@ -24,5 +24,5 @@ test('no horizontal overflow on any tab (mobile)', async ({ page }) => {
   await page.getByRole('link', { name: /Nauka — zbraně/ }).click()
   await page.getByRole('img', { name: /Kozlice/ }).scrollIntoViewIfNeeded()
   await page.waitForTimeout(400)
-  await page.screenshot({ path: 'test-results/m-guide-figures.png', fullPage: false })
+  await page.screenshot({ path: 'e2e/shots/m-guide-figures.png', fullPage: false })
 })
