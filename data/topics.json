@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "zakon-o-zbranich",
+    "category": "Zákon o zbraních",
+    "title": "Zákon o zbraních — testové otázky zdarma | Zbrojní kvíz",
+    "description": "Test ze zákona o zbraních (90/2024 Sb.) zdarma: všech {count} oficiálních otázek ke zkoušce odborné způsobilosti pro zbrojní průkaz. Bez reklam a bez registrace.",
+    "h1": "Zákon o zbraních — testové otázky",
+    "intro": "Procvičte si všech {count} oficiálních otázek z okruhu Zákon o zbraních — největší a nejdůležitější části zkoušky ke zbrojnímu průkazu. Každá odpověď dostane okamžitou zpětnou vazbu a chyby se vám samy vrací k zopakování.",
+    "faq": [
+      {
+        "q": "Kolik otázek ze zákona o zbraních je u zkoušky?",
+        "a": "Písemný test má 60 otázek, z nichž většina je z právní části — zákon o zbraních je zdaleka nejobsáhlejší okruh, proto se vyplatí ho procvičit celý."
+      },
+      {
+        "q": "Jsou otázky stejné jako u skutečné zkoušky?",
+        "a": "Ano, jde o oficiální soubor testových otázek Ministerstva vnitra ČR platný od roku 2026 (zákon 90/2024 Sb.), v plném znění."
+      }
+    ]
+  },
+  {
+    "slug": "provadeci-predpisy",
+    "category": "Prováděcí předpisy",
+    "title": "Prováděcí předpisy ke zbraním — test zdarma | Zbrojní kvíz",
+    "description": "Test z prováděcích předpisů k zákonu o zbraních zdarma: {count} oficiálních otázek ke zkoušce na zbrojní průkaz. Bez reklam a bez registrace.",
+    "h1": "Prováděcí předpisy — testové otázky",
+    "intro": "Procvičte si všech {count} oficiálních otázek z okruhu Prováděcí předpisy — vyhlášky a nařízení, které doplňují zákon o zbraních. Okamžitá zpětná vazba u každé odpovědi a automatické opakování chyb.",
+    "faq": [
+      {
+        "q": "Co patří mezi prováděcí předpisy?",
+        "a": "Vyhlášky a nařízení k zákonu o zbraních (např. o zkušebním řádu, o technických požadavcích na zbraně a střelivo), které upřesňují jeho jednotlivá ustanovení."
+      },
+      {
+        "q": "Je aplikace opravdu zdarma?",
+        "a": "Ano. Bez reklam, bez registrace a bez placených funkcí. Funguje offline i na mobilu."
+      }
+    ]
+  },
+  {
+    "slug": "jine-predpisy",
+    "category": "Jiné předpisy",
+    "title": "Jiné předpisy ke zbrojnímu průkazu — test zdarma | Zbrojní kvíz",
+    "description": "Test z jiných právních předpisů ke zbrojnímu průkazu zdarma: {count} oficiálních otázek ke zkoušce odborné způsobilosti. Bez reklam a bez registrace.",
+    "h1": "Jiné předpisy — testové otázky",
+    "intro": "Procvičte si všech {count} oficiálních otázek z okruhu Jiné předpisy — související právní úprava, kterou zkouška ke zbrojnímu průkazu prověřuje. Okamžitá zpětná vazba a automatické opakování chyb.",
+    "faq": [
+      {
+        "q": "Které předpisy sem patří?",
+        "a": "Související právní úprava mimo samotný zákon o zbraních — například pravidla nutné obrany, přestupky a další předpisy dotýkající se držení a nošení zbraní."
+      },
+      {
+        "q": "Jsou otázky oficiální?",
+        "a": "Ano — kompletní soubor testových otázek Ministerstva vnitra ČR platný od roku 2026."
+      }
+    ]
+  },
+  {
+    "slug": "nauka-o-zbranich",
+    "category": "Nauka o zbraních",
+    "title": "Nauka o zbraních a střelivu — test zdarma | Zbrojní kvíz",
+    "description": "Test z nauky o zbraních a střelivu zdarma: {count} oficiálních otázek ke zkoušce na zbrojní průkaz. Bez reklam a bez registrace.",
+    "h1": "Nauka o zbraních a střelivu — testové otázky",
+    "intro": "Procvičte si všech {count} oficiálních otázek z okruhu Nauka o zbraních — konstrukce zbraní, druhy střeliva a bezpečná manipulace. Okamžitá zpětná vazba u každé odpovědi a automatické opakování chyb.",
+    "faq": [
+      {
+        "q": "Co zahrnuje nauka o zbraních?",
+        "a": "Konstrukci a rozdělení zbraní, druhy střeliva, funkci jednotlivých částí a zásady bezpečné manipulace se zbraní."
+      },
+      {
+        "q": "Jsou otázky stejné jako u zkoušky?",
+        "a": "Ano, jde o oficiální otázky Ministerstva vnitra ČR platné od roku 2026 (zákon 90/2024 Sb.)."
+      }
+    ]
+  },
+  {
+    "slug": "zdravotnicke-minimum",
+    "category": "Zdravotnické minimum",
+    "title": "Zdravotnické minimum — test ke zbrojnímu průkazu zdarma | Zbrojní kvíz",
+    "description": "Test ze zdravotnického minima (první pomoc) ke zbrojnímu průkazu zdarma: {count} oficiálních otázek ke zkoušce. Bez reklam a bez registrace.",
+    "h1": "Zdravotnické minimum — testové otázky",
+    "intro": "Procvičte si všech {count} oficiálních otázek z okruhu Zdravotnické minimum — poskytnutí první pomoci při zranění zbraní. Okamžitá zpětná vazba u každé odpovědi a automatické opakování chyb.",
+    "faq": [
+      {
+        "q": "Co se u zdravotnického minima zkouší?",
+        "a": "Zásady poskytnutí první pomoci, zejména ošetření střelných a jiných zranění, než dorazí zdravotnická záchranná služba."
+      },
+      {
+        "q": "Je aplikace zdarma a offline?",
+        "a": "Ano. Bez reklam, bez registrace, funguje offline i na mobilu jako instalovatelná aplikace."
+      }
+    ]
+  }
+]

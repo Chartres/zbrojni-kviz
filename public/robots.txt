@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zbrojnikviz.dravec.org/sitemap.xml
