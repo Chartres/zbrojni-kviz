@@ -5,6 +5,7 @@ import { score, wrongAnswers } from '@/domain/session'
 import { getQuestion } from '@/domain/questions'
 import { makeRng, timeSeed } from '@/domain/rng'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { FeedbackCard } from '@/components/FeedbackCard'
 
 export function ResultsScreen() {
   const { state, dispatch } = useApp()
@@ -131,6 +132,8 @@ export function ResultsScreen() {
           Zpět na rozcestník
         </button>
       </div>
+
+      <FeedbackCard context={mode ?? 'results'} />
     </div>
   )
 }
