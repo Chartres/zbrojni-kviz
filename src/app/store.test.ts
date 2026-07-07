@@ -37,7 +37,7 @@ describe('app store', () => {
     for (let i = 0; i < total; i++) {
       const cur = currentQuestion(s.session!)!
       s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
-      s = reducer(s, { type: 'next' })
+      s = reducer(s, { type: 'next', now: i })
     }
     expect(s.view).toBe('results')
   })
@@ -52,7 +52,7 @@ describe('app store', () => {
     for (let i = 0; i < 60; i++) {
       const cur = currentQuestion(s.session!)!
       s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
-      s = reducer(s, { type: 'next' })
+      s = reducer(s, { type: 'next', now: i })
     }
     expect(s.view).toBe('results')
     expect(s.examResult?.passed).toBe(true)
@@ -62,9 +62,65 @@ describe('app store', () => {
   it('finishExam (time up) evaluates the partial session', () => {
     let s = start()
     s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })
-    s = reducer(s, { type: 'finishExam' })
+    s = reducer(s, { type: 'finishExam', now: 1000 })
     expect(s.view).toBe('results')
     expect(s.examResult?.passed).toBe(false)
+  })
+
+  it('records a persisted exam attempt when an exam is completed normally', () => {
+    let s = start()
+    s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })
+    for (let i = 0; i < 60; i++) {
+      const cur = currentQuestion(s.session!)!
+      s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
+      s = reducer(s, { type: 'next', now: 12345 })
+    }
+    expect(s.progress.examAttempts).toHaveLength(1)
+    expect(s.progress.examAttempts?.[0]).toMatchObject({
+      at: 12345,
+      score: 60,
+      total: 60,
+      passed: true,
+    })
+  })
+
+  it('records a persisted exam attempt when an exam times out (finishExam)', () => {
+    let s = start()
+    s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })
+    s = reducer(s, { type: 'finishExam', now: 99999 })
+    expect(s.progress.examAttempts).toHaveLength(1)
+    expect(s.progress.examAttempts?.[0]).toMatchObject({
+      at: 99999,
+      score: 0,
+      total: 60,
+      passed: false,
+    })
+  })
+
+  it('does not record an exam attempt for non-exam sessions', () => {
+    let s = start()
+    s = reducer(s, { type: 'setCategories', categories: new Set(['Jiné předpisy']) })
+    s = reducer(s, { type: 'startPractice', rng: makeRng(1) })
+    const total = s.session!.questions.length
+    for (let i = 0; i < total; i++) {
+      const cur = currentQuestion(s.session!)!
+      s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
+      s = reducer(s, { type: 'next', now: i })
+    }
+    expect(s.progress.examAttempts ?? []).toHaveLength(0)
+  })
+
+  it('starts a weak-area drill session', () => {
+    let p = emptyProgress()
+    // 3 wrong answers in the same category qualify it as weak
+    p = recordAnswer(p, 1, false, 1) // 'Zákon o zbraních'
+    p = recordAnswer(p, 2, false, 2)
+    p = recordAnswer(p, 3, false, 3)
+    let s = start({ progress: p })
+    s = reducer(s, { type: 'startWeakDrill', rng: makeRng(1) })
+    expect(s.mode).toBe('weakDrill')
+    expect(s.view).toBe('quiz')
+    expect(s.session?.questions.length).toBeGreaterThan(0)
   })
 
   it('starts a review session from the weak-spots queue', () => {
@@ -92,7 +148,7 @@ describe('app store', () => {
     for (let i = 0; i < total; i++) {
       const cur = currentQuestion(s.session!)!
       s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
-      s = reducer(s, { type: 'next', today: '2026-06-06' })
+      s = reducer(s, { type: 'next', today: '2026-06-06', now: i })
     }
     expect(s.view).toBe('results')
     expect(s.progress.streak.current).toBe(1)

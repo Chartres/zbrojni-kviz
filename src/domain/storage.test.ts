@@ -1,6 +1,13 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { loadProgress, saveProgress, STORAGE_KEY } from './storage'
-import { emptyProgress, recordAnswer, toggleBookmark } from './progress'
+import {
+  emptyProgress,
+  emptyStreak,
+  recordAnswer,
+  recordExamAttempt,
+  toggleBookmark,
+  PROGRESS_VERSION,
+} from './progress'
 
 beforeEach(() => localStorage.clear())
 
@@ -37,5 +44,33 @@ describe('progress persistence', () => {
     }
     expect(() => saveProgress(emptyProgress())).not.toThrow()
     Storage.prototype.setItem = orig
+  })
+
+  it('defaults examAttempts to [] for progress persisted before the field existed', () => {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        version: PROGRESS_VERSION,
+        stats: {},
+        bookmarks: [],
+        streak: emptyStreak(),
+        updatedAt: 0,
+        // no examAttempts key at all
+      }),
+    )
+    expect(loadProgress().examAttempts).toEqual([])
+  })
+
+  it('round-trips exam attempts through localStorage', () => {
+    let p = emptyProgress()
+    p = recordExamAttempt(p, {
+      at: 1000,
+      score: 58,
+      total: 60,
+      passed: true,
+      byCategory: { 'Zákon o zbraních': { correct: 20, total: 20 } },
+    })
+    saveProgress(p)
+    expect(loadProgress()).toEqual(p)
   })
 })
