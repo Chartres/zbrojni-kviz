@@ -18,11 +18,25 @@ export interface Streak {
   lastDate: string
 }
 
+/** A single completed (or timed-out) exam attempt, kept for history. */
+export interface ExamAttempt {
+  at: number
+  score: number
+  total: number
+  passed: boolean
+  byCategory: Record<string, { correct: number; total: number }>
+}
+
+/** Most exam attempts we keep per user — older ones roll off. */
+export const MAX_EXAM_ATTEMPTS = 50
+
 export interface ProgressData {
   version: number
   stats: Record<number, QuestionStat>
   bookmarks: number[]
   streak: Streak
+  /** Additive (PROGRESS_VERSION stays 1) — missing on progress persisted before this field existed. */
+  examAttempts?: ExamAttempt[]
   updatedAt: number
 }
 
@@ -38,7 +52,27 @@ export function emptyProgress(): ProgressData {
     stats: {},
     bookmarks: [],
     streak: emptyStreak(),
+    examAttempts: [],
     updatedAt: 0,
+  }
+}
+
+/**
+ * Record a completed exam attempt, newest-first (index 0 = most recent),
+ * capped at MAX_EXAM_ATTEMPTS.
+ */
+export function recordExamAttempt(
+  p: ProgressData,
+  attempt: ExamAttempt,
+): ProgressData {
+  const examAttempts = [attempt, ...(p.examAttempts ?? [])].slice(
+    0,
+    MAX_EXAM_ATTEMPTS,
+  )
+  return {
+    ...p,
+    examAttempts,
+    updatedAt: Math.max(p.updatedAt, attempt.at),
   }
 }
 
@@ -206,11 +240,22 @@ export function mergeProgress(
   const sa = a.streak ?? emptyStreak()
   const sb = b.streak ?? emptyStreak()
   const latest = sb.lastDate >= sa.lastDate ? sb : sa
+
+  // Union by `at` (dedupe same-instant duplicates), newest-first, capped.
+  const attemptsByAt = new Map<number, ExamAttempt>()
+  for (const attempt of [...(a.examAttempts ?? []), ...(b.examAttempts ?? [])]) {
+    attemptsByAt.set(attempt.at, attempt)
+  }
+  const examAttempts = [...attemptsByAt.values()]
+    .sort((x, y) => y.at - x.at)
+    .slice(0, MAX_EXAM_ATTEMPTS)
+
   return {
     version: PROGRESS_VERSION,
     stats,
     bookmarks: [...new Set([...a.bookmarks, ...b.bookmarks])],
     streak: { ...latest, best: Math.max(sa.best, sb.best) },
+    examAttempts,
     updatedAt: Math.max(a.updatedAt, b.updatedAt),
   }
 }

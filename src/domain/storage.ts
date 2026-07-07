@@ -28,6 +28,7 @@ export function loadProgress(): ProgressData {
       stats: parsed.stats ?? {},
       bookmarks: parsed.bookmarks ?? [],
       streak: parsed.streak ?? emptyStreak(),
+      examAttempts: parsed.examAttempts ?? [],
       updatedAt: parsed.updatedAt ?? 0,
     }
   } catch {

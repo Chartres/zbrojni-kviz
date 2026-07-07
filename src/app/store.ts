@@ -10,6 +10,7 @@ import {
 } from '@/domain/session'
 import {
   buildPractice,
+  buildWeakDrill,
   reviewQuestions,
   bookmarkedQuestions,
 } from '@/domain/selection'
@@ -17,17 +18,20 @@ import { buildExam, evaluateExam, EXAM, type ExamResult } from '@/domain/exam'
 import {
   emptyProgress,
   recordAnswer,
+  recordExamAttempt,
   recordLessonComplete,
   toggleBookmark,
+  type ExamAttempt,
   type ProgressData,
 } from '@/domain/progress'
 import { buildLesson } from '@/domain/lesson'
+import { ALL_QUESTIONS } from '@/domain/questions'
 import { shuffle } from '@/domain/rng'
 
 // Bottom-tab destinations (persistent nav) + focused full-screen flows.
 export type TabView = 'home' | 'practice' | 'stats' | 'guide'
 export type View = TabView | 'quiz' | 'exam' | 'results'
-export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam' | 'lesson'
+export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam' | 'lesson' | 'weakDrill'
 
 export const TAB_VIEWS: TabView[] = ['home', 'practice', 'stats', 'guide']
 export function isTabView(v: View): v is TabView {
@@ -66,13 +70,24 @@ export type Action =
   | { type: 'startPractice'; rng: Rng }
   | { type: 'startReview'; rng: Rng }
   | { type: 'startBookmarks'; rng: Rng }
+  | { type: 'startWeakDrill'; rng: Rng }
   | { type: 'startExam'; rng: Rng; now: number }
   | { type: 'answer'; choice: Choice; now: number }
-  | { type: 'next'; today?: string }
-  | { type: 'finishExam' }
+  | { type: 'next'; today?: string; now: number }
+  | { type: 'finishExam'; now: number }
   | { type: 'toggleBookmark'; id: number }
   | { type: 'goMenu' }
   | { type: 'navigate'; view: TabView }
+
+function toExamAttempt(result: ExamResult, now: number): ExamAttempt {
+  return {
+    at: now,
+    score: result.score,
+    total: result.total,
+    passed: result.passed,
+    byCategory: result.byCategory as Record<string, { correct: number; total: number }>,
+  }
+}
 
 function begin(state: AppState, mode: Mode, questions: SessionState): AppState {
   return {
@@ -124,6 +139,13 @@ export function reducer(state: AppState, action: Action): AppState {
         createSession(shuffle(bookmarkedQuestions(state.progress), action.rng)),
       )
 
+    case 'startWeakDrill':
+      return begin(
+        state,
+        'weakDrill',
+        createSession(buildWeakDrill(ALL_QUESTIONS, state.progress, action.rng)),
+      )
+
     case 'startExam':
       return {
         ...begin(state, 'exam', createSession(buildExam(action.rng))),
@@ -147,15 +169,20 @@ export function reducer(state: AppState, action: Action): AppState {
       if (!state.session) return state
       const session = advance(state.session)
       if (isFinished(session)) {
+        const examResult = state.mode === 'exam' ? evaluateExam(session) : null
+        let progress = state.progress
+        if (state.mode === 'lesson' && action.today) {
+          progress = recordLessonComplete(progress, action.today)
+        }
+        if (examResult) {
+          progress = recordExamAttempt(progress, toExamAttempt(examResult, action.now))
+        }
         return {
           ...state,
           session,
           view: 'results',
-          examResult: state.mode === 'exam' ? evaluateExam(session) : null,
-          progress:
-            state.mode === 'lesson' && action.today
-              ? recordLessonComplete(state.progress, action.today)
-              : state.progress,
+          examResult,
+          progress,
         }
       }
       return { ...state, session }
@@ -163,11 +190,13 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'finishExam': {
       if (!state.session) return state
+      const examResult = evaluateExam(state.session)
       return {
         ...state,
         view: 'results',
-        examResult: evaluateExam(state.session),
+        examResult,
         examEndsAt: null,
+        progress: recordExamAttempt(state.progress, toExamAttempt(examResult, action.now)),
       }
     }
 

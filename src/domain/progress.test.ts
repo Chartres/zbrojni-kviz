@@ -15,7 +15,10 @@ import {
   summary,
   mergeProgress,
   recordLessonComplete,
+  recordExamAttempt,
   MASTERY_STREAK,
+  MAX_EXAM_ATTEMPTS,
+  type ExamAttempt,
 } from './progress'
 
 function q(id: number, cat: Question['cat'] = 'Zákon o zbraních'): Question {
@@ -173,5 +176,70 @@ describe('mergeProgress (offline ↔ cloud sync)', () => {
     let p = emptyProgress()
     p = recordAnswer(p, 1, true, 100)
     expect(mergeProgress(p, p)).toEqual(p)
+  })
+})
+
+function attempt(at: number, overrides: Partial<ExamAttempt> = {}): ExamAttempt {
+  return {
+    at,
+    score: 57,
+    total: 60,
+    passed: true,
+    byCategory: { 'Zákon o zbraních': { correct: 20, total: 20 } },
+    ...overrides,
+  }
+}
+
+describe('recordExamAttempt', () => {
+  it('prepends the new attempt (newest-first ordering)', () => {
+    let p = emptyProgress()
+    p = recordExamAttempt(p, attempt(100))
+    p = recordExamAttempt(p, attempt(200))
+    expect(p.examAttempts?.map((a) => a.at)).toEqual([200, 100])
+  })
+
+  it('caps stored attempts at MAX_EXAM_ATTEMPTS, dropping the oldest', () => {
+    let p = emptyProgress()
+    for (let i = 0; i < MAX_EXAM_ATTEMPTS + 5; i++) {
+      p = recordExamAttempt(p, attempt(i))
+    }
+    expect(p.examAttempts).toHaveLength(MAX_EXAM_ATTEMPTS)
+    // newest-first: most recent (highest `at`) survives, oldest are dropped
+    expect(p.examAttempts?.[0].at).toBe(MAX_EXAM_ATTEMPTS + 4)
+    expect(p.examAttempts?.at(-1)?.at).toBe(5)
+  })
+
+  it('bumps updatedAt to the attempt time', () => {
+    let p = emptyProgress()
+    p = recordExamAttempt(p, attempt(500))
+    expect(p.updatedAt).toBe(500)
+  })
+})
+
+describe('mergeProgress — exam attempts', () => {
+  it('unions attempts from both sides, dedupes by `at`, and sorts newest-first', () => {
+    let local = emptyProgress()
+    local = recordExamAttempt(local, attempt(100))
+    local = recordExamAttempt(local, attempt(300))
+
+    let remote = emptyProgress()
+    remote = recordExamAttempt(remote, attempt(200))
+    remote = recordExamAttempt(remote, attempt(300, { score: 40, passed: false })) // same `at`, remote wins
+
+    const merged = mergeProgress(local, remote)
+    expect(merged.examAttempts?.map((a) => a.at)).toEqual([300, 200, 100])
+    expect(merged.examAttempts?.[0]).toMatchObject({ score: 40, passed: false })
+  })
+
+  it('caps the merged attempt list at MAX_EXAM_ATTEMPTS', () => {
+    let local = emptyProgress()
+    let remote = emptyProgress()
+    for (let i = 0; i < MAX_EXAM_ATTEMPTS; i++) local = recordExamAttempt(local, attempt(i))
+    for (let i = MAX_EXAM_ATTEMPTS; i < MAX_EXAM_ATTEMPTS * 2; i++) {
+      remote = recordExamAttempt(remote, attempt(i))
+    }
+    const merged = mergeProgress(local, remote)
+    expect(merged.examAttempts).toHaveLength(MAX_EXAM_ATTEMPTS)
+    expect(merged.examAttempts?.[0].at).toBe(MAX_EXAM_ATTEMPTS * 2 - 1)
   })
 })

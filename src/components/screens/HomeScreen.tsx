@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { ALL_QUESTIONS } from '@/domain/questions'
 import { summary, needsReviewIds } from '@/domain/progress'
+import { weakCategories } from '@/domain/selection'
 import { LESSON_SIZE } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
@@ -12,6 +13,10 @@ export function HomeScreen() {
   const sum = useMemo(() => summary(state.progress, ALL_QUESTIONS), [state.progress])
   const reviewCount = useMemo(
     () => needsReviewIds(state.progress).length,
+    [state.progress],
+  )
+  const weak = useMemo(
+    () => weakCategories(ALL_QUESTIONS, state.progress),
     [state.progress],
   )
   const streak = state.progress.streak.current
@@ -72,6 +77,25 @@ export function HomeScreen() {
           <span className="font-medium text-steel-100">Opakovat chyby</span>
           <span className="font-mono text-sm text-rust-400 tabular-nums">
             {reviewCount} otázek →
+          </span>
+        </button>
+      )}
+
+      {/* Weak-area drill: worst-performing categories */}
+      {weak.length > 0 && (
+        <button
+          type="button"
+          onClick={() => {
+            track('start_weak_drill')
+            dispatch({ type: 'startWeakDrill', rng: rng() })
+          }}
+          className="mb-3 flex w-full items-center justify-between rounded-card border border-steel-700 bg-steel-800/40 px-5 py-3.5 text-left transition-colors hover:border-steel-500"
+        >
+          <span className="font-medium text-steel-100">
+            Slabá místa: {weak.map((w) => w.cat).join(' · ')}
+          </span>
+          <span className="font-mono text-sm text-rust-400 tabular-nums">
+            {Math.round(weak[0].accuracy * 100)}% →
           </span>
         </button>
       )}

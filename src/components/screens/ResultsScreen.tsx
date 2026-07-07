@@ -1,15 +1,20 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { track } from '@/analytics'
 import { score, wrongAnswers } from '@/domain/session'
-import { getQuestion } from '@/domain/questions'
+import { getQuestion, ALL_QUESTIONS } from '@/domain/questions'
 import { makeRng, timeSeed } from '@/domain/rng'
+import { weakCategories } from '@/domain/selection'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { FeedbackCard } from '@/components/FeedbackCard'
 
 export function ResultsScreen() {
   const { state, dispatch } = useApp()
   const { session, examResult, mode } = state
+  const hasWeakCategories = useMemo(
+    () => weakCategories(ALL_QUESTIONS, state.progress).length > 0,
+    [state.progress],
+  )
   if (!session) return null
 
   const total = session.questions.length
@@ -17,6 +22,7 @@ export function ResultsScreen() {
   const wrong = wrongAnswers(session)
   const isExam = mode === 'exam'
   const isLesson = mode === 'lesson'
+  const failedExam = isExam && examResult != null && !examResult.passed
 
   useEffect(() => {
     const name = isExam ? 'exam_finish' : isLesson ? 'lesson_complete' : 'session_finish'
@@ -122,6 +128,15 @@ export function ResultsScreen() {
             className="rounded-card border border-steel-600 px-5 py-2.5 font-semibold text-steel-200 hover:border-steel-400"
           >
             Opakovat chyby
+          </button>
+        )}
+        {failedExam && hasWeakCategories && (
+          <button
+            type="button"
+            onClick={() => dispatch({ type: 'startWeakDrill', rng: makeRng(timeSeed()) })}
+            className="rounded-card border border-steel-600 px-5 py-2.5 font-semibold text-steel-200 hover:border-steel-400"
+          >
+            Procvičit slabá místa
           </button>
         )}
         <button

@@ -14,12 +14,16 @@ const MODE_LABEL: Record<string, string> = {
   review: 'Opakování chyb',
   bookmarks: 'Záložky',
   exam: 'Zkušební test',
+  weakDrill: 'Slabá místa',
 }
 
 export function QuizScreen() {
   const { state, dispatch } = useApp()
   const { session, mode } = state
-  const onExpire = useCallback(() => dispatch({ type: 'finishExam' }), [dispatch])
+  const onExpire = useCallback(
+    () => dispatch({ type: 'finishExam', now: Date.now() }),
+    [dispatch],
+  )
 
   if (!session || !mode) return null
   const question = currentQuestion(session)
@@ -73,7 +77,7 @@ export function QuizScreen() {
         index={session.index}
         total={session.questions.length}
         onAnswer={(choice) => dispatch({ type: 'answer', choice, now: Date.now() })}
-        onNext={() => dispatch({ type: 'next', today: todayStr() })}
+        onNext={() => dispatch({ type: 'next', today: todayStr(), now: Date.now() })}
         onToggleBookmark={() =>
           dispatch({ type: 'toggleBookmark', id: question.id })
         }
