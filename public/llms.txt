@@ -1,0 +1,42 @@
+# Zbrojní kvíz
+
+> Bezplatný trenažér ke zkoušce odborné způsobilosti pro zbrojní oprávnění v České republice
+> (zákon č. 90/2024 Sb., platný od 2026): všech 837 oficiálních testových otázek Ministerstva
+> vnitra včetně obrázků, procvičování podle okruhů, opakování chyb a simulace zkoušky ve
+> skutečném formátu (60 otázek, 80 minut, 57 správných k úspěchu). Bez registrace, bez reklam;
+> funguje offline i na mobilu. Česky.
+
+## What it is
+- A practice app for the Czech firearms-licence theory exam ("zbrojní průkaz / zbrojní
+  oprávnění", Act 90/2024 Sb.).
+- Question bank: all 837 official questions extracted directly from the Ministry of the
+  Interior's published PDF (not a third-party copy), with their images; the extraction
+  reconciled and fixed errors found in older unofficial copies.
+- Learning design: practice with immediate, calm feedback; mastery per okruh, not grades;
+  missed questions resurface via spaced repetition ("weak-area drill"); persisted exam history.
+- Exam simulation in the official composition: 52 legal + 5 weapons-science + 3 first-aid
+  questions, 80-minute timer, pass at 57/60, per-category breakdown.
+- Free, no account needed; optional Google / magic-link sign-in only to sync progress between
+  devices. First-party anonymous usage counts only, no third-party trackers.
+
+## How to use it
+- https://zbrojnikviz.dravec.org/ — pick an okruh, drill weak spots, or start the mock exam;
+  progress is kept on the device.
+- Topic pages are real URLs under https://zbrojnikviz.dravec.org/okruh/… (see the sitemap).
+
+## Data & provenance
+- Official question set of the Ministry of the Interior (Ministerstvo vnitra ČR) for the
+  2026 exam; extraction and verification notes:
+  https://github.com/Chartres/zbrojni-kviz/blob/main/data/README.md
+- A study aid, not the exam: the official test is administered by the Police of the Czech
+  Republic.
+
+## Links
+- App: https://zbrojnikviz.dravec.org/
+- Source code: https://github.com/Chartres/zbrojni-kviz
+- Sitemap: https://zbrojnikviz.dravec.org/sitemap.xml
+- Sibling app for the driving-licence exam: https://autoskola.dravec.org/
+- More from the author: https://flywheel.dravec.org/
+
+## Contact
+- Issues: https://github.com/Chartres/zbrojni-kviz/issues
