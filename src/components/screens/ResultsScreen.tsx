@@ -15,6 +15,16 @@ export function ResultsScreen() {
     () => weakCategories(ALL_QUESTIONS, state.progress).length > 0,
     [state.progress],
   )
+  useEffect(() => {
+    if (!session) return
+    const s = score(session)
+    const t = session.questions.length
+    const name = mode === 'exam' ? 'exam_finish' : mode === 'lesson' ? 'lesson_complete' : 'session_finish'
+    track(name, { mode, score: s, total: t, passed: examResult?.passed })
+    // fire once per results view
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   if (!session) return null
 
   const total = session.questions.length
@@ -23,13 +33,6 @@ export function ResultsScreen() {
   const isExam = mode === 'exam'
   const isLesson = mode === 'lesson'
   const failedExam = isExam && examResult != null && !examResult.passed
-
-  useEffect(() => {
-    const name = isExam ? 'exam_finish' : isLesson ? 'lesson_complete' : 'session_finish'
-    track(name, { mode, score: correct, total, passed: examResult?.passed })
-    // fire once per results view
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-10">
