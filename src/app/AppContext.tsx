@@ -50,7 +50,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [])
 
   // Persist progress locally whenever it changes (offline-first source of truth).
+  // Skip the first render: state starts as initialState (empty), and the hydrate
+  // effect hasn't dispatched yet — saving here would overwrite persisted localStorage.
+  const persistInitialized = useRef(false)
   useEffect(() => {
+    if (!persistInitialized.current) {
+      persistInitialized.current = true
+      return
+    }
     saveProgress(state.progress)
   }, [state.progress])
 
