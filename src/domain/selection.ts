@@ -82,7 +82,8 @@ export function weakCategories(
   const qualifying: WeakCategory[] = []
   for (const [cat, entry] of byCat) {
     if (entry.seenQuestions < MIN_SEEN_FOR_WEAK_CATEGORY) continue
-    const accuracy = entry.attempts === 0 ? 1 : entry.correct / entry.attempts
+    // attempts >= seenQuestions >= 1 here — entries only exist for seen questions
+    const accuracy = entry.correct / entry.attempts
     if (accuracy >= 1) continue // no errors here — not "weak"
     qualifying.push({ cat, seenQuestions: entry.seenQuestions, accuracy })
   }
