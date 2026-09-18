@@ -58,6 +58,25 @@ export function emptyProgress(): ProgressData {
 }
 
 /**
+ * Normalise a persisted snapshot (localStorage or cloud) into full ProgressData,
+ * filling in fields added after it was written. Returns null when the snapshot is
+ * absent or from a different PROGRESS_VERSION — callers decide the fallback.
+ */
+export function normalizeProgress(
+  stored: Partial<ProgressData> | null | undefined,
+): ProgressData | null {
+  if (!stored || stored.version !== PROGRESS_VERSION) return null
+  return {
+    version: PROGRESS_VERSION,
+    stats: stored.stats ?? {},
+    bookmarks: Array.isArray(stored.bookmarks) ? stored.bookmarks : [],
+    streak: stored.streak ?? emptyStreak(),
+    examAttempts: stored.examAttempts ?? [],
+    updatedAt: stored.updatedAt ?? 0,
+  }
+}
+
+/**
  * Record a completed exam attempt, newest-first (index 0 = most recent),
  * capped at MAX_EXAM_ATTEMPTS.
  */
