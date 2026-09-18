@@ -38,8 +38,8 @@ function questionsFor(ids: number[]): Question[] {
     .filter((q): q is Question => q !== undefined)
 }
 
-export function reviewQuestions(p: ProgressData, now = 0): Question[] {
-  return questionsFor(dueForReview(p, now))
+export function reviewQuestions(p: ProgressData): Question[] {
+  return questionsFor(dueForReview(p))
 }
 
 export function bookmarkedQuestions(p: ProgressData): Question[] {
