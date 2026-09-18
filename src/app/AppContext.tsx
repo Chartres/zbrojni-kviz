@@ -3,6 +3,7 @@ import {
   useContext,
   useEffect,
   useReducer,
+  useRef,
   type ReactNode,
 } from 'react'
 import { reducer, initialState, type AppState, type Action } from './store'
@@ -24,6 +25,17 @@ const AppContext = createContext<AppContextValue | null>(null)
 export function AppProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, undefined, initialState)
   const { user } = useAuth()
+
+  // On sign-out: wipe local state so a subsequent sign-in sees a clean slate.
+  const signedInRef = useRef(false)
+  useEffect(() => {
+    if (user) {
+      signedInRef.current = true
+    } else if (signedInRef.current) {
+      signedInRef.current = false
+      dispatch({ type: 'hydrate', progress: initialState().progress })
+    }
+  }, [user])
 
   // Hydrate persisted progress once on mount.
   useEffect(() => {
