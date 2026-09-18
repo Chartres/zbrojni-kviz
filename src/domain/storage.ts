@@ -1,9 +1,4 @@
-import {
-  emptyProgress,
-  emptyStreak,
-  PROGRESS_VERSION,
-  type ProgressData,
-} from './progress'
+import { emptyProgress, normalizeProgress, type ProgressData } from './progress'
 
 export const STORAGE_KEY = 'zbrojni-kviz:progress:v1'
 
@@ -21,16 +16,7 @@ export function loadProgress(): ProgressData {
   try {
     const raw = s.getItem(STORAGE_KEY)
     if (!raw) return emptyProgress()
-    const parsed = JSON.parse(raw) as Partial<ProgressData>
-    if (parsed.version !== PROGRESS_VERSION) return emptyProgress()
-    return {
-      version: PROGRESS_VERSION,
-      stats: parsed.stats ?? {},
-      bookmarks: parsed.bookmarks ?? [],
-      streak: parsed.streak ?? emptyStreak(),
-      examAttempts: parsed.examAttempts ?? [],
-      updatedAt: parsed.updatedAt ?? 0,
-    }
+    return normalizeProgress(JSON.parse(raw) as Partial<ProgressData>) ?? emptyProgress()
   } catch {
     return emptyProgress()
   }
