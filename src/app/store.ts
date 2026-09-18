@@ -4,7 +4,6 @@ import {
   createSession,
   answerCurrent,
   advance,
-  currentQuestion,
   isFinished,
   type SessionState,
 } from '@/domain/session'
@@ -154,14 +153,15 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'answer': {
       if (!state.session) return state
-      const cur = currentQuestion(state.session)
-      if (!cur || state.session.chosen[cur.id] !== undefined) return state
+      // answerCurrent no-ops (returns the same object) when there's no current
+      // question or it was already answered, and records id/correct for us.
       const session = answerCurrent(state.session, action.choice)
-      const correct = action.choice === cur.correct
+      if (session === state.session) return state
+      const rec = session.records[session.records.length - 1]
       return {
         ...state,
         session,
-        progress: recordAnswer(state.progress, cur.id, correct, action.now),
+        progress: recordAnswer(state.progress, rec.id, rec.correct, action.now),
       }
     }
 
