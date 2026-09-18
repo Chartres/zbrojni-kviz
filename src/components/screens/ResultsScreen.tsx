@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
-import { track } from '@/analytics'
+import { track, conversion } from '@/analytics'
 import { score, wrongAnswers } from '@/domain/session'
 import { getQuestion, ALL_QUESTIONS } from '@/domain/questions'
 import { makeRng, timeSeed } from '@/domain/rng'
@@ -21,6 +21,7 @@ export function ResultsScreen() {
     const t = session.questions.length
     const name = mode === 'exam' ? 'exam_finish' : mode === 'lesson' ? 'lesson_complete' : 'session_finish'
     track(name, { mode, score: s, total: t, passed: examResult?.passed })
+    if (mode === 'lesson') conversion({ score: s, total: t })
     // fire once per results view
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

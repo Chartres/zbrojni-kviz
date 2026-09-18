@@ -6,7 +6,7 @@ import type { SessionState } from '@/domain/session'
 import type { Question } from '@/domain/types'
 
 const track = vi.fn()
-vi.mock('@/analytics', () => ({ track: (...a: unknown[]) => track(...a), feedback: vi.fn() }))
+vi.mock('@/analytics', () => ({ track: (...a: unknown[]) => track(...a), feedback: vi.fn(), conversion: vi.fn() }))
 
 const Q: Question = {
   id: 1,
