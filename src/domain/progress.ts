@@ -239,7 +239,19 @@ export function mergeProgress(
   }
   const sa = a.streak ?? emptyStreak()
   const sb = b.streak ?? emptyStreak()
-  const latest = sb.lastDate >= sa.lastDate ? sb : sa
+  // When both sides have activity within 1 day of each other (same device or
+  // same calendar day), prefer the higher current streak rather than blindly
+  // taking the one with the later date (which could be a 1-day streak
+  // clobbering a 40-day streak). Otherwise take the more recent side as the
+  // active one.
+  const daysBetween =
+    sa.lastDate && sb.lastDate
+      ? Math.abs(Date.parse(sa.lastDate) - Date.parse(sb.lastDate)) / 86_400_000
+      : Infinity
+  const streakBase =
+    daysBetween <= 1
+      ? (sa.current >= sb.current ? sa : sb)
+      : sb.lastDate >= sa.lastDate ? sb : sa
 
   // Union by `at` (dedupe same-instant duplicates), newest-first, capped.
   const attemptsByAt = new Map<number, ExamAttempt>()
@@ -254,7 +266,7 @@ export function mergeProgress(
     version: PROGRESS_VERSION,
     stats,
     bookmarks: [...new Set([...a.bookmarks, ...b.bookmarks])],
-    streak: { ...latest, best: Math.max(sa.best, sb.best) },
+    streak: { ...streakBase, best: Math.max(sa.best, sb.best) },
     examAttempts,
     updatedAt: Math.max(a.updatedAt, b.updatedAt),
   }
