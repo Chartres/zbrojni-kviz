@@ -16,13 +16,13 @@ export async function syncProgress(
   userId: string,
   local: ProgressData,
 ): Promise<ProgressData> {
-  let remote: ProgressData | null
+  let merged: ProgressData
   try {
-    remote = await store.fetch(userId)
+    const remote = await store.fetch(userId)
+    merged = remote ? mergeProgress(local, remote) : local
   } catch {
     return local
   }
-  const merged = remote ? mergeProgress(local, remote) : local
   try {
     await store.save(userId, merged)
   } catch {
