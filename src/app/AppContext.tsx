@@ -84,6 +84,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
         justSyncedRef.current = true
         dispatch({ type: 'hydrate', progress: merged })
       }
+    }).catch(() => {
+      syncInProgressRef.current = false
+      justSyncedRef.current = false
     })
     return () => {
       cancelled = true
