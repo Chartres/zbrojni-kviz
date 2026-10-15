@@ -32,16 +32,18 @@ export function buildPractice(opts: FilterOptions, rng: Rng): Question[] {
   return shuffle(filterQuestions(opts), rng)
 }
 
-export function reviewQuestions(p: ProgressData, now = 0): Question[] {
-  return dueForReview(p, now)
+function questionsFor(ids: number[]): Question[] {
+  return ids
     .map((id) => getQuestion(id))
     .filter((q): q is Question => q !== undefined)
 }
 
+export function reviewQuestions(p: ProgressData, now = 0): Question[] {
+  return questionsFor(dueForReview(p, now))
+}
+
 export function bookmarkedQuestions(p: ProgressData): Question[] {
-  return p.bookmarks
-    .map((id) => getQuestion(id))
-    .filter((q): q is Question => q !== undefined)
+  return questionsFor(p.bookmarks)
 }
 
 /** A category only qualifies as "weak" once it has this many distinct seen questions. */
