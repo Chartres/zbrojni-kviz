@@ -8,7 +8,7 @@ import {
 } from 'react'
 import { reducer, initialState, type AppState, type Action } from './store'
 import { loadProgress, saveProgress } from '@/domain/storage'
-import { emptyProgress } from '@/domain/progress'
+import { emptyProgress, mergeProgress } from '@/domain/progress'
 import { topicFromPath } from '@/lib/topics'
 import { makeRng, timeSeed } from '@/domain/rng'
 import { useAuth } from '@/auth/AuthContext'
@@ -80,9 +80,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     syncInProgressRef.current = true
     syncProgress(supabaseStore, user.id, loadProgress()).then((merged) => {
       if (!cancelled) {
+        // Re-merge with the latest local state to recover any answers
+        // recorded while the sync was in flight (H1).
+        const reconciled = mergeProgress(merged, loadProgress())
         syncInProgressRef.current = false
         justSyncedRef.current = true
-        dispatch({ type: 'hydrate', progress: merged })
+        dispatch({ type: 'hydrate', progress: reconciled })
       }
     }).catch(() => {
       syncInProgressRef.current = false
