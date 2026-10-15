@@ -8,6 +8,7 @@ import { LESSON_SIZE } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { todayStr } from '@/lib/date'
 
 export function HomeScreen() {
   const { state, dispatch } = useApp()
@@ -20,7 +21,7 @@ export function HomeScreen() {
     () => weakCategories(ALL_QUESTIONS, state.progress),
     [state.progress],
   )
-  const streak = state.progress.streak.current
+  const streak = state.progress.streak.lastDate === todayStr() ? state.progress.streak.current : 0
   const rng = () => makeRng(timeSeed())
 
   return (
