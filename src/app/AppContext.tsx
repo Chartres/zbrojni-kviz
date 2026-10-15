@@ -68,6 +68,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
       }
       return
     }
+    // Account switch A→B: wipe A's local data before syncing B's cloud row.
+    if (prevUserIdRef.current !== undefined && prevUserIdRef.current !== user.id) {
+      saveProgress(emptyProgress())
+      dispatch({ type: 'hydrate', progress: emptyProgress() })
+      syncInProgressRef.current = false
+      justSyncedRef.current = false
+    }
     prevUserIdRef.current = user.id
     let cancelled = false
     syncInProgressRef.current = true
