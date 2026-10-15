@@ -33,6 +33,37 @@ beforeEach(() => {
 })
 
 describe('AppContext sync wiring', () => {
+  it('wipes progress on sign-out', async () => {
+    const synced = recordAnswer(emptyProgress(), 99, true, 100)
+    vi.mocked(syncProgress).mockResolvedValue(synced)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+
+    const { rerender } = render(
+      <AppProvider>
+        <Observer />
+      </AppProvider>,
+    )
+
+    // sign in and let sync settle
+    await act(async () => {
+      await Promise.resolve()
+      await Promise.resolve()
+    })
+    expect(screen.getByTestId('count').textContent).toBe('1')
+
+    // sign out
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: null })
+    await act(async () => {
+      rerender(
+        <AppProvider>
+          <Observer />
+        </AppProvider>,
+      )
+    })
+
+    expect(screen.getByTestId('count').textContent).toBe('0')
+  })
+
   it('hydrates state after sign-in sync and blocks the debounced save', async () => {
     vi.useFakeTimers()
 
