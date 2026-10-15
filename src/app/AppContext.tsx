@@ -79,8 +79,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     let cancelled = false
     syncInProgressRef.current = true
     syncProgress(supabaseStore, user.id, loadProgress()).then((merged) => {
-      syncInProgressRef.current = false
       if (!cancelled) {
+        syncInProgressRef.current = false
         justSyncedRef.current = true
         dispatch({ type: 'hydrate', progress: merged })
       }
