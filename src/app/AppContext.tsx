@@ -33,7 +33,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // True for exactly one render after a sync hydrate; skips the redundant
   // upload that would immediately re-trigger after the merge (H1/L10).
   const justSyncedRef = useRef(false)
-  // Tracks the previous user id to distinguish a real sign-out from initial load (H3).
+  // Last signed-in user id, kept through a sign-out so signing in as a
+  // different account on this device starts clean (H4).
   const prevUserIdRef = useRef<string | undefined>(undefined)
 
   // Hydrate persisted progress once on mount.
@@ -62,17 +63,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [state.progress])
 
   // On sign-in: reconcile local progress with the cloud and adopt the merge.
-  // On sign-out: wipe local progress so the next account starts clean (H3).
+  // Sign-out keeps local progress: user=null also fires on a revoked session,
+  // and wiping then would lose anything not yet uploaded.
   useEffect(() => {
     if (!user) {
-      if (prevUserIdRef.current !== undefined) {
-        // Real sign-out (had a user, now null).
-        prevUserIdRef.current = undefined
-        syncInProgressRef.current = false
-        justSyncedRef.current = false
-        saveProgress(emptyProgress())
-        dispatch({ type: 'hydrate', progress: emptyProgress() })
-      }
+      justSyncedRef.current = false
       return
     }
     // Account switch A→B: wipe A's local data before syncing B's cloud row.
@@ -85,14 +80,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
     prevUserIdRef.current = user.id
     let cancelled = false
     syncInProgressRef.current = true
-    syncProgress(supabaseStore, user.id, loadProgress()).then((merged) => {
+    const local = loadProgress()
+    syncProgress(supabaseStore, user.id, local).then((merged) => {
       if (!cancelled) {
         // Re-merge with the latest local state to recover any answers
         // recorded while the sync was in flight (H1).
-        const reconciled = mergeProgress(merged, loadProgress())
+        const latest = loadProgress()
         syncInProgressRef.current = false
-        justSyncedRef.current = true
-        dispatch({ type: 'hydrate', progress: reconciled })
+        // syncProgress already uploaded `merged`; skip the next upload only if
+        // nothing changed locally meanwhile, else those changes must go up too.
+        justSyncedRef.current = JSON.stringify(latest) === JSON.stringify(local)
+        dispatch({ type: 'hydrate', progress: mergeProgress(merged, latest) })
       }
     }).catch(() => {
       syncInProgressRef.current = false

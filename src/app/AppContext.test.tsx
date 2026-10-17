@@ -58,34 +58,44 @@ afterEach(() => {
 })
 
 describe('AppContext sync wiring', () => {
-  it('wipes progress on sign-out', async () => {
+  it('keeps local progress on sign-out', async () => {
     const synced = recordAnswer(emptyProgress(), 99, true, 100)
     vi.mocked(syncProgress).mockResolvedValue(synced)
     vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
-
-    const { rerender } = render(
-      <AppProvider>
-        <Observer />
-      </AppProvider>,
-    )
-
-    // sign in and let sync settle
-    await act(async () => {
-      await Promise.resolve()
-      await Promise.resolve()
-    })
+    const { rerender } = render(app())
+    await act(flush)
     expect(screen.getByTestId('count').textContent).toBe('1')
 
-    // sign out
+    // sign out (explicit or a revoked session): nothing unsynced may be lost
     vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: null })
     await act(async () => {
-      rerender(
-        <AppProvider>
-          <Observer />
-        </AppProvider>,
-      )
+      rerender(app())
     })
 
+    expect(screen.getByTestId('count').textContent).toBe('1')
+    expect(Object.keys(JSON.parse(localStorage.getItem(STORAGE_KEY)!).stats)).toEqual(['99'])
+  })
+
+  it('signing in as another account after a sign-out starts clean', async () => {
+    vi.mocked(syncProgress).mockImplementation(async (_store, userId, local) =>
+      userId === 'u1' ? recordAnswer(emptyProgress(), 99, true, 100) : local,
+    )
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    const { rerender } = render(app())
+    await act(flush)
+
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: null })
+    await act(async () => {
+      rerender(app())
+    })
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u2' } })
+    await act(async () => {
+      rerender(app())
+    })
+    await act(flush)
+
+    expect(vi.mocked(syncProgress).mock.calls[1][1]).toBe('u2')
+    expect(vi.mocked(syncProgress).mock.calls[1][2].stats).toEqual({})
     expect(screen.getByTestId('count').textContent).toBe('0')
   })
 
@@ -208,5 +218,84 @@ describe('AppContext sync wiring', () => {
 
     expect(screen.getByTestId('count').textContent).toBe('1')
     expect(screen.getByTestId('bookmarks').textContent).toBe('1')
+  })
+
+  it('does not upload while the sign-in sync is in flight', async () => {
+    vi.useFakeTimers()
+    vi.mocked(syncProgress).mockReturnValue(new Promise<ProgressData>(() => {}))
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+
+    // an upload here would overwrite the cloud row before the merge reads it
+    expect(vi.mocked(supabaseStore.save)).not.toHaveBeenCalled()
+  })
+
+  it('uploads changes made during the sync once it lands', async () => {
+    vi.useFakeTimers()
+    let finishSync!: (p: ProgressData) => void
+    vi.mocked(syncProgress).mockReturnValue(
+      new Promise<ProgressData>((resolve) => {
+        finishSync = resolve
+      }),
+    )
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    // syncProgress already uploaded this snapshot; the bookmark is not in it
+    await act(async () => {
+      finishSync(recordAnswer(emptyProgress(), 99, true, 100))
+      await flush()
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+
+    expect(vi.mocked(supabaseStore.save)).toHaveBeenCalledTimes(1)
+    const uploaded = vi.mocked(supabaseStore.save).mock.calls[0][1]
+    expect(uploaded.bookmarks).toEqual([5])
+    expect(Object.keys(uploaded.stats)).toEqual(['99'])
+  })
+
+  it('ignores a sync for the previous account that lands after a switch', async () => {
+    vi.useFakeTimers()
+    let finishU1!: (p: ProgressData) => void
+    vi.mocked(syncProgress).mockImplementation((_store, userId) =>
+      userId === 'u1'
+        ? new Promise<ProgressData>((resolve) => {
+            finishU1 = resolve
+          })
+        : new Promise<ProgressData>(() => {}),
+    )
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    const { rerender } = render(app())
+
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u2' } })
+    await act(async () => {
+      rerender(app())
+    })
+    await act(async () => {
+      finishU1(recordAnswer(emptyProgress(), 99, true, 100))
+      await flush()
+    })
+    expect(screen.getByTestId('count').textContent).toBe('0')
+
+    // u2's sync is still pending, so uploads stay blocked
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    expect(vi.mocked(supabaseStore.save)).not.toHaveBeenCalled()
   })
 })
