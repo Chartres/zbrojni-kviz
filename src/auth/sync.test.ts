@@ -70,4 +70,13 @@ describe('syncProgress', () => {
     expect(merged.stats[3]?.seen).toBe(1)
     expect(store.save).toHaveBeenCalled()
   })
+
+  it('returns local unchanged when the cloud row cannot be merged', async () => {
+    const local = recordAnswer(emptyProgress(), 5, true, 1)
+    // a corrupt row: stats is not an object, so mergeProgress throws
+    const bad = { ...emptyProgress(), stats: null } as unknown as ReturnType<typeof emptyProgress>
+    const store = fakeStore(bad)
+    await expect(syncProgress(store, 'u', local)).resolves.toEqual(local)
+    expect(store.save).not.toHaveBeenCalled()
+  })
 })

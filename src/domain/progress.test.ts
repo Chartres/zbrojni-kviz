@@ -187,8 +187,12 @@ describe('mergeProgress — daily streak', () => {
   })
 
   it('same day on both devices keeps the higher streak', () => {
-    const m = mergeProgress(withStreak(1, '2026-10-15'), withStreak(40, '2026-10-15'))
-    expect(m.streak).toEqual({ current: 40, best: 40, lastDate: '2026-10-15' })
+    for (const m of [
+      mergeProgress(withStreak(1, '2026-10-15'), withStreak(40, '2026-10-15')),
+      mergeProgress(withStreak(40, '2026-10-15'), withStreak(1, '2026-10-15')),
+    ]) {
+      expect(m.streak).toEqual({ current: 40, best: 40, lastDate: '2026-10-15' })
+    }
   })
 
   it('a lesson the day after the other device continues its streak', () => {
