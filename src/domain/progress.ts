@@ -105,6 +105,11 @@ function isNextDay(prev: string, today: string): boolean {
   return b - a === 86_400_000
 }
 
+/** The streak to display on `today`: still alive the day after the last lesson, 0 once a day is missed. */
+export function liveStreak(s: Streak, today: string): number {
+  return s.lastDate === today || isNextDay(s.lastDate, today) ? s.current : 0
+}
+
 /** Record that the learner completed a lesson on `today` (YYYY-MM-DD). */
 export function recordLessonComplete(
   p: ProgressData,
@@ -258,19 +263,15 @@ export function mergeProgress(
   }
   const sa = a.streak ?? emptyStreak()
   const sb = b.streak ?? emptyStreak()
-  // When both sides have activity within 1 day of each other (same device or
-  // same calendar day), prefer the higher current streak rather than blindly
-  // taking the one with the later date (which could be a 1-day streak
-  // clobbering a 40-day streak). Otherwise take the more recent side as the
-  // active one.
-  const daysBetween =
-    sa.lastDate && sb.lastDate
-      ? Math.abs(Date.parse(sa.lastDate) - Date.parse(sb.lastDate)) / 86_400_000
-      : Infinity
-  const streakBase =
-    daysBetween <= 1
-      ? (sa.current >= sb.current ? sa : sb)
-      : sb.lastDate >= sa.lastDate ? sb : sa
+  const [older, latest] = sb.lastDate >= sa.lastDate ? [sa, sb] : [sb, sa]
+  // Lessons on two devices on the same or consecutive days are one streak:
+  // a fresh 1-day streak must not clobber a 40-day one from the day before.
+  const current =
+    older.lastDate === latest.lastDate
+      ? Math.max(older.current, latest.current)
+      : isNextDay(older.lastDate, latest.lastDate)
+        ? Math.max(latest.current, older.current + 1)
+        : latest.current
 
   // Union by `at` (dedupe same-instant duplicates), newest-first, capped.
   const attemptsByAt = new Map<number, ExamAttempt>()
@@ -285,7 +286,7 @@ export function mergeProgress(
     version: PROGRESS_VERSION,
     stats,
     bookmarks: [...new Set([...a.bookmarks, ...b.bookmarks])],
-    streak: { ...streakBase, best: Math.max(sa.best, sb.best) },
+    streak: { current, best: Math.max(sa.best, sb.best, current), lastDate: latest.lastDate },
     examAttempts,
     updatedAt: Math.max(a.updatedAt, b.updatedAt),
   }

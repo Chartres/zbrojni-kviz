@@ -15,6 +15,7 @@ import {
   summary,
   mergeProgress,
   recordLessonComplete,
+  liveStreak,
   recordExamAttempt,
   MASTERY_STREAK,
   MAX_EXAM_ATTEMPTS,
@@ -176,6 +177,48 @@ describe('mergeProgress (offline ↔ cloud sync)', () => {
     let p = emptyProgress()
     p = recordAnswer(p, 1, true, 100)
     expect(mergeProgress(p, p)).toEqual(p)
+  })
+})
+
+describe('mergeProgress — daily streak', () => {
+  const withStreak = (current: number, lastDate: string) => ({
+    ...emptyProgress(),
+    streak: { current, best: current, lastDate },
+  })
+
+  it('same day on both devices keeps the higher streak', () => {
+    const m = mergeProgress(withStreak(1, '2026-10-15'), withStreak(40, '2026-10-15'))
+    expect(m.streak).toEqual({ current: 40, best: 40, lastDate: '2026-10-15' })
+  })
+
+  it('a lesson the day after the other device continues its streak', () => {
+    const m = mergeProgress(withStreak(40, '2026-10-14'), withStreak(1, '2026-10-15'))
+    expect(m.streak).toEqual({ current: 41, best: 41, lastDate: '2026-10-15' })
+    // and the next day keeps counting instead of resetting
+    expect(recordLessonComplete(m, '2026-10-16').streak.current).toBe(42)
+  })
+
+  it('a newer streak on the next day is kept when it is already longer', () => {
+    const m = mergeProgress(withStreak(5, '2026-10-15'), withStreak(3, '2026-10-14'))
+    expect(m.streak).toMatchObject({ current: 5, lastDate: '2026-10-15' })
+  })
+
+  it('after a gap the most recent side wins, best is kept', () => {
+    const m = mergeProgress(withStreak(40, '2026-10-10'), withStreak(1, '2026-10-15'))
+    expect(m.streak).toEqual({ current: 1, best: 40, lastDate: '2026-10-15' })
+  })
+})
+
+describe('liveStreak (what the home screen shows)', () => {
+  const s = { current: 7, best: 9, lastDate: '2026-10-16' }
+  it('shows the streak on the day of the last lesson', () => {
+    expect(liveStreak(s, '2026-10-16')).toBe(7)
+  })
+  it('still shows it the next day — the streak is not broken until that day ends', () => {
+    expect(liveStreak(s, '2026-10-17')).toBe(7)
+  })
+  it('shows 0 once a whole day was missed', () => {
+    expect(liveStreak(s, '2026-10-18')).toBe(0)
   })
 })
 
