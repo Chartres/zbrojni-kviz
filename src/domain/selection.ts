@@ -32,16 +32,18 @@ export function buildPractice(opts: FilterOptions, rng: Rng): Question[] {
   return shuffle(filterQuestions(opts), rng)
 }
 
-export function reviewQuestions(p: ProgressData, now = 0): Question[] {
-  return dueForReview(p, now)
+function questionsFor(ids: number[]): Question[] {
+  return ids
     .map((id) => getQuestion(id))
     .filter((q): q is Question => q !== undefined)
 }
 
+export function reviewQuestions(p: ProgressData): Question[] {
+  return questionsFor(dueForReview(p))
+}
+
 export function bookmarkedQuestions(p: ProgressData): Question[] {
-  return p.bookmarks
-    .map((id) => getQuestion(id))
-    .filter((q): q is Question => q !== undefined)
+  return questionsFor(p.bookmarks)
 }
 
 /** A category only qualifies as "weak" once it has this many distinct seen questions. */
@@ -82,7 +84,8 @@ export function weakCategories(
   const qualifying: WeakCategory[] = []
   for (const [cat, entry] of byCat) {
     if (entry.seenQuestions < MIN_SEEN_FOR_WEAK_CATEGORY) continue
-    const accuracy = entry.attempts === 0 ? 1 : entry.correct / entry.attempts
+    // attempts >= seenQuestions >= 1 here — entries only exist for seen questions
+    const accuracy = entry.correct / entry.attempts
     if (accuracy >= 1) continue // no errors here — not "weak"
     qualifying.push({ cat, seenQuestions: entry.seenQuestions, accuracy })
   }

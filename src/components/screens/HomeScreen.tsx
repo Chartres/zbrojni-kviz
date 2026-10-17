@@ -2,12 +2,13 @@ import { AuthPanel } from '@/components/AuthPanel'
 import { useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { ALL_QUESTIONS } from '@/domain/questions'
-import { summary, needsReviewIds } from '@/domain/progress'
+import { summary, needsReviewIds, liveStreak } from '@/domain/progress'
 import { weakCategories } from '@/domain/selection'
 import { LESSON_SIZE } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
 import { ProgressBar } from '@/components/ui/ProgressBar'
+import { todayStr } from '@/lib/date'
 
 export function HomeScreen() {
   const { state, dispatch } = useApp()
@@ -20,7 +21,7 @@ export function HomeScreen() {
     () => weakCategories(ALL_QUESTIONS, state.progress),
     [state.progress],
   )
-  const streak = state.progress.streak.current
+  const streak = liveStreak(state.progress.streak, todayStr())
   const rng = () => makeRng(timeSeed())
 
   return (
