@@ -102,7 +102,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
   }, [user?.id])
 
-  // While signed in, push progress changes to the cloud (debounced).
+  // While signed in, push progress changes to the cloud (debounced). Every push
+  // is fetch → merge → save (syncProgress), so a device with older state never
+  // overwrites another device's progress, and a failed fetch uploads nothing.
   // Blocked while a sync is in flight and skipped once after a sync hydrate
   // to avoid uploading a pre-merge or post-merge duplicate (H1/H2/L10).
   useEffect(() => {
@@ -112,10 +114,22 @@ export function AppProvider({ children }: { children: ReactNode }) {
       justSyncedRef.current = false
       return
     }
+    let cancelled = false
+    const local = state.progress
     const t = setTimeout(() => {
-      supabaseStore.save(user.id, state.progress).catch(() => {})
+      syncProgress(supabaseStore, user.id, local).then((merged) => {
+        if (cancelled || JSON.stringify(merged) === JSON.stringify(local)) return
+        // Adopt what other devices added; local edits since are re-merged and
+        // pushed by the next run (justSynced only when nothing changed meanwhile).
+        const latest = loadProgress()
+        justSyncedRef.current = JSON.stringify(latest) === JSON.stringify(local)
+        dispatch({ type: 'hydrate', progress: mergeProgress(merged, latest) })
+      }).catch(() => {})
     }, 1500)
-    return () => clearTimeout(t)
+    return () => {
+      clearTimeout(t)
+      cancelled = true
+    }
   }, [state.progress, user?.id])
 
   return (

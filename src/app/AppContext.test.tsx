@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, act, fireEvent } from '@testing-library/react'
 import { AppProvider, useApp } from './AppContext'
-import { emptyProgress, recordAnswer, type ProgressData } from '@/domain/progress'
+import { emptyProgress, mergeProgress, recordAnswer, type ProgressData } from '@/domain/progress'
 import { saveProgress, STORAGE_KEY } from '@/domain/storage'
 
 vi.mock('@/auth/sync', () => ({ syncProgress: vi.fn() }))
@@ -146,6 +146,32 @@ describe('AppContext sync wiring', () => {
     vi.useRealTimers()
   })
 
+  it('merges with the cloud row before every upload, never blind-overwrites it', async () => {
+    vi.useFakeTimers()
+    // another device answered q50 after this one signed in
+    const remote = recordAnswer(emptyProgress(), 50, true, 300)
+    vi.mocked(syncProgress)
+      .mockImplementationOnce(async (_s, _u, local) => local)
+      .mockImplementation(async (_s, _u, local) => mergeProgress(local, remote))
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    await act(flush)
+
+    expect(vi.mocked(supabaseStore.save)).not.toHaveBeenCalled()
+    expect(syncProgress).toHaveBeenCalledTimes(2)
+    expect(vi.mocked(syncProgress).mock.calls[1][2].bookmarks).toEqual([5])
+    expect(screen.getByTestId('count').textContent).toBe('1')
+    expect(screen.getByTestId('bookmarks').textContent).toBe('1')
+  })
+
   it('does not overwrite stored progress with the empty initial state on mount', () => {
     saveProgress(recordAnswer(emptyProgress(), 7, true, 100))
     const setItem = vi.spyOn(localStorage, 'setItem')
@@ -194,7 +220,8 @@ describe('AppContext sync wiring', () => {
       vi.advanceTimersByTime(2000)
     })
 
-    expect(vi.mocked(supabaseStore.save)).toHaveBeenCalledTimes(1)
+    // the debounced upload goes through syncProgress (fetch → merge → save)
+    expect(syncProgress).toHaveBeenCalledTimes(2)
   })
 
   it('keeps changes made while the sign-in sync is in flight', async () => {
@@ -260,8 +287,8 @@ describe('AppContext sync wiring', () => {
       vi.advanceTimersByTime(2000)
     })
 
-    expect(vi.mocked(supabaseStore.save)).toHaveBeenCalledTimes(1)
-    const uploaded = vi.mocked(supabaseStore.save).mock.calls[0][1]
+    expect(syncProgress).toHaveBeenCalledTimes(2)
+    const uploaded = vi.mocked(syncProgress).mock.calls[1][2]
     expect(uploaded.bookmarks).toEqual([5])
     expect(Object.keys(uploaded.stats)).toEqual(['99'])
   })
