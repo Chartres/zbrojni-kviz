@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react'
 import { reducer, initialState, type AppState, type Action } from './store'
-import { loadProgress, saveProgress } from '@/domain/storage'
+import { loadOwner, loadProgress, saveOwner, saveProgress } from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
 import { topicFromPath } from '@/lib/topics'
 import { makeRng, timeSeed } from '@/domain/rng'
@@ -33,9 +33,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // True for exactly one render after a sync hydrate; skips the redundant
   // upload that would immediately re-trigger after the merge (H1/L10).
   const justSyncedRef = useRef(false)
-  // Last signed-in user id, kept through a sign-out so signing in as a
-  // different account on this device starts clean (H4).
-  const prevUserIdRef = useRef<string | undefined>(undefined)
 
   // Hydrate persisted progress once on mount.
   useEffect(() => {
@@ -71,13 +68,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
       return
     }
     // Account switch A→B: wipe A's local data before syncing B's cloud row.
-    if (prevUserIdRef.current !== undefined && prevUserIdRef.current !== user.id) {
+    // The owner is persisted: OAuth and magic links sign in via a page reload (H4).
+    const owner = loadOwner()
+    if (owner !== null && owner !== user.id) {
       saveProgress(emptyProgress())
       dispatch({ type: 'hydrate', progress: emptyProgress() })
       syncInProgressRef.current = false
       justSyncedRef.current = false
     }
-    prevUserIdRef.current = user.id
+    saveOwner(user.id)
     let cancelled = false
     syncInProgressRef.current = true
     const local = loadProgress()

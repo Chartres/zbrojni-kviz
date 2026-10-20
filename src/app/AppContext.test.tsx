@@ -206,6 +206,26 @@ describe('AppContext sync wiring', () => {
     expect(screen.getByTestId('count').textContent).toBe('0')
   })
 
+  it('wipes account A progress when B signs in after a page reload (OAuth/magic link)', async () => {
+    vi.mocked(syncProgress).mockImplementation(async (_store, _userId, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    const first = render(app())
+    await act(flush)
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    first.unmount()
+
+    // full page reload: fresh provider, B already signed in
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u2' } })
+    render(app())
+    await act(flush)
+
+    expect(vi.mocked(syncProgress).mock.calls.at(-1)![1]).toBe('u2')
+    expect(vi.mocked(syncProgress).mock.calls.at(-1)![2].bookmarks).toEqual([])
+    expect(screen.getByTestId('bookmarks').textContent).toBe('0')
+  })
+
   it('a failed sign-in sync does not block later uploads', async () => {
     vi.useFakeTimers()
     vi.mocked(syncProgress).mockRejectedValue(new Error('offline'))
