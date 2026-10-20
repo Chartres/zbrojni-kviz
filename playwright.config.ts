@@ -24,7 +24,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run build && npm run preview -- --port 4173',
+    // CI builds dist once with the VITE_SUPABASE_* secrets and deploys it; rebuilding here would
+    // overwrite it with an unconfigured build. So CI previews the existing dist (what ships).
+    command: `${process.env.CI ? '' : 'npm run build && '}npm run preview -- --port 4173`,
     url: 'http://localhost:4173',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
