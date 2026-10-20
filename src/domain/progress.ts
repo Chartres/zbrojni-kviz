@@ -34,6 +34,8 @@ export interface ProgressData {
   version: number
   stats: Record<number, QuestionStat>
   bookmarks: number[]
+  /** Question id → time of its last bookmark toggle, so a merge can tell a removal from a never-added. Additive. */
+  bookmarkEdits?: Record<number, number>
   streak: Streak
   /** Additive (PROGRESS_VERSION stays 1) — missing on progress persisted before this field existed. */
   examAttempts?: ExamAttempt[]
@@ -51,6 +53,7 @@ export function emptyProgress(): ProgressData {
     version: PROGRESS_VERSION,
     stats: {},
     bookmarks: [],
+    bookmarkEdits: {},
     streak: emptyStreak(),
     examAttempts: [],
     updatedAt: 0,
@@ -70,6 +73,7 @@ export function normalizeProgress(
     version: PROGRESS_VERSION,
     stats: stored.stats ?? {},
     bookmarks: Array.isArray(stored.bookmarks) ? stored.bookmarks : [],
+    bookmarkEdits: stored.bookmarkEdits ?? {},
     streak: stored.streak ?? emptyStreak(),
     examAttempts: stored.examAttempts ?? [],
     updatedAt: stored.updatedAt ?? 0,
@@ -179,11 +183,15 @@ export function accuracy(p: ProgressData): number {
   return seen === 0 ? 0 : correct / seen
 }
 
-export function toggleBookmark(p: ProgressData, id: number): ProgressData {
+export function toggleBookmark(
+  p: ProgressData,
+  id: number,
+  now: number = Date.now(),
+): ProgressData {
   const set = new Set(p.bookmarks)
   if (set.has(id)) set.delete(id)
   else set.add(id)
-  return { ...p, bookmarks: [...set] }
+  return { ...p, bookmarks: [...set], bookmarkEdits: { ...p.bookmarkEdits, [id]: now } }
 }
 
 export function isBookmarked(p: ProgressData, id: number): boolean {
@@ -250,7 +258,7 @@ export function summary(
   }
 }
 
-/** Merge two progress snapshots: last-write-wins per question, union bookmarks. */
+/** Merge two progress snapshots: last-write-wins per question and per bookmark toggle. */
 export function mergeProgress(
   a: ProgressData,
   b: ProgressData,
@@ -282,10 +290,28 @@ export function mergeProgress(
     .sort((x, y) => y.at - x.at)
     .slice(0, MAX_EXAM_ATTEMPTS)
 
+  // Per bookmark, the side that toggled it last wins; a tie (e.g. no edit times
+  // on legacy data) keeps it if either side has it.
+  const ea = a.bookmarkEdits ?? {}
+  const eb = b.bookmarkEdits ?? {}
+  const bookmarkEdits: Record<number, number> = { ...ea }
+  for (const [id, at] of Object.entries(eb)) {
+    bookmarkEdits[Number(id)] = Math.max(at, ea[Number(id)] ?? 0)
+  }
+  const bookmarks = [...new Set([...a.bookmarks, ...b.bookmarks])]
+    .filter((id) => {
+      const ta = ea[id] ?? 0
+      const tb = eb[id] ?? 0
+      if (ta === tb) return true
+      return (ta > tb ? a : b).bookmarks.includes(id)
+    })
+    .sort((x, y) => x - y)
+
   return {
     version: PROGRESS_VERSION,
     stats,
-    bookmarks: [...new Set([...a.bookmarks, ...b.bookmarks])],
+    bookmarks,
+    bookmarkEdits,
     streak: { current, best: Math.max(sa.best, sb.best, current), lastDate: latest.lastDate },
     examAttempts,
     updatedAt: Math.max(a.updatedAt, b.updatedAt),

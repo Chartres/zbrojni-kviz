@@ -173,6 +173,19 @@ describe('mergeProgress (offline ↔ cloud sync)', () => {
     expect(merged.bookmarks.sort()).toEqual([7, 9])
   })
 
+  it('a bookmark removed after the other side added it stays removed', () => {
+    const synced = toggleBookmark(emptyProgress(), 7, 100)
+    const removed = toggleBookmark(synced, 7, 200)
+    expect(mergeProgress(removed, synced).bookmarks).toEqual([])
+    expect(mergeProgress(synced, removed).bookmarks).toEqual([])
+  })
+
+  it('a bookmark re-added after a removal elsewhere comes back', () => {
+    const removed = toggleBookmark(toggleBookmark(emptyProgress(), 7, 100), 7, 200)
+    const readded = toggleBookmark(emptyProgress(), 7, 300)
+    expect(mergeProgress(removed, readded).bookmarks).toEqual([7])
+  })
+
   it('is idempotent when merging with itself', () => {
     let p = emptyProgress()
     p = recordAnswer(p, 1, true, 100)
