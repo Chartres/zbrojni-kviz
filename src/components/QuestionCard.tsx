@@ -173,6 +173,7 @@ export function QuestionCard({
         >
           {reveal ? (
             <p
+              role="status"
               className={`min-w-0 text-sm font-medium ${
                 isCorrect ? 'text-verdigris-400' : 'text-rust-400'
               }`}
@@ -182,7 +183,9 @@ export function QuestionCard({
                 : 'Nesprávně — zapamatujte si správnou odpověď výše.'}
             </p>
           ) : (
-            <span className="text-sm text-steel-400">Uloženo</span>
+            <span role="status" className="text-sm text-steel-400">
+              Uloženo
+            </span>
           )}
           <button
             ref={nextRef}

@@ -125,4 +125,14 @@ describe('QuestionCard', () => {
     setup()
     expect(screen.getByRole('heading', { name: Q.q })).toHaveFocus()
   })
+
+  it('announces the verdict through a status live region', () => {
+    setup({ chosen: 'b' })
+    expect(screen.getByRole('status')).toHaveTextContent(/^Nesprávně/)
+  })
+
+  it('announces "Uloženo" in exam mode', () => {
+    setup({ chosen: 'b', reveal: false })
+    expect(screen.getByRole('status')).toHaveTextContent('Uloženo')
+  })
 })
