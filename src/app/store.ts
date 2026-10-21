@@ -1,4 +1,4 @@
-import type { CategoryName, Choice } from '@/domain/types'
+import type { CategoryName, Choice, Question } from '@/domain/types'
 import type { Rng } from '@/domain/rng'
 import {
   createSession,
@@ -93,11 +93,11 @@ function toExamAttempt(result: ExamResult, now: number): ExamAttempt {
   }
 }
 
-function begin(state: AppState, mode: Mode, questions: SessionState): AppState {
+function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
   return {
     ...state,
     mode,
-    session: questions,
+    session: createSession(questions),
     examResult: null,
     view: mode === 'exam' ? 'exam' : 'quiz',
   }
@@ -123,44 +123,36 @@ export function reducer(state: AppState, action: Action): AppState {
       return { ...state, search: action.search }
 
     case 'startLesson':
-      return begin(
-        state,
-        'lesson',
-        createSession(buildLesson(state.progress, action.rng)),
-      )
+      return begin(state, 'lesson', buildLesson(state.progress, action.rng))
 
     case 'startPractice': {
       const qs = buildPractice(
         { categories: state.selectedCategories, search: state.search },
         action.rng,
       )
-      return begin(state, 'practice', createSession(qs))
+      return begin(state, 'practice', qs)
     }
 
     case 'startReview':
-      return begin(
-        state,
-        'review',
-        createSession(reviewQuestions(state.progress)),
-      )
+      return begin(state, 'review', reviewQuestions(state.progress))
 
     case 'startBookmarks':
       return begin(
         state,
         'bookmarks',
-        createSession(shuffle(bookmarkedQuestions(state.progress), action.rng)),
+        shuffle(bookmarkedQuestions(state.progress), action.rng),
       )
 
     case 'startWeakDrill':
       return begin(
         state,
         'weakDrill',
-        createSession(buildWeakDrill(ALL_QUESTIONS, state.progress, action.rng)),
+        buildWeakDrill(ALL_QUESTIONS, state.progress, action.rng),
       )
 
     case 'startExam':
       return {
-        ...begin(state, 'exam', createSession(buildExam(action.rng))),
+        ...begin(state, 'exam', buildExam(action.rng)),
         examEndsAt: action.now + EXAM.timeLimitMinutes * 60 * 1000,
       }
 
