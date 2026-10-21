@@ -43,6 +43,11 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,svg,woff2}'],
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         navigateFallback: '/index.html',
+        // Files (sitemap.xml, llms.txt, robots.txt, .well-known/security.txt) must reach
+        // the network, not get the app shell. ponytail: /okruh/<slug>/ keeps the shell
+        // fallback on purpose; the app boots that okruh from the path, and the prerendered
+        // pages are written after the SW is generated, so they can't be precached anyway.
+        navigateFallbackDenylist: [/\/[^/]+\.[a-z0-9]+$/i],
         cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
