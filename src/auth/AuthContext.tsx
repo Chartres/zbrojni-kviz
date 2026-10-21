@@ -30,12 +30,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!supabase) return
-    supabase.auth.getSession().then(({ data }) => {
-      const u = data.session?.user
-      setUser(u ? { id: u.id, email: u.email ?? undefined } : null)
-      identify(u?.id ?? null) // cross-product identity on the shared platform
-      setLoading(false)
-    })
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        const u = data.session?.user
+        setUser(u ? { id: u.id, email: u.email ?? undefined } : null)
+        identify(u?.id ?? null) // cross-product identity on the shared platform
+      })
+      .catch(() => {}) // signed-out is the safe fallback; onAuthStateChange still fires later
+      // ponytail: a getSession that never settles still blocks app_open; add a timeout if that shows up
+      .finally(() => setLoading(false))
     const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
       const u = session?.user
       setUser(u ? { id: u.id, email: u.email ?? undefined } : null)
