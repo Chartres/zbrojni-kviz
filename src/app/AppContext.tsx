@@ -47,7 +47,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (topic) {
       dispatch({ type: 'setCategories', categories: new Set([topic.category]) })
       dispatch({ type: 'startPractice', rng: makeRng(timeSeed()) })
-      track('start_topic', { topic: topic.category, from: 'seo-page' })
     }
   }, [])
 
@@ -58,6 +57,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (loading || appOpenSent.current) return
     appOpenSent.current = true
     track('app_open')
+    // The SEO-page practice started on mount is reported here, after the identity is known.
+    const topic = topicFromPath(window.location.pathname)
+    if (topic) track('start_practice', { from: 'seo-page', topic: topic.category })
   }, [loading])
 
   // Persist progress locally whenever it changes (offline-first source of truth).

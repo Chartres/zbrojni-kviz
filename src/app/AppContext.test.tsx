@@ -465,4 +465,24 @@ describe('AppContext sync wiring', () => {
     })
     expect(vi.mocked(track).mock.calls.filter(([e]) => e === 'app_open')).toHaveLength(1)
   })
+
+  it('an SEO topic page fires start_practice (seo-page origin + okruh) after app_open, once auth resolves', async () => {
+    window.history.pushState({}, '', '/okruh/zakon-o-zbranich/')
+    try {
+      vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: true })
+      const { rerender } = render(app())
+      expect(track).not.toHaveBeenCalled()
+
+      vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: false })
+      await act(async () => {
+        rerender(app())
+      })
+      expect(vi.mocked(track).mock.calls).toEqual([
+        ['app_open'],
+        ['start_practice', { from: 'seo-page', topic: 'Zákon o zbraních' }],
+      ])
+    } finally {
+      window.history.pushState({}, '', '/')
+    }
+  })
 })
