@@ -1,18 +1,20 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, act, fireEvent } from '@testing-library/react'
 import { AppProvider, useApp } from './AppContext'
-import { emptyProgress, recordAnswer, type ProgressData } from '@/domain/progress'
-import { saveProgress, STORAGE_KEY } from '@/domain/storage'
+import { emptyProgress, mergeProgress, recordAnswer, type ProgressData } from '@/domain/progress'
+import { OWNER_KEY, saveProgress, STORAGE_KEY } from '@/domain/storage'
 
 vi.mock('@/auth/sync', () => ({ syncProgress: vi.fn() }))
 vi.mock('@/auth/supabaseStore', () => ({
   supabaseStore: { fetch: vi.fn(), save: vi.fn().mockResolvedValue(undefined) },
 }))
 vi.mock('@/auth/AuthContext', () => ({ useAuth: vi.fn() }))
+vi.mock('@/analytics', () => ({ track: vi.fn() }))
 
 import { syncProgress } from '@/auth/sync'
 import { supabaseStore } from '@/auth/supabaseStore'
 import { useAuth } from '@/auth/AuthContext'
+import { track } from '@/analytics'
 
 const baseAuth = {
   configured: true,
@@ -146,6 +148,32 @@ describe('AppContext sync wiring', () => {
     vi.useRealTimers()
   })
 
+  it('merges with the cloud row before every upload, never blind-overwrites it', async () => {
+    vi.useFakeTimers()
+    // another device answered q50 after this one signed in
+    const remote = recordAnswer(emptyProgress(), 50, true, 300)
+    vi.mocked(syncProgress)
+      .mockImplementationOnce(async (_s, _u, local) => local)
+      .mockImplementation(async (_s, _u, local) => mergeProgress(local, remote))
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    await act(flush)
+
+    expect(vi.mocked(supabaseStore.save)).not.toHaveBeenCalled()
+    expect(syncProgress).toHaveBeenCalledTimes(2)
+    expect(vi.mocked(syncProgress).mock.calls[1][2].bookmarks).toEqual([5])
+    expect(screen.getByTestId('count').textContent).toBe('1')
+    expect(screen.getByTestId('bookmarks').textContent).toBe('1')
+  })
+
   it('does not overwrite stored progress with the empty initial state on mount', () => {
     saveProgress(recordAnswer(emptyProgress(), 7, true, 100))
     const setItem = vi.spyOn(localStorage, 'setItem')
@@ -180,6 +208,128 @@ describe('AppContext sync wiring', () => {
     expect(screen.getByTestId('count').textContent).toBe('0')
   })
 
+  it('wipes account A progress when B signs in after a page reload (OAuth/magic link)', async () => {
+    vi.mocked(syncProgress).mockImplementation(async (_store, _userId, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    const first = render(app())
+    await act(flush)
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    first.unmount()
+
+    // full page reload: fresh provider, B already signed in
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u2' } })
+    render(app())
+    await act(flush)
+
+    expect(vi.mocked(syncProgress).mock.calls.at(-1)![1]).toBe('u2')
+    expect(vi.mocked(syncProgress).mock.calls.at(-1)![2].bookmarks).toEqual([])
+    expect(screen.getByTestId('bookmarks').textContent).toBe('0')
+  })
+
+  it('merges progress another tab saved instead of overwriting it', async () => {
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: null })
+    render(app())
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+
+    // the other tab (PWA window) answered q99 and wrote its own snapshot
+    const other = JSON.stringify(recordAnswer(emptyProgress(), 99, true, 100))
+    localStorage.setItem(STORAGE_KEY, other)
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY, newValue: other }))
+    })
+
+    expect(screen.getByTestId('count').textContent).toBe('1')
+    expect(screen.getByTestId('bookmarks').textContent).toBe('1')
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)!)
+    expect(Object.keys(stored.stats)).toEqual(['99'])
+    expect(stored.bookmarks).toEqual([5])
+  })
+
+  it('another tab signing in as a different account drops this tab\'s account A progress', async () => {
+    vi.useFakeTimers()
+    vi.mocked(syncProgress).mockImplementation(async (_s, userId, local) =>
+      userId === 'u1' ? recordAnswer(local, 99, true, 100) : local,
+    )
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+    expect(screen.getByTestId('count').textContent).toBe('1')
+
+    // tab B: account u2 signs in, wipes local progress, records itself as owner
+    const empty = JSON.stringify(emptyProgress())
+    localStorage.setItem(STORAGE_KEY, empty)
+    localStorage.setItem(OWNER_KEY, 'u2')
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY, newValue: empty }))
+      window.dispatchEvent(new StorageEvent('storage', { key: OWNER_KEY, newValue: 'u2' }))
+    })
+    // tab A's next action must not write u1's stats back for tab B to pick up
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    await act(flush)
+
+    expect(JSON.parse(localStorage.getItem(STORAGE_KEY)!).stats).toEqual({})
+    expect(screen.getByTestId('count').textContent).toBe('0')
+    // and u2's local progress is not uploaded into u1's cloud row
+    expect(vi.mocked(syncProgress).mock.calls.filter(([, u]) => u === 'u1')).toHaveLength(1)
+  })
+
+  it('does not re-upload an answer another signed-in tab saved (that tab uploads it)', async () => {
+    vi.useFakeTimers()
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+    expect(syncProgress).toHaveBeenCalledTimes(1) // sign-in sync
+
+    const other = JSON.stringify(recordAnswer(emptyProgress(), 99, true, 100))
+    localStorage.setItem(STORAGE_KEY, other)
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY, newValue: other }))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    await act(flush)
+
+    expect(screen.getByTestId('count').textContent).toBe('1')
+    expect(syncProgress).toHaveBeenCalledTimes(1)
+  })
+
+  it('still uploads this tab\'s pending edit when another tab\'s save lacks it', async () => {
+    vi.useFakeTimers()
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    const other = JSON.stringify(recordAnswer(emptyProgress(), 99, true, 100))
+    localStorage.setItem(STORAGE_KEY, other)
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY, newValue: other }))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    await act(flush)
+
+    expect(syncProgress).toHaveBeenCalledTimes(2)
+    const uploaded = vi.mocked(syncProgress).mock.calls.at(-1)![2]
+    expect(uploaded.bookmarks).toEqual([5])
+    expect(Object.keys(uploaded.stats)).toEqual(['99'])
+  })
+
   it('a failed sign-in sync does not block later uploads', async () => {
     vi.useFakeTimers()
     vi.mocked(syncProgress).mockRejectedValue(new Error('offline'))
@@ -194,7 +344,8 @@ describe('AppContext sync wiring', () => {
       vi.advanceTimersByTime(2000)
     })
 
-    expect(vi.mocked(supabaseStore.save)).toHaveBeenCalledTimes(1)
+    // the debounced upload goes through syncProgress (fetch → merge → save)
+    expect(syncProgress).toHaveBeenCalledTimes(2)
   })
 
   it('keeps changes made while the sign-in sync is in flight', async () => {
@@ -260,8 +411,8 @@ describe('AppContext sync wiring', () => {
       vi.advanceTimersByTime(2000)
     })
 
-    expect(vi.mocked(supabaseStore.save)).toHaveBeenCalledTimes(1)
-    const uploaded = vi.mocked(supabaseStore.save).mock.calls[0][1]
+    expect(syncProgress).toHaveBeenCalledTimes(2)
+    const uploaded = vi.mocked(syncProgress).mock.calls[1][2]
     expect(uploaded.bookmarks).toEqual([5])
     expect(Object.keys(uploaded.stats)).toEqual(['99'])
   })
@@ -297,5 +448,41 @@ describe('AppContext sync wiring', () => {
       vi.advanceTimersByTime(2000)
     })
     expect(vi.mocked(supabaseStore.save)).not.toHaveBeenCalled()
+  })
+
+  it('fires app_open only after the session is known, so it carries the identity', async () => {
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: true })
+    const { rerender } = render(app())
+    expect(track).not.toHaveBeenCalledWith('app_open')
+
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: false, user: { id: 'u1' } })
+    vi.mocked(syncProgress).mockResolvedValue(emptyProgress())
+    await act(async () => {
+      rerender(app())
+    })
+    await act(async () => {
+      rerender(app())
+    })
+    expect(vi.mocked(track).mock.calls.filter(([e]) => e === 'app_open')).toHaveLength(1)
+  })
+
+  it('an SEO topic page fires start_practice (seo-page origin + okruh) after app_open, once auth resolves', async () => {
+    window.history.pushState({}, '', '/okruh/zakon-o-zbranich/')
+    try {
+      vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: true })
+      const { rerender } = render(app())
+      expect(track).not.toHaveBeenCalled()
+
+      vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: false })
+      await act(async () => {
+        rerender(app())
+      })
+      expect(vi.mocked(track).mock.calls).toEqual([
+        ['app_open'],
+        ['start_practice', { from: 'seo-page', topic: 'Zákon o zbraních' }],
+      ])
+    } finally {
+      window.history.pushState({}, '', '/')
+    }
   })
 })

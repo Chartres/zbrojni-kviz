@@ -103,4 +103,60 @@ describe('QuestionCard', () => {
     expect(img).toHaveAttribute('src', expect.stringContaining('q649_0.png'))
     expect(img).toHaveAccessibleName()
   })
+
+  it('marks the recorded answer with aria-pressed (exam mode has no colour-only cue)', () => {
+    setup({ chosen: 'b', reveal: false })
+    expect(screen.getByRole('button', { name: /neregulovanou/ })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', { name: /doplňkem/ })).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('moves focus to "Další" once answered instead of dropping it to <body>', async () => {
+    const props = {
+      question: Q, reveal: true, bookmarked: false, index: 0, total: 10,
+      onAnswer: vi.fn(), onNext: vi.fn(), onToggleBookmark: vi.fn(),
+    }
+    const { rerender } = render(<QuestionCard {...props} />)
+    screen.getByRole('button', { name: /neregulovanou/ }).focus()
+    rerender(<QuestionCard {...props} chosen="b" />)
+    expect(screen.getByRole('button', { name: /další/i })).toHaveFocus()
+  })
+
+  it('focuses the question heading when a new question mounts (after "Další")', () => {
+    setup()
+    expect(screen.getByRole('heading', { name: Q.q })).toHaveFocus()
+  })
+
+  it('announces the verdict through a status live region', () => {
+    setup({ chosen: 'b' })
+    expect(screen.getByRole('status')).toHaveTextContent(/^Nesprávně/)
+  })
+
+  it('"Další" carries the verdict as its description, so focusing it reads the verdict', () => {
+    setup({ chosen: 'b' })
+    expect(screen.getByRole('button', { name: /další/i })).toHaveAccessibleDescription(/^Nesprávně/)
+  })
+
+  it('announces "Uloženo" in exam mode', () => {
+    setup({ chosen: 'b', reveal: false })
+    expect(screen.getByRole('status')).toHaveTextContent('Uloženo')
+  })
+
+  it('after answering, Enter on a focused control activates that control, not "Další"', async () => {
+    const { onNext, onToggleBookmark } = setup({ chosen: 'a' })
+    screen.getByRole('button', { name: /zálož/i }).focus()
+    await userEvent.keyboard('{Enter}')
+    expect(onToggleBookmark).toHaveBeenCalledTimes(1)
+    expect(onNext).not.toHaveBeenCalled()
+    screen.getByRole('button', { name: /další/i }).focus()
+    await userEvent.keyboard('{Enter}')
+    expect(onNext).toHaveBeenCalledTimes(1)
+  })
+
+  it('after answering, Enter/Space outside a control advances', async () => {
+    const { onNext } = setup({ chosen: 'a' })
+    screen.getByRole('heading', { name: Q.q }).focus()
+    await userEvent.keyboard('{Enter}')
+    await userEvent.keyboard(' ')
+    expect(onNext).toHaveBeenCalledTimes(2)
+  })
 })

@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { track } from '@/analytics'
-import { score, wrongAnswers } from '@/domain/session'
+import { score, unanswered, wrongAnswers } from '@/domain/session'
 import { getQuestion, ALL_QUESTIONS } from '@/domain/questions'
 import { makeRng, timeSeed } from '@/domain/rng'
 import { weakCategories } from '@/domain/selection'
@@ -29,7 +29,11 @@ export function ResultsScreen() {
 
   const total = session.questions.length
   const correct = score(session)
-  const wrong = wrongAnswers(session)
+  // Wrong answers plus questions left unanswered when an exam timed out (scored wrong too).
+  const wrong = [
+    ...wrongAnswers(session).map((r) => r.id),
+    ...unanswered(session).map((q) => q.id),
+  ]
   const isExam = mode === 'exam'
   const isLesson = mode === 'lesson'
   const failedExam = isExam && examResult != null && !examResult.passed
@@ -94,12 +98,12 @@ export function ResultsScreen() {
             Chybné odpovědi ({wrong.length})
           </h2>
           <ul className="space-y-3">
-            {wrong.map((r) => {
-              const q = getQuestion(r.id)
+            {wrong.map((id) => {
+              const q = getQuestion(id)
               if (!q) return null
               return (
                 <li
-                  key={r.id}
+                  key={id}
                   className="rounded-card border border-steel-700 bg-steel-900/50 p-4"
                 >
                   <p className="mb-2 text-sm text-steel-200">{q.q}</p>
@@ -118,7 +122,10 @@ export function ResultsScreen() {
         {isLesson && (
           <button
             type="button"
-            onClick={() => dispatch({ type: 'startLesson', rng: makeRng(timeSeed()) })}
+            onClick={() => {
+              track('start_lesson', { from: 'results' })
+              dispatch({ type: 'startLesson', rng: makeRng(timeSeed()) })
+            }}
             className="glow-brass rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 hover:bg-brass-400"
           >
             Další lekce
@@ -127,7 +134,10 @@ export function ResultsScreen() {
         {wrong.length > 0 && (
           <button
             type="button"
-            onClick={() => dispatch({ type: 'startReview', rng: makeRng(timeSeed()) })}
+            onClick={() => {
+              track('start_review', { from: 'results' })
+              dispatch({ type: 'startReview' })
+            }}
             className="rounded-card border border-steel-600 px-5 py-2.5 font-semibold text-steel-200 hover:border-steel-400"
           >
             Opakovat chyby
@@ -136,7 +146,10 @@ export function ResultsScreen() {
         {failedExam && hasWeakCategories && (
           <button
             type="button"
-            onClick={() => dispatch({ type: 'startWeakDrill', rng: makeRng(timeSeed()) })}
+            onClick={() => {
+              track('start_weak_drill', { from: 'results' })
+              dispatch({ type: 'startWeakDrill', rng: makeRng(timeSeed()) })
+            }}
             className="rounded-card border border-steel-600 px-5 py-2.5 font-semibold text-steel-200 hover:border-steel-400"
           >
             Procvičit slabá místa

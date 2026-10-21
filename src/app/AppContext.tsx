@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react'
 import { reducer, initialState, type AppState, type Action } from './store'
-import { loadProgress, saveProgress } from '@/domain/storage'
+import { loadOwner, loadProgress, OWNER_KEY, saveOwner, saveProgress, STORAGE_KEY } from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
 import { topicFromPath } from '@/lib/topics'
 import { makeRng, timeSeed } from '@/domain/rng'
@@ -25,7 +25,7 @@ const AppContext = createContext<AppContextValue | null>(null)
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, undefined, initialState)
-  const { user } = useAuth()
+  const { user, loading } = useAuth()
 
   // True while a sign-in sync is in flight; prevents the debounced save from
   // uploading a stale local snapshot before the cloud merge lands (H1/H2).
@@ -33,9 +33,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // True for exactly one render after a sync hydrate; skips the redundant
   // upload that would immediately re-trigger after the merge (H1/L10).
   const justSyncedRef = useRef(false)
-  // Last signed-in user id, kept through a sign-out so signing in as a
-  // different account on this device starts clean (H4).
-  const prevUserIdRef = useRef<string | undefined>(undefined)
+  // Account the in-memory progress belongs to. Another tab signing in as a
+  // different account changes the stored owner; this tab must then drop its copy.
+  const ownerRef = useRef(loadOwner())
+  // Last progress snapshot merged in from another tab (JSON). That tab uploads it.
+  const otherTabRef = useRef<string | null>(null)
 
   // Hydrate persisted progress once on mount.
   useEffect(() => {
@@ -45,10 +47,20 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (topic) {
       dispatch({ type: 'setCategories', categories: new Set([topic.category]) })
       dispatch({ type: 'startPractice', rng: makeRng(timeSeed()) })
-      track('start_topic', { topic: topic.category, from: 'seo-page' })
     }
-    track('app_open')
   }, [])
+
+  // app_open waits for the session check: AuthProvider calls identify() before it
+  // clears `loading`, so the event carries flywheel_uid for signed-in users.
+  const appOpenSent = useRef(false)
+  useEffect(() => {
+    if (loading || appOpenSent.current) return
+    appOpenSent.current = true
+    track('app_open')
+    // The SEO-page practice started on mount is reported here, after the identity is known.
+    const topic = topicFromPath(window.location.pathname)
+    if (topic) track('start_practice', { from: 'seo-page', topic: topic.category })
+  }, [loading])
 
   // Persist progress locally whenever it changes (offline-first source of truth).
   // Skip the first render: state starts as initialState (empty), and the hydrate
@@ -59,8 +71,30 @@ export function AppProvider({ children }: { children: ReactNode }) {
       persistInitialized.current = true
       return
     }
+    // Another tab switched accounts and wiped local data: don't write ours back.
+    if (loadOwner() !== ownerRef.current) return
     saveProgress(state.progress)
   }, [state.progress])
+
+  // Another tab or the installed PWA window saved: merge its progress in, so the
+  // next local save does not overwrite its answers.
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key !== STORAGE_KEY && e.key !== OWNER_KEY) return
+      const owner = loadOwner()
+      if (owner !== ownerRef.current) {
+        // Another tab signed in as a different account: adopt its data, never merge ours in.
+        ownerRef.current = owner
+        dispatch({ type: 'hydrate', progress: loadProgress() })
+      } else if (e.key === STORAGE_KEY) {
+        const incoming = loadProgress()
+        otherTabRef.current = JSON.stringify(incoming)
+        dispatch({ type: 'mergeIn', progress: incoming })
+      }
+    }
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
+  }, [])
 
   // On sign-in: reconcile local progress with the cloud and adopt the merge.
   // Sign-out keeps local progress: user=null also fires on a revoked session,
@@ -71,13 +105,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
       return
     }
     // Account switch A→B: wipe A's local data before syncing B's cloud row.
-    if (prevUserIdRef.current !== undefined && prevUserIdRef.current !== user.id) {
+    // The owner is persisted: OAuth and magic links sign in via a page reload (H4).
+    const owner = loadOwner()
+    if (owner !== null && owner !== user.id) {
       saveProgress(emptyProgress())
       dispatch({ type: 'hydrate', progress: emptyProgress() })
       syncInProgressRef.current = false
       justSyncedRef.current = false
     }
-    prevUserIdRef.current = user.id
+    saveOwner(user.id)
+    ownerRef.current = user.id
     let cancelled = false
     syncInProgressRef.current = true
     const local = loadProgress()
@@ -102,20 +139,41 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
   }, [user?.id])
 
-  // While signed in, push progress changes to the cloud (debounced).
+  // While signed in, push progress changes to the cloud (debounced). Every push
+  // is fetch → merge → save (syncProgress), so a device with older state never
+  // overwrites another device's progress, and a failed fetch uploads nothing.
   // Blocked while a sync is in flight and skipped once after a sync hydrate
   // to avoid uploading a pre-merge or post-merge duplicate (H1/H2/L10).
   useEffect(() => {
     if (!user) return
+    if (ownerRef.current !== user.id) return // local data now belongs to another tab's account
     if (syncInProgressRef.current) return
     if (justSyncedRef.current) {
       justSyncedRef.current = false
       return
     }
+    // Merging another tab's save left us identical to it: nothing of ours is
+    // missing there, and the writing tab uploads it. Any extra local edit
+    // makes the states differ, so it still goes up from here.
+    const fromOtherTab = otherTabRef.current
+    otherTabRef.current = null
+    if (fromOtherTab === JSON.stringify(state.progress)) return
+    let cancelled = false
+    const local = state.progress
     const t = setTimeout(() => {
-      supabaseStore.save(user.id, state.progress).catch(() => {})
+      syncProgress(supabaseStore, user.id, local).then((merged) => {
+        if (cancelled || JSON.stringify(merged) === JSON.stringify(local)) return
+        // Adopt what other devices added; local edits since are re-merged and
+        // pushed by the next run (justSynced only when nothing changed meanwhile).
+        const latest = loadProgress()
+        justSyncedRef.current = JSON.stringify(latest) === JSON.stringify(local)
+        dispatch({ type: 'hydrate', progress: mergeProgress(merged, latest) })
+      }).catch(() => {})
     }, 1500)
-    return () => clearTimeout(t)
+    return () => {
+      clearTimeout(t)
+      cancelled = true
+    }
   }, [state.progress, user?.id])
 
   return (

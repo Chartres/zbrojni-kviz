@@ -57,11 +57,11 @@ export function score(s: SessionState): number {
   return s.records.reduce((n, r) => n + (r.correct ? 1 : 0), 0)
 }
 
-export function wrongAnswers(s: SessionState): AnswerRecord[] {
-  return s.records.filter((r) => !r.correct)
+/** Questions with no answer yet — at exam time-out these count as wrong. */
+export function unanswered(s: SessionState): Question[] {
+  return s.questions.filter((q) => s.chosen[q.id] === undefined)
 }
 
-export function progressRatio(s: SessionState): number {
-  if (s.questions.length === 0) return 0
-  return s.records.length / s.questions.length
+export function wrongAnswers(s: SessionState): AnswerRecord[] {
+  return s.records.filter((r) => !r.correct)
 }

@@ -1,6 +1,8 @@
 import { emptyProgress, normalizeProgress, type ProgressData } from './progress'
 
 export const STORAGE_KEY = 'zbrojni-kviz:progress:v1'
+/** Id of the account the local progress belongs to (survives reloads and sign-out). */
+export const OWNER_KEY = 'zbrojni-kviz:owner'
 
 function storage(): Storage | null {
   try {
@@ -29,5 +31,21 @@ export function saveProgress(data: ProgressData): void {
     s.setItem(STORAGE_KEY, JSON.stringify(data))
   } catch {
     // private mode / quota exceeded — degrade gracefully to in-memory only
+  }
+}
+
+export function loadOwner(): string | null {
+  try {
+    return storage()?.getItem(OWNER_KEY) ?? null
+  } catch {
+    return null
+  }
+}
+
+export function saveOwner(userId: string): void {
+  try {
+    storage()?.setItem(OWNER_KEY, userId)
+  } catch {
+    // see saveProgress
   }
 }

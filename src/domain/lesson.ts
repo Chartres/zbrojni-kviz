@@ -1,5 +1,5 @@
 import type { Question } from './types'
-import { questionsForGroup, getQuestion } from './questions'
+import { META, questionsForGroup, getQuestion } from './questions'
 import { EXAM } from './exam'
 import { sample, shuffle, type Rng } from './rng'
 import { dueForReview, isMastered, statFor, type ProgressData } from './progress'
@@ -8,6 +8,9 @@ import { dueForReview, isMastered, statFor, type ProgressData } from './progress
 export const LESSON_SIZE = 12
 /** At most this fraction of a lesson is review of weak spots. */
 const REVIEW_FRACTION = 0.4
+
+// Verbatim duplicates (META.duplicatePairs), both directions: taking one blocks its twin.
+const TWIN_OF = new Map(META.duplicatePairs.flatMap(([x, y]) => [[x, y], [y, x]] as const))
 
 /**
  * Assemble a bite-sized, personalised lesson:
@@ -25,6 +28,8 @@ export function buildLesson(
   const take = (q: Question | undefined) => {
     if (q && !used.has(q.id)) {
       used.add(q.id)
+      const twin = TWIN_OF.get(q.id)
+      if (twin !== undefined) used.add(twin)
       return true
     }
     return false
@@ -53,14 +58,15 @@ export function buildLesson(
     }
   }
 
-  // 3) Top up to size: any remaining unseen, then seen-but-unmastered.
+  // 3) Top up to size: any remaining unseen, then seen-but-unmastered, then
+  //    mastered (refresher) so a learner who mastered everything still gets a full lesson.
   if (review.length + fresh.length < size) {
     const all = EXAM.composition.flatMap((p) => questionsForGroup(p.group))
     const unseen = all.filter((q) => !used.has(q.id) && statFor(progress, q.id).seen === 0)
     const unmastered = all.filter(
       (q) => !used.has(q.id) && !isMastered(statFor(progress, q.id)),
     )
-    for (const q of [...shuffle(unseen, rng), ...shuffle(unmastered, rng)]) {
+    for (const q of [...shuffle(unseen, rng), ...shuffle(unmastered, rng), ...shuffle(all, rng)]) {
       if (review.length + fresh.length >= size) break
       if (take(q)) fresh.push(q)
     }

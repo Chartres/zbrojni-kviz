@@ -1,4 +1,4 @@
-import type { CategoryName, Choice } from '@/domain/types'
+import type { CategoryName, Choice, Question } from '@/domain/types'
 import type { Rng } from '@/domain/rng'
 import {
   createSession,
@@ -7,6 +7,7 @@ import {
   currentQuestion,
   isCurrentAnswered,
   isFinished,
+  unanswered,
   type SessionState,
 } from '@/domain/session'
 import {
@@ -18,6 +19,7 @@ import {
 import { buildExam, evaluateExam, EXAM, type ExamResult } from '@/domain/exam'
 import {
   emptyProgress,
+  mergeProgress,
   recordAnswer,
   recordExamAttempt,
   recordLessonComplete,
@@ -65,11 +67,12 @@ export function initialState(): AppState {
 
 export type Action =
   | { type: 'hydrate'; progress: ProgressData }
+  | { type: 'mergeIn'; progress: ProgressData }
   | { type: 'setCategories'; categories: Set<CategoryName> }
   | { type: 'setSearch'; search: string }
   | { type: 'startLesson'; rng: Rng }
   | { type: 'startPractice'; rng: Rng }
-  | { type: 'startReview'; rng: Rng }
+  | { type: 'startReview' }
   | { type: 'startBookmarks'; rng: Rng }
   | { type: 'startWeakDrill'; rng: Rng }
   | { type: 'startExam'; rng: Rng; now: number }
@@ -90,11 +93,11 @@ function toExamAttempt(result: ExamResult, now: number): ExamAttempt {
   }
 }
 
-function begin(state: AppState, mode: Mode, questions: SessionState): AppState {
+function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
   return {
     ...state,
     mode,
-    session: questions,
+    session: createSession(questions),
     examResult: null,
     view: mode === 'exam' ? 'exam' : 'quiz',
   }
@@ -105,6 +108,14 @@ export function reducer(state: AppState, action: Action): AppState {
     case 'hydrate':
       return { ...state, progress: action.progress }
 
+    case 'mergeIn': {
+      // Same state when nothing new arrived, so two tabs don't echo writes forever.
+      const progress = mergeProgress(state.progress, action.progress)
+      return JSON.stringify(progress) === JSON.stringify(state.progress)
+        ? state
+        : { ...state, progress }
+    }
+
     case 'setCategories':
       return { ...state, selectedCategories: action.categories }
 
@@ -112,44 +123,36 @@ export function reducer(state: AppState, action: Action): AppState {
       return { ...state, search: action.search }
 
     case 'startLesson':
-      return begin(
-        state,
-        'lesson',
-        createSession(buildLesson(state.progress, action.rng)),
-      )
+      return begin(state, 'lesson', buildLesson(state.progress, action.rng))
 
     case 'startPractice': {
       const qs = buildPractice(
         { categories: state.selectedCategories, search: state.search },
         action.rng,
       )
-      return begin(state, 'practice', createSession(qs))
+      return begin(state, 'practice', qs)
     }
 
     case 'startReview':
-      return begin(
-        state,
-        'review',
-        createSession(reviewQuestions(state.progress)),
-      )
+      return begin(state, 'review', reviewQuestions(state.progress))
 
     case 'startBookmarks':
       return begin(
         state,
         'bookmarks',
-        createSession(shuffle(bookmarkedQuestions(state.progress), action.rng)),
+        shuffle(bookmarkedQuestions(state.progress), action.rng),
       )
 
     case 'startWeakDrill':
       return begin(
         state,
         'weakDrill',
-        createSession(buildWeakDrill(ALL_QUESTIONS, state.progress, action.rng)),
+        buildWeakDrill(ALL_QUESTIONS, state.progress, action.rng),
       )
 
     case 'startExam':
       return {
-        ...begin(state, 'exam', createSession(buildExam(action.rng))),
+        ...begin(state, 'exam', buildExam(action.rng)),
         examEndsAt: action.now + EXAM.timeLimitMinutes * 60 * 1000,
       }
 
@@ -192,12 +195,17 @@ export function reducer(state: AppState, action: Action): AppState {
     case 'finishExam': {
       if (!state.session) return state
       const examResult = evaluateExam(state.session)
+      // Unanswered at time-out count as wrong in the score, so they go to the review queue too.
+      let progress = state.progress
+      for (const q of unanswered(state.session)) {
+        progress = recordAnswer(progress, q.id, false, action.now)
+      }
       return {
         ...state,
         view: 'results',
         examResult,
         examEndsAt: null,
-        progress: recordExamAttempt(state.progress, toExamAttempt(examResult, action.now)),
+        progress: recordExamAttempt(progress, toExamAttempt(examResult, action.now)),
       }
     }
 

@@ -31,9 +31,13 @@ function migrateLegacyIds() {
 }
 migrateLegacyIds()
 
+// Automated browsers (CI Playwright runs against the production-configured
+// build) must not send events into the real KPI tables.
+const automated = typeof navigator !== 'undefined' && navigator.webdriver === true
+
 const fw = createFlywheelClient({
   app: 'zbrojni-kviz',
-  supabase: supabase as unknown as SupabaseLike | null,
+  supabase: automated ? null : (supabase as unknown as SupabaseLike | null),
 })
 
 /** Backward-compatible: existing call sites keep calling track(event, props). */

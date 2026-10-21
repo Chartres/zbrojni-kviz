@@ -9,6 +9,7 @@ import {
   type SessionState,
 } from './session'
 import type { ExamGroup } from './types'
+import { META } from './questions'
 
 const GROUP_OF: Record<string, ExamGroup> = {
   'Zákon o zbraních': 'pravni',
@@ -34,6 +35,15 @@ describe('buildExam', () => {
   it('has no duplicate questions', () => {
     const exam = buildExam(makeRng(2))
     expect(new Set(exam.map((q) => q.id)).size).toBe(60)
+  })
+
+  it('never contains both questions of a known duplicate pair', () => {
+    for (let seed = 1; seed <= 2000; seed++) {
+      const ids = new Set(buildExam(makeRng(seed)).map((q) => q.id))
+      for (const [x, y] of META.duplicatePairs) {
+        expect(ids.has(x) && ids.has(y), `seed ${seed}: ${x}+${y}`).toBe(false)
+      }
+    }
   })
 
   it('is deterministic for a seed and varies across seeds', () => {

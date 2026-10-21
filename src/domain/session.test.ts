@@ -10,7 +10,7 @@ import {
   isFinished,
   score,
   wrongAnswers,
-  progressRatio,
+  unanswered,
 } from './session'
 
 function q(id: number, correct: 'a' | 'b' | 'c'): Question {
@@ -75,11 +75,10 @@ describe('quiz session', () => {
     expect(wrongAnswers(s).map((a) => a.id)).toEqual([3])
   })
 
-  it('reports progress ratio', () => {
+  it('lists unanswered questions in session order', () => {
     let s = createSession(QS)
-    expect(progressRatio(s)).toBe(0)
-    s = answerCurrent(s, 'a')
-    expect(progressRatio(s)).toBeCloseTo(1 / 3)
+    s = advance(answerCurrent(s, 'a'))
+    expect(unanswered(s).map((x) => x.id)).toEqual(QS.slice(1).map((x) => x.id))
   })
 
   it('an empty session is immediately finished', () => {

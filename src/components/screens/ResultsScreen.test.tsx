@@ -1,7 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { ResultsScreen } from './ResultsScreen'
 import { emptyProgress } from '@/domain/progress'
+import { getQuestion } from '@/domain/questions'
 import type { SessionState } from '@/domain/session'
 import type { Question } from '@/domain/types'
 
@@ -70,5 +72,36 @@ describe('ResultsScreen analytics', () => {
     session = null
     rerender(<ResultsScreen />)
     expect(container).toBeEmptyDOMElement()
+  })
+
+  it('lists questions left unanswered at time-out with the wrong answers', () => {
+    // the screen looks questions up in the real dataset by id
+    const [q1, q2] = [getQuestion(1)!, getQuestion(2)!]
+    session = {
+      questions: [q1, q2],
+      index: 1,
+      records: [{ id: 1, choice: q1.correct === 'a' ? 'b' : 'a', correct: false }],
+      chosen: { 1: q1.correct === 'a' ? 'b' : 'a' },
+    }
+    render(<ResultsScreen />)
+    expect(screen.getByText(q1.q)).toBeInTheDocument()
+    expect(screen.getByText(q2.q)).toBeInTheDocument()
+    expect(screen.getByText('Chybné odpovědi (2)')).toBeInTheDocument()
+  })
+
+  it('fires start_* when a new session starts from the results screen (funnel stays ≤100 %)', async () => {
+    const q1 = getQuestion(1)!
+    const wrong = q1.correct === 'a' ? 'b' : 'a'
+    session = {
+      questions: [q1],
+      index: 1,
+      records: [{ id: 1, choice: wrong, correct: false }],
+      chosen: { 1: wrong },
+    }
+    render(<ResultsScreen />)
+    await userEvent.click(screen.getByRole('button', { name: 'Další lekce' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Opakovat chyby' }))
+    const starts = track.mock.calls.map(([name]) => name).filter((n) => n.startsWith('start_'))
+    expect(starts).toEqual(['start_lesson', 'start_review'])
   })
 })

@@ -34,10 +34,11 @@ export interface ProgressData {
   version: number
   stats: Record<number, QuestionStat>
   bookmarks: number[]
+  /** Question id → time of its last bookmark toggle, so a merge can tell a removal from a never-added. Added later; normalizeProgress fills it. */
+  bookmarkEdits: Record<number, number>
   streak: Streak
-  /** Additive (PROGRESS_VERSION stays 1) — missing on progress persisted before this field existed. */
-  examAttempts?: ExamAttempt[]
-  updatedAt: number
+  /** Added later (PROGRESS_VERSION stays 1); normalizeProgress fills it on older snapshots. */
+  examAttempts: ExamAttempt[]
 }
 
 export const PROGRESS_VERSION = 1
@@ -51,9 +52,9 @@ export function emptyProgress(): ProgressData {
     version: PROGRESS_VERSION,
     stats: {},
     bookmarks: [],
+    bookmarkEdits: {},
     streak: emptyStreak(),
     examAttempts: [],
-    updatedAt: 0,
   }
 }
 
@@ -70,9 +71,9 @@ export function normalizeProgress(
     version: PROGRESS_VERSION,
     stats: stored.stats ?? {},
     bookmarks: Array.isArray(stored.bookmarks) ? stored.bookmarks : [],
+    bookmarkEdits: stored.bookmarkEdits ?? {},
     streak: stored.streak ?? emptyStreak(),
     examAttempts: stored.examAttempts ?? [],
-    updatedAt: stored.updatedAt ?? 0,
   }
 }
 
@@ -84,15 +85,11 @@ export function recordExamAttempt(
   p: ProgressData,
   attempt: ExamAttempt,
 ): ProgressData {
-  const examAttempts = [attempt, ...(p.examAttempts ?? [])].slice(
+  const examAttempts = [attempt, ...p.examAttempts].slice(
     0,
     MAX_EXAM_ATTEMPTS,
   )
-  return {
-    ...p,
-    examAttempts,
-    updatedAt: Math.max(p.updatedAt, attempt.at),
-  }
+  return { ...p, examAttempts }
 }
 
 /** True if `today` (YYYY-MM-DD) is exactly the day after `prev`. */
@@ -115,7 +112,7 @@ export function recordLessonComplete(
   p: ProgressData,
   today: string,
 ): ProgressData {
-  const s = p.streak ?? emptyStreak()
+  const s = p.streak
   if (s.lastDate === today) return p // already counted today
   const current = isNextDay(s.lastDate, today) ? s.current + 1 : 1
   return {
@@ -153,7 +150,6 @@ export function recordAnswer(
   return {
     ...p,
     stats: { ...p.stats, [id]: next },
-    updatedAt: Math.max(p.updatedAt, now),
   }
 }
 
@@ -179,11 +175,15 @@ export function accuracy(p: ProgressData): number {
   return seen === 0 ? 0 : correct / seen
 }
 
-export function toggleBookmark(p: ProgressData, id: number): ProgressData {
+export function toggleBookmark(
+  p: ProgressData,
+  id: number,
+  now: number = Date.now(),
+): ProgressData {
   const set = new Set(p.bookmarks)
   if (set.has(id)) set.delete(id)
   else set.add(id)
-  return { ...p, bookmarks: [...set] }
+  return { ...p, bookmarks: [...set], bookmarkEdits: { ...p.bookmarkEdits, [id]: now } }
 }
 
 export function isBookmarked(p: ProgressData, id: number): boolean {
@@ -250,7 +250,7 @@ export function summary(
   }
 }
 
-/** Merge two progress snapshots: last-write-wins per question, union bookmarks. */
+/** Merge two progress snapshots: last-write-wins per question and per bookmark toggle. */
 export function mergeProgress(
   a: ProgressData,
   b: ProgressData,
@@ -261,8 +261,8 @@ export function mergeProgress(
     const existing = stats[id]
     if (!existing || s.lastSeen >= existing.lastSeen) stats[id] = s
   }
-  const sa = a.streak ?? emptyStreak()
-  const sb = b.streak ?? emptyStreak()
+  const sa = a.streak
+  const sb = b.streak
   const [older, latest] = sb.lastDate >= sa.lastDate ? [sa, sb] : [sb, sa]
   // Lessons on two devices on the same or consecutive days are one streak:
   // a fresh 1-day streak must not clobber a 40-day one from the day before.
@@ -275,19 +275,36 @@ export function mergeProgress(
 
   // Union by `at` (dedupe same-instant duplicates), newest-first, capped.
   const attemptsByAt = new Map<number, ExamAttempt>()
-  for (const attempt of [...(a.examAttempts ?? []), ...(b.examAttempts ?? [])]) {
+  for (const attempt of [...a.examAttempts, ...b.examAttempts]) {
     attemptsByAt.set(attempt.at, attempt)
   }
   const examAttempts = [...attemptsByAt.values()]
     .sort((x, y) => y.at - x.at)
     .slice(0, MAX_EXAM_ATTEMPTS)
 
+  // Per bookmark, the side that toggled it last wins; a tie (e.g. no edit times
+  // on legacy data) keeps it if either side has it.
+  const ea = a.bookmarkEdits
+  const eb = b.bookmarkEdits
+  const bookmarkEdits: Record<number, number> = { ...ea }
+  for (const [id, at] of Object.entries(eb)) {
+    bookmarkEdits[Number(id)] = Math.max(at, ea[Number(id)] ?? 0)
+  }
+  const bookmarks = [...new Set([...a.bookmarks, ...b.bookmarks])]
+    .filter((id) => {
+      const ta = ea[id] ?? 0
+      const tb = eb[id] ?? 0
+      if (ta === tb) return true
+      return (ta > tb ? a : b).bookmarks.includes(id)
+    })
+    .sort((x, y) => x - y)
+
   return {
     version: PROGRESS_VERSION,
     stats,
-    bookmarks: [...new Set([...a.bookmarks, ...b.bookmarks])],
+    bookmarks,
+    bookmarkEdits,
     streak: { current, best: Math.max(sa.best, sb.best, current), lastDate: latest.lastDate },
     examAttempts,
-    updatedAt: Math.max(a.updatedAt, b.updatedAt),
   }
 }

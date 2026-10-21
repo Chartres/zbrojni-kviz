@@ -97,6 +97,21 @@ describe('app store', () => {
     })
   })
 
+  it('a timed-out exam puts unanswered questions into the review queue', () => {
+    let s = start()
+    s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })
+    const first = currentQuestion(s.session!)!
+    s = reducer(s, { type: 'answer', choice: first.correct, now: 1 })
+    s = reducer(s, { type: 'next', now: 2 })
+    s = reducer(s, { type: 'finishExam', now: 99999 })
+    const unanswered = s.session!.questions.slice(1)
+    for (const q of unanswered) expect(statFor(s.progress, q.id).seen).toBe(1)
+    expect(statFor(s.progress, first.id).seen).toBe(1)
+    s = reducer(s, { type: 'startReview' })
+    const review = new Set(s.session!.questions.map((q) => q.id))
+    for (const q of unanswered) expect(review.has(q.id)).toBe(true)
+  })
+
   it('does not record an exam attempt for non-exam sessions', () => {
     let s = start()
     s = reducer(s, { type: 'setCategories', categories: new Set(['Jiné předpisy']) })
@@ -128,7 +143,7 @@ describe('app store', () => {
     p = recordAnswer(p, 610, false, 10)
     p = recordAnswer(p, 611, false, 20)
     let s = start({ progress: p })
-    s = reducer(s, { type: 'startReview', rng: makeRng(1) })
+    s = reducer(s, { type: 'startReview' })
     expect(s.mode).toBe('review')
     expect(s.session?.questions.map((q) => q.id)).toEqual([610, 611])
   })

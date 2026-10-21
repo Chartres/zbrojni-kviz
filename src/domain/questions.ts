@@ -20,13 +20,7 @@ export function byCategory(cat: CategoryName): Question[] {
   return ALL_QUESTIONS.filter((q) => q.cat === cat)
 }
 
-const GROUP_CATEGORIES: Record<ExamGroup, CategoryName[]> = {
-  pravni: ['Zákon o zbraních', 'Prováděcí předpisy', 'Jiné předpisy'],
-  nauka: ['Nauka o zbraních'],
-  zdravotnicke: ['Zdravotnické minimum'],
-}
-
 export function questionsForGroup(group: ExamGroup): Question[] {
-  const cats = new Set<CategoryName>(GROUP_CATEGORIES[group])
+  const cats = new Set(META.exam.composition.find((p) => p.group === group)?.categories)
   return ALL_QUESTIONS.filter((q) => cats.has(q.cat))
 }
