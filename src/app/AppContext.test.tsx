@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, act, fireEvent } from '@testing-library/react'
 import { AppProvider, useApp } from './AppContext'
 import { emptyProgress, mergeProgress, recordAnswer, type ProgressData } from '@/domain/progress'
-import { saveProgress, STORAGE_KEY } from '@/domain/storage'
+import { OWNER_KEY, saveProgress, STORAGE_KEY } from '@/domain/storage'
 
 vi.mock('@/auth/sync', () => ({ syncProgress: vi.fn() }))
 vi.mock('@/auth/supabaseStore', () => ({
@@ -247,6 +247,39 @@ describe('AppContext sync wiring', () => {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)!)
     expect(Object.keys(stored.stats)).toEqual(['99'])
     expect(stored.bookmarks).toEqual([5])
+  })
+
+  it('another tab signing in as a different account drops this tab\'s account A progress', async () => {
+    vi.useFakeTimers()
+    vi.mocked(syncProgress).mockImplementation(async (_s, userId, local) =>
+      userId === 'u1' ? recordAnswer(local, 99, true, 100) : local,
+    )
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+    expect(screen.getByTestId('count').textContent).toBe('1')
+
+    // tab B: account u2 signs in, wipes local progress, records itself as owner
+    const empty = JSON.stringify(emptyProgress())
+    localStorage.setItem(STORAGE_KEY, empty)
+    localStorage.setItem(OWNER_KEY, 'u2')
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY, newValue: empty }))
+      window.dispatchEvent(new StorageEvent('storage', { key: OWNER_KEY, newValue: 'u2' }))
+    })
+    // tab A's next action must not write u1's stats back for tab B to pick up
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    await act(flush)
+
+    expect(JSON.parse(localStorage.getItem(STORAGE_KEY)!).stats).toEqual({})
+    expect(screen.getByTestId('count').textContent).toBe('0')
+    // and u2's local progress is not uploaded into u1's cloud row
+    expect(vi.mocked(syncProgress).mock.calls.filter(([, u]) => u === 'u1')).toHaveLength(1)
   })
 
   it('a failed sign-in sync does not block later uploads', async () => {

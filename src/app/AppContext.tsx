@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react'
 import { reducer, initialState, type AppState, type Action } from './store'
-import { loadOwner, loadProgress, saveOwner, saveProgress, STORAGE_KEY } from '@/domain/storage'
+import { loadOwner, loadProgress, OWNER_KEY, saveOwner, saveProgress, STORAGE_KEY } from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
 import { topicFromPath } from '@/lib/topics'
 import { makeRng, timeSeed } from '@/domain/rng'
@@ -33,6 +33,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // True for exactly one render after a sync hydrate; skips the redundant
   // upload that would immediately re-trigger after the merge (H1/L10).
   const justSyncedRef = useRef(false)
+  // Account the in-memory progress belongs to. Another tab signing in as a
+  // different account changes the stored owner; this tab must then drop its copy.
+  const ownerRef = useRef(loadOwner())
 
   // Hydrate persisted progress once on mount.
   useEffect(() => {
@@ -64,6 +67,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       persistInitialized.current = true
       return
     }
+    // Another tab switched accounts and wiped local data: don't write ours back.
+    if (loadOwner() !== ownerRef.current) return
     saveProgress(state.progress)
   }, [state.progress])
 
@@ -71,7 +76,15 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // next local save does not overwrite its answers.
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
-      if (e.key === STORAGE_KEY) dispatch({ type: 'mergeIn', progress: loadProgress() })
+      if (e.key !== STORAGE_KEY && e.key !== OWNER_KEY) return
+      const owner = loadOwner()
+      if (owner !== ownerRef.current) {
+        // Another tab signed in as a different account: adopt its data, never merge ours in.
+        ownerRef.current = owner
+        dispatch({ type: 'hydrate', progress: loadProgress() })
+      } else if (e.key === STORAGE_KEY) {
+        dispatch({ type: 'mergeIn', progress: loadProgress() })
+      }
     }
     window.addEventListener('storage', onStorage)
     return () => window.removeEventListener('storage', onStorage)
@@ -95,6 +108,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       justSyncedRef.current = false
     }
     saveOwner(user.id)
+    ownerRef.current = user.id
     let cancelled = false
     syncInProgressRef.current = true
     const local = loadProgress()
@@ -126,6 +140,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // to avoid uploading a pre-merge or post-merge duplicate (H1/H2/L10).
   useEffect(() => {
     if (!user) return
+    if (ownerRef.current !== user.id) return // local data now belongs to another tab's account
     if (syncInProgressRef.current) return
     if (justSyncedRef.current) {
       justSyncedRef.current = false
