@@ -136,7 +136,7 @@ export function ResultsScreen() {
             type="button"
             onClick={() => {
               track('start_review', { from: 'results' })
-              dispatch({ type: 'startReview', rng: makeRng(timeSeed()) })
+              dispatch({ type: 'startReview' })
             }}
             className="rounded-card border border-steel-600 px-5 py-2.5 font-semibold text-steel-200 hover:border-steel-400"
           >

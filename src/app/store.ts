@@ -72,7 +72,7 @@ export type Action =
   | { type: 'setSearch'; search: string }
   | { type: 'startLesson'; rng: Rng }
   | { type: 'startPractice'; rng: Rng }
-  | { type: 'startReview'; rng: Rng }
+  | { type: 'startReview' }
   | { type: 'startBookmarks'; rng: Rng }
   | { type: 'startWeakDrill'; rng: Rng }
   | { type: 'startExam'; rng: Rng; now: number }
