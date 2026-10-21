@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { makeRng } from './rng'
 import { buildLesson, LESSON_SIZE } from './lesson'
 import { emptyProgress, recordAnswer, MASTERY_STREAK } from './progress'
-import { ALL_QUESTIONS } from './questions'
+import { ALL_QUESTIONS, META } from './questions'
 import type { ExamGroup } from './types'
 
 const GROUP_OF: Record<string, ExamGroup> = {
@@ -24,6 +24,28 @@ describe('buildLesson', () => {
       for (let i = 0; i < MASTERY_STREAK; i++) p = recordAnswer(p, q.id, true, 100 + i)
     }
     expect(buildLesson(p, makeRng(4))).toHaveLength(LESSON_SIZE)
+  })
+
+  it('never contains both questions of a known duplicate pair', () => {
+    // both twins due for review: the review pass must not take both
+    let p = emptyProgress()
+    for (const [x, y] of META.duplicatePairs) {
+      p = recordAnswer(p, x, false, 1)
+      p = recordAnswer(p, y, false, 2)
+    }
+    const lessons = [buildLesson(p, makeRng(1))]
+    // top-up path: every question mastered except the twins (unseen)
+    let m = emptyProgress()
+    const twinIds = new Set(META.duplicatePairs.flat())
+    for (const q of ALL_QUESTIONS) {
+      if (twinIds.has(q.id)) continue
+      for (let i = 0; i < MASTERY_STREAK; i++) m = recordAnswer(m, q.id, true, 100 + i)
+    }
+    for (let seed = 1; seed <= 50; seed++) lessons.push(buildLesson(m, makeRng(seed)))
+    for (const lesson of lessons) {
+      const ids = new Set(lesson.map((q) => q.id))
+      for (const [x, y] of META.duplicatePairs) expect(ids.has(x) && ids.has(y)).toBe(false)
+    }
   })
 
   it('has no duplicate questions', () => {

@@ -1,5 +1,5 @@
 import type { Question } from './types'
-import { questionsForGroup, getQuestion } from './questions'
+import { META, questionsForGroup, getQuestion } from './questions'
 import { EXAM } from './exam'
 import { sample, shuffle, type Rng } from './rng'
 import { dueForReview, isMastered, statFor, type ProgressData } from './progress'
@@ -8,6 +8,9 @@ import { dueForReview, isMastered, statFor, type ProgressData } from './progress
 export const LESSON_SIZE = 12
 /** At most this fraction of a lesson is review of weak spots. */
 const REVIEW_FRACTION = 0.4
+
+// Verbatim duplicates (META.duplicatePairs), both directions: taking one blocks its twin.
+const TWIN_OF = new Map(META.duplicatePairs.flatMap(([x, y]) => [[x, y], [y, x]] as const))
 
 /**
  * Assemble a bite-sized, personalised lesson:
@@ -25,6 +28,8 @@ export function buildLesson(
   const take = (q: Question | undefined) => {
     if (q && !used.has(q.id)) {
       used.add(q.id)
+      const twin = TWIN_OF.get(q.id)
+      if (twin !== undefined) used.add(twin)
       return true
     }
     return false
