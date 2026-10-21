@@ -39,15 +39,10 @@ export function evaluateExam(s: SessionState): ExamResult {
   const total = s.questions.length
   const score = sessionScore(s)
   const byCategory: Partial<Record<CategoryName, CategoryBreakdown>> = {}
-  const byId = new Map(s.questions.map((q) => [q.id, q]))
   for (const q of s.questions) {
     const b = (byCategory[q.cat] ??= { correct: 0, total: 0 })
     b.total++
-  }
-  for (const r of s.records) {
-    if (!r.correct) continue
-    const cat = byId.get(r.id)?.cat
-    if (cat) byCategory[cat]!.correct++
+    if (s.chosen[q.id] === q.correct) b.correct++
   }
   return {
     score,
