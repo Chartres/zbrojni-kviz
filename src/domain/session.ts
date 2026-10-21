@@ -60,8 +60,3 @@ export function score(s: SessionState): number {
 export function wrongAnswers(s: SessionState): AnswerRecord[] {
   return s.records.filter((r) => !r.correct)
 }
-
-export function progressRatio(s: SessionState): number {
-  if (s.questions.length === 0) return 0
-  return s.records.length / s.questions.length
-}
