@@ -39,7 +39,6 @@ export interface ProgressData {
   streak: Streak
   /** Additive (PROGRESS_VERSION stays 1) — missing on progress persisted before this field existed. */
   examAttempts?: ExamAttempt[]
-  updatedAt: number
 }
 
 export const PROGRESS_VERSION = 1
@@ -56,7 +55,6 @@ export function emptyProgress(): ProgressData {
     bookmarkEdits: {},
     streak: emptyStreak(),
     examAttempts: [],
-    updatedAt: 0,
   }
 }
 
@@ -76,7 +74,6 @@ export function normalizeProgress(
     bookmarkEdits: stored.bookmarkEdits ?? {},
     streak: stored.streak ?? emptyStreak(),
     examAttempts: stored.examAttempts ?? [],
-    updatedAt: stored.updatedAt ?? 0,
   }
 }
 
@@ -92,11 +89,7 @@ export function recordExamAttempt(
     0,
     MAX_EXAM_ATTEMPTS,
   )
-  return {
-    ...p,
-    examAttempts,
-    updatedAt: Math.max(p.updatedAt, attempt.at),
-  }
+  return { ...p, examAttempts }
 }
 
 /** True if `today` (YYYY-MM-DD) is exactly the day after `prev`. */
@@ -157,7 +150,6 @@ export function recordAnswer(
   return {
     ...p,
     stats: { ...p.stats, [id]: next },
-    updatedAt: Math.max(p.updatedAt, now),
   }
 }
 
@@ -314,6 +306,5 @@ export function mergeProgress(
     bookmarkEdits,
     streak: { current, best: Math.max(sa.best, sb.best, current), lastDate: latest.lastDate },
     examAttempts,
-    updatedAt: Math.max(a.updatedAt, b.updatedAt),
   }
 }

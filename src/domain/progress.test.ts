@@ -268,12 +268,6 @@ describe('recordExamAttempt', () => {
     expect(p.examAttempts?.[0].at).toBe(MAX_EXAM_ATTEMPTS + 4)
     expect(p.examAttempts?.at(-1)?.at).toBe(5)
   })
-
-  it('bumps updatedAt to the attempt time', () => {
-    let p = emptyProgress()
-    p = recordExamAttempt(p, attempt(500))
-    expect(p.updatedAt).toBe(500)
-  })
 })
 
 describe('mergeProgress — exam attempts', () => {
