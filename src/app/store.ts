@@ -7,6 +7,7 @@ import {
   currentQuestion,
   isCurrentAnswered,
   isFinished,
+  unanswered,
   type SessionState,
 } from '@/domain/session'
 import {
@@ -204,10 +205,8 @@ export function reducer(state: AppState, action: Action): AppState {
       const examResult = evaluateExam(state.session)
       // Unanswered at time-out count as wrong in the score, so they go to the review queue too.
       let progress = state.progress
-      for (const q of state.session.questions) {
-        if (state.session.chosen[q.id] === undefined) {
-          progress = recordAnswer(progress, q.id, false, action.now)
-        }
+      for (const q of unanswered(state.session)) {
+        progress = recordAnswer(progress, q.id, false, action.now)
       }
       return {
         ...state,

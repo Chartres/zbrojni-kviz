@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { track } from '@/analytics'
-import { score, wrongAnswers } from '@/domain/session'
+import { score, unanswered, wrongAnswers } from '@/domain/session'
 import { getQuestion, ALL_QUESTIONS } from '@/domain/questions'
 import { makeRng, timeSeed } from '@/domain/rng'
 import { weakCategories } from '@/domain/selection'
@@ -32,7 +32,7 @@ export function ResultsScreen() {
   // Wrong answers plus questions left unanswered when an exam timed out (scored wrong too).
   const wrong = [
     ...wrongAnswers(session).map((r) => r.id),
-    ...session.questions.filter((q) => session.chosen[q.id] === undefined).map((q) => q.id),
+    ...unanswered(session).map((q) => q.id),
   ]
   const isExam = mode === 'exam'
   const isLesson = mode === 'lesson'
