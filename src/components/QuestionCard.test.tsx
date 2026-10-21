@@ -135,4 +135,23 @@ describe('QuestionCard', () => {
     setup({ chosen: 'b', reveal: false })
     expect(screen.getByRole('status')).toHaveTextContent('Uloženo')
   })
+
+  it('after answering, Enter on a focused control activates that control, not "Další"', async () => {
+    const { onNext, onToggleBookmark } = setup({ chosen: 'a' })
+    screen.getByRole('button', { name: /zálož/i }).focus()
+    await userEvent.keyboard('{Enter}')
+    expect(onToggleBookmark).toHaveBeenCalledTimes(1)
+    expect(onNext).not.toHaveBeenCalled()
+    screen.getByRole('button', { name: /další/i }).focus()
+    await userEvent.keyboard('{Enter}')
+    expect(onNext).toHaveBeenCalledTimes(1)
+  })
+
+  it('after answering, Enter/Space outside a control advances', async () => {
+    const { onNext } = setup({ chosen: 'a' })
+    screen.getByRole('heading', { name: Q.q }).focus()
+    await userEvent.keyboard('{Enter}')
+    await userEvent.keyboard(' ')
+    expect(onNext).toHaveBeenCalledTimes(2)
+  })
 })

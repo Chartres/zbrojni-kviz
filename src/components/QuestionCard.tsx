@@ -82,7 +82,12 @@ export function QuestionCard({
       if (!answered && KEY_TO_CHOICE[key]) {
         e.preventDefault()
         onAnswer(KEY_TO_CHOICE[key])
-      } else if (answered && (e.key === 'Enter' || e.key === ' ')) {
+      } else if (
+        answered &&
+        (e.key === 'Enter' || e.key === ' ') &&
+        // a focused button/link (Záložka, ← Konec, Další itself) activates natively
+        !(e.target instanceof Element && e.target.closest('button, a'))
+      ) {
         e.preventDefault()
         onNext()
       }
