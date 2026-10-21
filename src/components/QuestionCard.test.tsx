@@ -120,4 +120,9 @@ describe('QuestionCard', () => {
     rerender(<QuestionCard {...props} chosen="b" />)
     expect(screen.getByRole('button', { name: /další/i })).toHaveFocus()
   })
+
+  it('focuses the question heading when a new question mounts (after "Další")', () => {
+    setup()
+    expect(screen.getByRole('heading', { name: Q.q })).toHaveFocus()
+  })
 })

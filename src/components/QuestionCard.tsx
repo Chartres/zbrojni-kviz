@@ -65,10 +65,13 @@ export function QuestionCard({
   const answered = chosen !== undefined
   const isCorrect = answered && chosen === question.correct
   const nextRef = useRef<HTMLButtonElement>(null)
+  const headingRef = useRef<HTMLHeadingElement>(null)
 
+  // QuizScreen remounts the card per question: start focus on the new stem.
   // Answering disables the options; hand focus to "Další" so it doesn't fall to <body>.
   useEffect(() => {
-    if (answered) nextRef.current?.focus()
+    const target = answered ? nextRef.current : headingRef.current
+    target?.focus()
   }, [answered])
 
   useEffect(() => {
@@ -111,7 +114,7 @@ export function QuestionCard({
         </button>
       </header>
 
-      <h2 className="mb-5 text-balance text-xl font-semibold leading-relaxed text-steel-50">
+      <h2 ref={headingRef} tabIndex={-1} className="mb-5 text-balance text-xl font-semibold leading-relaxed text-steel-50">
         {question.q}
       </h2>
 
