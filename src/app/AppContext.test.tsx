@@ -282,6 +282,54 @@ describe('AppContext sync wiring', () => {
     expect(vi.mocked(syncProgress).mock.calls.filter(([, u]) => u === 'u1')).toHaveLength(1)
   })
 
+  it('does not re-upload an answer another signed-in tab saved (that tab uploads it)', async () => {
+    vi.useFakeTimers()
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+    expect(syncProgress).toHaveBeenCalledTimes(1) // sign-in sync
+
+    const other = JSON.stringify(recordAnswer(emptyProgress(), 99, true, 100))
+    localStorage.setItem(STORAGE_KEY, other)
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY, newValue: other }))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    await act(flush)
+
+    expect(screen.getByTestId('count').textContent).toBe('1')
+    expect(syncProgress).toHaveBeenCalledTimes(1)
+  })
+
+  it('still uploads this tab\'s pending edit when another tab\'s save lacks it', async () => {
+    vi.useFakeTimers()
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+    const other = JSON.stringify(recordAnswer(emptyProgress(), 99, true, 100))
+    localStorage.setItem(STORAGE_KEY, other)
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY, newValue: other }))
+    })
+    await act(async () => {
+      vi.advanceTimersByTime(2000)
+    })
+    await act(flush)
+
+    expect(syncProgress).toHaveBeenCalledTimes(2)
+    const uploaded = vi.mocked(syncProgress).mock.calls.at(-1)![2]
+    expect(uploaded.bookmarks).toEqual([5])
+    expect(Object.keys(uploaded.stats)).toEqual(['99'])
+  })
+
   it('a failed sign-in sync does not block later uploads', async () => {
     vi.useFakeTimers()
     vi.mocked(syncProgress).mockRejectedValue(new Error('offline'))

@@ -36,6 +36,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // Account the in-memory progress belongs to. Another tab signing in as a
   // different account changes the stored owner; this tab must then drop its copy.
   const ownerRef = useRef(loadOwner())
+  // Last progress snapshot merged in from another tab (JSON). That tab uploads it.
+  const otherTabRef = useRef<string | null>(null)
 
   // Hydrate persisted progress once on mount.
   useEffect(() => {
@@ -83,7 +85,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
         ownerRef.current = owner
         dispatch({ type: 'hydrate', progress: loadProgress() })
       } else if (e.key === STORAGE_KEY) {
-        dispatch({ type: 'mergeIn', progress: loadProgress() })
+        const incoming = loadProgress()
+        otherTabRef.current = JSON.stringify(incoming)
+        dispatch({ type: 'mergeIn', progress: incoming })
       }
     }
     window.addEventListener('storage', onStorage)
@@ -146,6 +150,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
       justSyncedRef.current = false
       return
     }
+    // Merging another tab's save left us identical to it: nothing of ours is
+    // missing there, and the writing tab uploads it. Any extra local edit
+    // makes the states differ, so it still goes up from here.
+    const fromOtherTab = otherTabRef.current
+    otherTabRef.current = null
+    if (fromOtherTab === JSON.stringify(state.progress)) return
     let cancelled = false
     const local = state.progress
     const t = setTimeout(() => {
