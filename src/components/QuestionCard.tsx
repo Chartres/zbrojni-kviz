@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import type { Choice, Question } from '@/domain/types'
 import { imageUrl } from '@/lib/assets'
 
@@ -64,6 +64,12 @@ export function QuestionCard({
 }: QuestionCardProps) {
   const answered = chosen !== undefined
   const isCorrect = answered && chosen === question.correct
+  const nextRef = useRef<HTMLButtonElement>(null)
+
+  // Answering disables the options; hand focus to "Další" so it doesn't fall to <body>.
+  useEffect(() => {
+    if (answered) nextRef.current?.focus()
+  }, [answered])
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -131,6 +137,7 @@ export function QuestionCard({
               type="button"
               data-state={state}
               disabled={answered}
+              aria-pressed={answered ? opt === chosen : undefined}
               onClick={() => !answered && onAnswer(opt)}
               className={`flex items-start gap-3 rounded-card border px-4 py-3 text-left transition-colors disabled:cursor-default ${STATE_CLASS[state]}`}
             >
@@ -175,6 +182,7 @@ export function QuestionCard({
             <span className="text-sm text-steel-400">Uloženo</span>
           )}
           <button
+            ref={nextRef}
             type="button"
             onClick={onNext}
             className="glow-brass inline-flex shrink-0 items-center gap-2 rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 transition-colors hover:bg-brass-400"

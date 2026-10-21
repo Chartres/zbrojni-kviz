@@ -103,4 +103,21 @@ describe('QuestionCard', () => {
     expect(img).toHaveAttribute('src', expect.stringContaining('q649_0.png'))
     expect(img).toHaveAccessibleName()
   })
+
+  it('marks the recorded answer with aria-pressed (exam mode has no colour-only cue)', () => {
+    setup({ chosen: 'b', reveal: false })
+    expect(screen.getByRole('button', { name: /neregulovanou/ })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', { name: /doplňkem/ })).toHaveAttribute('aria-pressed', 'false')
+  })
+
+  it('moves focus to "Další" once answered instead of dropping it to <body>', async () => {
+    const props = {
+      question: Q, reveal: true, bookmarked: false, index: 0, total: 10,
+      onAnswer: vi.fn(), onNext: vi.fn(), onToggleBookmark: vi.fn(),
+    }
+    const { rerender } = render(<QuestionCard {...props} />)
+    screen.getByRole('button', { name: /neregulovanou/ }).focus()
+    rerender(<QuestionCard {...props} chosen="b" />)
+    expect(screen.getByRole('button', { name: /další/i })).toHaveFocus()
+  })
 })
