@@ -112,7 +112,7 @@ export function recordLessonComplete(
   p: ProgressData,
   today: string,
 ): ProgressData {
-  const s = p.streak ?? emptyStreak()
+  const s = p.streak
   if (s.lastDate === today) return p // already counted today
   const current = isNextDay(s.lastDate, today) ? s.current + 1 : 1
   return {
@@ -261,8 +261,8 @@ export function mergeProgress(
     const existing = stats[id]
     if (!existing || s.lastSeen >= existing.lastSeen) stats[id] = s
   }
-  const sa = a.streak ?? emptyStreak()
-  const sb = b.streak ?? emptyStreak()
+  const sa = a.streak
+  const sb = b.streak
   const [older, latest] = sb.lastDate >= sa.lastDate ? [sa, sb] : [sb, sa]
   // Lessons on two devices on the same or consecutive days are one streak:
   // a fresh 1-day streak must not clobber a 40-day one from the day before.
