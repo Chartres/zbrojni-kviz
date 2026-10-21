@@ -29,7 +29,11 @@ export function ResultsScreen() {
 
   const total = session.questions.length
   const correct = score(session)
-  const wrong = wrongAnswers(session)
+  // Wrong answers plus questions left unanswered when an exam timed out (scored wrong too).
+  const wrong = [
+    ...wrongAnswers(session).map((r) => r.id),
+    ...session.questions.filter((q) => session.chosen[q.id] === undefined).map((q) => q.id),
+  ]
   const isExam = mode === 'exam'
   const isLesson = mode === 'lesson'
   const failedExam = isExam && examResult != null && !examResult.passed
@@ -94,12 +98,12 @@ export function ResultsScreen() {
             Chybné odpovědi ({wrong.length})
           </h2>
           <ul className="space-y-3">
-            {wrong.map((r) => {
-              const q = getQuestion(r.id)
+            {wrong.map((id) => {
+              const q = getQuestion(id)
               if (!q) return null
               return (
                 <li
-                  key={r.id}
+                  key={id}
                   className="rounded-card border border-steel-700 bg-steel-900/50 p-4"
                 >
                   <p className="mb-2 text-sm text-steel-200">{q.q}</p>

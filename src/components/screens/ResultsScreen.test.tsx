@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { ResultsScreen } from './ResultsScreen'
 import { emptyProgress } from '@/domain/progress'
+import { getQuestion } from '@/domain/questions'
 import type { SessionState } from '@/domain/session'
 import type { Question } from '@/domain/types'
 
@@ -70,5 +71,20 @@ describe('ResultsScreen analytics', () => {
     session = null
     rerender(<ResultsScreen />)
     expect(container).toBeEmptyDOMElement()
+  })
+
+  it('lists questions left unanswered at time-out with the wrong answers', () => {
+    // the screen looks questions up in the real dataset by id
+    const [q1, q2] = [getQuestion(1)!, getQuestion(2)!]
+    session = {
+      questions: [q1, q2],
+      index: 1,
+      records: [{ id: 1, choice: q1.correct === 'a' ? 'b' : 'a', correct: false }],
+      chosen: { 1: q1.correct === 'a' ? 'b' : 'a' },
+    }
+    render(<ResultsScreen />)
+    expect(screen.getByText(q1.q)).toBeInTheDocument()
+    expect(screen.getByText(q2.q)).toBeInTheDocument()
+    expect(screen.getByText('Chybné odpovědi (2)')).toBeInTheDocument()
   })
 })

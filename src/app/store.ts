@@ -202,12 +202,19 @@ export function reducer(state: AppState, action: Action): AppState {
     case 'finishExam': {
       if (!state.session) return state
       const examResult = evaluateExam(state.session)
+      // Unanswered at time-out count as wrong in the score, so they go to the review queue too.
+      let progress = state.progress
+      for (const q of state.session.questions) {
+        if (state.session.chosen[q.id] === undefined) {
+          progress = recordAnswer(progress, q.id, false, action.now)
+        }
+      }
       return {
         ...state,
         view: 'results',
         examResult,
         examEndsAt: null,
-        progress: recordExamAttempt(state.progress, toExamAttempt(examResult, action.now)),
+        progress: recordExamAttempt(progress, toExamAttempt(examResult, action.now)),
       }
     }
 
