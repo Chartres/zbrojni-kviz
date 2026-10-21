@@ -8,6 +8,11 @@ import { fileURLToPath } from 'node:url'
 // Served at the custom domain root https://zbrojnikviz.dravec.org/ (and locally at /).
 const base = '/'
 
+// Navigations to files (sitemap.xml, llms.txt, …) skip the SW app-shell fallback.
+// Workbox tests pathname + query, so the dotted name must sit in the pathname:
+// `/?ref=news.ycombinator.com` is still an app navigation.
+export const fileNavigation = /^[^?]*\/[^/?]+\.[a-z0-9]+(\?.*)?$/i
+
 export default defineConfig({
   base,
   plugins: [
@@ -47,7 +52,7 @@ export default defineConfig({
         // the network, not get the app shell. ponytail: /okruh/<slug>/ keeps the shell
         // fallback on purpose; the app boots that okruh from the path, and the prerendered
         // pages are written after the SW is generated, so they can't be precached anyway.
-        navigateFallbackDenylist: [/\/[^/]+\.[a-z0-9]+$/i],
+        navigateFallbackDenylist: [fileNavigation],
         cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
