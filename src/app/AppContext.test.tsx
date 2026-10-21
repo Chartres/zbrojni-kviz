@@ -9,10 +9,12 @@ vi.mock('@/auth/supabaseStore', () => ({
   supabaseStore: { fetch: vi.fn(), save: vi.fn().mockResolvedValue(undefined) },
 }))
 vi.mock('@/auth/AuthContext', () => ({ useAuth: vi.fn() }))
+vi.mock('@/analytics', () => ({ track: vi.fn() }))
 
 import { syncProgress } from '@/auth/sync'
 import { supabaseStore } from '@/auth/supabaseStore'
 import { useAuth } from '@/auth/AuthContext'
+import { track } from '@/analytics'
 
 const baseAuth = {
   configured: true,
@@ -365,5 +367,21 @@ describe('AppContext sync wiring', () => {
       vi.advanceTimersByTime(2000)
     })
     expect(vi.mocked(supabaseStore.save)).not.toHaveBeenCalled()
+  })
+
+  it('fires app_open only after the session is known, so it carries the identity', async () => {
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: true })
+    const { rerender } = render(app())
+    expect(track).not.toHaveBeenCalledWith('app_open')
+
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: false, user: { id: 'u1' } })
+    vi.mocked(syncProgress).mockResolvedValue(emptyProgress())
+    await act(async () => {
+      rerender(app())
+    })
+    await act(async () => {
+      rerender(app())
+    })
+    expect(vi.mocked(track).mock.calls.filter(([e]) => e === 'app_open')).toHaveLength(1)
   })
 })

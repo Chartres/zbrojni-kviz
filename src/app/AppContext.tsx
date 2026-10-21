@@ -25,7 +25,7 @@ const AppContext = createContext<AppContextValue | null>(null)
 
 export function AppProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, undefined, initialState)
-  const { user } = useAuth()
+  const { user, loading } = useAuth()
 
   // True while a sign-in sync is in flight; prevents the debounced save from
   // uploading a stale local snapshot before the cloud merge lands (H1/H2).
@@ -44,8 +44,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
       dispatch({ type: 'startPractice', rng: makeRng(timeSeed()) })
       track('start_topic', { topic: topic.category, from: 'seo-page' })
     }
-    track('app_open')
   }, [])
+
+  // app_open waits for the session check: AuthProvider calls identify() before it
+  // clears `loading`, so the event carries flywheel_uid for signed-in users.
+  const appOpenSent = useRef(false)
+  useEffect(() => {
+    if (loading || appOpenSent.current) return
+    appOpenSent.current = true
+    track('app_open')
+  }, [loading])
 
   // Persist progress locally whenever it changes (offline-first source of truth).
   // Skip the first render: state starts as initialState (empty), and the hydrate
