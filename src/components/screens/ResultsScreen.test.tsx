@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { ResultsScreen } from './ResultsScreen'
 import { emptyProgress } from '@/domain/progress'
 import { getQuestion } from '@/domain/questions'
@@ -86,5 +87,21 @@ describe('ResultsScreen analytics', () => {
     expect(screen.getByText(q1.q)).toBeInTheDocument()
     expect(screen.getByText(q2.q)).toBeInTheDocument()
     expect(screen.getByText('Chybné odpovědi (2)')).toBeInTheDocument()
+  })
+
+  it('fires start_* when a new session starts from the results screen (funnel stays ≤100 %)', async () => {
+    const q1 = getQuestion(1)!
+    const wrong = q1.correct === 'a' ? 'b' : 'a'
+    session = {
+      questions: [q1],
+      index: 1,
+      records: [{ id: 1, choice: wrong, correct: false }],
+      chosen: { 1: wrong },
+    }
+    render(<ResultsScreen />)
+    await userEvent.click(screen.getByRole('button', { name: 'Další lekce' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Opakovat chyby' }))
+    const starts = track.mock.calls.map(([name]) => name).filter((n) => n.startsWith('start_'))
+    expect(starts).toEqual(['start_lesson', 'start_review'])
   })
 })
