@@ -34,11 +34,11 @@ export interface ProgressData {
   version: number
   stats: Record<number, QuestionStat>
   bookmarks: number[]
-  /** Question id → time of its last bookmark toggle, so a merge can tell a removal from a never-added. Additive. */
-  bookmarkEdits?: Record<number, number>
+  /** Question id → time of its last bookmark toggle, so a merge can tell a removal from a never-added. Added later; normalizeProgress fills it. */
+  bookmarkEdits: Record<number, number>
   streak: Streak
-  /** Additive (PROGRESS_VERSION stays 1) — missing on progress persisted before this field existed. */
-  examAttempts?: ExamAttempt[]
+  /** Added later (PROGRESS_VERSION stays 1); normalizeProgress fills it on older snapshots. */
+  examAttempts: ExamAttempt[]
 }
 
 export const PROGRESS_VERSION = 1
@@ -85,7 +85,7 @@ export function recordExamAttempt(
   p: ProgressData,
   attempt: ExamAttempt,
 ): ProgressData {
-  const examAttempts = [attempt, ...(p.examAttempts ?? [])].slice(
+  const examAttempts = [attempt, ...p.examAttempts].slice(
     0,
     MAX_EXAM_ATTEMPTS,
   )
@@ -275,7 +275,7 @@ export function mergeProgress(
 
   // Union by `at` (dedupe same-instant duplicates), newest-first, capped.
   const attemptsByAt = new Map<number, ExamAttempt>()
-  for (const attempt of [...(a.examAttempts ?? []), ...(b.examAttempts ?? [])]) {
+  for (const attempt of [...a.examAttempts, ...b.examAttempts]) {
     attemptsByAt.set(attempt.at, attempt)
   }
   const examAttempts = [...attemptsByAt.values()]
@@ -284,8 +284,8 @@ export function mergeProgress(
 
   // Per bookmark, the side that toggled it last wins; a tie (e.g. no edit times
   // on legacy data) keeps it if either side has it.
-  const ea = a.bookmarkEdits ?? {}
-  const eb = b.bookmarkEdits ?? {}
+  const ea = a.bookmarkEdits
+  const eb = b.bookmarkEdits
   const bookmarkEdits: Record<number, number> = { ...ea }
   for (const [id, at] of Object.entries(eb)) {
     bookmarkEdits[Number(id)] = Math.max(at, ea[Number(id)] ?? 0)

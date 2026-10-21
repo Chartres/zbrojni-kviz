@@ -8,7 +8,7 @@ import { InfoDot } from '@/components/ui/InfoDot'
 export function StatsScreen() {
   const { state } = useApp()
   const sum = useMemo(() => summary(state.progress, ALL_QUESTIONS), [state.progress])
-  const attempts = state.progress.examAttempts ?? []
+  const attempts = state.progress.examAttempts
   const bestScore = attempts.reduce((max, a) => Math.max(max, a.score), 0)
 
   const stats = [
