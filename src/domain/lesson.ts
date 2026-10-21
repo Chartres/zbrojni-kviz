@@ -53,14 +53,15 @@ export function buildLesson(
     }
   }
 
-  // 3) Top up to size: any remaining unseen, then seen-but-unmastered.
+  // 3) Top up to size: any remaining unseen, then seen-but-unmastered, then
+  //    mastered (refresher) so a learner who mastered everything still gets a full lesson.
   if (review.length + fresh.length < size) {
     const all = EXAM.composition.flatMap((p) => questionsForGroup(p.group))
     const unseen = all.filter((q) => !used.has(q.id) && statFor(progress, q.id).seen === 0)
     const unmastered = all.filter(
       (q) => !used.has(q.id) && !isMastered(statFor(progress, q.id)),
     )
-    for (const q of [...shuffle(unseen, rng), ...shuffle(unmastered, rng)]) {
+    for (const q of [...shuffle(unseen, rng), ...shuffle(unmastered, rng), ...shuffle(all, rng)]) {
       if (review.length + fresh.length >= size) break
       if (take(q)) fresh.push(q)
     }

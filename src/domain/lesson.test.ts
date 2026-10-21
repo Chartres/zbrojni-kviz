@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { makeRng } from './rng'
 import { buildLesson, LESSON_SIZE } from './lesson'
 import { emptyProgress, recordAnswer, MASTERY_STREAK } from './progress'
+import { ALL_QUESTIONS } from './questions'
 import type { ExamGroup } from './types'
 
 const GROUP_OF: Record<string, ExamGroup> = {
@@ -15,6 +16,14 @@ const GROUP_OF: Record<string, ExamGroup> = {
 describe('buildLesson', () => {
   it('is always a finishable fixed size', () => {
     expect(buildLesson(emptyProgress(), makeRng(1))).toHaveLength(LESSON_SIZE)
+  })
+
+  it('stays full size once every question is mastered (streak can still extend)', () => {
+    let p = emptyProgress()
+    for (const q of ALL_QUESTIONS) {
+      for (let i = 0; i < MASTERY_STREAK; i++) p = recordAnswer(p, q.id, true, 100 + i)
+    }
+    expect(buildLesson(p, makeRng(4))).toHaveLength(LESSON_SIZE)
   })
 
   it('has no duplicate questions', () => {
