@@ -7,7 +7,7 @@ import {
   type ReactNode,
 } from 'react'
 import { reducer, initialState, type AppState, type Action } from './store'
-import { loadOwner, loadProgress, saveOwner, saveProgress } from '@/domain/storage'
+import { loadOwner, loadProgress, saveOwner, saveProgress, STORAGE_KEY } from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
 import { topicFromPath } from '@/lib/topics'
 import { makeRng, timeSeed } from '@/domain/rng'
@@ -58,6 +58,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }
     saveProgress(state.progress)
   }, [state.progress])
+
+  // Another tab or the installed PWA window saved: merge its progress in, so the
+  // next local save does not overwrite its answers.
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY) dispatch({ type: 'mergeIn', progress: loadProgress() })
+    }
+    window.addEventListener('storage', onStorage)
+    return () => window.removeEventListener('storage', onStorage)
+  }, [])
 
   // On sign-in: reconcile local progress with the cloud and adopt the merge.
   // Sign-out keeps local progress: user=null also fires on a revoked session,

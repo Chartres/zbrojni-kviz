@@ -18,6 +18,7 @@ import {
 import { buildExam, evaluateExam, EXAM, type ExamResult } from '@/domain/exam'
 import {
   emptyProgress,
+  mergeProgress,
   recordAnswer,
   recordExamAttempt,
   recordLessonComplete,
@@ -65,6 +66,7 @@ export function initialState(): AppState {
 
 export type Action =
   | { type: 'hydrate'; progress: ProgressData }
+  | { type: 'mergeIn'; progress: ProgressData }
   | { type: 'setCategories'; categories: Set<CategoryName> }
   | { type: 'setSearch'; search: string }
   | { type: 'startLesson'; rng: Rng }
@@ -104,6 +106,14 @@ export function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case 'hydrate':
       return { ...state, progress: action.progress }
+
+    case 'mergeIn': {
+      // Same state when nothing new arrived, so two tabs don't echo writes forever.
+      const progress = mergeProgress(state.progress, action.progress)
+      return JSON.stringify(progress) === JSON.stringify(state.progress)
+        ? state
+        : { ...state, progress }
+    }
 
     case 'setCategories':
       return { ...state, selectedCategories: action.categories }

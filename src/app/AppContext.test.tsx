@@ -226,6 +226,27 @@ describe('AppContext sync wiring', () => {
     expect(screen.getByTestId('bookmarks').textContent).toBe('0')
   })
 
+  it('merges progress another tab saved instead of overwriting it', async () => {
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: null })
+    render(app())
+    await act(async () => {
+      fireEvent.click(screen.getByText('bookmark'))
+    })
+
+    // the other tab (PWA window) answered q99 and wrote its own snapshot
+    const other = JSON.stringify(recordAnswer(emptyProgress(), 99, true, 100))
+    localStorage.setItem(STORAGE_KEY, other)
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY, newValue: other }))
+    })
+
+    expect(screen.getByTestId('count').textContent).toBe('1')
+    expect(screen.getByTestId('bookmarks').textContent).toBe('1')
+    const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)!)
+    expect(Object.keys(stored.stats)).toEqual(['99'])
+    expect(stored.bookmarks).toEqual([5])
+  })
+
   it('a failed sign-in sync does not block later uploads', async () => {
     vi.useFakeTimers()
     vi.mocked(syncProgress).mockRejectedValue(new Error('offline'))
