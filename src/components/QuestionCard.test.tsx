@@ -131,6 +131,11 @@ describe('QuestionCard', () => {
     expect(screen.getByRole('status')).toHaveTextContent(/^Nesprávně/)
   })
 
+  it('"Další" carries the verdict as its description, so focusing it reads the verdict', () => {
+    setup({ chosen: 'b' })
+    expect(screen.getByRole('button', { name: /další/i })).toHaveAccessibleDescription(/^Nesprávně/)
+  })
+
   it('announces "Uloženo" in exam mode', () => {
     setup({ chosen: 'b', reveal: false })
     expect(screen.getByRole('status')).toHaveTextContent('Uloženo')

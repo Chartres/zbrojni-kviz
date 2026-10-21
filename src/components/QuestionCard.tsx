@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useId, useRef } from 'react'
 import type { Choice, Question } from '@/domain/types'
 import { imageUrl } from '@/lib/assets'
 
@@ -66,6 +66,7 @@ export function QuestionCard({
   const isCorrect = answered && chosen === question.correct
   const nextRef = useRef<HTMLButtonElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const verdictId = useId()
 
   // QuizScreen remounts the card per question: start focus on the new stem.
   // Answering disables the options; hand focus to "Další" so it doesn't fall to <body>.
@@ -178,6 +179,7 @@ export function QuestionCard({
         >
           {reveal ? (
             <p
+              id={verdictId}
               role="status"
               className={`min-w-0 text-sm font-medium ${
                 isCorrect ? 'text-verdigris-400' : 'text-rust-400'
@@ -188,13 +190,16 @@ export function QuestionCard({
                 : 'Nesprávně — zapamatujte si správnou odpověď výše.'}
             </p>
           ) : (
-            <span role="status" className="text-sm text-steel-400">
+            <span id={verdictId} role="status" className="text-sm text-steel-400">
               Uloženo
             </span>
           )}
           <button
             ref={nextRef}
             type="button"
+            // Focus lands here on answering and can cut the status announcement;
+            // the description makes the screen reader read the verdict on focus.
+            aria-describedby={verdictId}
             onClick={onNext}
             className="glow-brass inline-flex shrink-0 items-center gap-2 rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 transition-colors hover:bg-brass-400"
           >
