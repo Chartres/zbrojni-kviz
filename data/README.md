@@ -54,3 +54,28 @@ The legacy `zbrojni-kviz.jsx` (836 questions) had real defects, corrected here:
   (sha256 `edd539ef…a04a4`), so the 837-question bank is the current official set.
 
 Authentic duplicates in the official pool (kept as-is): **q523 = q529**, **q587 = q590**.
+
+## Citations — the provision each question tests (ad fontes)
+
+`citations.json` links 290 of the 561 *Zákon o zbraních* questions to the provision of
+zákon č. 90/2024 Sb. they restate, with the provision quoted verbatim (statutes are úřední díla,
+§ 3 zákona č. 121/2000 Sb.) and a deep link to zakonyprolidi.cz.
+
+- `law/2024-90.json`: the act parsed into 1,200+ provisions by `law.py` from the consolidated
+  text at https://www.zakonyprolidi.cz/cs/2024-90 (retrieved 2026-10-27; date stored in the file).
+- `cite.py` scores every provision by IDF-weighted coverage of the correct option's distinctive
+  words and of the stem, and accepts a link only if score ≥ 0.6, it beats the best unrelated
+  provision by ≥ 0.05, and it shares ≥ 4 consecutive words verbatim with the answer or stem.
+- Calibration: a blind grader judged 60 links → 49 exact, 6 partial, 5 wrong; all 5 wrong ones
+  shared ≤ 3 consecutive words, which set the verbatim-run rule. Validation on a fresh 60
+  under the final rule: **56 exact, 4 partial, 0 wrong**.
+- Questions without a confident link show no citation. A missing citation is honest; a wrong
+  one is not.
+
+Regenerate:
+
+```bash
+curl -sS https://www.zakonyprolidi.cz/cs/2024-90 -o /tmp/z90.html
+python3 -I data/law.py /tmp/z90.html 2024-90 "Zákon č. 90/2024 Sb., o zbraních a střelivu" > data/law/2024-90.json
+python3 -I data/cite.py --app data/questions.json "data/law/2024-90.json=Zákon o zbraních" > data/citations.json
+```

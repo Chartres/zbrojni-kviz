@@ -1,6 +1,9 @@
 import { useEffect, useId, useRef } from 'react'
 import type { Choice, Question } from '@/domain/types'
+import { differ, isNearMiss, type Segment } from '@/domain/difference'
+import { sourceFor } from '@/domain/sources'
 import { imageUrl } from '@/lib/assets'
+import { SourceNote } from './SourceNote'
 
 export interface QuestionCardProps {
   question: Question
@@ -43,6 +46,41 @@ function optionState(
   return option === chosen ? 'selected' : 'muted'
 }
 
+// The differing words: struck through in the chosen option, underlined in the correct one.
+// Screen readers get the plain sentence plus the differing words; the visual marks are hidden
+// from them (inline marks would fuse words in the accessible name).
+function Marked({ segments, as: Tag }: { segments: Segment[]; as: 'del' | 'ins' }) {
+  const changed = segments.filter((s) => s.changed).map((s) => s.text.trim())
+  return (
+    <>
+      <span className="sr-only">
+        {segments.map((s) => s.text).join('')}
+        {changed.length > 0 && ` (liší se: ${changed.join(', ')})`}
+      </span>
+      <span aria-hidden="true">
+        {segments.map((s, i) =>
+          s.changed ? (
+            <span key={i}>
+              <Tag
+                className={
+                  Tag === 'del'
+                    ? 'bg-rust-500/25 text-steel-50 decoration-rust-400 decoration-2'
+                    : 'bg-verdigris-500/25 font-semibold text-steel-50 no-underline'
+                }
+              >
+                {s.text.trimEnd()}
+              </Tag>
+              {s.text.slice(s.text.trimEnd().length)}
+            </span>
+          ) : (
+            <span key={i}>{s.text}</span>
+          ),
+        )}
+      </span>
+    </>
+  )
+}
+
 const STATE_CLASS: Record<OptionState, string> = {
   idle: 'border-steel-700 bg-steel-800/50 hover:border-brass-400 hover:bg-steel-700/50',
   selected: 'border-brass-500 bg-steel-700/70 glow-brass',
@@ -64,6 +102,10 @@ export function QuestionCard({
 }: QuestionCardProps) {
   const answered = chosen !== undefined
   const isCorrect = answered && chosen === question.correct
+  const nearMiss =
+    reveal && answered && !isCorrect && isNearMiss(question[chosen], question[question.correct])
+  const diff = nearMiss ? differ(question[chosen], question[question.correct]) : null
+  const source = reveal && answered ? sourceFor(question.id) : undefined
   const nextRef = useRef<HTMLButtonElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const verdictId = useId()
@@ -86,8 +128,8 @@ export function QuestionCard({
       } else if (
         answered &&
         (e.key === 'Enter' || e.key === ' ') &&
-        // a focused button/link (Záložka, ← Konec, Další itself) activates natively
-        !(e.target instanceof Element && e.target.closest('button, a'))
+        // a focused button/link/toggle (Záložka, ← Konec, Další, the full provision) activates natively
+        !(e.target instanceof Element && e.target.closest('button, a, summary'))
       ) {
         e.preventDefault()
         onNext()
@@ -154,7 +196,13 @@ export function QuestionCard({
                 {opt}
               </span>
               <span className="min-w-0 flex-1 leading-relaxed">
-                {question[opt]}
+                {diff && state === 'wrong' ? (
+                  <Marked segments={diff.wrong} as="del" />
+                ) : diff && state === 'correct' ? (
+                  <Marked segments={diff.right} as="ins" />
+                ) : (
+                  question[opt]
+                )}
                 {reveal && state === 'correct' && (
                   <span className="ml-2 whitespace-nowrap text-xs font-semibold text-verdigris-400">
                     ✓ Správná odpověď
@@ -172,6 +220,8 @@ export function QuestionCard({
         </p>
       )}
 
+      {source && <SourceNote source={source} />}
+
       {answered && (
         <footer
           className="sticky bottom-0 z-10 -mx-4 mt-5 flex items-center justify-between gap-3 border-t border-steel-700 bg-steel-950/95 px-4 py-3 backdrop-blur sm:rounded-card sm:border"
@@ -187,7 +237,9 @@ export function QuestionCard({
             >
               {isCorrect
                 ? 'Správně.'
-                : 'Nesprávně — zapamatujte si správnou odpověď výše.'}
+                : nearMiss
+                  ? 'Nesprávně — odpovědi se liší ve vyznačeném.'
+                  : 'Nesprávně — zapamatujte si správnou odpověď výše.'}
             </p>
           ) : (
             <span id={verdictId} role="status" className="text-sm text-steel-400">

@@ -1,8 +1,10 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { QuestionCard } from './QuestionCard'
 import type { Question } from '@/domain/types'
+import { ALL_QUESTIONS } from '@/domain/questions'
+import { sourceFor } from '@/domain/sources'
 
 const Q: Question = {
   id: 1,
@@ -150,6 +152,63 @@ describe('QuestionCard', () => {
     screen.getByRole('button', { name: /další/i }).focus()
     await userEvent.keyboard('{Enter}')
     expect(onNext).toHaveBeenCalledTimes(1)
+  })
+
+  describe('control of error: a near-miss shows exactly the words that differ', () => {
+    it('marks the wrong word in the chosen option and the right word in the correct one', () => {
+      setup({ chosen: 'b' })
+      const wrong = screen.getByRole('button', { name: /neregulovanou/ })
+      const right = screen.getByRole('button', { name: /^aregulovanou součástí/ })
+      expect(wrong.querySelector('del')).toHaveTextContent('neregulovanou')
+      expect(right.querySelector('ins')).toHaveTextContent('regulovanou')
+      expect(screen.getByRole('status')).toHaveTextContent(/se liší ve vyznačeném/)
+    })
+
+    it('does not mark anything when the options are not near misses', () => {
+      setup({ chosen: 'c' })
+      expect(document.querySelector('del, ins')).toBeNull()
+    })
+
+    it('does not mark anything in exam mode', () => {
+      setup({ chosen: 'b', reveal: false })
+      expect(document.querySelector('del, ins')).toBeNull()
+    })
+  })
+
+  describe('ad fontes: the provision the question tests', () => {
+    it('after answering, quotes the provision and links to it', () => {
+      setup({ chosen: 'a' })
+      const src = screen.getByRole('region', { name: /zdroj/i })
+      expect(src).toHaveTextContent('§ 1 odst. 1')
+      expect(src).toHaveTextContent('za podmínek stanovených tímto zákonem')
+      expect(screen.getByRole('link', { name: /celé znění/i })).toHaveAttribute(
+        'href',
+        'https://www.zakonyprolidi.cz/cs/2024-90#p1-1',
+      )
+    })
+
+    it('is hidden before answering and in exam mode', () => {
+      setup()
+      expect(screen.queryByRole('region', { name: /zdroj/i })).toBeNull()
+      cleanup()
+      setup({ chosen: 'a', reveal: false })
+      expect(screen.queryByRole('region', { name: /zdroj/i })).toBeNull()
+    })
+
+    it('Enter on the "full provision" toggle does not advance to the next question', async () => {
+      const long = ALL_QUESTIONS.find((q) => (sourceFor(q.id)?.quote.length ?? 0) > 600)!
+      const { onNext } = setup({ question: long, chosen: long.correct })
+      const toggle = screen.getByText(/zobrazit celé ustanovení/i).closest('summary')!
+      toggle.focus()
+      await userEvent.keyboard('{Enter}')
+      // the browser toggles <details> natively (jsdom doesn't); what we own is not advancing
+      expect(onNext).not.toHaveBeenCalled()
+    })
+
+    it('shows nothing for a question without a confident citation', () => {
+      setup({ chosen: 'a', question: { ...Q, id: 999_999 } })
+      expect(screen.queryByRole('region', { name: /zdroj/i })).toBeNull()
+    })
   })
 
   it('after answering, Enter/Space outside a control advances', async () => {
