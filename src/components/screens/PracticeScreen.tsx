@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { META } from '@/domain/questions'
+import { EXAM } from '@/domain/exam'
 import { filterQuestions } from '@/domain/selection'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
@@ -50,7 +51,8 @@ export function PracticeScreen() {
             Zkušební test
           </span>
           <span className="mt-0.5 block text-sm text-steel-400">
-            60 otázek, 80 minut — jako u zkoušky.
+            {EXAM.totalQuestions} otázek, {EXAM.timeLimitMinutes} minut, uspějete s{' '}
+            {EXAM.passThreshold} správnými — jako u zkoušky.
           </span>
         </span>
         <span aria-hidden className="font-display text-brass-400">

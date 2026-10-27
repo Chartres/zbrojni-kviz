@@ -66,10 +66,11 @@ the *practice experience* is the product.
 4. Leave and return days later → state is exactly as left; **"Review my mistakes"** is one tap.
 
 ### Journey — "simulate the real exam"
-1. Choose **Exam mode** → 60 questions assembled to the real composition (52 legal / 5 nauka /
-   3 health), 80-minute timer.
-2. Answer without feedback (like the real thing) → at the end: **pass/fail at ≥57/60**, per-category
-   breakdown, and every miss queued into review.
+1. Choose **Exam mode** → 30 questions in the legal composition (17 legal / 5 nauka / 5 safe
+   handling / 3 health, NV 238/2025 § 12), 40-minute timer.
+2. Answer without feedback (like the real thing) → at the end: **pass/fail at ≥26/30** and whether
+   it would pass the extended permit (**≥28/30**, zákon 90/2024 § 20(3)(a)), per-part breakdown,
+   and every miss queued into review.
 
 ### Journey — "keep progress across devices" (optional account)
 1. Tap **Sign in** → Google **or** a magic-link email (one-time token, no password).

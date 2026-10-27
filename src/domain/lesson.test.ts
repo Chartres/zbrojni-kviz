@@ -2,16 +2,8 @@ import { describe, it, expect } from 'vitest'
 import { makeRng } from './rng'
 import { buildLesson, LESSON_SIZE } from './lesson'
 import { emptyProgress, recordAnswer, MASTERY_STREAK } from './progress'
-import { ALL_QUESTIONS, META } from './questions'
+import { ALL_QUESTIONS, META, examGroupOf } from './questions'
 import type { ExamGroup } from './types'
-
-const GROUP_OF: Record<string, ExamGroup> = {
-  'Zákon o zbraních': 'pravni',
-  'Prováděcí předpisy': 'pravni',
-  'Jiné předpisy': 'pravni',
-  'Nauka o zbraních': 'nauka',
-  'Zdravotnické minimum': 'zdravotnicke',
-}
 
 describe('buildLesson', () => {
   it('is always a finishable fixed size', () => {
@@ -55,10 +47,11 @@ describe('buildLesson', () => {
 
   it('for a new learner, draws unseen questions weighted toward legal (exam mix)', () => {
     const lesson = buildLesson(emptyProgress(), makeRng(3))
-    const byGroup: Record<ExamGroup, number> = { pravni: 0, nauka: 0, zdravotnicke: 0 }
-    for (const q of lesson) byGroup[GROUP_OF[q.cat]]++
-    // legal dominates, matching the real 52:5:3 composition
-    expect(byGroup.pravni).toBeGreaterThanOrEqual(7)
+    const byGroup: Record<ExamGroup, number> = { pravni: 0, nauka: 0, bezpecnost: 0, zdravotnicke: 0 }
+    for (const q of lesson) byGroup[examGroupOf(q)]++
+    // legal dominates, matching the real 17:5:5:3 composition
+    expect(byGroup.pravni).toBeGreaterThanOrEqual(6)
+    expect(byGroup.bezpecnost).toBeGreaterThanOrEqual(1)
   })
 
   it('prioritises due reviews (weak spots) when the learner has wrong answers', () => {

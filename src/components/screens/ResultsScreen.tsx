@@ -73,19 +73,21 @@ export function ResultsScreen() {
         </div>
         {isExam && examResult && (
           <p className="mt-2 text-sm text-steel-400">
-            Pro úspěch {examResult.passThreshold} z {total}.
+            Zbrojní oprávnění: {examResult.passThreshold} z {total}{' '}
+            {examResult.passed ? '✓' : '✗'} · rozšířené: {examResult.passThresholdExtended} z {total}{' '}
+            {examResult.passedExtended ? '✓' : '✗'}
           </p>
         )}
       </div>
 
       {isExam && examResult && (
         <section className="mt-6 space-y-3">
-          {Object.entries(examResult.byCategory).map(([cat, b]) => (
+          {examResult.byPart.map((p) => (
             <ProgressBar
-              key={cat}
-              label={cat}
-              value={b!.correct}
-              max={b!.total}
+              key={p.group}
+              label={p.label}
+              value={p.correct}
+              max={p.total}
               tone="verdigris"
             />
           ))}

@@ -36,11 +36,12 @@ test('daily lesson from home: 12 questions with completion + streak', async ({
   await page.screenshot({ path: 'e2e/shots/results.png', fullPage: true })
 })
 
-test('exam mode from practice tab: 60 questions with a timer', async ({ page }) => {
+test('exam mode from practice tab: 30 questions with a 40-minute timer', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Procvičovat' }).click()
   await page.getByRole('button', { name: /Zkušební test/ }).click()
-  await expect(page.getByText('01 / 60')).toBeVisible()
+  await expect(page.getByText('01 / 30')).toBeVisible()
+  await expect(page.getByRole('timer')).toContainText(/40:00|39:[45]\d/)
   await expect(page.getByRole('timer')).toBeVisible()
   await page.locator('button[data-state="idle"]').first().click()
   await expect(page.locator('button[data-state="correct"]')).toHaveCount(0)

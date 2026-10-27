@@ -18,8 +18,9 @@ won: by drilling the real wording and learning from mistakes.
 - **Montessori learning design.** Practice mode gives immediate, calm *control-of-error* feedback;
   progress is tracked as **mastery** (not grades); missed questions resurface via lightweight
   **spaced repetition** — drill exactly your weak spots. See [`docs/PRD.md`](docs/PRD.md).
-- **Real exam simulation.** 60 questions in the official composition (52 legal + 5 weapons-science
-  + 3 first-aid), 80-minute timer, pass at 57/60, per-category breakdown.
+- **Real exam simulation.** 30 questions in the legal composition (17 legal + 5 weapons science
+  + 5 safe handling + 3 first aid, NV 238/2025 § 12), 40-minute timer, pass at 26/30 or 28/30 for
+  the extended permit (zákon 90/2024 § 20(3)(a)), per-part breakdown.
 - **Profiles & sync (optional).** Sign in with Google or a magic-link email to sync progress across
   devices — offline-first, with conflict-free merge. Works fully without an account too.
 - **"Metal, not aggression" design.** Refined gunmetal & brushed steel with a restrained brass

@@ -35,6 +35,22 @@ The legacy `zbrojni-kviz.jsx` (836 questions) had real defects, corrected here:
 |---|---|---|
 | Missing question | (none for **q108**) | q108 present → **837 total** |
 | **q717** answer key | A | **B** (highlighted in PDF — verified visually) |
-| Exam structure | 30 q, pass 26 | **60 q** (52 legal + 5 nauka + 3 zdrav.), pass **57**, **80 min** |
+| Exam structure | 30 q, pass 26 | see "Exam format" below (an Oct 2026 fix restored 30 q) |
+
+## Exam format (verified 2026-10-27 against the legal texts)
+
+- **Zákon č. 90/2024 Sb. § 20 odst. 3 písm. a)**: 30 questions, at most 40 minutes, pass with
+  ≥ 26 correct; ≥ 28 for *rozšířené zbrojní oprávnění*.
+- **Nařízení vlády č. 238/2025 Sb. § 12 odst. 2**: 17 legal + 5 weapons science + 5 safe handling
+  + 3 first aid; one correct answer of three.
+- From June to October 2026 the app ran 60 q / 80 min / pass 57. That is the **examiner's** test
+  (§ 34 odst. 5 písm. a), not the applicant's; it was a mix-up, fixed in PR "exam format 2026".
+- The MV file has no "safe handling" section. Its handling rules for the exam (q562–596, filed
+  under *Prováděcí předpisy*) and its safety principles (q784–799, under *Nauka*) are the only
+  questions that match NV 238/2025 § 12 odst. 2 písm. c), so `meta.json` assigns them to that
+  part by id range. This is our reading; MV does not publish the mapping.
+- Source PDF re-checked 2026-10-27: the file MV links from mv.gov.cz/zbrojni-opravneni (now
+  served from archiv.mv.gov.cz) is byte-identical to `source/mv-2026-otazky-full.pdf`
+  (sha256 `edd539ef…a04a4`), so the 837-question bank is the current official set.
 
 Authentic duplicates in the official pool (kept as-is): **q523 = q529**, **q587 = q590**.

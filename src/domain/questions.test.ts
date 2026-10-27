@@ -45,9 +45,18 @@ describe('question dataset', () => {
     )
     expect(counts['Zákon o zbraních']).toBe(561)
     expect(counts['Nauka o zbraních']).toBe(151)
-    // legal group spans three categories
+    // legal group spans three categories, minus the handling rules (q562–596) that form
+    // the safe-handling part together with the safety principles (q784–799)
     const legal = questionsForGroup('pravni')
-    expect(legal.length).toBe(561 + 48 + 39)
+    expect(legal.length).toBe(561 + 48 + 39 - 35)
+    expect(questionsForGroup('bezpecnost').length).toBe(35 + 16)
+    expect(questionsForGroup('nauka').length).toBe(151 - 16)
+    expect(questionsForGroup('zdravotnicke').length).toBe(38)
+  })
+
+  it('puts every question in exactly one exam part', () => {
+    const parts = (['pravni', 'nauka', 'bezpecnost', 'zdravotnicke'] as const).map(questionsForGroup)
+    expect(parts.reduce((n, p) => n + p.length, 0)).toBe(837)
   })
 
   it('filters by category', () => {
@@ -56,9 +65,11 @@ describe('question dataset', () => {
     expect(nauka.every((q) => q.cat === 'Nauka o zbraních')).toBe(true)
   })
 
-  it('exam config reflects the real 2026 rules', () => {
-    expect(META.exam.totalQuestions).toBe(60)
-    expect(META.exam.passThreshold).toBe(57)
-    expect(META.exam.timeLimitMinutes).toBe(80)
+  it('exam config reflects zákon 90/2024 § 20 odst. 3 písm. a)', () => {
+    expect(META.exam.totalQuestions).toBe(30)
+    expect(META.exam.passThreshold).toBe(26)
+    expect(META.exam.passThresholdExtended).toBe(28)
+    expect(META.exam.timeLimitMinutes).toBe(40)
+    expect(META.exam.composition.reduce((n, p) => n + p.count, 0)).toBe(30)
   })
 })
