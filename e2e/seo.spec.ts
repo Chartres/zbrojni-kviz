@@ -77,6 +77,11 @@ test('every official question has a static page readable without JavaScript', as
 
   const okruh = await (await request.get('/okruh/zakon-o-zbranich/')).text()
   expect(okruh).toContain('href="https://zbrojnikviz.dravec.org/otazka/313/"')
+  // deep pages carry JSON-LD for what they show (their FAQ), not the home page's WebApplication
+  const ld = [...okruh.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) =>
+    JSON.parse(m[1]),
+  )
+  expect(ld.map((x) => x['@type'])).toEqual(['FAQPage'])
 
   const ctx = await browser.newContext({ javaScriptEnabled: false })
   const page = await ctx.newPage()

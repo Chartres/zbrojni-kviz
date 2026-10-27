@@ -70,7 +70,22 @@ for (const t of topics) {
         </ul>
       </div>
 `
+  // JSON-LD that matches this page: its visible FAQ, not the home page's WebApplication.
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: t.faq.map((f) => ({
+      '@type': 'Question',
+      name: fill(f.q),
+      acceptedAnswer: { '@type': 'Answer', text: fill(f.a) },
+    })),
+  }
   const html = template
+    .replace(
+      /<script type="application\/ld\+json">[\s\S]*?<\/script>/g,
+      '',
+    )
+    .replace('</head>', `  <script type="application/ld+json">${JSON.stringify(faqLd).replaceAll('<', '\\u003c')}</script>\n  </head>`)
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
     .replace(
       /(<meta\s+name="description"\s+content=")[^"]*(")/,
