@@ -11,4 +11,6 @@ export function renderQuestionPage(p: {
   next: number | null
   origin: string
   cssHref: string
+  /** For a verbatim duplicate in the MV file: the id of its first copy. */
+  canonicalId?: number | null
 }): string

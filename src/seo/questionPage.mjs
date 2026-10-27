@@ -20,12 +20,16 @@ export const questionPath = (id) => `/otazka/${id}/`
  *   topic: { slug: string, category: string },
  *   prev: number | null, next: number | null,
  *   origin: string, cssHref: string,
+ *   canonicalId?: number | null,
  * }} p
  */
-export function renderQuestionPage({ q, source, topic, prev, next, origin, cssHref }) {
+export function renderQuestionPage({ q, source, topic, prev, next, origin, cssHref, canonicalId = null }) {
   const url = `${origin}${questionPath(q.id)}`
   const right = q[q.correct]
-  const title = `${clip(q.q, 70)} | Zbrojní kvíz`
+  // Many stems repeat ("Vyberte správné tvrzení:"), so the number makes each title unique.
+  const title = `Otázka č. ${q.id}: ${clip(q.q, 60)} | Zbrojní kvíz`
+  // The MV file lists two questions twice verbatim; the second copy points at the first.
+  const canonical = `${origin}${questionPath(canonicalId ?? q.id)}`
   const description = `Otázka č. ${q.id} ke zkoušce na zbrojní oprávnění (${q.cat}). Správná odpověď ${LETTERS[q.correct]}: ${clip(right, 120)}`
   const wrong = ['a', 'b', 'c'].filter((o) => o !== q.correct)
   const ld = {
@@ -83,7 +87,7 @@ export function renderQuestionPage({ q, source, topic, prev, next, origin, cssHr
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}" />
-    <link rel="canonical" href="${url}" />
+    <link rel="canonical" href="${canonical}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
@@ -91,6 +95,9 @@ export function renderQuestionPage({ q, source, topic, prev, next, origin, cssHr
     <meta property="og:image" content="${origin}/og.png" />
     <meta name="theme-color" content="#0d0f13" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="${cssHref}" />
     <script type="application/ld+json">${JSON.stringify(ld).replaceAll('<', '\\u003c')}</script>
   </head>

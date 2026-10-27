@@ -106,6 +106,7 @@ for (const t of topics) {
 }
 
 const topicOf = Object.fromEntries(topics.map((t) => [t.category, t]))
+const firstCopyOf = new Map(meta.duplicatePairs.map(([first, twin]) => [twin, first]))
 questions.forEach((q, i) => {
   const html = renderQuestionPage({
     q,
@@ -115,13 +116,18 @@ questions.forEach((q, i) => {
     next: questions[i + 1]?.id ?? null,
     origin: ORIGIN,
     cssHref,
+    canonicalId: firstCopyOf.get(q.id) ?? null,
   })
   mkdirSync(`${root}dist${questionPath(q.id)}`, { recursive: true })
   writeFileSync(`${root}dist${questionPath(q.id)}index.html`, html)
 })
 
 const today = new Date().toISOString().slice(0, 10)
-const urls = ['/', ...topics.map((t) => `/okruh/${t.slug}/`), ...questions.map((q) => questionPath(q.id))]
+const urls = [
+  '/',
+  ...topics.map((t) => `/okruh/${t.slug}/`),
+  ...questions.filter((q) => !firstCopyOf.has(q.id)).map((q) => questionPath(q.id)),
+]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${ORIGIN}${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}

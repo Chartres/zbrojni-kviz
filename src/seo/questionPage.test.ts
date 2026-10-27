@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { renderQuestionPage, questionPath } from './questionPage.mjs'
-import { getQuestion } from '@/domain/questions'
+import { ALL_QUESTIONS, META, getQuestion } from '@/domain/questions'
 import { sourceFor } from '@/domain/sources'
 
 const ORIGIN = 'https://zbrojnikviz.dravec.org'
@@ -65,6 +65,23 @@ describe('per-question static page (readable without JavaScript)', () => {
     expect(html).toContain(`href="${ORIGIN}/okruh/zakon-o-zbranich/"`)
     expect(html).toContain(`href="${ORIGIN}/otazka/82/"`)
     expect(html).toContain(`href="${ORIGIN}/otazka/84/"`)
+  })
+
+  it('gives every one of the 837 pages a distinct title (many stems repeat word for word)', () => {
+    const titles = ALL_QUESTIONS.map((q) =>
+      renderQuestionPage({ q, source: null, topic: TOPIC, prev: null, next: null, origin: ORIGIN, cssHref: '/x.css' })
+        .match(/<title>([^<]*)<\/title>/)![1],
+    )
+    expect(new Set(titles).size).toBe(ALL_QUESTIONS.length)
+  })
+
+  it('points a verbatim duplicate in the MV file at its first copy', () => {
+    const [first, twin] = META.duplicatePairs[0]
+    const html = renderQuestionPage({
+      q: getQuestion(twin)!, source: null, topic: TOPIC, prev: null, next: null,
+      origin: ORIGIN, cssHref: '/x.css', canonicalId: first,
+    })
+    expect(html).toContain(`<link rel="canonical" href="${ORIGIN}/otazka/${first}/" />`)
   })
 
   it('shows question images with alt text', () => {
