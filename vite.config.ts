@@ -12,6 +12,7 @@ const base = '/'
 // Workbox tests pathname + query, so the dotted name must sit in the pathname:
 // `/?ref=news.ycombinator.com` is still an app navigation.
 export const fileNavigation = /^[^?]*\/[^/?]+\.[a-z0-9]+(\?.*)?$/i
+export const questionPage = /^\/otazka\//
 
 export default defineConfig({
   base,
@@ -52,7 +53,8 @@ export default defineConfig({
         // the network, not get the app shell. ponytail: /okruh/<slug>/ keeps the shell
         // fallback on purpose; the app boots that okruh from the path, and the prerendered
         // pages are written after the SW is generated, so they can't be precached anyway.
-        navigateFallbackDenylist: [fileNavigation],
+        // /otazka/<id>/ are static pages without the app; the shell would replace them.
+        navigateFallbackDenylist: [fileNavigation, questionPage],
         cleanupOutdatedCaches: true,
         runtimeCaching: [
           {

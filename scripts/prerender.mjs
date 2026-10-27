@@ -1,16 +1,28 @@
 // Post-build prerender: one static, crawlable HTML page per okruh
-// (/okruh/<slug>/) + sitemap.xml. No SSR framework — the pages are copies of
+// (/okruh/<slug>/), one per official question (/otazka/<id>/, src/seo/questionPage.mjs,
+// no app bundle) + sitemap.xml. No SSR framework — the pages are copies of
 // the built index.html with topic-specific <title>/meta/#root content; the app
 // bundle boots on top and starts that topic's practice (see AppContext).
 // Usage: node scripts/prerender.mjs   (after `vite build`)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { renderQuestionPage, questionPath } from '../src/seo/questionPage.mjs'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const ORIGIN = 'https://zbrojnikviz.dravec.org'
 const topics = JSON.parse(readFileSync(`${root}data/topics.json`, 'utf8'))
 const meta = JSON.parse(readFileSync(`${root}data/meta.json`, 'utf8'))
+const questions = JSON.parse(readFileSync(`${root}data/questions.json`, 'utf8'))
+const citations = JSON.parse(readFileSync(`${root}data/citations.json`, 'utf8'))
 const template = readFileSync(`${root}dist/index.html`, 'utf8')
+const cssHref = template.match(/<link rel="stylesheet"[^>]*href="([^"]+\.css)"/)[1]
+
+const sourceFor = (id) => {
+  const c = citations.questions[String(id)]
+  if (!c) return null
+  const act = citations.acts[c.act]
+  return { label: c.label, act: act.name, url: `${act.url}#${c.anchor}`, quote: c.quote }
+}
 
 const countFor = (category) =>
   meta.categories.find((c) => c.name === category).count
@@ -38,6 +50,15 @@ for (const t of topics) {
           )
           .join('')}
         </dl>
+        <h2 class="mt-6 font-display text-lg font-semibold text-brass-300">Všechny otázky okruhu se správnými odpověďmi</h2>
+        <ol class="mt-2 text-steel-300">${questions
+          .filter((q) => q.cat === t.category)
+          .map(
+            (q) => `
+          <li><a class="text-verdigris-400 hover:underline" href="${ORIGIN}${questionPath(q.id)}">${q.id}. ${esc(q.q)}</a></li>`,
+          )
+          .join('')}
+        </ol>
         <h2 class="mt-6 font-display text-lg font-semibold text-brass-300">Další okruhy</h2>
         <ul class="mt-2 text-steel-300">
           <li><a class="text-verdigris-400 hover:underline" href="${ORIGIN}/">Všechny testy ke zbrojnímu průkazu zdarma</a></li>${others
@@ -84,12 +105,27 @@ for (const t of topics) {
   writeFileSync(`${root}dist/okruh/${t.slug}/index.html`, html)
 }
 
+const topicOf = Object.fromEntries(topics.map((t) => [t.category, t]))
+questions.forEach((q, i) => {
+  const html = renderQuestionPage({
+    q,
+    source: sourceFor(q.id),
+    topic: topicOf[q.cat],
+    prev: questions[i - 1]?.id ?? null,
+    next: questions[i + 1]?.id ?? null,
+    origin: ORIGIN,
+    cssHref,
+  })
+  mkdirSync(`${root}dist${questionPath(q.id)}`, { recursive: true })
+  writeFileSync(`${root}dist${questionPath(q.id)}index.html`, html)
+})
+
 const today = new Date().toISOString().slice(0, 10)
-const urls = ['/', ...topics.map((t) => `/okruh/${t.slug}/`)]
+const urls = ['/', ...topics.map((t) => `/okruh/${t.slug}/`), ...questions.map((q) => questionPath(q.id))]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${ORIGIN}${u}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
 </urlset>
 `
 writeFileSync(`${root}dist/sitemap.xml`, sitemap)
-console.log(`prerendered ${topics.length} topic pages + sitemap.xml`)
+console.log(`prerendered ${topics.length} topic pages, ${questions.length} question pages + sitemap.xml`)
