@@ -3,7 +3,8 @@
 > Bezplatný trenažér ke zkoušce odborné způsobilosti pro zbrojní oprávnění v České republice
 > (zákon č. 90/2024 Sb., platný od 2026): všech 837 oficiálních testových otázek Ministerstva
 > vnitra včetně obrázků, procvičování podle okruhů, opakování chyb a simulace zkoušky ve
-> skutečném formátu (60 otázek, 80 minut, 57 správných k úspěchu). Bez registrace, bez reklam;
+> skutečném formátu (30 otázek, 40 minut, 26 správných k úspěchu, 28 u rozšířeného zbrojního
+> oprávnění — zákon 90/2024 Sb. § 20 odst. 3). Bez registrace, bez reklam;
 > funguje offline i na mobilu. Česky.
 
 ## What it is
@@ -14,8 +15,13 @@
   reconciled and fixed errors found in older unofficial copies.
 - Learning design: practice with immediate, calm feedback; mastery per okruh, not grades;
   missed questions resurface via spaced repetition ("weak-area drill"); persisted exam history.
-- Exam simulation in the official composition: 52 legal + 5 weapons-science + 3 first-aid
-  questions, 80-minute timer, pass at 57/60, per-category breakdown.
+- Exam simulation in the legal format: 30 questions, 40-minute timer, pass at 26/30
+  (28/30 for the extended permit, "rozšířené zbrojní oprávnění") — Act 90/2024 Sb. § 20(3)(a).
+  Composition per Government Regulation 238/2025 Sb. § 12: 17 legal + 5 weapons science
+  + 5 safe handling + 3 first aid. The safe-handling questions are drawn from the official
+  handling rules (q562–596) and safety principles (q784–799), since the Ministry's file does
+  not label that part separately. Note: 60 questions / 57 to pass is the examiner's exam
+  (§ 34), not the applicant's.
 - Free, no account needed; optional Google / magic-link sign-in only to sync progress between
   devices. First-party anonymous usage counts only, no third-party trackers.
 

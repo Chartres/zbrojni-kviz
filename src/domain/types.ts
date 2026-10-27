@@ -7,7 +7,7 @@ export type CategoryName =
   | 'Nauka o zbraních'
   | 'Zdravotnické minimum'
 
-export type ExamGroup = 'pravni' | 'nauka' | 'zdravotnicke'
+export type ExamGroup = 'pravni' | 'nauka' | 'bezpecnost' | 'zdravotnicke'
 
 export interface Question {
   id: number
@@ -30,14 +30,20 @@ export interface Category {
 
 export interface ExamCompositionPart {
   group: ExamGroup
+  label: string
   categories: CategoryName[]
+  /** Inclusive question-id ranges; they claim a question before any category match. */
+  ranges?: [number, number][]
   count: number
 }
 
 export interface ExamConfig {
+  legalBasis: string
+  legalBasisUrls: string[]
   totalQuestions: number
   composition: ExamCompositionPart[]
   passThreshold: number
+  passThresholdExtended: number
   timeLimitMinutes: number
 }
 

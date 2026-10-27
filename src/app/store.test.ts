@@ -46,17 +46,18 @@ describe('app store', () => {
     let s = start()
     s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })
     expect(s.mode).toBe('exam')
-    expect(s.session?.questions.length).toBe(60)
-    expect(s.examEndsAt).toBe(80 * 60 * 1000)
+    expect(s.session?.questions.length).toBe(30)
+    expect(s.examEndsAt).toBe(40 * 60 * 1000)
     // answer everything correctly
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 30; i++) {
       const cur = currentQuestion(s.session!)!
       s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
       s = reducer(s, { type: 'next', now: i })
     }
     expect(s.view).toBe('results')
     expect(s.examResult?.passed).toBe(true)
-    expect(s.examResult?.score).toBe(60)
+    expect(s.examResult?.score).toBe(30)
+    expect(s.examResult?.passedExtended).toBe(true)
   })
 
   it('finishExam (time up) evaluates the partial session', () => {
@@ -70,7 +71,7 @@ describe('app store', () => {
   it('records a persisted exam attempt when an exam is completed normally', () => {
     let s = start()
     s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 30; i++) {
       const cur = currentQuestion(s.session!)!
       s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
       s = reducer(s, { type: 'next', now: 12345 })
@@ -78,8 +79,8 @@ describe('app store', () => {
     expect(s.progress.examAttempts).toHaveLength(1)
     expect(s.progress.examAttempts?.[0]).toMatchObject({
       at: 12345,
-      score: 60,
-      total: 60,
+      score: 30,
+      total: 30,
       passed: true,
     })
   })
@@ -92,7 +93,7 @@ describe('app store', () => {
     expect(s.progress.examAttempts?.[0]).toMatchObject({
       at: 99999,
       score: 0,
-      total: 60,
+      total: 30,
       passed: false,
     })
   })

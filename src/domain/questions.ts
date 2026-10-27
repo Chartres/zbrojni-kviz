@@ -20,7 +20,22 @@ export function byCategory(cat: CategoryName): Question[] {
   return ALL_QUESTIONS.filter((q) => q.cat === cat)
 }
 
+// The official file has no "safe handling" section, but the test draws 5 questions from it
+// (NV 238/2025 § 12). Parts with id ranges claim their questions first; the rest go by category.
+function resolveGroup(q: Question): ExamGroup {
+  const parts = META.exam.composition
+  const byRange = parts.find((p) => p.ranges?.some(([lo, hi]) => q.id >= lo && q.id <= hi))
+  const part = byRange ?? parts.find((p) => p.categories.includes(q.cat))
+  if (!part) throw new Error(`question ${q.id} belongs to no exam part`)
+  return part.group
+}
+
+const GROUP_BY_ID = new Map<number, ExamGroup>(ALL_QUESTIONS.map((q) => [q.id, resolveGroup(q)]))
+
+export function examGroupOf(q: Question): ExamGroup {
+  return GROUP_BY_ID.get(q.id)!
+}
+
 export function questionsForGroup(group: ExamGroup): Question[] {
-  const cats = new Set(META.exam.composition.find((p) => p.group === group)?.categories)
-  return ALL_QUESTIONS.filter((q) => cats.has(q.cat))
+  return ALL_QUESTIONS.filter((q) => GROUP_BY_ID.get(q.id) === group)
 }

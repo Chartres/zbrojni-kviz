@@ -55,34 +55,59 @@
     }
   ],
   "exam": {
-    "totalQuestions": 60,
+    "legalBasis": "Zákon č. 90/2024 Sb. § 20 odst. 3 písm. a) (30 otázek, nejdéle 40 minut, alespoň 26 správně, u rozšířeného zbrojního oprávnění 28); nařízení vlády č. 238/2025 Sb. § 12 odst. 2 (složení 17 + 5 + 5 + 3)",
+    "legalBasisUrls": [
+      "https://www.zakonyprolidi.cz/cs/2024-90#p20",
+      "https://www.zakonyprolidi.cz/cs/2025-238#p12"
+    ],
+    "totalQuestions": 30,
     "composition": [
       {
         "group": "pravni",
+        "label": "Právní předpisy",
         "categories": [
           "Zákon o zbraních",
           "Prováděcí předpisy",
           "Jiné předpisy"
         ],
-        "count": 52
+        "count": 17
       },
       {
         "group": "nauka",
+        "label": "Nauka o zbraních a střelivu",
         "categories": [
           "Nauka o zbraních"
         ],
         "count": 5
       },
       {
+        "group": "bezpecnost",
+        "label": "Zásady bezpečného nakládání",
+        "categories": [],
+        "ranges": [
+          [
+            562,
+            596
+          ],
+          [
+            784,
+            799
+          ]
+        ],
+        "count": 5
+      },
+      {
         "group": "zdravotnicke",
+        "label": "Zdravotnické minimum",
         "categories": [
           "Zdravotnické minimum"
         ],
         "count": 3
       }
     ],
-    "passThreshold": 57,
-    "timeLimitMinutes": 80
+    "passThreshold": 26,
+    "passThresholdExtended": 28,
+    "timeLimitMinutes": 40
   },
   "duplicatePairs": [
     [

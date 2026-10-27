@@ -29,7 +29,7 @@ Gate: typecheck · test · build must pass (CI is `.github/workflows/deploy.yml`
 npm run dev         # Vite dev server (http://localhost:5173)
 ```
 Primary journeys: home → daily lesson (12 q) → completion + streak; practice by okruh; exam
-mode (60 q, timer) → results. SEO deep-link: open `/okruh/zakon-o-zbranich/` — the app boots
+mode (30 q, 40-min timer, pass 26 / 28 extended — zákon 90/2024 § 20 odst. 3) → results. SEO deep-link: open `/okruh/zakon-o-zbranich/` — the app boots
 straight into that okruh's practice.
 
 ## Release (the finish line — produces a storefront link)

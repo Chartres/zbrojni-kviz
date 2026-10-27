@@ -93,7 +93,7 @@ export const LESSONS: Lesson[] = [
 <li><strong>neprodleně</strong> ohlásit Policii ČR <strong>ztrátu nebo odcizení</strong> zbraně podléhající registraci nebo PO, a <strong>použití zbraně k ostré střelbě v nutné obraně nebo krajní nouzi</strong>;</li>
 <li>střílet jen tam, kde je k tomu oprávněn; uposlechnout pokyny pořadatele akce a správce střelnice; na hraničním přechodu oznámit, že cestuje se zbraní; podrobit se na výzvu policisty vyšetření na alkohol/návykové látky.</li>
 </ul>
-<p><strong>Nikdo nesmí</strong> nakládat se zbraní bez oprávnění; umožnit nakládání neoprávněné osobě; dodat na trh zbraň/střelivo jiné kategorie, než odpovídá konstrukci; ohrozit život/zdraví/majetek nedbalostí nebo manipulací <strong>pod vlivem alkoholu, návykových látek, léků</strong> či při zhoršeném zdravotním stavu; střílet nebo nosit zbraň pod vlivem; provozovat střelnici bez povolení; nosit neregistrovanou zbraň; <strong>šířit oficiální testové otázky</strong> MV.</p>`,
+<p><strong>Nikdo nesmí</strong> nakládat se zbraní bez oprávnění; umožnit nakládání neoprávněné osobě; dodat na trh zbraň/střelivo jiné kategorie, než odpovídá konstrukci; ohrozit život/zdraví/majetek nedbalostí nebo manipulací <strong>pod vlivem alkoholu, návykových látek, léků</strong> či při zhoršeném zdravotním stavu; střílet nebo nosit zbraň pod vlivem; provozovat střelnici bez povolení; nosit neregistrovanou zbraň; jakkoli <strong>šířit písemné testy</strong>, které sestavilo ministerstvo pro zkoušky (§ 11 odst. 3 písm. h). Soubor testových otázek se správnými odpověďmi naopak ministerstvo samo zveřejňuje (§ 27 odst. 1).</p>`,
   },
   {
     id: 'opravneni-podminky',
@@ -116,11 +116,11 @@ export const LESSONS: Lesson[] = [
     html: `
 <ul>
 <li>Zkoušku skládá žadatel <strong>osobně</strong> (bez tlumočníka/podpůrce). Skládá se z <strong>teoretické</strong> a <strong>praktické</strong> části, zpravidla <strong>v jeden den</strong>.</li>
-<li><strong>Teorie</strong>: 60 otázek (právní předpisy, ověřování, trestněprávní aspekty, nauka o zbraních, zásady bezpečného nakládání, zdravotnické minimum); uspět = <strong>≥ 57 z 60</strong> v <strong>80 minutách</strong> + ústní pohovor.</li>
+<li><strong>Teorie</strong> (§ 20 odst. 3 písm. a) zákona): písemný test, <strong>30 otázek</strong> za nejvýše <strong>40 minut</strong>, u každé jedna správná ze tří. Uspěje, kdo odpoví správně alespoň na <strong>26</strong>; žadatel o <strong>rozšířené</strong> zbrojní oprávnění na <strong>28</strong>. Složení podle NV č. 238/2025 Sb. § 12: <strong>17</strong> otázek z právních předpisů, <strong>5</strong> z nauky o zbraních a střelivu, <strong>5</strong> ze zásad bezpečného nakládání, <strong>3</strong> ze zdravotnického minima. Otázky se losují ze souboru, který MV zveřejňuje i se správnými odpověďmi (§ 27).</li>
 <li><strong>Praxe</strong>: bezpečná manipulace + střelba na kruhový terč ⌀ 500 mm, 10 m krátkou a 25 m dlouhou kulovou zbraní, 5 + 5 výstřelů do 5 minut — <strong>obecné ≥ 6 zásahů</strong>, <strong>rozšířené ≥ 8 zásahů</strong>; nesmí ohrozit bezpečnost.</li>
 <li>Odbornou způsobilost je třeba prokázat do <strong>12 měsíců</strong> od zápisu oprávnění do registru; zkoušku lze <strong>jednou opakovat</strong>. Kdo neuspěl ani při opakování, ale uspěl aspoň jednou v teorii, může na <strong>komisionální zkoušku</strong> (tříčlenná komise: MV, Policejní prezidium/KŘP, zkušební komisař).</li>
 <li>Zkouška odborné způsobilosti se koná <strong>vždy na zapsané zkouškové střelnici</strong>; obě zkoušky jsou <strong>neveřejné</strong>. KŘP pořizuje obrazový a zvukový záznam praktické části. Proti průběhu/výsledku lze <strong>ihned na místě vznést protest</strong>.</li>
-<li><strong>Zkušební komisař:</strong> ≥ 30 let, rozšířené oprávnění ≥ 3 roky, maturita, složená zkouška komisaře. Nesmí jím být policista zařazený u správního/kontrolního orgánu dle tohoto zákona.</li>
+<li><strong>Zkušební komisař:</strong> ≥ 30 let, rozšířené oprávnění ≥ 3 roky, maturita, složená zkouška komisaře (její test má 60 otázek a uspěje se s 57 — § 34 odst. 5; nezaměňovat se zkouškou žadatele). Nesmí jím být policista zařazený u správního/kontrolního orgánu dle tohoto zákona.</li>
 </ul>`,
   },
   {
