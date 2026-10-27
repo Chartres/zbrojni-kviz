@@ -44,6 +44,9 @@ cookieless, fire-and-forget into the shared flywheel-core (Supabase). Fires the 
 (`app_open`, `start_lesson`/`start_practice`/`start_exam`, `lesson_complete`, `feedback_given`,
 `error`). Activation KPI is `lesson_complete` (set in the portfolio record); the feedback card on
 the results screen fires `feedback_given`.
+`track()` accepts only names in `src/platform/allowed-events.ts` (a mirror of the events insert
+policy in flywheel-core); `src/analytics.contract.test.ts` fails on any other name. A new event
+name needs a flywheel PR to the policy first — the database drops unknown names silently.
 
 ## Done means
 Green CI · deployed to zbrojnikviz.dravec.org · portfolio record updated (stage/gate/links)
