@@ -147,7 +147,7 @@ export function ResultsScreen() {
           <button
             type="button"
             onClick={() => {
-              track('start_weak_drill', { from: 'results' })
+              track('start_practice', { kind: 'weak_drill', from: 'results' })
               dispatch({ type: 'startWeakDrill', rng: makeRng(timeSeed()) })
             }}
             className="rounded-card border border-steel-600 px-5 py-2.5 font-semibold text-steel-200 hover:border-steel-400"

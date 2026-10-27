@@ -3,6 +3,7 @@ import {
   createFlywheelClient,
   type SupabaseLike,
 } from './platform/flywheel-client'
+import type { AllowedEvent } from './platform/allowed-events'
 
 /**
  * Usage tracking via the Flywheel Common Platform client (shared across all
@@ -40,8 +41,8 @@ const fw = createFlywheelClient({
   supabase: automated ? null : (supabase as unknown as SupabaseLike | null),
 })
 
-/** Backward-compatible: existing call sites keep calling track(event, props). */
-export function track(event: string, props?: Record<string, unknown>): void {
+/** Only names on the shared allow-list compile; anything else the database drops silently. */
+export function track(event: AllowedEvent, props?: Record<string, unknown>): void {
   fw.track(event, props)
 }
 
