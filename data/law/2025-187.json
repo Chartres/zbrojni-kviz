@@ -1,0 +1,1324 @@
+{
+ "act": "2025-187",
+ "name": "Nařízení vlády č. 187/2025 Sb., o technických požadavcích a dalších specifikacích pro některé zbraně, střelivo a střelnice a pro zabezpečení zbraní a střeliva",
+ "url": "https://www.zakonyprolidi.cz/cs/2025-187",
+ "retrieved": "2026-10-27",
+ "units": [
+  {
+   "id": "p1-1",
+   "label": "§ 1 odst. 1",
+   "anchor": "p1-1",
+   "text": "Toto nařízení zapracovává příslušné předpisy Evropské unie, zároveň navazuje na přímo použitelné předpisy Evropské unie a upravuje",
+   "parent": null
+  },
+  {
+   "id": "p1-1-a",
+   "label": "§ 1 odst. 1 písm. a)",
+   "anchor": "p1-1-a",
+   "text": "technické požadavky na výrobní provedení zbraní kategorie PO nebo NO za účelem vyloučení možnosti jejich úpravy na zbraně podléhající registraci,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-b",
+   "label": "§ 1 odst. 1 písm. b)",
+   "anchor": "p1-1-b",
+   "text": "technicko-organizační vymezení střelnic, jejichž provozování lze povolit bez předložení vyjádření krajské hygienické stanice,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-c",
+   "label": "§ 1 odst. 1 písm. c)",
+   "anchor": "p1-1-c",
+   "text": "technické požadavky na ocelové schránky a skříně, zvláštní zařízení, skříňové a komorové trezory, místnosti a samostatné objekty určené k ukládání zbraní a na jejich uzamčení,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-d",
+   "label": "§ 1 odst. 1 písm. d)",
+   "anchor": "p1-1-d",
+   "text": "technické požadavky na způsob zabezpečení nejvýše 2 zbraní kategorie R2, R3 nebo R4 anebo střeliva kategorie S2 nebo S3 v počtu nejvýše 1000 nábojů při jejich krátkodobém uložení ve vozidle,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-e",
+   "label": "§ 1 odst. 1 písm. e)",
+   "anchor": "p1-1-e",
+   "text": "povinné náležitosti projektu jiného způsobu zabezpečení zbraní nebo střeliva,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-f",
+   "label": "§ 1 odst. 1 písm. f)",
+   "anchor": "p1-1-f",
+   "text": "způsob označení zbraně identifikačními údaji a jiný způsob individuální identifikace zbraně zvláštní historické hodnoty,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-g",
+   "label": "§ 1 odst. 1 písm. g)",
+   "anchor": "p1-1-g",
+   "text": "vzor kontrolní znehodnocovací značky, verifikačních znehodnocovacích značek Českého úřadu pro zkoušení zbraní a střeliva a Ministerstva obrany a certifikátu znehodnocené zbraně,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-h",
+   "label": "§ 1 odst. 1 písm. h)",
+   "anchor": "p1-1-h",
+   "text": "technické požadavky na nevratnou úpravu zbraně v případě znehodnocování zbraní, na které se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-i",
+   "label": "§ 1 odst. 1 písm. i)",
+   "anchor": "p1-1-i",
+   "text": "technické požadavky na nevratnou úpravu zbraně v případě zhotovení řezu zbraně,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-j",
+   "label": "§ 1 odst. 1 písm. j)",
+   "anchor": "p1-1-j",
+   "text": "technické požadavky na delaboraci, znehodnocení, zhotovování řezů a ničení střeliva,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-k",
+   "label": "§ 1 odst. 1 písm. k)",
+   "anchor": "p1-1-k",
+   "text": "technické požadavky na nakládání s aktivními komponenty střeliva,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-l",
+   "label": "§ 1 odst. 1 písm. l)",
+   "anchor": "p1-1-l",
+   "text": "limitní množství aktivních komponentů střeliva podle § 96 odst. 3 a § 111 odst. 1 písm. b) zákona a",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-m",
+   "label": "§ 1 odst. 1 písm. m)",
+   "anchor": "p1-1-m",
+   "text": "organizační a technické podmínky pro zabezpečení zbraní nebo střeliva při přepravě.",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p2-1",
+   "label": "§ 2 odst. 1",
+   "anchor": "p2-1",
+   "text": "Výrobní provedení jednoranové nebo dvouranové palné zbraně nabíjené jednotlivě pro použití děleného střeliva, nejedná-li se o zbraň, která podléhá registraci, musí splňovat následující technické požadavky:",
+   "parent": null
+  },
+  {
+   "id": "p2-1-a",
+   "label": "§ 2 odst. 1 písm. a)",
+   "anchor": "p2-1-a",
+   "text": "nábojová komora nesmí umožňovat nabití, uzamčení nebo odpálení jednotného náboje se střelou jednotnou nebo hromadnou a",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-b",
+   "label": "§ 2 odst. 1 písm. b)",
+   "anchor": "p2-1-b",
+   "text": "veškeré hlavní části jednoranové nebo dvouranové palné zbraně nabíjené jednotlivě pro použití děleného střeliva musí být takové konstrukce, aby nemohly být namontovány nebo použity jako hlavní části zbraní podléhajících registraci.",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p3-1",
+   "label": "§ 3 odst. 1",
+   "anchor": "p3-1",
+   "text": "Zařízení, které je poplašnou a signalizační zbraní, která se podle zákona zařazuje do kategorie PO, musí splňovat technické specifikace stanovené v příloze č. 1 k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p4-1",
+   "label": "§ 4 odst. 1",
+   "anchor": "p4-1",
+   "text": "Výrobní provedení plynové zbraně, která se podle zákona zařazuje do kategorie PO nebo NO, musí splňovat následující technické požadavky:",
+   "parent": null
+  },
+  {
+   "id": "p4-1-a",
+   "label": "§ 4 odst. 1 písm. a)",
+   "anchor": "p4-1-a",
+   "text": "hlavní část plynové zbraně musí být zkonstruována a zhotovena tak, aby byla znemožněna její úprava na palnou zbraň,",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-1-b",
+   "label": "§ 4 odst. 1 písm. b)",
+   "anchor": "p4-1-b",
+   "text": "rozměry nábojové komory u plynové zbraně musí umožňovat použití pouze takového střeliva, pro něž je zbraň konstruována, a",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-1-c",
+   "label": "§ 4 odst. 1 písm. c)",
+   "anchor": "p4-1-c",
+   "text": "veškeré hlavní části plynové zbraně musí být takové povahy, aby nemohly být namontovány nebo použity jako hlavní části zbraní podléhajících registraci.",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p5-1",
+   "label": "§ 5 odst. 1",
+   "anchor": "p5-1",
+   "text": "Není-li dále stanoveno jinak, musí výrobní provedení neletálního zneschopňujícího prostředku založeného na principu palné nebo plynové zbraně, který se podle zákona zařazuje do kategorie PO, splňovat v případě neletálního zneschopňujícího prostředku založeného na principu",
+   "parent": null
+  },
+  {
+   "id": "p5-1-a",
+   "label": "§ 5 odst. 1 písm. a)",
+   "anchor": "p5-1-a",
+   "text": "palné zbraně v obdobném rozsahu technické požadavky stanovené v § 2 a",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-b",
+   "label": "§ 5 odst. 1 písm. b)",
+   "anchor": "p5-1-b",
+   "text": "plynové zbraně v obdobném rozsahu technické požadavky stanovené v § 4.",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-2",
+   "label": "§ 5 odst. 2",
+   "anchor": "p5-2",
+   "text": "Neletální zneschopňující prostředek založený na principu palné nebo plynové zbraně musí být konstruován tak, že",
+   "parent": null
+  },
+  {
+   "id": "p5-2-a",
+   "label": "§ 5 odst. 2 písm. a)",
+   "anchor": "p5-2-a",
+   "text": "umožňuje pouze vymetení látky nebo zařízení anebo nosiče takové látky nebo zařízení, jejichž účelem je dočasné zneschopnění osoby nebo zvířete, a",
+   "parent": "p5-2"
+  },
+  {
+   "id": "p5-2-b",
+   "label": "§ 5 odst. 2 písm. b)",
+   "anchor": "p5-2-b",
+   "text": "za běžných podmínek, a to i při nedodržení způsobu jeho použití předepsaného výrobcem, přímo neohrozí život nebo nezpůsobí vážnější újmu na zdraví osobě nebo zvířeti, proti kterým je použit.",
+   "parent": "p5-2"
+  },
+  {
+   "id": "p5-3",
+   "label": "§ 5 odst. 3",
+   "anchor": "p5-3",
+   "text": "Látka nebo zařízení uvedené v odstavci 2 smí být součástí jednotné sestavy střeliva pro neletální zneschopňující prostředek založený na principu palné nebo plynové zbraně.",
+   "parent": null
+  },
+  {
+   "id": "p6-1",
+   "label": "§ 6 odst. 1",
+   "anchor": "p6-1",
+   "text": "Výrobní provedení expanzního přístroje, který se podle zákona zařazuje do kategorie NO, musí být navrženo a zhotoveno tak, aby umožňovalo výstřel pouze v rámci použití daného expanzního přístroje pro deklarovaný průmyslový nebo technický účel anebo k jateční porážce zvířat.",
+   "parent": null
+  },
+  {
+   "id": "p7-1",
+   "label": "§ 7 odst. 1",
+   "anchor": "p7-1",
+   "text": "Konstrukce paintballové, airsoftové nebo obdobné zbraně smí být založena výhradně na principu plynové zbraně.",
+   "parent": null
+  },
+  {
+   "id": "p7-2",
+   "label": "§ 7 odst. 2",
+   "anchor": "p7-2",
+   "text": "Výrobní provedení paintballové, airsoftové a obdobné zbraně, která se podle zákona zařazuje do kategorie NO, musí splňovat v obdobném rozsahu technické požadavky stanovené v § 4.",
+   "parent": null
+  },
+  {
+   "id": "p8-1",
+   "label": "§ 8 odst. 1",
+   "anchor": "p8-1",
+   "text": "Bez předložení vyjádření krajské hygienické stanice podle § 61 odst. 2 písm. d) zákona krajské ředitelství Policie České republiky (dále jen „policie“) vydá povolení provozovat střelnici pro střelbu ze zbraní, s výjimkou zvláště účinných palných zbraní, pokud",
+   "parent": null
+  },
+  {
+   "id": "p8-1-a",
+   "label": "§ 8 odst. 1 písm. a)",
+   "anchor": "p8-1-a",
+   "text": "jde o střelnici pro střelbu z plynových zbraní nebo ze zbraní založených na principu plynové zbraně,",
+   "parent": "p8-1"
+  },
+  {
+   "id": "p8-1-b",
+   "label": "§ 8 odst. 1 písm. b)",
+   "anchor": "p8-1-b",
+   "text": "na střelnici není připuštěna střelba z palných zbraní s účinnější ráží, než je ráže 22 Long Rifle, a jde-li současně o střelnici",
+   "parent": "p8-1"
+  },
+  {
+   "id": "p8-1-b-1",
+   "label": "§ 8 odst. 1 písm. b) bod 1",
+   "anchor": "p8-1-b-1",
+   "text": "krytou, je-li její prostor dostatečně zvukově izolován vůči vnějšímu prostředí a částem stavby, které nejsou střelnicí, a zároveň je vyloučen přenos vibrací způsobených střelbou na části stavby, které nejsou střelnicí, nebo",
+   "parent": "p8-1-b"
+  },
+  {
+   "id": "p8-1-b-2",
+   "label": "§ 8 odst. 1 písm. b) bod 2",
+   "anchor": "p8-1-b-2",
+   "text": "otevřenou, pokud nejmenší přímá vzdálenost střelnice od chráněného venkovního prostoru nebo chráněného venkovního prostoru stavby podle zákona o ochraně veřejného zdraví v kterémkoli směru je alespoň 500 m,",
+   "parent": "p8-1-b"
+  },
+  {
+   "id": "p8-1-c",
+   "label": "§ 8 odst. 1 písm. c)",
+   "anchor": "p8-1-c",
+   "text": "na střelnici je střelba z palných zbraní umožněna pouze s použitím tlumiče hluku výstřelu nebo ze střeleckých stanovišť vybavených zařízením speciálně konstruovaným pro snížení hluku výstřelu ze zbraně alespoň v obdobném rozsahu jako při použití tlumiče hluku výstřelu, a pokud",
+   "parent": "p8-1"
+  },
+  {
+   "id": "p8-1-c-1",
+   "label": "§ 8 odst. 1 písm. c) bod 1",
+   "anchor": "p8-1-c-1",
+   "text": "je dovoleno použít pouze střelivo s podzvukovou rychlostí střely, nebo",
+   "parent": "p8-1-c"
+  },
+  {
+   "id": "p8-1-c-2",
+   "label": "§ 8 odst. 1 písm. c) bod 2",
+   "anchor": "p8-1-c-2",
+   "text": "nejmenší přímá vzdálenost střelnice od chráněného venkovního prostoru nebo chráněného venkovního prostoru stavby podle zákona o ochraně veřejného zdraví v kterémkoli směru je alespoň 500 m, nebo",
+   "parent": "p8-1-c"
+  },
+  {
+   "id": "p8-1-d",
+   "label": "§ 8 odst. 1 písm. d)",
+   "anchor": "p8-1-d",
+   "text": "nejmenší přímá vzdálenost střelnice od chráněného venkovního prostoru nebo chráněného venkovního prostoru stavby podle zákona o ochraně veřejného zdraví v kterémkoli směru je alespoň 2000 m.",
+   "parent": "p8-1"
+  },
+  {
+   "id": "p8-2",
+   "label": "§ 8 odst. 2",
+   "anchor": "p8-2",
+   "text": "Bez předložení vyjádření krajské hygienické stanice podle § 61 odst. 2 písm. d) zákona lze vydat povolení provozovat střelnici rovněž v případě, pokud je střelnice umístěna v ochranném pásmu podle stavebního zákona nebo v místě s obdobnými podmínkami ochrany podle jiného právního předpisu, pokud byly ochranné pásmo nebo podmínky ochrany stanoveny za účelem ochrany okolí před negativními účinky hluku a hluk stavby nebo zařízení, před jejichž negativními účinky ochranné pásmo nebo podmínky ochrany chrání okolí, je vyšší než hluk střelby na dané střelnici.",
+   "parent": null
+  },
+  {
+   "id": "p9-1",
+   "label": "§ 9 odst. 1",
+   "anchor": "p9-1",
+   "text": "Technické požadavky stanovené v této části se považují za splněné, postupuje-li se ve shodě s českou technickou normou nebo její částí podle jiného právního předpisu (dále jen „technická norma“), na kterou toto nařízení odkazuje; tyto požadavky mohou být splněny i jiným technickým řešením zaručujícím stejnou nebo vyšší úroveň splnění příslušných technických požadavků, než které vyplývají z technické normy.",
+   "parent": null
+  },
+  {
+   "id": "p10-1",
+   "label": "§ 10 odst. 1",
+   "anchor": "p10-1",
+   "text": "Uzamykatelná ocelová schránka nebo uzamykatelná ocelová skříň jsou technicky způsobilé pro účely zabezpečení uložených zbraní a střeliva, pokud",
+   "parent": null
+  },
+  {
+   "id": "p10-1-a",
+   "label": "§ 10 odst. 1 písm. a)",
+   "anchor": "p10-1-a",
+   "text": "splňují požadavky odolnosti proti vloupání alespoň 15 odporových jednotek; při stanovení odolnosti proti vloupání se přiměřeně použije technická norma ČSN EN 1143-1 nebo ČSN EN 14450+A1 a",
+   "parent": "p10-1"
+  },
+  {
+   "id": "p10-1-b",
+   "label": "§ 10 odst. 1 písm. b)",
+   "anchor": "p10-1-b",
+   "text": "jsou vybavené minimálně jedním zámkem s vysokou bezpečností proti nepovolenému otevření zařazeným do třídy A nebo vyšší třídy podle technické normy ČSN EN 1300.",
+   "parent": "p10-1"
+  },
+  {
+   "id": "p10-2",
+   "label": "§ 10 odst. 2",
+   "anchor": "p10-2",
+   "text": "Uzamykatelný skříňový trezor je technicky způsobilý pro účely zabezpečení uložených zbraní a střeliva, pokud splňuje požadavky pro klasifikaci skříňových trezorů minimálně bezpečnostní třídy I podle technické normy ČSN EN 1143-1.",
+   "parent": null
+  },
+  {
+   "id": "p10-3",
+   "label": "§ 10 odst. 3",
+   "anchor": "p10-3",
+   "text": "Komorový trezor je technicky způsobilý pro účely zabezpečení uložených zbraní a střeliva, pokud splňuje požadavky pro klasifikaci trezorových dveří a komorových trezorů minimálně bezpečnostní třídy I podle technické normy ČSN EN 1143-1.",
+   "parent": null
+  },
+  {
+   "id": "p11-1",
+   "label": "§ 11 odst. 1",
+   "anchor": "p11-1",
+   "text": "Zvláštní zařízení pro zabezpečení uložených zbraní a střeliva je technicky způsobilé pro účely zabezpečení uložených zbraní a střeliva, pokud má podobu",
+   "parent": null
+  },
+  {
+   "id": "p11-1-a",
+   "label": "§ 11 odst. 1 písm. a)",
+   "anchor": "p11-1-a",
+   "text": "výlohy, která splňuje podmínky uvedené v odstavci 2,",
+   "parent": "p11-1"
+  },
+  {
+   "id": "p11-1-b",
+   "label": "§ 11 odst. 1 písm. b)",
+   "anchor": "p11-1-b",
+   "text": "vitríny, výkladce nebo proskleného pultu, které splňují obdobné podmínky jako výloha podle písmene a), nebo",
+   "parent": "p11-1"
+  },
+  {
+   "id": "p11-1-c",
+   "label": "§ 11 odst. 1 písm. c)",
+   "anchor": "p11-1-c",
+   "text": "uzamčeného zařízení, které je neoddělitelně ukotveno do stěny, stropu nebo podlahy zhotovených z cihel, betonových panelů nebo obdobného stavebního materiálu a které je vybaveno zámkem s vysokou bezpečností zařazeným do třídy A nebo vyšší třídy podle technické normy ČSN EN 1300.",
+   "parent": "p11-1"
+  },
+  {
+   "id": "p11-2",
+   "label": "§ 11 odst. 2",
+   "anchor": "p11-2",
+   "text": "Výloha má celoocelový rám pevně zabudovaný do stěny budovy a je vybavena",
+   "parent": null
+  },
+  {
+   "id": "p11-2-a",
+   "label": "§ 11 odst. 2 písm. a)",
+   "anchor": "p11-2-a",
+   "text": "sklem výlohy vybaveným bezpečnostní fólií proti průrazu s odolností nejméně 250 J nebo sklem obdobně odolným proti průrazu a vytlačení z rámu,",
+   "parent": "p11-2"
+  },
+  {
+   "id": "p11-2-b",
+   "label": "§ 11 odst. 2 písm. b)",
+   "anchor": "p11-2-b",
+   "text": "pevně zabudovanou ocelovou mříží s pruty o minimální ploše průřezu 75 mm2 a vzdáleností os prutů nejvíce 130 mm, přičemž spoje prutů jsou svařeny nebo snýtovány, nebo",
+   "parent": "p11-2"
+  },
+  {
+   "id": "p11-2-c",
+   "label": "§ 11 odst. 2 písm. c)",
+   "anchor": "p11-2-c",
+   "text": "posuvnou, sklopnou nebo svinovací ocelovou mříží nebo roletou splňující požadavky 3. bezpečnostní třídy podle technické normy ČSN EN 1627.",
+   "parent": "p11-2"
+  },
+  {
+   "id": "p12-1",
+   "label": "§ 12 odst. 1",
+   "anchor": "p12-1",
+   "text": "Za technicky způsobilé se pro účely zabezpečení uložených zbraní a střeliva považují uzamčená místnost nebo samostatný objekt,",
+   "parent": null
+  },
+  {
+   "id": "p12-1-a",
+   "label": "§ 12 odst. 1 písm. a)",
+   "anchor": "p12-1-a",
+   "text": "které jsou vybaveny trezorovými dveřmi, které splňují požadavky pro kvalifikaci trezorových dveří a komorových trezorů bezpečnostní třídy I podle technické normy ČSN EN 1143-1, nebo bezpečnostními dveřmi, které splňují požadavky 5. bezpečnostní třídy podle technické normy ČSN EN 1627,",
+   "parent": "p12-1"
+  },
+  {
+   "id": "p12-1-b",
+   "label": "§ 12 odst. 1 písm. b)",
+   "anchor": "p12-1-b",
+   "text": "které mají stěny, stropy a podlahy s minimální tloušťkou",
+   "parent": "p12-1"
+  },
+  {
+   "id": "p12-1-b-1",
+   "label": "§ 12 odst. 1 písm. b) bod 1",
+   "anchor": "p12-1-b-1",
+   "text": "300 mm, pokud jsou zhotoveny z cihel, popřípadě z vápenocementových bloků nebo pórobetonových tvárnic, nebo",
+   "parent": "p12-1-b"
+  },
+  {
+   "id": "p12-1-b-2",
+   "label": "§ 12 odst. 1 písm. b) bod 2",
+   "anchor": "p12-1-b-2",
+   "text": "150 mm, pokud jsou zhotoveny z betonových panelů nebo obdobného stavebního materiálu, a",
+   "parent": "p12-1-b"
+  },
+  {
+   "id": "p12-1-c",
+   "label": "§ 12 odst. 1 písm. c)",
+   "anchor": "p12-1-c",
+   "text": "jejichž okna, světlíky, komíny, větráky, šachty a další otvory o rozměrech větších než 150 mm x 150 mm jsou zabezpečeny v souladu s odstavcem 2.",
+   "parent": "p12-1"
+  },
+  {
+   "id": "p12-2",
+   "label": "§ 12 odst. 2",
+   "anchor": "p12-2",
+   "text": "Okna, světlíky, komíny, větrací otvory, šachty a další obdobné otvory v místnostech a samostatných objektech určených k uložení zbraní a střeliva musí být opatřeny pevně zabudovanými ocelovými mřížemi s pruty z plného materiálu kruhového průřezu o průměru minimálně 10 mm, nebo pruty z plného materiálu o jiném než kruhovém průřezu s délkou každé strany alespoň 10 mm, přičemž plocha průřezu je minimálně 75 mm2 . Vzdálenost mezi osami dvou sousedních prutů mříží podle věty první, jakož i mezi krajním prutem a vnitřní hranou otvoru, smí být nejvíce 130 mm, přičemž spoje prutů musí být svařeny nebo snýtovány. Kotvení mříže musí být provedeno pomocí kotev s roztečí nejvýše 750 mm a zasazených ve zdivu do hloubky nejméně 150 mm. K zabezpečení oken, světlíků, komínů, větracích otvorů, šachet nebo dalších otvorů podle věty první lze použít též posuvnou, sklopnou nebo svinovací ocelovou mříž nebo roletu splňující požadavky 3. bezpečnostní třídy podle technické normy ČSN EN 1627.",
+   "parent": null
+  },
+  {
+   "id": "p12-3",
+   "label": "§ 12 odst. 3",
+   "anchor": "p12-3",
+   "text": "Od druhého nadzemního podlaží, pokud do jeho úrovně nelze jednoduše proniknout ze střechy nebo pomocí hromosvodů, okapů, parapetů, jiných stavebních prvků, terénních nerovností, stromů nebo jiných staveb, lze pro zabezpečení uzamčených místností a samostatných objektů použít namísto mříže uzavíratelné okno s celoocelovým okenním rámem pevně zabudovaným do stěny budovy se sklem, které je vybaveno bezpečnostní fólií proti průrazu s odolností nejméně 250 J, nebo sklem obdobně odolným proti průrazu a vytlačení z rámu nebo jiné zabezpečení splňující požadavky 3. bezpečnostní třídy podle technické normy ČSN EN 1627.",
+   "parent": null
+  },
+  {
+   "id": "p13-1",
+   "label": "§ 13 odst. 1",
+   "anchor": "p13-1",
+   "text": "Při krátkodobém uložení nejvýše 2 zbraní kategorie R2, R3 nebo R4 anebo střeliva kategorie S2 nebo S3 v počtu nejvýše 1000 nábojů ve vozidle nepřesahujícím 4 hodiny musí být zabezpečení provedeno uzamčením zbraně nebo střeliva v uzamykatelném plastovém nebo kovovém kufru nebo obdobné schránce, které nejsou při pohledu z vnějšku vozidla ani částečně viditelné a které jsou upevněny ke karoserii vozidla; kufr nebo schránku nesmí být možné otevřít nebo oddělit od karoserie bez použití dílenského nářadí.",
+   "parent": null
+  },
+  {
+   "id": "p13-2",
+   "label": "§ 13 odst. 2",
+   "anchor": "p13-2",
+   "text": "Zbraň nebo střelivo, které jsou podle odstavce 1 zabezpečovány při jejich krátkodobém uložení ve vozidle, smí být umístěny pouze v té části vozidla, která je chráněna uzavřenou pevnou kovovou karoserií; okna a jiné obdobné otvory vozidla musí být plně uzavřeny a vozidlo musí být standardním způsobem uzamčeno.",
+   "parent": null
+  },
+  {
+   "id": "p13-3",
+   "label": "§ 13 odst. 3",
+   "anchor": "p13-3",
+   "text": "Zbraň zabezpečovaná při krátkodobém uložení ve vozidle nesmí být v nabitém stavu a střelivo musí být uloženo odděleně od zbraně.",
+   "parent": null
+  },
+  {
+   "id": "p14-1",
+   "label": "§ 14 odst. 1",
+   "anchor": "p14-1",
+   "text": "V projektu jiného způsobu zabezpečení zbraní nebo střeliva musí být uvedeny",
+   "parent": null
+  },
+  {
+   "id": "p14-1-a",
+   "label": "§ 14 odst. 1 písm. a)",
+   "anchor": "p14-1-a",
+   "text": "místo a popis konkrétního prostoru, kde mají být zbraně nebo střelivo jiným způsobem zabezpečeny,",
+   "parent": "p14-1"
+  },
+  {
+   "id": "p14-1-b",
+   "label": "§ 14 odst. 1 písm. b)",
+   "anchor": "p14-1-b",
+   "text": "vymezení zbraní a střeliva, které mají být zabezpečovány jiným způsobem, a jejich maximálního množství, pro které je tento jiný způsob zabezpečení realizován,",
+   "parent": "p14-1"
+  },
+  {
+   "id": "p14-1-c",
+   "label": "§ 14 odst. 1 písm. c)",
+   "anchor": "p14-1-c",
+   "text": "vymezení důvodu a účelu jiného způsobu zabezpečení zbraní nebo střeliva,",
+   "parent": "p14-1"
+  },
+  {
+   "id": "p14-1-d",
+   "label": "§ 14 odst. 1 písm. d)",
+   "anchor": "p14-1-d",
+   "text": "popis jiného způsobu zabezpečení zbraní nebo střeliva včetně uvedení veškerých podstatných parametrů použitých technických zabezpečovacích prostředků a organizačních, personálních a případných dalších opatření k zajištění ochrany zbraní a střeliva a",
+   "parent": "p14-1"
+  },
+  {
+   "id": "p14-1-e",
+   "label": "§ 14 odst. 1 písm. e)",
+   "anchor": "p14-1-e",
+   "text": "další podstatné skutečnosti, které mají vliv na úroveň a trvání ochrany zabezpečovaných zbraní nebo střeliva proti zneužití, ztrátě nebo odcizení.",
+   "parent": "p14-1"
+  },
+  {
+   "id": "p14-2",
+   "label": "§ 14 odst. 2",
+   "anchor": "p14-2",
+   "text": "V případě, že se zbraně nebo střelivo zabezpečují jiným způsobem v provozovně nebo v provozním areálu, v projektu jiného způsobu zabezpečení musí být kromě náležitostí podle odstavce 1 uvedeny",
+   "parent": null
+  },
+  {
+   "id": "p14-2-a",
+   "label": "§ 14 odst. 2 písm. a)",
+   "anchor": "p14-2-a",
+   "text": "provozní potřeba, která jiný způsob zabezpečení zbraní nebo střeliva odůvodňuje,",
+   "parent": "p14-2"
+  },
+  {
+   "id": "p14-2-b",
+   "label": "§ 14 odst. 2 písm. b)",
+   "anchor": "p14-2-b",
+   "text": "způsob nakládání se zbraněmi nebo střelivem v rámci provozovny nebo provozního areálu, a to včetně popisu případného oběhu zbraní nebo střeliva v rámci provozní činnosti, a",
+   "parent": "p14-2"
+  },
+  {
+   "id": "p14-2-c",
+   "label": "§ 14 odst. 2 písm. c)",
+   "anchor": "p14-2-c",
+   "text": "v případě zabezpečení v provozním areálu",
+   "parent": "p14-2"
+  },
+  {
+   "id": "p14-2-c-1",
+   "label": "§ 14 odst. 2 písm. c) bod 1",
+   "anchor": "p14-2-c-1",
+   "text": "přehledný situační nákres provozního areálu s vyznačením konkrétních prostor a případných distribučních tras, kterých se jiný způsob zabezpečení týká, a",
+   "parent": "p14-2-c"
+  },
+  {
+   "id": "p14-2-c-2",
+   "label": "§ 14 odst. 2 písm. c) bod 2",
+   "anchor": "p14-2-c-2",
+   "text": "seznam všech subjektů, které v rámci provozního areálu vykonávají podnikatelskou nebo jinou soustavnou činnost, a uvedení jejich vztahu k osobě zabezpečující zbraně nebo střelivo jiným způsobem.",
+   "parent": "p14-2-c"
+  },
+  {
+   "id": "p15-1",
+   "label": "§ 15 odst. 1",
+   "anchor": "p15-1",
+   "text": "Palná zbraň musí být na každé hlavní části označena údaji v souladu s technickými specifikacemi stanovenými v příloze č. 2 k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p15-2",
+   "label": "§ 15 odst. 2",
+   "anchor": "p15-2",
+   "text": "Plynová zbraň musí být alespoň na jedné hlavní části označena obdobně jako palná zbraň.",
+   "parent": null
+  },
+  {
+   "id": "p15-3",
+   "label": "§ 15 odst. 3",
+   "anchor": "p15-3",
+   "text": "V případě zbraně zvláštní historické hodnoty lze odchylně od odstavce 1 nebo 2 označení zbraně zajistit vyznačením veškerých vhodných údajů umožňujících její individuální identifikaci na",
+   "parent": null
+  },
+  {
+   "id": "p15-3-a",
+   "label": "§ 15 odst. 3 písm. a)",
+   "anchor": "p15-3-a",
+   "text": "štítku z pevného materiálu, který se ke zbrani připevní, nebo",
+   "parent": "p15-3"
+  },
+  {
+   "id": "p15-3-b",
+   "label": "§ 15 odst. 3 písm. b)",
+   "anchor": "p15-3-b",
+   "text": "kterékoli části zbraně, přičemž pro takové označení se technické specifikace uvedené v příloze č. 2 k tomuto nařízení použijí přiměřeně.",
+   "parent": "p15-3"
+  },
+  {
+   "id": "p16-1",
+   "label": "§ 16 odst. 1",
+   "anchor": "p16-1",
+   "text": "Vzor kontrolní znehodnocovací značky je stanoven v příloze č. 3 k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p16-2",
+   "label": "§ 16 odst. 2",
+   "anchor": "p16-2",
+   "text": "Vzory verifikačních znehodnocovacích značek jsou stanoveny v příloze č. 4 k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p16-3",
+   "label": "§ 16 odst. 3",
+   "anchor": "p16-3",
+   "text": "Vzor certifikátu znehodnocené palné zbraně, na kterou se vztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní, je stanoven v příloze č. 5 bodu A. k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p16-4",
+   "label": "§ 16 odst. 4",
+   "anchor": "p16-4",
+   "text": "Vzory certifikátů znehodnocené palné zbraně, na kterou se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní, jsou stanoveny v příloze č. 5 bodu B. a C. k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p16-5",
+   "label": "§ 16 odst. 5",
+   "anchor": "p16-5",
+   "text": "Certifikát znehodnocené palné zbraně musí být vytištěn na papíře, který je opatřen ochrannými prvky proti zfalšování.",
+   "parent": null
+  },
+  {
+   "id": "p17-1",
+   "label": "§ 17 odst. 1",
+   "anchor": "p17-1",
+   "text": "Při znehodnocování zbraně, na kterou se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní, musí být trvalým a neodstranitelným způsobem provedeno",
+   "parent": null
+  },
+  {
+   "id": "p17-1-a",
+   "label": "§ 17 odst. 1 písm. a)",
+   "anchor": "p17-1-a",
+   "text": "vzájemné znehybnění částí zbraně a mechanismů umožňujících střelbu a zajištěno, aby je nebylo možno od sebe oddělit,",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-b",
+   "label": "§ 17 odst. 1 písm. b)",
+   "anchor": "p17-1-b",
+   "text": "zaslepení hlavně v nábojové komoře vložením ocelového kolíku o délce a průměru nábojové komory; ocelový kolík musí být po celém obvodu pevně spojen s hlavní svarem,",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-c",
+   "label": "§ 17 odst. 1 písm. c)",
+   "anchor": "p17-1-c",
+   "text": "opatření vodící části vývrtu hlavně po celé délce",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-c-1",
+   "label": "§ 17 odst. 1 písm. c) bod 1",
+   "anchor": "p17-1-c-1",
+   "text": "otvory o průměru ráže vyvrtanými kolmo na osu hlavně a procházejícími její stěnou; první otvor se vyvrtá bezprostředně před nábojovou komorou a další otvory se vrtají tak, aby středy otvorů od sebe nebyly vzdálenější než 6 ráží; při ráži hlavně nad 12,7 mm se vrtají otvory o průměru čtvrtiny ráže, minimálně ale vždy 12,7 mm; poslední otvor se vyvrtá ve vzdálenosti nejvýše 6 ráží od ústí hlavně, nebo",
+   "parent": "p17-1-c"
+  },
+  {
+   "id": "p17-1-c-2",
+   "label": "§ 17 odst. 1 písm. c) bod 2",
+   "anchor": "p17-1-c-2",
+   "text": "proříznutím o šířce čtvrtiny ráže, minimálně ale vždy 3 mm v případě ráží nejvýše 12,7 mm nebo minimálně 5 mm v případě ráží nad 12,7 mm, rovnoběžným s osou hlavně; proříznutí začíná bezprostředně před nábojovou komorou a končí ve vzdálenosti nejvýše 6 ráží od ústí hlavně a",
+   "parent": "p17-1-c"
+  },
+  {
+   "id": "p17-1-d",
+   "label": "§ 17 odst. 1 písm. d)",
+   "anchor": "p17-1-d",
+   "text": "odstranění úderníku a zápalníku a v případě, že je zbraň vybavena jiným typem iniciačního mechanismu, provede se jejich trvalé zneschopnění, a to zejména odstraněním nebo zaslepením přístupu iniciačního mechanismu do prostoru nábojové komory.",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-2",
+   "label": "§ 17 odst. 2",
+   "anchor": "p17-2",
+   "text": "Při znehodnocování zbraně musí být dále u zbraně opatřené",
+   "parent": null
+  },
+  {
+   "id": "p17-2-a",
+   "label": "§ 17 odst. 2 písm. a)",
+   "anchor": "p17-2-a",
+   "text": "závěrem ubroušeno čelo závěru pod úhlem 45°, a není-li to možné, zápalníkový otvor musí být v celé délce odvrtán na průměr alespoň čtvrtiny ráže a následně zaslepen svarem,",
+   "parent": "p17-2"
+  },
+  {
+   "id": "p17-2-b",
+   "label": "§ 17 odst. 2 písm. b)",
+   "anchor": "p17-2-b",
+   "text": "revolverovým válcem stěny mezi nábojovými komorami revolverového válce odstraněny, a to alespoň do poloviny jeho délky, a",
+   "parent": "p17-2"
+  },
+  {
+   "id": "p17-2-c",
+   "label": "§ 17 odst. 2 písm. c)",
+   "anchor": "p17-2-c",
+   "text": "zásobníkem zásobník trvale zajištěn proti vyjmutí ze znehodnocené zbraně nebo zásobníková šachta musí být trvale uzpůsobena proti vložení zásobníku.",
+   "parent": "p17-2"
+  },
+  {
+   "id": "p17-3",
+   "label": "§ 17 odst. 3",
+   "anchor": "p17-3",
+   "text": "V případě zbraně, na kterou se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní, lze znehodnotit její samostatnou hlavní část postupem podle odstavců 1 a 2, a to v rozsahu, který se týká této hlavní části. Současně musí být provedeno zaslepení svarem nebo odstranění alespoň 1 dalšího podstatného konstrukčního prvku tak, aby nebylo možné hlavní část použít ve zbrani.",
+   "parent": null
+  },
+  {
+   "id": "p17-4",
+   "label": "§ 17 odst. 4",
+   "anchor": "p17-4",
+   "text": "V případě zbraně, která je součástí sbírky zapsané v centrální evidenci sbírek podle zákona o ochraně sbírek muzejní povahy, nebo která je kulturní památkou zapsanou do Ústředního seznamu kulturních památek České republiky podle zákona o státní památkové péči, lze znehodnocení provést odlišně od technických požadavků uvedených v odstavcích 1 až 3, a to způsobem, který odpovídá kulturní hodnotě takové zbraně. Konkrétní způsob znehodnocení v takovém případě stanoví krajské ředitelství policie v povolení nevratné úpravy zbraně.",
+   "parent": null
+  },
+  {
+   "id": "p18-1",
+   "label": "§ 18 odst. 1",
+   "anchor": "p18-1",
+   "text": "Zhotovování řezu zbraně nebo hlavní části zbraně se provádí tak, že u všech zbraní",
+   "parent": null
+  },
+  {
+   "id": "p18-1-a",
+   "label": "§ 18 odst. 1 písm. a)",
+   "anchor": "p18-1-a",
+   "text": "nábojová komora hlavně, nábojová komora vložné hlavně nebo vložná nábojová komora musí mít upravenu stěnu nábojové komory vytvořením podélného otvoru o šířce ráže, který odkrývá nejméně dvě třetiny délky nábojové komory,",
+   "parent": "p18-1"
+  },
+  {
+   "id": "p18-1-b",
+   "label": "§ 18 odst. 1 písm. b)",
+   "anchor": "p18-1-b",
+   "text": "vodící část vývrtu musí mít ve stěně hlavně vytvořen podélný otvor o šířce ráže a o délce nejméně třetiny celkové délky hlavně, přičemž alespoň část otvoru musí být provedena bezprostředně před nábojovou komorou; ve zbytku délky hlavně musí být provedena úprava zajišťující, že při pokusu o výstřel střela neopustí hlaveň, a to postupem jako v případě znehodnocení nebo vložením ocelové tyče o délce alespoň 6 ráží do vývrtu hlavně a jejím přivařením na obou koncích,",
+   "parent": "p18-1"
+  },
+  {
+   "id": "p18-1-c",
+   "label": "§ 18 odst. 1 písm. c)",
+   "anchor": "p18-1-c",
+   "text": "hrot úderníku nebo zápalníku musí být zkrácen tak, aby v přední poloze nevyčníval z čela závěru; není-li to proveditelné, musí být úderník vyňat a zápalníkový otvor zaslepen svarem,",
+   "parent": "p18-1"
+  },
+  {
+   "id": "p18-1-d",
+   "label": "§ 18 odst. 1 písm. d)",
+   "anchor": "p18-1-d",
+   "text": "rám zbraně, pouzdro závěru, tělo zbraně nebo lůžko zbraně musí být částečně odstraněny tak, aby byla viditelně odkryta ústrojí napínacího, spoušťového, bicího, vratného a uzamykacího mechanismu, a",
+   "parent": "p18-1"
+  },
+  {
+   "id": "p18-1-e",
+   "label": "§ 18 odst. 1 písm. e)",
+   "anchor": "p18-1-e",
+   "text": "lze vzájemně pohybovat hlavními částmi a mechanismy zbraně a rozebírat je.",
+   "parent": "p18-1"
+  },
+  {
+   "id": "p18-2",
+   "label": "§ 18 odst. 2",
+   "anchor": "p18-2",
+   "text": "U zbraně se závěrem musí být dále",
+   "parent": null
+  },
+  {
+   "id": "p18-2-a",
+   "label": "§ 18 odst. 2 písm. a)",
+   "anchor": "p18-2-a",
+   "text": "závěr z jedné strany upraven podélným otvorem v délce poloviny délky závěru a šířce čtvrtiny výšky nebo průměru závěru, přičemž otvor alespoň částečně odkrývá uzamykací nebo brzdící mechanismus, je-li jím závěr vybaven; na nosič závorníku a závorník se tyto požadavky použijí přiměřeně, zejména musí být v dostatečné délce odkryt uzamykací nebo brzdicí mechanismus a",
+   "parent": "p18-2"
+  },
+  {
+   "id": "p18-2-b",
+   "label": "§ 18 odst. 2 písm. b)",
+   "anchor": "p18-2-b",
+   "text": "pouzdro závěru z jedné strany upraveno podélným otvorem v délce poloviny délky pouzdra závěru a šířce čtvrtiny výšky nebo průměru pouzdra závěru.",
+   "parent": "p18-2"
+  },
+  {
+   "id": "p18-3",
+   "label": "§ 18 odst. 3",
+   "anchor": "p18-3",
+   "text": "U zbraně se zásobníkem musí být zásobník upraven podélným otvorem na boční a zadní straně v délce čtvrtiny délky zásobníku a šířce pětiny šířky zásobníku.",
+   "parent": null
+  },
+  {
+   "id": "p18-4",
+   "label": "§ 18 odst. 4",
+   "anchor": "p18-4",
+   "text": "U zbraní s revolverovým válcem musí být dále polovina počtu sousedních nábojových komor revolverového válce zaslepena vložením ocelového kolíku o délce a průměru nábojové komory pevně spojeného s válcem svarem a druhá polovina počtu nábojových komor upravena podélnou drážkou v délce dvou třetin délky válce a šířce rovné průměru nábojové komory směrem od ústí válce; při lichém počtu nábojových komor se zaslepují 3 nábojové komory revolverového válce, zbylé nábojové komory se upravují podélnou drážkou.",
+   "parent": null
+  },
+  {
+   "id": "p18-5",
+   "label": "§ 18 odst. 5",
+   "anchor": "p18-5",
+   "text": "Při zhotovování řezu samostatné hlavní části zbraně se odstavce 1 až 4 použijí obdobně.",
+   "parent": null
+  },
+  {
+   "id": "p19-1",
+   "label": "§ 19 odst. 1",
+   "anchor": "p19-1",
+   "text": "V případě znehodnocování nebo zhotovování řezů zbraní, na které se vztahuje mezinárodní smlouva, která je součástí právního řádu a která upravuje oblast odzbrojení, se provádí demilitarizace úpravou na exponát.",
+   "parent": null
+  },
+  {
+   "id": "p19-2",
+   "label": "§ 19 odst. 2",
+   "anchor": "p19-2",
+   "text": "Při úpravě zbraně na exponát se u demilitarizované zbraně",
+   "parent": null
+  },
+  {
+   "id": "p19-2-a",
+   "label": "§ 19 odst. 2 písm. a)",
+   "anchor": "p19-2-a",
+   "text": "její hlaveň a pouzdro závěru vyplní betonem nebo polymerovou pryskyřicí, a to od čela závěru až po tři čtvrtiny celkové délky hlavně, nebo",
+   "parent": "p19-2"
+  },
+  {
+   "id": "p19-2-b",
+   "label": "§ 19 odst. 2 písm. b)",
+   "anchor": "p19-2-b",
+   "text": "do její nábojové komory napevno navaří ocelová zátka o minimální délce 2 ráží.",
+   "parent": "p19-2"
+  },
+  {
+   "id": "p20-1",
+   "label": "§ 20 odst. 1",
+   "anchor": "p20-1",
+   "text": "Nelze-li z důvodu odlišné konstrukce zbraně použít při jejím znehodnocování nebo zhotovování jejího řezu technické požadavky uvedené v § 17 až 19, stanoví krajské ředitelství policie požadavky pro znehodnocení nebo zhotovení řezu takové zbraně v povolení nevratné úpravy zbraně. Technické požadavky uvedené v § 17 až 19 se přitom použijí přiměřeně.",
+   "parent": null
+  },
+  {
+   "id": "p21-1",
+   "label": "§ 21 odst. 1",
+   "anchor": "p21-1",
+   "text": "Při delaboraci, znehodnocování, zhotovování řezů a ničení střeliva musí být veškeré aktivní náplně ze střeliva odstraněny, a pokud není jejich odstranění možné, musí být zneškodněny, a to takovým jejich trvalým znecitlivěním, aby nemohlo dojít k jejich iniciaci.",
+   "parent": null
+  },
+  {
+   "id": "p21-2",
+   "label": "§ 21 odst. 2",
+   "anchor": "p21-2",
+   "text": "V případě, že odstranění veškerých aktivních náplní ze střely není možné, musí být střela obsahující aktivní náplň při znehodnocování nebo zhotovování řezů střeliva nahrazena inertní střelou nebo jejím rozměrovým ekvivalentem.",
+   "parent": null
+  },
+  {
+   "id": "p21-3",
+   "label": "§ 21 odst. 3",
+   "anchor": "p21-3",
+   "text": "Delaborace, znehodnocování, zhotovování řezů a ničení střeliva musí být prováděno na takovém místě, aby v souvislosti s těmito činnostmi nemohlo dojít k ohrožení života, zdraví, majetku nebo veřejného pořádku, a osoba, která střelivo delaboruje, znehodnocuje, zhotovuje jeho řezy nebo jej ničí, musí použít odpovídající osobní ochranné pracovní prostředky, a to vždy minimálně ochranu zraku.",
+   "parent": null
+  },
+  {
+   "id": "p22-1",
+   "label": "§ 22 odst. 1",
+   "anchor": "p22-1",
+   "text": "Aktivní komponenty střeliva musí být přechovávány v uzavřených originálních obalech výrobce a takovým způsobem, aby nemohlo dojít k",
+   "parent": null
+  },
+  {
+   "id": "p22-1-a",
+   "label": "§ 22 odst. 1 písm. a)",
+   "anchor": "p22-1-a",
+   "text": "zahoření nebo iniciaci aktivního komponentu střeliva působením ohně, jisker nebo tepla většího, než připouští výrobce aktivního komponentu střeliva,",
+   "parent": "p22-1"
+  },
+  {
+   "id": "p22-1-b",
+   "label": "§ 22 odst. 1 písm. b)",
+   "anchor": "p22-1-b",
+   "text": "iniciaci aktivního komponentu střeliva mechanickým působením, například nárazem, úderem nebo pádem a",
+   "parent": "p22-1"
+  },
+  {
+   "id": "p22-1-c",
+   "label": "§ 22 odst. 1 písm. c)",
+   "anchor": "p22-1-c",
+   "text": "přímému ohrožení života nebo zdraví osob tlakovou nebo seismickou vlnou, střepinami nebo působením tepla v případě zahoření nebo iniciace aktivního komponentu střeliva na místě jeho přechovávání.",
+   "parent": "p22-1"
+  },
+  {
+   "id": "p22-2",
+   "label": "§ 22 odst. 2",
+   "anchor": "p22-2",
+   "text": "Aktivní komponenty střeliva musí být přechovávány v suchu a odděleně od lehce vznětlivých nebo snadno hořlavých látek a předmětů. Každý druh aktivních komponentů střeliva musí být uložen odděleně od jiných druhů aktivních komponentů tak, aby nemohlo dojít k jejich řetězové iniciaci.",
+   "parent": null
+  },
+  {
+   "id": "p23-1",
+   "label": "§ 23 odst. 1",
+   "anchor": "p23-1",
+   "text": "Při přebíjení nábojů musí být dodržována omezení, která mají vliv na maximální tlaky vznikající při výstřelu a na manipulační bezpečnost, plynoucí z technických údajů uváděných výrobci jednotlivých aktivních komponentů střeliva, střel a zařízení určených k přebíjení střeliva, které jsou při přebíjení střeliva použity.",
+   "parent": null
+  },
+  {
+   "id": "p24-1",
+   "label": "§ 24 odst. 1",
+   "anchor": "p24-1",
+   "text": "Množství aktivních komponentů střeliva, se kterými lze nakládat podle zákona, jsou stanovena v příloze č. 6 k tomuto nařízení, a to jako obecné množstevní limity a kvalifikované množstevní limity.",
+   "parent": null
+  },
+  {
+   "id": "p24-2",
+   "label": "§ 24 odst. 2",
+   "anchor": "p24-2",
+   "text": "Obecný množstevní limit je celkovým maximálním množstvím daného druhu aktivního komponentu střeliva, se kterým může jedna osoba v kterýkoli okamžik podle zákona nakládat, a to s výjimkou případů, kdy se použije kvalifikovaný množstevní limit.",
+   "parent": null
+  },
+  {
+   "id": "p24-3",
+   "label": "§ 24 odst. 3",
+   "anchor": "p24-3",
+   "text": "Kvalifikovaný množstevní limit je maximálním množstvím daného druhu aktivního komponentu střeliva, které je držitel zbrojní licence oprávněn přechovávat v zabezpečeném provozním prostoru, a to s výjimkou prostoru s nebezpečím požáru nebo výbuchu, prostoru pro bydlení nebo prostoru, do kterého má přístup veřejnost.",
+   "parent": null
+  },
+  {
+   "id": "p24-4",
+   "label": "§ 24 odst. 4",
+   "anchor": "p24-4",
+   "text": "Kvalifikovaný množstevní limit je rovněž maximálním množstvím aktivního komponentu střeliva, které lze přepravovat podle zákona.",
+   "parent": null
+  },
+  {
+   "id": "p25-1",
+   "label": "§ 25 odst. 1",
+   "anchor": "p25-1",
+   "text": "Hlášení přepravy podléhá",
+   "parent": null
+  },
+  {
+   "id": "p25-1-a",
+   "label": "§ 25 odst. 1 písm. a)",
+   "anchor": "p25-1-a",
+   "text": "bezdýmný prach v množství větším než 20 kg,",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p25-1-b",
+   "label": "§ 25 odst. 1 písm. b)",
+   "anchor": "p25-1-b",
+   "text": "černý lovecký prach v množství větším než 8 kg, nebo",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p25-1-c",
+   "label": "§ 25 odst. 1 písm. c)",
+   "anchor": "p25-1-c",
+   "text": "více než 200000 střel obsahujících aktivní náplň.",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p26-1",
+   "label": "§ 26 odst. 1",
+   "anchor": "p26-1",
+   "text": "Ustanovení této části se nepoužijí",
+   "parent": null
+  },
+  {
+   "id": "p26-1-a",
+   "label": "§ 26 odst. 1 písm. a)",
+   "anchor": "p26-1-a",
+   "text": "na zabezpečení zbraní nebo střeliva při letecké přepravě, nebo",
+   "parent": "p26-1"
+  },
+  {
+   "id": "p26-1-b",
+   "label": "§ 26 odst. 1 písm. b)",
+   "anchor": "p26-1-b",
+   "text": "je-li střelivo při přepravě zabezpečeno v souladu s požadavky mezinárodní smlouvy, která je součástí právního řádu a která upravuje přepravu nebezpečných věcí.",
+   "parent": "p26-1"
+  },
+  {
+   "id": "p27-1",
+   "label": "§ 27 odst. 1",
+   "anchor": "p27-1",
+   "text": "Zbraně kategorie R2, R3 nebo R4 v počtu do 20 kusů, zbraně kategorie PO nebo palné zbraně kategorie NO anebo střelivo v počtu do 20000 nábojů musí být v průběhu přepravy zabezpečeny neustálou kontrolou přepravovaných zbraní a střeliva osobou zajišťující obsluhu nebo doprovod dopravního prostředku, nejsou-li zabezpečeny podle odstavce 2 nebo 3.",
+   "parent": null
+  },
+  {
+   "id": "p27-2",
+   "label": "§ 27 odst. 2",
+   "anchor": "p27-2",
+   "text": "Zbraně podléhající registraci v počtu do 100 kusů nebo střelivo v počtu do 200000 nábojů musí být v průběhu přepravy zabezpečeny, nejsou-li zabezpečeny podle odstavce 3,",
+   "parent": null
+  },
+  {
+   "id": "p27-2-a",
+   "label": "§ 27 odst. 2 písm. a)",
+   "anchor": "p27-2-a",
+   "text": "neustálou kontrolou přepravovaných zbraní a střeliva alespoň 2 osobami zajišťujícími obsluhu nebo doprovod dopravního prostředku,",
+   "parent": "p27-2"
+  },
+  {
+   "id": "p27-2-b",
+   "label": "§ 27 odst. 2 písm. b)",
+   "anchor": "p27-2-b",
+   "text": "uzamčením v pevné přepravní schráně,",
+   "parent": "p27-2"
+  },
+  {
+   "id": "p27-2-c",
+   "label": "§ 27 odst. 2 písm. c)",
+   "anchor": "p27-2-c",
+   "text": "použitím zvláštního uzamčeného zařízení, které znemožňuje manipulaci s přepravovanými zbraněmi a střelivem a zabraňuje oddělení jakékoli hlavní části zbraně, není-li jiným způsobem zajištěno, že s přepravovanými zbraněmi nebo střelivem nelze běžnými prostředky manipulovat, nebo",
+   "parent": "p27-2"
+  },
+  {
+   "id": "p27-2-d",
+   "label": "§ 27 odst. 2 písm. d)",
+   "anchor": "p27-2-d",
+   "text": "hlášením přepravy a vybavením dopravního prostředku zařízením, které umožňuje nepřetržité sledování jeho pohybu a které je po celou dobu přepravy přihlášeno do systému sledování pohybu a jím zaregistrováno; ustanovení § 111 a 112 zákona, pokud jde o hlášení přepravy zbraní a střeliva a o sledování pohybu dopravního prostředku určeného k jejich ohlášené přepravě, se použijí obdobně.",
+   "parent": "p27-2"
+  },
+  {
+   "id": "p27-3",
+   "label": "§ 27 odst. 3",
+   "anchor": "p27-3",
+   "text": "Zbraně podléhající registraci v počtu více než 100 kusů nebo střelivo v počtu více než 200000 nábojů musí být v průběhu přepravy zabezpečeny",
+   "parent": null
+  },
+  {
+   "id": "p27-3-a",
+   "label": "§ 27 odst. 3 písm. a)",
+   "anchor": "p27-3-a",
+   "text": "uzamčením v nákladním prostoru a zajištěním",
+   "parent": "p27-3"
+  },
+  {
+   "id": "p27-3-a-1",
+   "label": "§ 27 odst. 3 písm. a) bod 1",
+   "anchor": "p27-3-a-1",
+   "text": "neustálé kontroly přepravovaných zbraní a střeliva alespoň 2 osobami přítomnými v dopravním prostředku, kterými jsou zejména řidič, člen osádky nebo člen ostrahy, anebo v doprovodném vozidle,",
+   "parent": "p27-3-a"
+  },
+  {
+   "id": "p27-3-a-2",
+   "label": "§ 27 odst. 3 písm. a) bod 2",
+   "anchor": "p27-3-a-2",
+   "text": "ochrany nákladního prostoru nebo přepravovaných zbraní a střeliva elektronickým zabezpečovacím zařízením, které v případě detekce události představující riziko pro přepravované zbraně a střelivo aktivuje akustické výstražné zařízení nebo umožňuje přenést hlášení o takové události poplachovým přenosovým systémem osobě, která je povinna přijmout opatření k zajištění bezpečnosti přepravovaných zbraní a střeliva, nebo",
+   "parent": "p27-3-a"
+  },
+  {
+   "id": "p27-3-a-3",
+   "label": "§ 27 odst. 3 písm. a) bod 3",
+   "anchor": "p27-3-a-3",
+   "text": "takového zabezpečení přepravovaných zbraní a střeliva, které zamezuje běžné manipulaci s nákladem a brání oddělení jeho části, například upevnění přepravovaných zbraní a střeliva na paletě nebo obdobné přepravní pomůcce, nebo",
+   "parent": "p27-3-a"
+  },
+  {
+   "id": "p27-3-b",
+   "label": "§ 27 odst. 3 písm. b)",
+   "anchor": "p27-3-b",
+   "text": "uzamčením v kontejneru schváleném pro intermodální přepravu.",
+   "parent": "p27-3"
+  },
+  {
+   "id": "p27-4",
+   "label": "§ 27 odst. 4",
+   "anchor": "p27-4",
+   "text": "Přepravovaná zbraň musí být v nenabitém stavu. Jsou-li přepravovány zbraně stejným dopravním prostředkem jako střelivo, musí být střelivo přepravováno odděleně od zbraní.",
+   "parent": null
+  },
+  {
+   "id": "p28-1",
+   "label": "§ 28 odst. 1",
+   "anchor": "p28-1",
+   "text": "Se souhlasem krajského ředitelství policie lze použít též jiný způsob zabezpečení zbraní nebo střeliva v průběhu přepravy, než který stanovuje tato část, jestliže tak bude na srovnatelné úrovni zajištěno řádné zabezpečení přepravovaných zbraní nebo střeliva v průběhu přepravy proti zneužití, ztrátě nebo odcizení.",
+   "parent": null
+  },
+  {
+   "id": "p29-1",
+   "label": "§ 29 odst. 1",
+   "anchor": "p29-1",
+   "text": "Ustanovení o technických požadavcích na výrobní provedení zbraně kategorie PO a NO se na zbraně kategorie PO a NO, které byly uvedeny na trh a platně ověřeny, podléhaly-li v době svého uvedení na trh ověřování, přede dnem nabytí účinnosti tohoto nařízení, nepoužijí, ledaže by byla prováděna jejich nevratná úprava nebo by byly trvale přeshraničně přemísťovány mimo území České republiky.",
+   "parent": null
+  },
+  {
+   "id": "p30-1",
+   "label": "§ 30 odst. 1",
+   "anchor": "p30-1",
+   "text": "Toto nařízení bylo oznámeno v souladu se směrnicí Evropského parlamentu a Rady (EU) 2015/1535 ze dne 9. září 2015 o postupu při poskytování informací v oblasti technických předpisů a předpisů pro služby informační společnosti.",
+   "parent": null
+  },
+  {
+   "id": "p31-1",
+   "label": "§ 31 odst. 1",
+   "anchor": "p31-1",
+   "text": "Toto nařízení nabývá účinnosti dnem 1. ledna 2026.",
+   "parent": null
+  },
+  {
+   "id": "a1-1",
+   "label": "příloha č. 1 bod 1",
+   "anchor": "f8086786",
+   "text": "Zařízení musí být takové povahy, aby splňovalo následující požadavky:",
+   "parent": null
+  },
+  {
+   "id": "a1-2",
+   "label": "příloha č. 1 bod 2",
+   "anchor": "f8086790",
+   "text": "Zařízení nesmí být možné s pomocí běžných nástrojů upravit tak, aby vystřelovalo hromadnou nebo jednotnou střelu nebo jiný projektil působením okamžitého uvolnění chemické energie nebo mohlo být za tímto účelem přeměněno.",
+   "parent": null
+  },
+  {
+   "id": "a1-3",
+   "label": "příloha č. 1 bod 3",
+   "anchor": "f8086791",
+   "text": "Veškeré hlavní části zařízení musí být takové povahy, aby nemohly být namontovány nebo použity jako hlavní části zbraní podléhajících registraci.",
+   "parent": null
+  },
+  {
+   "id": "a1-4",
+   "label": "příloha č. 1 bod 4",
+   "anchor": "f8086792",
+   "text": "Hlaveň zařízení nesmí být možné odstranit nebo upravit bez výrazného poškození nebo zničení zařízení.",
+   "parent": null
+  },
+  {
+   "id": "a1-5",
+   "label": "příloha č. 1 bod 5",
+   "anchor": "f8086793",
+   "text": "Zařízení s hlavní o délce nejvýše 300 mm, nebo jejichž celková délka nepřesahuje 600 mm, musí obsahovat neodstranitelné překážky po celé délce hlavně, aby jí nemohla projít žádná střela nebo jiný projektil působením okamžitého uvolnění chemické energie a aby volný prostor ponechaný v ústí hlavně nepřesahoval 10 mm délky.",
+   "parent": null
+  },
+  {
+   "id": "a1-6",
+   "label": "příloha č. 1 bod 6",
+   "anchor": "f8086794",
+   "text": "Zařízení, na něž se nevztahuje bod 5, musí obsahovat neodstranitelné překážky v alespoň jedné třetině délky hlavně, aby jí nemohla projít žádná střela nebo jiný projektil působením okamžitého uvolnění chemické energie a aby volný prostor ponechaný v ústí hlavně nepřesahoval 10 mm délky.",
+   "parent": null
+  },
+  {
+   "id": "a1-7",
+   "label": "příloha č. 1 bod 7",
+   "anchor": "f8086795",
+   "text": "Ve všech případech bez ohledu na to, zda se na zařízení vztahuje bod 5 nebo 6, musí být první překážka v hlavni umístěna co nejblíže za nábojovou komoru zařízení, přičemž musí být umožněn únik plynů příslušnými otvory.",
+   "parent": null
+  },
+  {
+   "id": "a1-8",
+   "label": "příloha č. 1 bod 8",
+   "anchor": "f8086796",
+   "text": "U zařízení s odvodem plynů vzniklých při uvolnění chemické energie výstřelu mimo osu hlavně musí překážky uvedené v bodech 5 a 6 blokovat hlaveň úplně, kromě jednoho nebo několika otvorů pro únik tlaku plynu. Kromě toho musí překážky zcela blokovat hlaveň tak, aby z přední části zařízení nemohl být vystřelen žádný plyn.",
+   "parent": null
+  },
+  {
+   "id": "a1-9",
+   "label": "příloha č. 1 bod 9",
+   "anchor": "f8086797",
+   "text": "Všechny překážky musí být trvalé, aby nemohly být odstraněny, aniž by došlo ke zničení nábojové komory nebo hlavně zařízení.",
+   "parent": null
+  },
+  {
+   "id": "a1-10",
+   "label": "příloha č. 1 bod 10",
+   "anchor": "f8086803",
+   "text": "Nábojová komora a hlaveň jsou vzájemně posunuty, prohnuty nebo vychýleny tak, aby nebylo možné zařízení nabít střelivem nebo je z něj vystřelit. Vedle toho musí být v případě zařízení typu revolveru přední otvory komory válce",
+   "parent": null
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8086809",
+   "text": "Označení musí být jasné, trvalé a jedinečné. Musí být uváděno alfanumericky a musí sestávat z písmen latinky, cyrilice nebo řecké abecedy a číslic arabských nebo římských.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8086810",
+   "text": "Rozměr číslic a písmen musí splňovat podmínku minimální velikosti 1,6 mm.",
+   "parent": null
+  },
+  {
+   "id": "a2-3",
+   "label": "příloha č. 2 bod 3",
+   "anchor": "f8086811",
+   "text": "Minimální hloubka označení je nejméně 0,0762 milimetru.",
+   "parent": null
+  },
+  {
+   "id": "a2-4",
+   "label": "příloha č. 2 bod 4",
+   "anchor": "f8086812",
+   "text": "V případě těla, rámu nebo pouzdra závěru vyrobených z nekovových materiálů musí být v zájmu trvalého, jasného a jedinečného značení tyto hlavní části osazeny kovovým štítkem:",
+   "parent": null
+  },
+  {
+   "id": "a2-5",
+   "label": "příloha č. 2 bod 5",
+   "anchor": "f8086816",
+   "text": "Pokud to materiál těla, rámu nebo pouzdra závěru vyrobených z nekovových materiálů spolehlivě umožňuje, je možné využít ke značení i jiné techniky, než je osazení takové hlavní části kovovým štítkem podle bodu 4. Takovou technikou může být např. hluboké laserové gravírování, které zajistí trvalé a zřetelné značení.",
+   "parent": null
+  },
+  {
+   "id": "a2-6",
+   "label": "příloha č. 2 bod 6",
+   "anchor": "f8086817",
+   "text": "U příliš malé hlavní části stanovené střelné zbraně, která je označena pouze výrobním číslem nebo alfanumerickým nebo digitálním kódem, lze rozměr písmen, číslic nebo digitálního nebo alfanumerického kódu zmenšit na velikost, která je nezbytně nutná k provedení tohoto označení.",
+   "parent": null
+  },
+  {
+   "id": "a4-A",
+   "label": "příloha č. 4 bod A",
+   "anchor": "f8086828",
+   "text": "Verifikační značka vyznačovaná Českým úřadem pro zkoušení zbraní a střeliva na znehodnocené palné zbrani, na kterou se vztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní",
+   "parent": null
+  },
+  {
+   "id": "a4-B",
+   "label": "příloha č. 4 bod B",
+   "anchor": "f8086831",
+   "text": "Verifikační značky vyznačované na zbrani, na kterou se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní",
+   "parent": null
+  },
+  {
+   "id": "a4-B",
+   "label": "příloha č. 4 bod B",
+   "anchor": "f8086833",
+   "text": "1 Podoba verifikační znehodnocovací značky vyznačované Českým úřadem pro zkoušení zbraní a střeliva na zbrani, na kterou se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní:",
+   "parent": null
+  },
+  {
+   "id": "a4-B",
+   "label": "příloha č. 4 bod B",
+   "anchor": "f8086835",
+   "text": "2 Podoba verifikační znehodnocovací značky vyznačované Ministerstvem obrany na zbrani, na kterou se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní:",
+   "parent": null
+  },
+  {
+   "id": "a5-A",
+   "label": "příloha č. 5 bod A",
+   "anchor": "f8086840",
+   "text": "Vzor certifikátu znehodnocené palné zbraně, na kterou se vztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní, vydávaný Českým úřadem pro zkoušení zbraní a střeliva",
+   "parent": null
+  },
+  {
+   "id": "a5-A",
+   "label": "příloha č. 5 bod A",
+   "anchor": "f8086841",
+   "text": "1 Přední strana",
+   "parent": null
+  },
+  {
+   "id": "a5-A",
+   "label": "příloha č. 5 bod A",
+   "anchor": "f8086843",
+   "text": "2 Zadní strana",
+   "parent": null
+  },
+  {
+   "id": "a5-B",
+   "label": "příloha č. 5 bod B",
+   "anchor": "f8086849",
+   "text": "Vzor certifikátu znehodnocené palné zbraně, na kterou se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní, vydávaný Českým úřadem pro zkoušení zbraní a střeliva",
+   "parent": null
+  },
+  {
+   "id": "a5-B",
+   "label": "příloha č. 5 bod B",
+   "anchor": "f8086850",
+   "text": "1 Přední strana",
+   "parent": null
+  },
+  {
+   "id": "a5-B",
+   "label": "příloha č. 5 bod B",
+   "anchor": "f8086852",
+   "text": "2 Zadní strana",
+   "parent": null
+  },
+  {
+   "id": "a5-C",
+   "label": "příloha č. 5 bod C",
+   "anchor": "f8086858",
+   "text": "Vzor certifikátu znehodnocené palné zbraně, na kterou se nevztahuje přímo použitelný předpis Evropské unie, kterým se stanoví technické specifikace pro znehodnocování palných zbraní, vydávaný Ministerstvem obrany",
+   "parent": null
+  },
+  {
+   "id": "a5-C",
+   "label": "příloha č. 5 bod C",
+   "anchor": "f8086859",
+   "text": "1 Přední strana",
+   "parent": null
+  },
+  {
+   "id": "a5-C",
+   "label": "příloha č. 5 bod C",
+   "anchor": "f8086861",
+   "text": "2 Zadní strana",
+   "parent": null
+  },
+  {
+   "id": "a6-1",
+   "label": "příloha č. 6 bod 1",
+   "anchor": "f8086872",
+   "text": "Do množstevních limitů se nezapočítává množství aktivních komponentů střeliva obsažených v kompletních nábojích, nábojkách a nábojnicích se zápalkou, se kterými daná osoba nakládá v souladu se zákonem.",
+   "parent": null
+  },
+  {
+   "id": "a6-2",
+   "label": "příloha č. 6 bod 2",
+   "anchor": "f8086873",
+   "text": "Na aktivní komponenty střeliva zde neuvedené se použijí množstevní limity stanovené pro aktivní komponent střeliva, který je z hlediska složení nebo použití zde neuvedenému aktivnímu komponentu střeliva nejbližší. Takto určený množstevní limit platí pro příslušný zde neuvedený aktivní komponent střeliva a nezapočítává se do množstevních limitů pro jiné aktivní komponenty střeliva.",
+   "parent": null
+  },
+  {
+   "id": "a6-3",
+   "label": "příloha č. 6 bod 3",
+   "anchor": "f8086874",
+   "text": "Fyzické množství aktivních komponentů střeliva se posuzuje podle množství udávaného výrobcem na originálním obalu; v případě hmotnosti je rozhodující čistá váha aktivního komponentu střeliva bez obalových materiálů.",
+   "parent": null
+  }
+ ]
+}

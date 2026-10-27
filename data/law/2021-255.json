@@ -1,0 +1,1380 @@
+{
+ "act": "2021-255",
+ "name": "Nařízení vlády č. 255/2021 Sb., o provedení zákona o nakládání se zbraněmi v některých případech ovlivňujících vnitřní pořádek a bezpečnost",
+ "url": "https://www.zakonyprolidi.cz/cs/2021-255",
+ "retrieved": "2026-10-27",
+ "units": [
+  {
+   "id": "p1-1",
+   "label": "§ 1 odst. 1",
+   "anchor": "p1-1",
+   "text": "Toto nařízení stanoví",
+   "parent": null
+  },
+  {
+   "id": "p1-1-a",
+   "label": "§ 1 odst. 1 písm. a)",
+   "anchor": "p1-1-a",
+   "text": "programy střelecké přípravy a jejich organizaci a obsah,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-b",
+   "label": "§ 1 odst. 1 písm. b)",
+   "anchor": "p1-1-b",
+   "text": "kurzy pro programy střelecké přípravy,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-c",
+   "label": "§ 1 odst. 1 písm. c)",
+   "anchor": "p1-1-c",
+   "text": "podmínky účasti na programu střelecké přípravy a způsob prokázání jejich splnění,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-d",
+   "label": "§ 1 odst. 1 písm. d)",
+   "anchor": "p1-1-d",
+   "text": "podmínky, za nichž jsou účastník programu střelecké přípravy a zbraň, se kterou se programu střelecké přípravy účastní, součástí stanovené zálohy státu,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-e",
+   "label": "§ 1 odst. 1 písm. e)",
+   "anchor": "p1-1-e",
+   "text": "podmínky pro získání aprobace v systému střelecké přípravy a způsob prokázání jejich splnění,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-f",
+   "label": "§ 1 odst. 1 písm. f)",
+   "anchor": "p1-1-f",
+   "text": "podmínky, za nichž může ozbrojený bezpečnostní sbor, Vojenská policie nebo obec vydat potvrzení pro potřeby vydání aprobace v systému střelecké přípravy svému příslušníkovi nebo strážníkovi obecní policie,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-g",
+   "label": "§ 1 odst. 1 písm. g)",
+   "anchor": "p1-1-g",
+   "text": "podmínky a způsob převodu střeliva držiteli aprobace v systému střelecké přípravy,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-h",
+   "label": "§ 1 odst. 1 písm. h)",
+   "anchor": "p1-1-h",
+   "text": "podmínky přenechání střelné zbraně v rámci systému střelecké přípravy,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-i",
+   "label": "§ 1 odst. 1 písm. i)",
+   "anchor": "p1-1-i",
+   "text": "požadavky na způsobilost akreditované osoby zajišťovat kurz v rámci programu střelecké přípravy,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-j",
+   "label": "§ 1 odst. 1 písm. j)",
+   "anchor": "p1-1-j",
+   "text": "podobu a rozsah dokumentace vyhotovované akreditovanou osobou v souvislosti s její činností,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-k",
+   "label": "§ 1 odst. 1 písm. k)",
+   "anchor": "p1-1-k",
+   "text": "zvláštní opatření k zabezpečení údajů o zbraních a",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-l",
+   "label": "§ 1 odst. 1 písm. l)",
+   "anchor": "p1-1-l",
+   "text": "vzory předepsaných formulářů.",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p2-1",
+   "label": "§ 2 odst. 1",
+   "anchor": "p2-1",
+   "text": "Pro účely tohoto nařízení se rozumí",
+   "parent": null
+  },
+  {
+   "id": "p2-1-a",
+   "label": "§ 2 odst. 1 písm. a)",
+   "anchor": "p2-1-a",
+   "text": "smíšeným kurzem kurz zaměřený na použití krátké kulové zbraně a současně dlouhé kulové zbraně,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-b",
+   "label": "§ 2 odst. 1 písm. b)",
+   "anchor": "p2-1-b",
+   "text": "výukovou hodinou 45 minut nepřerušené výuky nebo výcviku,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-c",
+   "label": "§ 2 odst. 1 písm. c)",
+   "anchor": "p2-1-c",
+   "text": "malou vzdáleností vzdálenost v rozmezí od délky natažené paže po vzdálenost 3 m,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-d",
+   "label": "§ 2 odst. 1 písm. d)",
+   "anchor": "p2-1-d",
+   "text": "zakázanou siluetou terč využívaný v rámci praktického výcviku ve střelbě nebo hodnocených střeleb, který simuluje nezúčastněné osoby; takový terč nemá být zasažen střelbou a je vhodně odlišen od jiných terčů používaných v rámci programu střelecké přípravy,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-e",
+   "label": "§ 2 odst. 1 písm. e)",
+   "anchor": "p2-1-e",
+   "text": "srovnatelnými náboji továrně vyrobené náboje výrobního provedení používaného pro běžný výcvik ozbrojených sil nebo ozbrojených bezpečnostních sborů v rážích",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-e-1",
+   "label": "§ 2 odst. 1 písm. e) bod 1",
+   "anchor": "p2-1-e-1",
+   "text": "9 mm Luger, jde-li o střelivo pro krátkou kulovou zbraň, a",
+   "parent": "p2-1-e"
+  },
+  {
+   "id": "p2-1-e-2",
+   "label": "§ 2 odst. 1 písm. e) bod 2",
+   "anchor": "p2-1-e-2",
+   "text": "5,56 x 45 mm (.223 Remington), jde-li o střelivo pro dlouhou kulovou zbraň.",
+   "parent": "p2-1-e"
+  },
+  {
+   "id": "p3-1",
+   "label": "§ 3 odst. 1",
+   "anchor": "p3-1",
+   "text": "Nedílnou součástí teoretické přípravy a praktického výcviku v rámci programu střelecké přípravy je vymezení zásad bezpečného zacházení se střelnou zbraní a jejich dodržování.",
+   "parent": null
+  },
+  {
+   "id": "p3-2",
+   "label": "§ 3 odst. 2",
+   "anchor": "p3-2",
+   "text": "Při vymezení zásad bezpečného zacházení se střelnou zbraní podle odstavce 1 se zohlední specifika situací, na které je program střelecké přípravy zaměřen, reálná prostředí, v nichž může k použití střelné zbraně dojít, a konstrukce a účinnost střelných zbraní a střeliva, které se v rámci programu střelecké přípravy používají.",
+   "parent": null
+  },
+  {
+   "id": "p3-3",
+   "label": "§ 3 odst. 3",
+   "anchor": "p3-3",
+   "text": "V případě programů střelecké přípravy, které jsou zajišťovány ve formě kurzů, vymezí zásady bezpečného zacházení se střelnou zbraní a dohlíží na jejich dodržování akreditovaná osoba.",
+   "parent": null
+  },
+  {
+   "id": "p4-1",
+   "label": "§ 4 odst. 1",
+   "anchor": "p4-1",
+   "text": "Pro oblast vnitřního pořádku a bezpečnosti České republiky se zřizují tyto programy střelecké přípravy:",
+   "parent": null
+  },
+  {
+   "id": "p4-1-a",
+   "label": "§ 4 odst. 1 písm. a)",
+   "anchor": "p4-1-a",
+   "text": "program střelecké přípravy MV-101, který je zaměřen na teoretické znalosti a bezpečný nácvik dovedností při nakládání se střelnými zbraněmi a na jejich použití v nutné obraně a v krajní nouzi,",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-1-b",
+   "label": "§ 4 odst. 1 písm. b)",
+   "anchor": "p4-1-b",
+   "text": "program střelecké přípravy MV-102, který je zaměřen na použití krátké kulové zbraně nebo dlouhé kulové zbraně v nutné obraně a v krajní nouzi,",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-1-c",
+   "label": "§ 4 odst. 1 písm. c)",
+   "anchor": "p4-1-c",
+   "text": "program střelecké přípravy MV-201, který je zaměřen na praktické postupy při napadení snadno zranitelného cíle nebo útoku aktivního útočníka,",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-1-d",
+   "label": "§ 4 odst. 1 písm. d)",
+   "anchor": "p4-1-d",
+   "text": "program střelecké přípravy MV-301, který je zaměřen na nakládání se střelnými zbraněmi v rámci opatření při krizových stavech podle § 17 odst. 1 zákona, a",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-1-e",
+   "label": "§ 4 odst. 1 písm. e)",
+   "anchor": "p4-1-e",
+   "text": "program střelecké přípravy MV-1-500, který je zaměřen na individuální střeleckou přípravu držitele pokročilé aprobace v systému střelecké přípravy.",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-2",
+   "label": "§ 4 odst. 2",
+   "anchor": "p4-2",
+   "text": "Programy střelecké přípravy MV-101, MV-102, MV-201 a MV-301 zajišťuje ve formě kurzů akreditovaná osoba.",
+   "parent": null
+  },
+  {
+   "id": "p4-3",
+   "label": "§ 4 odst. 3",
+   "anchor": "p4-3",
+   "text": "Programy střelecké přípravy MV-201 a MV-301 jsou organizovány ve formě smíšených kurzů.",
+   "parent": null
+  },
+  {
+   "id": "p5-1",
+   "label": "§ 5 odst. 1",
+   "anchor": "p5-1",
+   "text": "Kurz pro program střelecké přípravy MV-101 zahrnuje teoretickou výuku v minimálním časovém rozsahu 8 výukových hodin zaměřenou na",
+   "parent": null
+  },
+  {
+   "id": "p5-1-a",
+   "label": "§ 5 odst. 1 písm. a)",
+   "anchor": "p5-1-a",
+   "text": "zásady bezpečného nakládání se střelnou zbraní, vymezení účinků střelných zbraní, jejich dostřelu a rizika odrazu střely a průstřelu různých druhů překážek,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-b",
+   "label": "§ 5 odst. 1 písm. b)",
+   "anchor": "p5-1-b",
+   "text": "právní rámec nutné obrany, krajní nouze a zákonné povinnosti po použití střelné zbraně,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-c",
+   "label": "§ 5 odst. 1 písm. c)",
+   "anchor": "p5-1-c",
+   "text": "situační přehled, způsoby vyhnutí se situaci, která by mohla vyústit v použití střelné zbraně, a ochranu nezúčastněné osoby,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-d",
+   "label": "§ 5 odst. 1 písm. d)",
+   "anchor": "p5-1-d",
+   "text": "zásady komunikace v rizikové situaci s cílem bezpečného uklidnění nebo zmírnění konfliktu,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-e",
+   "label": "§ 5 odst. 1 písm. e)",
+   "anchor": "p5-1-e",
+   "text": "použití obranného prostředku odlišného od střelné zbraně namísto střelné zbraně,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-f",
+   "label": "§ 5 odst. 1 písm. f)",
+   "anchor": "p5-1-f",
+   "text": "taktické zásady řešení sebeobranných situací s použitím střelné zbraně,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-g",
+   "label": "§ 5 odst. 1 písm. g)",
+   "anchor": "p5-1-g",
+   "text": "technické aspekty střelné zbraně, střeliva a dalšího vybavení s ohledem na nošení a použití střelné zbraně v podmínkách nutné obrany a krajní nouze,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-h",
+   "label": "§ 5 odst. 1 písm. h)",
+   "anchor": "p5-1-h",
+   "text": "rozbor reálných případů použití střelné zbraně v podmínkách nutné obrany a krajní nouze a",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-i",
+   "label": "§ 5 odst. 1 písm. i)",
+   "anchor": "p5-1-i",
+   "text": "postupy poskytování první pomoci zaměřené na střelná poranění.",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-2",
+   "label": "§ 5 odst. 2",
+   "anchor": "p5-2",
+   "text": "Namísto střelné zbraně se v kurzu pro program střelecké přípravy MV-101 používá cvičná maketa střelné zbraně, která vylučuje použití střeliva a která je výrazně barevně odlišena od zbraně určené pro ostrou střelbu.",
+   "parent": null
+  },
+  {
+   "id": "p6-1",
+   "label": "§ 6 odst. 1",
+   "anchor": "p6-1",
+   "text": "Kurz pro program střelecké přípravy MV-102 zahrnuje praktický výcvik ve střelbě z krátké kulové zbraně nebo dlouhé kulové zbraně v minimálním rozsahu 250 výstřelů a v minimálním časovém rozsahu 8 výukových hodin zaměřený na",
+   "parent": null
+  },
+  {
+   "id": "p6-1-a",
+   "label": "§ 6 odst. 1 písm. a)",
+   "anchor": "p6-1-a",
+   "text": "střelbu na malou vzdálenost a střelbu z krátké kulové zbraně až po vzdálenost 15 m nebo střelbu z dlouhé kulové zbraně až po vzdálenost 50 m,",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-b",
+   "label": "§ 6 odst. 1 písm. b)",
+   "anchor": "p6-1-b",
+   "text": "střelbu ze standardních i nestandardních poloh střelce a střelbu z klidu i za pohybu směrem k terči a od terče a za pohybu do strany,",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-c",
+   "label": "§ 6 odst. 1 písm. c)",
+   "anchor": "p6-1-c",
+   "text": "nácvik tasení skrytě nošené krátké kulové zbraně nebo nácvik použití dlouhé kulové zbraně v souvislosti s jejím nošením na ponosovém řemenu s následnou střelbou, a to z různých výchozích poloh střelce, zejména zády k terči, bokem k terči a vsedě,",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-d",
+   "label": "§ 6 odst. 1 písm. d)",
+   "anchor": "p6-1-d",
+   "text": "střelbu na více terčů, včetně terčů, které jsou částečně zakryty překážkou, a terčů, které jsou částečně zakryty zakázanou siluetou,",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-e",
+   "label": "§ 6 odst. 1 písm. e)",
+   "anchor": "p6-1-e",
+   "text": "střelbu zpoza krytu a",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-f",
+   "label": "§ 6 odst. 1 písm. f)",
+   "anchor": "p6-1-f",
+   "text": "řešení závad zbraně a přebíjení zbraně.",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-2",
+   "label": "§ 6 odst. 2",
+   "anchor": "p6-2",
+   "text": "Střelba je vedena na terče, které jsou souměrné podle vertikální osy a jejichž výška je 50 až 80 cm a šířka 40 až 55 cm. V terči jsou vyznačeny odstupňované zóny zásahu. Doplňkově lze využít zejména pro nácvik přesné střelby nebo střelbu na vícenásobné anebo pohyblivé cíle také terče odlišné od terčů uvedených ve větě první.",
+   "parent": null
+  },
+  {
+   "id": "p7-1",
+   "label": "§ 7 odst. 1",
+   "anchor": "p7-1",
+   "text": "Kurz pro program střelecké přípravy MV-201 zahrnuje",
+   "parent": null
+  },
+  {
+   "id": "p7-1-a",
+   "label": "§ 7 odst. 1 písm. a)",
+   "anchor": "p7-1-a",
+   "text": "teoretickou výuku v minimálním časovém rozsahu 8 výukových hodin zaměřenou na",
+   "parent": "p7-1"
+  },
+  {
+   "id": "p7-1-a-1",
+   "label": "§ 7 odst. 1 písm. a) bod 1",
+   "anchor": "p7-1-a-1",
+   "text": "zásady bezpečného nakládání se střelnou zbraní se zvláštním přihlédnutím k podmínkám míst veřejnosti volně přístupných a situacím zahrnujícím snadno zranitelné cíle a obranu proti aktivnímu útočníkovi,",
+   "parent": "p7-1-a"
+  },
+  {
+   "id": "p7-1-a-2",
+   "label": "§ 7 odst. 1 písm. a) bod 2",
+   "anchor": "p7-1-a-2",
+   "text": "vymezení problematiky snadno zranitelných cílů a obrany proti aktivnímu útočníkovi,",
+   "parent": "p7-1-a"
+  },
+  {
+   "id": "p7-1-a-3",
+   "label": "§ 7 odst. 1 písm. a) bod 3",
+   "anchor": "p7-1-a-3",
+   "text": "právní rámec nošení a použití střelné zbraně v souvislosti s ochranou snadno zranitelných cílů a obranou proti aktivnímu útočníkovi,",
+   "parent": "p7-1-a"
+  },
+  {
+   "id": "p7-1-a-4",
+   "label": "§ 7 odst. 1 písm. a) bod 4",
+   "anchor": "p7-1-a-4",
+   "text": "doporučené postupy s ohledem na vývoj a dopady útoku a povinnosti osob v souvislosti se zásahem složek integrovaného záchranného systému,",
+   "parent": "p7-1-a"
+  },
+  {
+   "id": "p7-1-a-5",
+   "label": "§ 7 odst. 1 písm. a) bod 5",
+   "anchor": "p7-1-a-5",
+   "text": "rozbor reálných případů útoků aktivního útočníka,",
+   "parent": "p7-1-a"
+  },
+  {
+   "id": "p7-1-a-6",
+   "label": "§ 7 odst. 1 písm. a) bod 6",
+   "anchor": "p7-1-a-6",
+   "text": "první pomoc v souvislosti s ochranou snadno zranitelných cílů nebo obranou proti aktivnímu útočníkovi a",
+   "parent": "p7-1-a"
+  },
+  {
+   "id": "p7-1-a-7",
+   "label": "§ 7 odst. 1 písm. a) bod 7",
+   "anchor": "p7-1-a-7",
+   "text": "problematiku nálezu munice, výbušnin a výbušných předmětů,",
+   "parent": "p7-1-a"
+  },
+  {
+   "id": "p7-1-b",
+   "label": "§ 7 odst. 1 písm. b)",
+   "anchor": "p7-1-b",
+   "text": "praktický výcvik ve střelbě z krátké kulové zbraně v minimálním rozsahu 150 výstřelů a v minimálním časovém rozsahu 8 výukových hodin zaměřený na",
+   "parent": "p7-1"
+  },
+  {
+   "id": "p7-1-b-1",
+   "label": "§ 7 odst. 1 písm. b) bod 1",
+   "anchor": "p7-1-b-1",
+   "text": "střelbu na malou vzdálenost a střelbu až po vzdálenost 50 m,",
+   "parent": "p7-1-b"
+  },
+  {
+   "id": "p7-1-b-2",
+   "label": "§ 7 odst. 1 písm. b) bod 2",
+   "anchor": "p7-1-b-2",
+   "text": "střelbu v komplexní rozhodovací situaci s větším množstvím zakázaných siluet v bezprostřední blízkosti střelce i terče,",
+   "parent": "p7-1-b"
+  },
+  {
+   "id": "p7-1-b-3",
+   "label": "§ 7 odst. 1 písm. b) bod 3",
+   "anchor": "p7-1-b-3",
+   "text": "střelbu zpoza různých krytů a z různých stran krytů,",
+   "parent": "p7-1-b"
+  },
+  {
+   "id": "p7-1-b-4",
+   "label": "§ 7 odst. 1 písm. b) bod 4",
+   "anchor": "p7-1-b-4",
+   "text": "střelbu po vyhledání vhodného krytu,",
+   "parent": "p7-1-b"
+  },
+  {
+   "id": "p7-1-b-5",
+   "label": "§ 7 odst. 1 písm. b) bod 5",
+   "anchor": "p7-1-b-5",
+   "text": "střelbu na pohyblivé nebo mizející terče,",
+   "parent": "p7-1-b"
+  },
+  {
+   "id": "p7-1-b-6",
+   "label": "§ 7 odst. 1 písm. b) bod 6",
+   "anchor": "p7-1-b-6",
+   "text": "střelbu obouruč a střelbu s držením zbraně silnou rukou nebo slabou rukou a",
+   "parent": "p7-1-b"
+  },
+  {
+   "id": "p7-1-b-7",
+   "label": "§ 7 odst. 1 písm. b) bod 7",
+   "anchor": "p7-1-b-7",
+   "text": "přechod mezi použitím krátké kulové zbraně a dlouhé kulové zbraně a",
+   "parent": "p7-1-b"
+  },
+  {
+   "id": "p7-1-c",
+   "label": "§ 7 odst. 1 písm. c)",
+   "anchor": "p7-1-c",
+   "text": "praktický výcvik ve střelbě z dlouhé kulové zbraně v minimálním rozsahu 150 výstřelů a v minimálním časovém rozsahu 8 výukových hodin zaměřený na střelbu",
+   "parent": "p7-1"
+  },
+  {
+   "id": "p7-1-c-1",
+   "label": "§ 7 odst. 1 písm. c) bod 1",
+   "anchor": "p7-1-c-1",
+   "text": "na vzdálenost od 7 m až po vzdálenost 100 m nebo po vzdálenost 50 m, pokud se použijí adekvátně redukované terče,",
+   "parent": "p7-1-c"
+  },
+  {
+   "id": "p7-1-c-2",
+   "label": "§ 7 odst. 1 písm. c) bod 2",
+   "anchor": "p7-1-c-2",
+   "text": "v komplexní rozhodovací situaci s větším množstvím zakázaných siluet v bezprostřední blízkosti střelce i terče,",
+   "parent": "p7-1-c"
+  },
+  {
+   "id": "p7-1-c-3",
+   "label": "§ 7 odst. 1 písm. c) bod 3",
+   "anchor": "p7-1-c-3",
+   "text": "zpoza různých krytů a z různých stran krytů a",
+   "parent": "p7-1-c"
+  },
+  {
+   "id": "p7-1-c-4",
+   "label": "§ 7 odst. 1 písm. c) bod 4",
+   "anchor": "p7-1-c-4",
+   "text": "na pohyblivé nebo mizející terče.",
+   "parent": "p7-1-c"
+  },
+  {
+   "id": "p7-2",
+   "label": "§ 7 odst. 2",
+   "anchor": "p7-2",
+   "text": "Střelba je vedena na terče předepsané pro program střelecké přípravy MV-102.",
+   "parent": null
+  },
+  {
+   "id": "p8-1",
+   "label": "§ 8 odst. 1",
+   "anchor": "p8-1",
+   "text": "Kurz pro program střelecké přípravy MV-301 zahrnuje",
+   "parent": null
+  },
+  {
+   "id": "p8-1-a",
+   "label": "§ 8 odst. 1 písm. a)",
+   "anchor": "p8-1-a",
+   "text": "teoretickou výuku v minimálním časovém rozsahu 8 výukových hodin zaměřenou na",
+   "parent": "p8-1"
+  },
+  {
+   "id": "p8-1-a-1",
+   "label": "§ 8 odst. 1 písm. a) bod 1",
+   "anchor": "p8-1-a-1",
+   "text": "zásady bezpečného nakládání se střelnou zbraní v kontextu krizových situací,",
+   "parent": "p8-1-a"
+  },
+  {
+   "id": "p8-1-a-2",
+   "label": "§ 8 odst. 1 písm. a) bod 2",
+   "anchor": "p8-1-a-2",
+   "text": "vymezení problematiky krizových stavů a mimořádných opatření pro jejich řešení a opatření přijímaných podle § 17 odst. 1 zákona,",
+   "parent": "p8-1-a"
+  },
+  {
+   "id": "p8-1-a-3",
+   "label": "§ 8 odst. 1 písm. a) bod 3",
+   "anchor": "p8-1-a-3",
+   "text": "vymezení působnosti jednotlivých složek integrovaného záchranného systému a jejich úkolů a vymezení hlavních povinností osob za krizového stavu,",
+   "parent": "p8-1-a"
+  },
+  {
+   "id": "p8-1-a-4",
+   "label": "§ 8 odst. 1 písm. a) bod 4",
+   "anchor": "p8-1-a-4",
+   "text": "odlišení civilních a vojenských mimořádných situací,",
+   "parent": "p8-1-a"
+  },
+  {
+   "id": "p8-1-a-5",
+   "label": "§ 8 odst. 1 písm. a) bod 5",
+   "anchor": "p8-1-a-5",
+   "text": "komunikační a povelovou techniku a koordinaci řízeného střeleckého zásahu,",
+   "parent": "p8-1-a"
+  },
+  {
+   "id": "p8-1-a-6",
+   "label": "§ 8 odst. 1 písm. a) bod 6",
+   "anchor": "p8-1-a-6",
+   "text": "základní zásady ochrany obyvatelstva před účinky zbraní hromadného ničení a průmyslových havárií,",
+   "parent": "p8-1-a"
+  },
+  {
+   "id": "p8-1-a-7",
+   "label": "§ 8 odst. 1 písm. a) bod 7",
+   "anchor": "p8-1-a-7",
+   "text": "balistickou ochranu a ochranu jednotlivce proti účinkům chemických, radioaktivních a biologických látek a agens a",
+   "parent": "p8-1-a"
+  },
+  {
+   "id": "p8-1-a-8",
+   "label": "§ 8 odst. 1 písm. a) bod 8",
+   "anchor": "p8-1-a-8",
+   "text": "první pomoc v kontextu krizových situací,",
+   "parent": "p8-1-a"
+  },
+  {
+   "id": "p8-1-b",
+   "label": "§ 8 odst. 1 písm. b)",
+   "anchor": "p8-1-b",
+   "text": "praktický výcvik ve střelbě z krátké kulové zbraně v minimálním rozsahu 300 výstřelů a v minimálním časovém rozsahu 12 výukových hodin zaměřený na střelbu",
+   "parent": "p8-1"
+  },
+  {
+   "id": "p8-1-b-1",
+   "label": "§ 8 odst. 1 písm. b) bod 1",
+   "anchor": "p8-1-b-1",
+   "text": "na malou vzdálenost a střelbu až po vzdálenost 50 m,",
+   "parent": "p8-1-b"
+  },
+  {
+   "id": "p8-1-b-2",
+   "label": "§ 8 odst. 1 písm. b) bod 2",
+   "anchor": "p8-1-b-2",
+   "text": "na povel s určením terče,",
+   "parent": "p8-1-b"
+  },
+  {
+   "id": "p8-1-b-3",
+   "label": "§ 8 odst. 1 písm. b) bod 3",
+   "anchor": "p8-1-b-3",
+   "text": "zpoza různých krytů a z různých stran krytů,",
+   "parent": "p8-1-b"
+  },
+  {
+   "id": "p8-1-b-4",
+   "label": "§ 8 odst. 1 písm. b) bod 4",
+   "anchor": "p8-1-b-4",
+   "text": "s nasazenými prostředky balistické ochrany chránícími trup s odolností alespoň třídy IIIA nebo jejich hmotnostním a rozměrovým ekvivalentem a",
+   "parent": "p8-1-b"
+  },
+  {
+   "id": "p8-1-b-5",
+   "label": "§ 8 odst. 1 písm. b) bod 5",
+   "anchor": "p8-1-b-5",
+   "text": "na terč částečně nebo zcela krytý různými překážkami a",
+   "parent": "p8-1-b"
+  },
+  {
+   "id": "p8-1-c",
+   "label": "§ 8 odst. 1 písm. c)",
+   "anchor": "p8-1-c",
+   "text": "praktický výcvik ve střelbě z dlouhé kulové zbraně v minimálním rozsahu 300 výstřelů a v minimálním časovém rozsahu 12 výukových hodin zaměřený na střelbu",
+   "parent": "p8-1"
+  },
+  {
+   "id": "p8-1-c-1",
+   "label": "§ 8 odst. 1 písm. c) bod 1",
+   "anchor": "p8-1-c-1",
+   "text": "na vzdálenost od 7 m až po vzdálenost 300 m,",
+   "parent": "p8-1-c"
+  },
+  {
+   "id": "p8-1-c-2",
+   "label": "§ 8 odst. 1 písm. c) bod 2",
+   "anchor": "p8-1-c-2",
+   "text": "na povel s určením terče,",
+   "parent": "p8-1-c"
+  },
+  {
+   "id": "p8-1-c-3",
+   "label": "§ 8 odst. 1 písm. c) bod 3",
+   "anchor": "p8-1-c-3",
+   "text": "zpoza různých krytů a z různých stran krytů,",
+   "parent": "p8-1-c"
+  },
+  {
+   "id": "p8-1-c-4",
+   "label": "§ 8 odst. 1 písm. c) bod 4",
+   "anchor": "p8-1-c-4",
+   "text": "s nasazenými prostředky balistické ochrany chránícími trup s odolností alespoň třídy IIIA nebo jejich hmotnostním a rozměrovým ekvivalentem a",
+   "parent": "p8-1-c"
+  },
+  {
+   "id": "p8-1-c-5",
+   "label": "§ 8 odst. 1 písm. c) bod 5",
+   "anchor": "p8-1-c-5",
+   "text": "na terč částečně nebo zcela krytý různými překážkami.",
+   "parent": "p8-1-c"
+  },
+  {
+   "id": "p8-2",
+   "label": "§ 8 odst. 2",
+   "anchor": "p8-2",
+   "text": "Střelba je vedena na terče předepsané pro program střelecké přípravy MV-102.",
+   "parent": null
+  },
+  {
+   "id": "p9-1",
+   "label": "§ 9 odst. 1",
+   "anchor": "p9-1",
+   "text": "Program střelecké přípravy MV-1-500 zahrnuje střeleckou přípravu k udržení a prohloubení znalostí a dovedností nabytých v předchozích programech střelecké přípravy, a to formou samostudia a individuálním střeleckým tréninkem.",
+   "parent": null
+  },
+  {
+   "id": "p9-2",
+   "label": "§ 9 odst. 2",
+   "anchor": "p9-2",
+   "text": "Individuální střelecký trénink podle odstavce 1 je účastník programu střelecké přípravy MV-1-500 povinen provádět vždy minimálně v rozsahu obdržené podpory střelecké přípravy podle § 19 odst. 2.",
+   "parent": null
+  },
+  {
+   "id": "p10-1",
+   "label": "§ 10 odst. 1",
+   "anchor": "p10-1",
+   "text": "Při provádění praktického výcviku ve střelbě může na jednoho odborného instruktora zajišťujícího průběh kurzu připadat nejvýše 8 účastníků programu střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p10-2",
+   "label": "§ 10 odst. 2",
+   "anchor": "p10-2",
+   "text": "Součástí praktického výcviku ve střelbě z krátké kulové zbraně v programech střelecké přípravy MV-102 a MV-201 je rovněž nácvik skrytého nošení takové zbraně.",
+   "parent": null
+  },
+  {
+   "id": "p10-3",
+   "label": "§ 10 odst. 3",
+   "anchor": "p10-3",
+   "text": "Praktický výcvik ve střelbě v programech střelecké přípravy MV-201 a MV-301 může být v dílčím rozsahu prováděn s využitím palné zbraně určené pro soupeřský střelecký systém, pokud jsou účastníci programu střelecké přípravy pro použití takové střelné zbraně zaškoleni.",
+   "parent": null
+  },
+  {
+   "id": "p11-1",
+   "label": "§ 11 odst. 1",
+   "anchor": "p11-1",
+   "text": "Podmínkou účasti na programu střelecké přípravy je",
+   "parent": null
+  },
+  {
+   "id": "p11-1-a",
+   "label": "§ 11 odst. 1 písm. a)",
+   "anchor": "p11-1-a",
+   "text": "vznik branné povinnosti nebo dobrovolné převzetí branné povinnosti; tato podmínka zůstává splněna i v případě, že branná povinnost zanikla z důvodu uvedeného v § 7 písm. a) nebo e) branného zákona, a",
+   "parent": "p11-1"
+  },
+  {
+   "id": "p11-1-b",
+   "label": "§ 11 odst. 1 písm. b)",
+   "anchor": "p11-1-b",
+   "text": "fyzická účast účastníka programu střelecké přípravy po celou dobu trvání kurzu pro příslušný program střelecké přípravy.",
+   "parent": "p11-1"
+  },
+  {
+   "id": "p12-1",
+   "label": "§ 12 odst. 1",
+   "anchor": "p12-1",
+   "text": "Podmínkou účasti na programu střelecké přípravy pro oblast vnitřního pořádku a bezpečnosti České republiky je dále držení zbrojního průkazu skupiny E a v případě programu střelecké přípravy",
+   "parent": null
+  },
+  {
+   "id": "p12-1-a",
+   "label": "§ 12 odst. 1 písm. a)",
+   "anchor": "p12-1-a",
+   "text": "MV-102 absolvování programu střelecké přípravy MV-101,",
+   "parent": "p12-1"
+  },
+  {
+   "id": "p12-1-b",
+   "label": "§ 12 odst. 1 písm. b)",
+   "anchor": "p12-1-b",
+   "text": "MV-201 získání základní aprobace v systému střelecké přípravy,",
+   "parent": "p12-1"
+  },
+  {
+   "id": "p12-1-c",
+   "label": "§ 12 odst. 1 písm. c)",
+   "anchor": "p12-1-c",
+   "text": "MV-301 absolvování programu střelecké přípravy MV-201, nebo",
+   "parent": "p12-1"
+  },
+  {
+   "id": "p12-1-d",
+   "label": "§ 12 odst. 1 písm. d)",
+   "anchor": "p12-1-d",
+   "text": "MV-201, MV-301 a MV-1-500 zařazení do stanovené zálohy státu podle § 16.",
+   "parent": "p12-1"
+  },
+  {
+   "id": "p12-2",
+   "label": "§ 12 odst. 2",
+   "anchor": "p12-2",
+   "text": "Uchazeč se k účasti na programu střelecké přípravy MV-101, MV-102, MV-201 a MV-301 přihlašuje u akreditované osoby pomocí přihlášky, jejíž vzor je uveden v příloze č. 1 k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p12-3",
+   "label": "§ 12 odst. 3",
+   "anchor": "p12-3",
+   "text": "Účast na programu střelecké přípravy MV-1-500 vzniká vydáním pokročilé aprobace v systému střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p13-1",
+   "label": "§ 13 odst. 1",
+   "anchor": "p13-1",
+   "text": "Splnění podmínek účasti na programu střelecké přípravy MV-101, MV-102, MV-201 a MV-301 uchazeč prokazuje u akreditované osoby, u níž se přihlašuje do kurzu pro program střelecké přípravy, přičemž uchazeč k prokázání splnění podmínky podle",
+   "parent": null
+  },
+  {
+   "id": "p13-2",
+   "label": "§ 13 odst. 2",
+   "anchor": "p13-2",
+   "text": "Akreditovaná osoba vyloučí z účasti na programu střelecké přípravy účastníka, který se kurzu nezúčastní způsobem a v rozsahu podle § 11 písm. b).",
+   "parent": null
+  },
+  {
+   "id": "p13-3",
+   "label": "§ 13 odst. 3",
+   "anchor": "p13-3",
+   "text": "Orgán, který podle § 5 odst. 1 zákona organizuje program střelecké přípravy, (dále jen „zastřešující orgán“) nebo kontrolní orgán vyloučí z účasti na programu střelecké přípravy účastníka,",
+   "parent": null
+  },
+  {
+   "id": "p13-3-a",
+   "label": "§ 13 odst. 3 písm. a)",
+   "anchor": "p13-3-a",
+   "text": "který přestal splňovat podmínky účasti na programu střelecké přípravy, nebo",
+   "parent": "p13-3"
+  },
+  {
+   "id": "p13-3-b",
+   "label": "§ 13 odst. 3 písm. b)",
+   "anchor": "p13-3-b",
+   "text": "nevyloučí-li jej akreditovaná osoba, ačkoli jsou pro to splněny podmínky uvedené v odstavci 2.",
+   "parent": "p13-3"
+  },
+  {
+   "id": "p14-1",
+   "label": "§ 14 odst. 1",
+   "anchor": "p14-1",
+   "text": "Hodnocené střelby nejsou součástí kurzu pro program střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p14-2",
+   "label": "§ 14 odst. 2",
+   "anchor": "p14-2",
+   "text": "Zásady bezpečného zacházení se střelnou zbraní při hodnocených střelbách vymezí jejich organizátor, který o nich před zahájením hodnocených střeleb poučí všechny osoby, které se hodnocených střeleb účastní.",
+   "parent": null
+  },
+  {
+   "id": "p15-1",
+   "label": "§ 15 odst. 1",
+   "anchor": "p15-1",
+   "text": "Hodnocené střelby se uskutečňují v rámci střeleckého závodu",
+   "parent": null
+  },
+  {
+   "id": "p15-1-a",
+   "label": "§ 15 odst. 1 písm. a)",
+   "anchor": "p15-1-a",
+   "text": "organizovaného akreditovanou osobou nebo ve spolupráci s takovou osobou,",
+   "parent": "p15-1"
+  },
+  {
+   "id": "p15-1-b",
+   "label": "§ 15 odst. 1 písm. b)",
+   "anchor": "p15-1-b",
+   "text": "otevřeného účasti minimálně 20 závodníků, včetně závodníků z řad veřejnosti, kteří jsou držiteli oprávnění nakládat s příslušnou střelnou zbraní, a",
+   "parent": "p15-1"
+  },
+  {
+   "id": "p15-1-c",
+   "label": "§ 15 odst. 1 písm. c)",
+   "anchor": "p15-1-c",
+   "text": "jehož součástí je standardní cvičení odpovídající požadavkům uvedeným v příloze č. 5 k tomuto nařízení.",
+   "parent": "p15-1"
+  },
+  {
+   "id": "p15-2",
+   "label": "§ 15 odst. 2",
+   "anchor": "p15-2",
+   "text": "Propozice střeleckého závodu, v jehož rámci se uskutečňují hodnocené střelby, a informace o možnosti účasti na něm se uveřejňují na internetových stránkách akreditované osoby, která tento střelecký závod organizuje nebo na jeho organizaci spolupracuje, a to alespoň po dobu 30 dnů přede dnem konání tohoto střeleckého závodu. Alespoň po dobu 12 měsíců po dni konání tohoto střeleckého závodu jsou na těchto internetových stránkách uveřejněny jeho výsledky s rozpisem podle jednotlivých závodníků, včetně výsledků dosažených při standardním cvičení.",
+   "parent": null
+  },
+  {
+   "id": "p15-3",
+   "label": "§ 15 odst. 3",
+   "anchor": "p15-3",
+   "text": "Podmínkou absolvování hodnocených střeleb podle odstavce 1 je dokončení střeleckého závodu bez diskvalifikace a absolvování standardního cvičení ve stanoveném časovém limitu při započítání stanovených penalizací a bez zásahu zakázané siluety. Porušení zásad bezpečného zacházení se střelnou zbraní v průběhu hodnocených střeleb je vždy důvodem pro diskvalifikaci.",
+   "parent": null
+  },
+  {
+   "id": "p15-4",
+   "label": "§ 15 odst. 4",
+   "anchor": "p15-4",
+   "text": "Standardní cvičení nelze v rámci stejných hodnocených střeleb opakovat.",
+   "parent": null
+  },
+  {
+   "id": "p15-5",
+   "label": "§ 15 odst. 5",
+   "anchor": "p15-5",
+   "text": "Organizátor hodnocených střeleb vydá na požádání jejich účastníkovi potvrzení o absolvování hodnocených střeleb.",
+   "parent": null
+  },
+  {
+   "id": "p16-1",
+   "label": "§ 16 odst. 1",
+   "anchor": "p16-1",
+   "text": "Účastník programu střelecké přípravy se stane součástí stanovené zálohy státu na základě složení slibu stanovené zálohy státu ve znění:",
+   "parent": null
+  },
+  {
+   "id": "p16-2",
+   "label": "§ 16 odst. 2",
+   "anchor": "p16-2",
+   "text": "Součástí stanovené zálohy státu nemůže být ten, kdo",
+   "parent": null
+  },
+  {
+   "id": "p16-2-a",
+   "label": "§ 16 odst. 2 písm. a)",
+   "anchor": "p16-2-a",
+   "text": "odmítne složit slib stanovené zálohy státu nebo jej složí s výhradou,",
+   "parent": "p16-2"
+  },
+  {
+   "id": "p16-2-b",
+   "label": "§ 16 odst. 2 písm. b)",
+   "anchor": "p16-2-b",
+   "text": "svým jednáním v rozporu se slibem stanovené zálohy státu opakovaně nebo hrubým způsobem znemožní, ohrozí nebo ztíží dosažení účelu systému střelecké přípravy anebo sníží nebo ohrozí jeho vážnost, nebo",
+   "parent": "p16-2"
+  },
+  {
+   "id": "p16-2-c",
+   "label": "§ 16 odst. 2 písm. c)",
+   "anchor": "p16-2-c",
+   "text": "bez vážného důvodu nesplní nebo odepře plnit úkol stanovené zálohy státu uložený nařízením vlády vydaným podle § 17 odst. 1 zákona nebo podle jiného právního předpisu.",
+   "parent": "p16-2"
+  },
+  {
+   "id": "p16-3",
+   "label": "§ 16 odst. 3",
+   "anchor": "p16-3",
+   "text": "Střelná zbraň, s níž účastník programu střelecké přípravy nakládá, je součástí stanovené zálohy státu, pokud účastník programu střelecké přípravy, který je držitelem takové zbraně, požádá Policii České republiky o vyznačení této skutečnosti v centrálním registru zbraní vedeném podle zákona o zbraních.",
+   "parent": null
+  },
+  {
+   "id": "p17-1",
+   "label": "§ 17 odst. 1",
+   "anchor": "p17-1",
+   "text": "V případě programů střelecké přípravy pro oblast vnitřního pořádku a bezpečnosti České republiky lze získat",
+   "parent": null
+  },
+  {
+   "id": "p17-1-a",
+   "label": "§ 17 odst. 1 písm. a)",
+   "anchor": "p17-1-a",
+   "text": "základní aprobaci v systému střelecké přípravy na základě absolvování programu střelecké přípravy MV-101 a MV-102 a hodnocených střeleb a",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-b",
+   "label": "§ 17 odst. 1 písm. b)",
+   "anchor": "p17-1-b",
+   "text": "pokročilou aprobaci v systému střelecké přípravy na základě absolvování programu střelecké přípravy MV-301.",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-2",
+   "label": "§ 17 odst. 2",
+   "anchor": "p17-2",
+   "text": "Základní aprobace v systému střelecké přípravy se vydává pro střelnou zbraň kategorie A-I nebo B, střelivo kategorie A-I, nadlimitní zásobníky a pro účely účasti na programu střelecké přípravy MV-201.",
+   "parent": null
+  },
+  {
+   "id": "p17-3",
+   "label": "§ 17 odst. 3",
+   "anchor": "p17-3",
+   "text": "Pokročilá aprobace se vydává za účelem umožnění podpory individuální střelecké přípravy v rámci účasti na programu střelecké přípravy MV-1-500.",
+   "parent": null
+  },
+  {
+   "id": "p17-4",
+   "label": "§ 17 odst. 4",
+   "anchor": "p17-4",
+   "text": "Vzor předepsaného formuláře žádosti o vydání aprobace v systému střelecké přípravy je stanoven v příloze č. 2 k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p18-1",
+   "label": "§ 18 odst. 1",
+   "anchor": "p18-1",
+   "text": "Příslušný ozbrojený bezpečnostní sbor, Vojenská policie nebo obec může příslušníkovi ozbrojeného bezpečnostního sboru nebo Vojenské policie nebo strážníkovi obecní policie, který je držitelem zbrojního průkazu skupiny E a absolvoval výcvik v použití krátké kulové zbraně nebo dlouhé kulové zbraně v obdobném rozsahu, jaký toto nařízení stanoví pro program střelecké přípravy MV-102, vydat potvrzení pro účely vydání základní aprobace v systému střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p18-2",
+   "label": "§ 18 odst. 2",
+   "anchor": "p18-2",
+   "text": "Vzor předepsaného formuláře potvrzení pro účely vydání aprobace v systému střelecké přípravy je stanoven v příloze č. 3 k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p19-1",
+   "label": "§ 19 odst. 1",
+   "anchor": "p19-1",
+   "text": "Pokud akreditovaná osoba v rámci programu střelecké přípravy MV-201 nebo MV-301 převede účastníkovi kurzu, který zajišťuje, střelivo v maximálním počtu odpovídajícím minimálnímu počtu výstřelů stanovených pro příslušný kurz, zastřešující orgán akreditované osobě na základě prokázání počtu a ráží skutečně převedeného střeliva",
+   "parent": null
+  },
+  {
+   "id": "p19-1-a",
+   "label": "§ 19 odst. 1 písm. a)",
+   "anchor": "p19-1-a",
+   "text": "bezúplatně převede odpovídající střelivo ve stejném počtu rážově odpovídajících nábojů nebo srovnatelných nábojů, nebo",
+   "parent": "p19-1"
+  },
+  {
+   "id": "p19-1-b",
+   "label": "§ 19 odst. 1 písm. b)",
+   "anchor": "p19-1-b",
+   "text": "uhradí běžnou cenu srovnatelných nábojů v počtu, který je stejný jako počet nábojů skutečně převedeného střeliva.",
+   "parent": "p19-1"
+  },
+  {
+   "id": "p19-2",
+   "label": "§ 19 odst. 2",
+   "anchor": "p19-2",
+   "text": "Účastník programu střelecké přípravy MV-1-500 má nárok na věcnou nebo finanční podporu své individuální střelecké přípravy v celkovém rozsahu 500 srovnatelných nábojů v kalendářním roce, ve kterém absolvoval hodnocené střelby. Podporu obdrží od akreditované osoby, která je současně držitelem zbrojní licence skupiny C podle zákona o zbraních, a to po předložení pokročilé aprobace v systému střelecké přípravy a potvrzení o absolvování hodnocených střeleb. Zastřešující orgán této akreditované osobě na základě prokázání počtu a ráží skutečně převedeného střeliva účastníkům programu střelecké přípravy MV-1-500",
+   "parent": null
+  },
+  {
+   "id": "p19-2-a",
+   "label": "§ 19 odst. 2 písm. a)",
+   "anchor": "p19-2-a",
+   "text": "bezúplatně převede odpovídající střelivo ve stejném počtu rážově odpovídajících nábojů nebo srovnatelných nábojů, nebo",
+   "parent": "p19-2"
+  },
+  {
+   "id": "p19-2-b",
+   "label": "§ 19 odst. 2 písm. b)",
+   "anchor": "p19-2-b",
+   "text": "uhradí běžnou cenu srovnatelných nábojů v počtu, který je stejný jako počet nábojů skutečně převedeného střeliva.",
+   "parent": "p19-2"
+  },
+  {
+   "id": "p19-3",
+   "label": "§ 19 odst. 3",
+   "anchor": "p19-3",
+   "text": "Převod střeliva podle odstavce 1 účastníkovi kurzu akreditovaná osoba prokazuje záznamem o průběhu kurzu a protokolem o převedení střeliva s uvedením počtu a ráží převedeného střeliva a podpisem účastníka kurzu, kterému bylo střelivo převedeno. Převod střeliva podle odstavce 2 účastníkovi programu střelecké přípravy MV-1-500 se prokazuje zápisem takového převodu do evidence vedené v centrálním registru zbraní podle zákona o zbraních, uvedením čísla jeho pokročilé aprobace v systému střelecké přípravy a potvrzením o absolvování hodnocených střeleb.",
+   "parent": null
+  },
+  {
+   "id": "p19-4",
+   "label": "§ 19 odst. 4",
+   "anchor": "p19-4",
+   "text": "O bezúplatný převod nebo uhrazení běžné ceny srovnatelných nábojů lze zastřešující orgán požádat nejpozději do 30 dnů od konce kalendářního čtvrtletí, ve kterém bylo střelivo převedeno podle odstavce 1 nebo 2.",
+   "parent": null
+  },
+  {
+   "id": "p19-5",
+   "label": "§ 19 odst. 5",
+   "anchor": "p19-5",
+   "text": "Zastřešující orgán na svých internetových stránkách do konce měsíce listopadu oznámí běžnou cenu srovnatelných nábojů, která bude hrazena za střelivo převedené podle odstavce 1 nebo 2 v následujícím kalendářním roce.",
+   "parent": null
+  },
+  {
+   "id": "p19-6",
+   "label": "§ 19 odst. 6",
+   "anchor": "p19-6",
+   "text": "Zastřešující orgán může účastníkům programu střelecké přípravy MV-1-500 umožnit zdarma nebo za sníženou částku využít střelnici, pokud",
+   "parent": null
+  },
+  {
+   "id": "p19-6-a",
+   "label": "§ 19 odst. 6 písm. a)",
+   "anchor": "p19-6-a",
+   "text": "se tím neohrozí nebo nenaruší plnění úkolů ozbrojeného bezpečnostního sboru, Vojenské policie nebo ozbrojených sil a",
+   "parent": "p19-6"
+  },
+  {
+   "id": "p19-6-b",
+   "label": "§ 19 odst. 6 písm. b)",
+   "anchor": "p19-6-b",
+   "text": "za tím účelem zastřešující orgán přijme provozní a návštěvní řád takové střelnice a rozhodne o výši snížených částek za využití takové střelnice.",
+   "parent": "p19-6"
+  },
+  {
+   "id": "p19-7",
+   "label": "§ 19 odst. 7",
+   "anchor": "p19-7",
+   "text": "Seznam střelnic podle odstavce 6, jejich provozní a návštěvní řád a případné další podmínky jejich využití zastřešující orgán uveřejňuje na svých internetových stránkách.",
+   "parent": null
+  },
+  {
+   "id": "p20-1",
+   "label": "§ 20 odst. 1",
+   "anchor": "p20-1",
+   "text": "Střelnou zbraň může akreditovaná osoba po nezbytném zaškolení, jehož trvání se nezapočítává do rozsahu teoretické přípravy nebo praktického výcviku ve střelbě, přenechat účastníkovi programu střelecké přípravy na dobu jeho fyzické přítomnosti v místě konání kurzu. Akreditovaná osoba je povinna vykonávat zvýšený dohled nad účastníkem programu střelecké přípravy, který nakládá se střelnou zbraní, kterou mu přenechala.",
+   "parent": null
+  },
+  {
+   "id": "p21-1",
+   "label": "§ 21 odst. 1",
+   "anchor": "p21-1",
+   "text": "Žadatel o akreditaci je způsobilý zajišťovat kurz pro program střelecké přípravy, pokud",
+   "parent": null
+  },
+  {
+   "id": "p21-1-a",
+   "label": "§ 21 odst. 1 písm. a)",
+   "anchor": "p21-1-a",
+   "text": "doloží odbornou způsobilost u osob, které budou vykonávat činnost odborného instruktora, zejména absolvované vzdělání, výcvik nebo obdobnou přípravu a relevantní praxi, a to v rozsahu odpovídajícím celému obsahu kurzu,",
+   "parent": "p21-1"
+  },
+  {
+   "id": "p21-1-b",
+   "label": "§ 21 odst. 1 písm. b)",
+   "anchor": "p21-1-b",
+   "text": "s ohledem na předložený projekt kurzu, návrh vnitřního předpisu, zajištěné prostory a vybavení žadatele o akreditaci není zjištěna důvodná pochybnost o způsobilosti žadatele zajišťovat kurz pro program střelecké přípravy a",
+   "parent": "p21-1"
+  },
+  {
+   "id": "p21-1-c",
+   "label": "§ 21 odst. 1 písm. c)",
+   "anchor": "p21-1-c",
+   "text": "s ohledem na osobu žadatele a jeho dosavadní činnost a osoby odborných instruktorů není zjištěna důvodná pochybnost o schopnosti žadatele zajišťovat kurz pro program střelecké přípravy tak, aby bylo dosaženo jeho účelu, a to včetně jeho způsobilosti zachovávat při zajišťování kurzu etiku systému střelecké přípravy v souladu se slibem účastníka systému střelecké přípravy.",
+   "parent": "p21-1"
+  },
+  {
+   "id": "p21-2",
+   "label": "§ 21 odst. 2",
+   "anchor": "p21-2",
+   "text": "Žadatel o akreditaci za účelem prokázání způsobilosti zajišťovat kurz",
+   "parent": null
+  },
+  {
+   "id": "p21-2-a",
+   "label": "§ 21 odst. 2 písm. a)",
+   "anchor": "p21-2-a",
+   "text": "přiloží k žádosti o udělení akreditace, jejíž vzor je uveden v příloze č. 4 k tomuto nařízení, profesní životopis každého odborného instruktora a další doklady o jeho profesní způsobilosti a",
+   "parent": "p21-2"
+  },
+  {
+   "id": "p21-2-b",
+   "label": "§ 21 odst. 2 písm. b)",
+   "anchor": "p21-2-b",
+   "text": "poskytne zastřešujícímu orgánu odkaz na své internetové stránky obsahující komplexní a transparentní informace o žadateli, které jsou rovněž vhodné k uveřejňování informací určených pro uchazeče o účast na programu střelecké přípravy nebo účastníky programu střelecké přípravy, propozic střeleckých závodů, které splňují podmínky pro hodnocené střelby, informací o možnosti registrace k účasti na takových střeleckých závodech, a výsledků takových střeleckých závodů s rozpisem podle jednotlivých závodníků.",
+   "parent": "p21-2"
+  },
+  {
+   "id": "p22-1",
+   "label": "§ 22 odst. 1",
+   "anchor": "p22-1",
+   "text": "Záznam o ověření kvalifikace odborného instruktora zpracovává akreditovaná osoba pro každého odborného instruktora. Pokud byla kvalifikace ověřena u více odborných instruktorů zároveň, lze zpracovat jediný záznam o ověření kvalifikace odborného instruktora pro všechny tyto odborné instruktory současně, přičemž se v takovém záznamu uvedou údaje o každém instruktorovi v rozsahu podle odstavce 2 písm. a).",
+   "parent": null
+  },
+  {
+   "id": "p22-2",
+   "label": "§ 22 odst. 2",
+   "anchor": "p22-2",
+   "text": "V záznamu o ověření kvalifikace odborného instruktora akreditovaná osoba uvede",
+   "parent": null
+  },
+  {
+   "id": "p22-2-a",
+   "label": "§ 22 odst. 2 písm. a)",
+   "anchor": "p22-2-a",
+   "text": "jméno, příjmení, datum narození a číslo a skupinu zbrojního průkazu odborného instruktora, jehož kvalifikace byla ověřena,",
+   "parent": "p22-2"
+  },
+  {
+   "id": "p22-2-b",
+   "label": "§ 22 odst. 2 písm. b)",
+   "anchor": "p22-2-b",
+   "text": "datum, místo a časový rozsah ověření kvalifikace odborného instruktora, a to samostatně pro teoretické školení a pro střelecké cvičení,",
+   "parent": "p22-2"
+  },
+  {
+   "id": "p22-2-c",
+   "label": "§ 22 odst. 2 písm. c)",
+   "anchor": "p22-2-c",
+   "text": "způsob a věcnou náplň ověření kvalifikace odborného instruktora, a to vždy jednak ve vztahu ke znalosti zákona a tohoto nařízení a jednak k ovládnutí problematiky, kterou odborný instruktor v rámci kurzů zajišťovaných akreditovanou osobou vyučuje; v případě, že kvalifikace odborného instruktora byla ověřena jinou osobou na základě smlouvy s akreditovanou osobou, uvede se jméno nebo název této osoby a kopie příslušné smlouvy tvoří přílohu záznamu o ověření kvalifikace odborného instruktora,",
+   "parent": "p22-2"
+  },
+  {
+   "id": "p22-2-d",
+   "label": "§ 22 odst. 2 písm. d)",
+   "anchor": "p22-2-d",
+   "text": "obsah a rozsah střeleckého cvičení, které bylo v rámci ověření kvalifikace odborného instruktora provedeno,",
+   "parent": "p22-2"
+  },
+  {
+   "id": "p22-2-e",
+   "label": "§ 22 odst. 2 písm. e)",
+   "anchor": "p22-2-e",
+   "text": "hodnocení odborného instruktora; v případě, že kvalifikace odborného instruktora byla ověřena jinou osobou, uvede se hodnocení podle certifikátu vydaného touto osobou a kopie tohoto certifikátu tvoří přílohu záznamu o ověření kvalifikace odborného instruktora a",
+   "parent": "p22-2"
+  },
+  {
+   "id": "p22-2-f",
+   "label": "§ 22 odst. 2 písm. f)",
+   "anchor": "p22-2-f",
+   "text": "datum vyhotovení záznamu o ověření kvalifikace odborného instruktora a jméno, příjmení a podpis osoby, která záznam o ověření kvalifikace odborného instruktora provedla.",
+   "parent": "p22-2"
+  },
+  {
+   "id": "p22-3",
+   "label": "§ 22 odst. 3",
+   "anchor": "p22-3",
+   "text": "Akreditovaná osoba může omezit ověření kvalifikace na ověření znalosti zákona a tohoto nařízení takového odborného instruktora, který má ukončené vysokoškolské vzdělání zahrnující problematiku, kterou v rámci teoretické výuky v daném kurzu vyučuje. Akreditovaná osoba k záznamům o ověření kvalifikace takového odborného instruktora přiloží úředně ověřenou kopii jeho vysokoškolského diplomu.",
+   "parent": null
+  },
+  {
+   "id": "p23-1",
+   "label": "§ 23 odst. 1",
+   "anchor": "p23-1",
+   "text": "Záznam o průběhu kurzu zpracovává akreditovaná osoba pro každý jednotlivý běh kurzu.",
+   "parent": null
+  },
+  {
+   "id": "p23-2",
+   "label": "§ 23 odst. 2",
+   "anchor": "p23-2",
+   "text": "V záznamu o průběhu kurzu akreditovaná osoba uvede",
+   "parent": null
+  },
+  {
+   "id": "p23-2-a",
+   "label": "§ 23 odst. 2 písm. a)",
+   "anchor": "p23-2-a",
+   "text": "jméno, příjmení, datum narození a číslo zbrojního průkazu každého účastníka kurzu,",
+   "parent": "p23-2"
+  },
+  {
+   "id": "p23-2-b",
+   "label": "§ 23 odst. 2 písm. b)",
+   "anchor": "p23-2-b",
+   "text": "název kurzu, příslušný program střelecké přípravy a číslo rozhodnutí o akreditaci pro daný kurz,",
+   "parent": "p23-2"
+  },
+  {
+   "id": "p23-2-c",
+   "label": "§ 23 odst. 2 písm. c)",
+   "anchor": "p23-2-c",
+   "text": "datum a místo konání a časový rozsah kurzu, a to samostatně pro teoretickou výuku a pro praktický výcvik; vždy se uvede konkrétní hodina zahájení a ukončení kurzu v daném dni,",
+   "parent": "p23-2"
+  },
+  {
+   "id": "p23-2-d",
+   "label": "§ 23 odst. 2 písm. d)",
+   "anchor": "p23-2-d",
+   "text": "jméno, příjmení a datum narození odborných instruktorů,",
+   "parent": "p23-2"
+  },
+  {
+   "id": "p23-2-e",
+   "label": "§ 23 odst. 2 písm. e)",
+   "anchor": "p23-2-e",
+   "text": "záznam o skutečnostech odůvodňujících vyloučení účastníka z programu střelecké přípravy; v těchto případech uvede akreditovaná osoba jméno, příjmení a datum narození účastníka, který se neúčastnil kurzu v rozsahu podle § 11 písm. b),",
+   "parent": "p23-2"
+  },
+  {
+   "id": "p23-2-f",
+   "label": "§ 23 odst. 2 písm. f)",
+   "anchor": "p23-2-f",
+   "text": "záznam o jiných mimořádných událostech majících vliv na průběh kurzu,",
+   "parent": "p23-2"
+  },
+  {
+   "id": "p23-2-g",
+   "label": "§ 23 odst. 2 písm. g)",
+   "anchor": "p23-2-g",
+   "text": "uvedení, zda bylo v rámci kurzu převedeno účastníkům střelivo podle § 19 odst. 1, a",
+   "parent": "p23-2"
+  },
+  {
+   "id": "p23-2-h",
+   "label": "§ 23 odst. 2 písm. h)",
+   "anchor": "p23-2-h",
+   "text": "datum vyhotovení záznamu o průběhu kurzu a jméno, příjmení a podpis osoby, která záznam o průběhu kurzu provedla.",
+   "parent": "p23-2"
+  },
+  {
+   "id": "p23-3",
+   "label": "§ 23 odst. 3",
+   "anchor": "p23-3",
+   "text": "Přílohu záznamu o průběhu kurzu tvoří",
+   "parent": null
+  },
+  {
+   "id": "p23-3-a",
+   "label": "§ 23 odst. 3 písm. a)",
+   "anchor": "p23-3-a",
+   "text": "přihlášky k účasti na příslušném programu střelecké přípravy osob, které se kurzu účastnily,",
+   "parent": "p23-3"
+  },
+  {
+   "id": "p23-3-b",
+   "label": "§ 23 odst. 3 písm. b)",
+   "anchor": "p23-3-b",
+   "text": "předávací protokol o vydání potvrzení pro účely vydání aprobace v systému střelecké přípravy s podpisy účastníků kurzu, kterým bylo potvrzení vydáno, a",
+   "parent": "p23-3"
+  },
+  {
+   "id": "p23-3-c",
+   "label": "§ 23 odst. 3 písm. c)",
+   "anchor": "p23-3-c",
+   "text": "protokol o převedení střeliva podle § 19 odst. 3.",
+   "parent": "p23-3"
+  },
+  {
+   "id": "p24-1",
+   "label": "§ 24 odst. 1",
+   "anchor": "p24-1",
+   "text": "Záznam o ověření kvalifikace odborného instruktora a záznam o průběhu kurzu lze vyhotovovat v listinné nebo v elektronické podobě. V případě elektronické podoby musí být záznam o ověření kvalifikace odborného instruktora a záznam o průběhu kurzu podepsány uznávaným elektronickým podpisem osoby, která takový záznam vyhotovila.",
+   "parent": null
+  },
+  {
+   "id": "p25-1",
+   "label": "§ 25 odst. 1",
+   "anchor": "p25-1",
+   "text": "Zvláštní opatření k ochraně, utajení nebo zabránění zneužití informačních systémů a evidencí obsahujících informace o zbraních a držitelích příslušných oprávnění spočívají podle míry skutečného ohrožení v",
+   "parent": null
+  },
+  {
+   "id": "p25-1-a",
+   "label": "§ 25 odst. 1 písm. a)",
+   "anchor": "p25-1-a",
+   "text": "zvýšené ochraně těchto informací v podobě",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p25-1-a-1",
+   "label": "§ 25 odst. 1 písm. a) bod 1",
+   "anchor": "p25-1-a-1",
+   "text": "odpovídajícího zpřísnění bezpečnostních opatření podle zákona o kybernetické bezpečnosti, nebo",
+   "parent": "p25-1-a"
+  },
+  {
+   "id": "p25-1-a-2",
+   "label": "§ 25 odst. 1 písm. a) bod 2",
+   "anchor": "p25-1-a-2",
+   "text": "stanovení stupně utajení těchto informací,",
+   "parent": "p25-1-a"
+  },
+  {
+   "id": "p25-1-b",
+   "label": "§ 25 odst. 1 písm. b)",
+   "anchor": "p25-1-b",
+   "text": "omezení provozu nebo využívání těchto informačních systémů nebo evidencí,",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p25-1-c",
+   "label": "§ 25 odst. 1 písm. c)",
+   "anchor": "p25-1-c",
+   "text": "předání evidencí vedených v jiné než elektronické podobě Ministerstvu vnitra, nebo",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p25-1-d",
+   "label": "§ 25 odst. 1 písm. d)",
+   "anchor": "p25-1-d",
+   "text": "spolehlivém zničení těchto informací, a to v úplném nebo částečném rozsahu.",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p26-1",
+   "label": "§ 26 odst. 1",
+   "anchor": "p26-1",
+   "text": "Toto nařízení nabývá účinnosti patnáctým dnem po jeho vyhlášení, s výjimkou",
+   "parent": null
+  },
+  {
+   "id": "p26-1-a",
+   "label": "§ 26 odst. 1 písm. a)",
+   "anchor": "p26-1-a",
+   "text": "ustanovení § 19 odst. 1 až 4, 6 a 7, která nabývají účinnosti dnem 1. ledna 2022, a",
+   "parent": "p26-1"
+  },
+  {
+   "id": "p26-1-b",
+   "label": "§ 26 odst. 1 písm. b)",
+   "anchor": "p26-1-b",
+   "text": "ustanovení § 18, které nabývá účinnosti dnem 1. července 2022.",
+   "parent": "p26-1"
+  }
+ ]
+}

@@ -1,0 +1,1065 @@
+{
+ "act": "2021-14",
+ "name": "Zákon č. 14/2021 Sb., o nakládání se zbraněmi v některých případech ovlivňujících vnitřní pořádek a bezpečnost",
+ "url": "https://www.zakonyprolidi.cz/cs/2021-14",
+ "retrieved": "2026-10-27",
+ "units": [
+  {
+   "id": "p1-1",
+   "label": "§ 1 odst. 1",
+   "anchor": "p1-1",
+   "text": "Tento zákon stanoví",
+   "parent": null
+  },
+  {
+   "id": "p1-1-a",
+   "label": "§ 1 odst. 1 písm. a)",
+   "anchor": "p1-1-a",
+   "text": "zákaz ozbrojených skupin a",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-b",
+   "label": "§ 1 odst. 1 písm. b)",
+   "anchor": "p1-1-b",
+   "text": "opatření, která může stanovit vláda ve vztahu k podmínkám nakládání se zbraněmi v případech ovlivňujících vnitřní pořádek nebo bezpečnost České republiky.",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p2-1",
+   "label": "§ 2 odst. 1",
+   "anchor": "p2-1",
+   "text": "Pro účely tohoto zákona se zbraní rozumí",
+   "parent": null
+  },
+  {
+   "id": "p2-1-a",
+   "label": "§ 2 odst. 1 písm. a)",
+   "anchor": "p2-1-a",
+   "text": "střelná zbraň a střelivo podle zákona o zbraních a střelivu (dále jen „střelná zbraň“),",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-b",
+   "label": "§ 2 odst. 1 písm. b)",
+   "anchor": "p2-1-b",
+   "text": "munice podle zákona upravujícího nakládání s municí,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-c",
+   "label": "§ 2 odst. 1 písm. c)",
+   "anchor": "p2-1-c",
+   "text": "výbušnina podle zákona upravujícího nakládání s výbušninami a",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-d",
+   "label": "§ 2 odst. 1 písm. d)",
+   "anchor": "p2-1-d",
+   "text": "pyrotechnický výrobek podle zákona o pyrotechnice, pokud jde o pyrotechnický výrobek, s nímž mohou nakládat pouze osoby s odbornou způsobilostí.",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-2",
+   "label": "§ 2 odst. 2",
+   "anchor": "p2-2",
+   "text": "Nestanoví-li tento zákon jinak, použijí se na nakládání se zbraněmi podle hlavy III této části zákony uvedené v odstavci 1.",
+   "parent": null
+  },
+  {
+   "id": "p3-1",
+   "label": "§ 3 odst. 1",
+   "anchor": "p3-1",
+   "text": "Zakazuje se zakládat, organizovat nebo vyzbrojovat ozbrojenou skupinu anebo účastnit se její činnosti.",
+   "parent": null
+  },
+  {
+   "id": "p3-2",
+   "label": "§ 3 odst. 2",
+   "anchor": "p3-2",
+   "text": "Ozbrojenou skupinou se rozumí skupina osob, která zároveň",
+   "parent": null
+  },
+  {
+   "id": "p3-2-a",
+   "label": "§ 3 odst. 2 písm. a)",
+   "anchor": "p3-2-a",
+   "text": "má povahu paramilitární ozbrojené složky,",
+   "parent": "p3-2"
+  },
+  {
+   "id": "p3-2-b",
+   "label": "§ 3 odst. 2 písm. b)",
+   "anchor": "p3-2-b",
+   "text": "je určena k ozbrojenému prosazování cílů založených na politické, náboženské nebo jiné ideologii a",
+   "parent": "p3-2"
+  },
+  {
+   "id": "p3-2-c",
+   "label": "§ 3 odst. 2 písm. c)",
+   "anchor": "p3-2-c",
+   "text": "nakládá se zbraněmi, usiluje o získání přístupu ke zbraním, nebo organizuje osoby, které zbraněmi nakládají.",
+   "parent": "p3-2"
+  },
+  {
+   "id": "p4-1",
+   "label": "§ 4 odst. 1",
+   "anchor": "p4-1",
+   "text": "Zřizuje se systém střelecké přípravy, jehož účelem je zlepšování znalostí, schopností a dovedností osob oprávněných k nakládání se střelnými zbraněmi pro potřeby zajišťování vnitřního pořádku nebo bezpečnosti České republiky.",
+   "parent": null
+  },
+  {
+   "id": "p4-2",
+   "label": "§ 4 odst. 2",
+   "anchor": "p4-2",
+   "text": "Systém střelecké přípravy se skládá z programů střelecké přípravy, jejichž organizaci a obsah stanoví vláda nařízením a které zahrnují školení nebo výcvik anebo obdobnou přípravu v oblasti nakládání se střelnými zbraněmi a případně též hodnocené střelby. Vláda může pro příslušný program střelecké přípravy nařízením vymezit jednotlivé kurzy zahrnující školení, výcvik a hodnocené střelby (dále jen „kurz“).",
+   "parent": null
+  },
+  {
+   "id": "p5-1",
+   "label": "§ 5 odst. 1",
+   "anchor": "p5-1",
+   "text": "Program střelecké přípravy pro oblast vnitřního pořádku a bezpečnosti České republiky organizuje Ministerstvo vnitra a pro oblast obrany České republiky Ministerstvo obrany.",
+   "parent": null
+  },
+  {
+   "id": "p5-2",
+   "label": "§ 5 odst. 2",
+   "anchor": "p5-2",
+   "text": "Vláda může nařízením stanovit, že program střelecké přípravy bude zajišťován akreditovanou osobou, pokud jsou pro takový program střelecké přípravy stanoveny kurzy.",
+   "parent": null
+  },
+  {
+   "id": "p5-3",
+   "label": "§ 5 odst. 3",
+   "anchor": "p5-3",
+   "text": "Účast na programu střelecké přípravy je dobrovolná. Osoba účastnící se programu střelecké přípravy nemá nárok na náhradu nákladů své účasti na něm, nestanoví-li jiný právní předpis jinak.",
+   "parent": null
+  },
+  {
+   "id": "p5-4",
+   "label": "§ 5 odst. 4",
+   "anchor": "p5-4",
+   "text": "Vláda může nařízením vymezit podmínky účasti na programu střelecké přípravy, pokud jde o",
+   "parent": null
+  },
+  {
+   "id": "p5-4-a",
+   "label": "§ 5 odst. 4 písm. a)",
+   "anchor": "p5-4-a",
+   "text": "návaznost programu střelecké přípravy na systém přípravy obyvatelstva podle jiného právního předpisu,",
+   "parent": "p5-4"
+  },
+  {
+   "id": "p5-4-b",
+   "label": "§ 5 odst. 4 písm. b)",
+   "anchor": "p5-4-b",
+   "text": "držení oprávnění nakládat se střelnými zbraněmi účastníkem programu střelecké přípravy podle § 6,",
+   "parent": "p5-4"
+  },
+  {
+   "id": "p5-4-c",
+   "label": "§ 5 odst. 4 písm. c)",
+   "anchor": "p5-4-c",
+   "text": "občanství osoby účastnící se programu střelecké přípravy,",
+   "parent": "p5-4"
+  },
+  {
+   "id": "p5-4-d",
+   "label": "§ 5 odst. 4 písm. d)",
+   "anchor": "p5-4-d",
+   "text": "minimální věk, zdravotní předpoklady nebo trestní anebo přestupkovou zachovalost účastníka programu střelecké přípravy,",
+   "parent": "p5-4"
+  },
+  {
+   "id": "p5-4-e",
+   "label": "§ 5 odst. 4 písm. e)",
+   "anchor": "p5-4-e",
+   "text": "povinnost splnit další kvalifikační podmínky vzniku a trvání účasti na programu střelecké přípravy; další kvalifikační podmínky mohou zahrnovat zejména pravidelné hodnocené střelby nebo účast na povinném školení a výcviku.",
+   "parent": "p5-4"
+  },
+  {
+   "id": "p5-5",
+   "label": "§ 5 odst. 5",
+   "anchor": "p5-5",
+   "text": "Účastníkem programu střelecké přípravy může být osoba splňující podmínky stanovené nařízením vlády vydaným podle odstavce 4; splnění těchto podmínek se prokazuje způsobem stanoveným nařízením vlády u orgánu veřejné moci, který zajišťuje organizaci příslušného programu střelecké přípravy, nebo u akreditované osoby, a to předložením příslušných dokladů nebo osvědčení, anebo, nelze-li splnění takové podmínky doložit jinak, předložením čestného prohlášení.",
+   "parent": null
+  },
+  {
+   "id": "p6-1",
+   "label": "§ 6 odst. 1",
+   "anchor": "p6-1",
+   "text": "Osoba účastnící se v rámci systému střelecké přípravy příslušného programu střelecké přípravy je oprávněna nakládat se střelnými zbraněmi, které",
+   "parent": null
+  },
+  {
+   "id": "p6-1-a",
+   "label": "§ 6 odst. 1 písm. a)",
+   "anchor": "p6-1-a",
+   "text": "drží podle jiného právního předpisu,",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-b",
+   "label": "§ 6 odst. 1 písm. b)",
+   "anchor": "p6-1-b",
+   "text": "drží na základě aprobace v systému střelecké přípravy, nebo",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-c",
+   "label": "§ 6 odst. 1 písm. c)",
+   "anchor": "p6-1-c",
+   "text": "jí byly přenechány v rámci programu střelecké přípravy.",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-2",
+   "label": "§ 6 odst. 2",
+   "anchor": "p6-2",
+   "text": "Osoba účastnící se programu střelecké přípravy a střelná zbraň, s níž je nakládáno v systému střelecké přípravy, jsou stanovenou zálohou státu pro plnění úkolů při zajišťování vnitřního pořádku nebo bezpečnosti České republiky anebo obrany České republiky, a to za podmínek, které stanoví vláda nařízením vydaným podle § 17 nebo jiný právní předpis. Skutečnost, že střelná zbraň je podle věty první stanovenou zálohou státu, se vyznačí v centrálním registru zbraní zřizovaném podle zákona o zbraních a střelivu, je-li v něm taková střelná zbraň evidována.",
+   "parent": null
+  },
+  {
+   "id": "p7-1",
+   "label": "§ 7 odst. 1",
+   "anchor": "p7-1",
+   "text": "Aprobace v systému střelecké přípravy prokazuje způsobilost svého držitele nakládat se střelnou zbraní určité kategorie, je právním důvodem pro vydání povolení nakládat se střelnou zbraní této kategorie, je-li vyžadováno, a dokládá jiné oprávnění, pokud tak stanoví tento zákon nebo nařízení vlády. Vláda nařízením stanoví programy střelecké přípravy, po jejichž absolvování lze získat aprobaci v systému střelecké přípravy, a určí kategorie střelných zbraní, pro které se podle věty první aprobace v systému střelecké přípravy vydává.",
+   "parent": null
+  },
+  {
+   "id": "p7-2",
+   "label": "§ 7 odst. 2",
+   "anchor": "p7-2",
+   "text": "Podmínky pro získání aprobace v systému střelecké přípravy splní ten, kdo absolvuje program střelecké přípravy a dosáhne nařízením vlády stanovené úrovně odbornosti, dovedností a případně výkonnosti v nakládání se střelnou zbraní.",
+   "parent": null
+  },
+  {
+   "id": "p7-3",
+   "label": "§ 7 odst. 3",
+   "anchor": "p7-3",
+   "text": "Vláda může nařízením stanovit způsob podpory střelecké přípravy držitelů aprobace v systému střelecké přípravy. Podpora střelecké přípravy může být omezena na držitele aprobace v systému střelecké přípravy získané absolvováním určitého programu střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p7-4",
+   "label": "§ 7 odst. 4",
+   "anchor": "p7-4",
+   "text": "Podpora střelecké přípravy podle odstavce 3 může mít zejména podobu",
+   "parent": null
+  },
+  {
+   "id": "p7-4-a",
+   "label": "§ 7 odst. 4 písm. a)",
+   "anchor": "p7-4-a",
+   "text": "bezúplatného převodu střelné zbraně nebo dalšího souvisejícího materiálu z vlastnictví státu do vlastnictví držitele aprobace v systému střelecké přípravy nebo převodu za sníženou částku,",
+   "parent": "p7-4"
+  },
+  {
+   "id": "p7-4-b",
+   "label": "§ 7 odst. 4 písm. b)",
+   "anchor": "p7-4-b",
+   "text": "věcné nebo finanční podpory účasti na kurzu střelecké přípravy, přičemž podpora může být poskytována rovněž prostřednictvím akreditované osoby,",
+   "parent": "p7-4"
+  },
+  {
+   "id": "p7-4-c",
+   "label": "§ 7 odst. 4 písm. c)",
+   "anchor": "p7-4-c",
+   "text": "věcné nebo finanční podpory individuální střelecké přípravy držitele aprobace v systému střelecké přípravy a",
+   "parent": "p7-4"
+  },
+  {
+   "id": "p7-4-d",
+   "label": "§ 7 odst. 4 písm. d)",
+   "anchor": "p7-4-d",
+   "text": "umožnění bezúplatného využití movitého a nemovitého majetku České republiky nebo jeho využití za sníženou částku, pokud to neohrozí plnění úkolů organizační složky státu, která je s takovým majetkem příslušná hospodařit.",
+   "parent": "p7-4"
+  },
+  {
+   "id": "p8-1",
+   "label": "§ 8 odst. 1",
+   "anchor": "p8-1",
+   "text": "Orgán veřejné moci, který zajišťuje organizaci příslušného programu střelecké přípravy, nebo akreditovaná osoba vydá osobě účastnící se programu střelecké přípravy, která splní podmínky pro získání aprobace v systému střelecké přípravy, potvrzení pro účely vydání aprobace v systému střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p8-2",
+   "label": "§ 8 odst. 2",
+   "anchor": "p8-2",
+   "text": "Policie České republiky vydá aprobaci v systému střelecké přípravy na žádost osobě, která prokáže splnění podmínek pro získání aprobace v systému střelecké přípravy předložením potvrzení podle odstavce 1. Potvrzení uvedené ve větě první nesmí být starší 3 let.",
+   "parent": null
+  },
+  {
+   "id": "p8-3",
+   "label": "§ 8 odst. 3",
+   "anchor": "p8-3",
+   "text": "Střelná zbraň, s níž osoba účastnící se programu střelecké přípravy nakládá na základě aprobace v systému střelecké přípravy, která je zbraní podléhající registraci podle zákona o zbraních a střelivu, musí být zaregistrována; ustanovení zákona o zbraních a střelivu o registraci zbraně podléhající registraci se na registraci takové zbraně použijí obdobně. Při registraci střelné zbraně podle věty první se eviduje též údaj nabytí zbraně na základě aprobace v systému střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p8-4",
+   "label": "§ 8 odst. 4",
+   "anchor": "p8-4",
+   "text": "Aprobace v systému střelecké přípravy je pozastavena po dobu pozastavení zbrojního oprávnění.",
+   "parent": null
+  },
+  {
+   "id": "p8-5",
+   "label": "§ 8 odst. 5",
+   "anchor": "p8-5",
+   "text": "Platnost aprobace v systému střelecké přípravy zaniká, pokud její držitel přestal být držitelem zbrojního oprávnění podle zákona o zbraních a střelivu. Zanikla-li platnost aprobace v systému střelecké přípravy, je osoba, která na jejím základě držela střelnou zbraň, povinna postupovat obdobně jako v případě pozbytí oprávnění nakládat s takovou zbraní podle zákona o zbraních a střelivu.",
+   "parent": null
+  },
+  {
+   "id": "p9-1",
+   "label": "§ 9 odst. 1",
+   "anchor": "p9-1",
+   "text": "Přenechat střelnou zbraň lze osobě účastnící se v rámci systému střelecké přípravy příslušného programu střelecké přípravy",
+   "parent": null
+  },
+  {
+   "id": "p9-1-a",
+   "label": "§ 9 odst. 1 písm. a)",
+   "anchor": "p9-1-a",
+   "text": "za podmínek, které stanoví vláda nařízením, přenechává-li se střelná zbraň, se kterou je příslušný nakládat orgán zajišťující organizaci programu střelecké přípravy nebo akreditovaná osoba, nebo",
+   "parent": "p9-1"
+  },
+  {
+   "id": "p9-1-b",
+   "label": "§ 9 odst. 1 písm. b)",
+   "anchor": "p9-1-b",
+   "text": "pokud získala příslušnou aprobaci v systému střelecké přípravy.",
+   "parent": "p9-1"
+  },
+  {
+   "id": "p9-2",
+   "label": "§ 9 odst. 2",
+   "anchor": "p9-2",
+   "text": "Orgán veřejné moci, který organizuje program střelecké přípravy, nebo akreditovaná osoba zajistí evidenci výdeje a příjmu střelných zbraní, které jsou přenechávány osobě účastnící se programu střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p9-3",
+   "label": "§ 9 odst. 3",
+   "anchor": "p9-3",
+   "text": "Držitel aprobace v systému střelecké přípravy, kterému je střelná zbraň podle odstavce 1 přenechána na dobu mimo školení a výcvik organizované v rámci programu střelecké přípravy, oznámí přenechání takové střelné zbraně krajskému ředitelství Policie České republiky místně příslušnému podle místa jeho trvalého pobytu, a to nejpozději do 10 pracovních dnů ode dne jejího přenechání.",
+   "parent": null
+  },
+  {
+   "id": "p10-1",
+   "label": "§ 10 odst. 1",
+   "anchor": "p10-1",
+   "text": "Akreditovanou osobou je osoba, které byla udělena akreditace pro zajišťování kurzu v rámci programu střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p10-2",
+   "label": "§ 10 odst. 2",
+   "anchor": "p10-2",
+   "text": "Akreditaci udělí orgán, který organizuje příslušný program střelecké přípravy, žadateli, který",
+   "parent": null
+  },
+  {
+   "id": "p10-2-a",
+   "label": "§ 10 odst. 2 písm. a)",
+   "anchor": "p10-2-a",
+   "text": "je držitelem zbrojní licence skupiny ZL1 nebo ZL2 nebo nevyňatou veřejnoprávní institucí podle zákona o zbraních a střelivu,",
+   "parent": "p10-2"
+  },
+  {
+   "id": "p10-2-b",
+   "label": "§ 10 odst. 2 písm. b)",
+   "anchor": "p10-2-b",
+   "text": "prokáže svou způsobilost zajišťovat kurz v rozsahu stanoveném nařízením vlády,",
+   "parent": "p10-2"
+  },
+  {
+   "id": "p10-2-c",
+   "label": "§ 10 odst. 2 písm. c)",
+   "anchor": "p10-2-c",
+   "text": "předloží projekt kurzu, ve kterém vymezí organizaci, obsah a rozsah teoretické a praktické přípravy a organizaci a obsah hodnocených střeleb, včetně nejvyššího počtu účastníků v kurzu,",
+   "parent": "p10-2"
+  },
+  {
+   "id": "p10-2-d",
+   "label": "§ 10 odst. 2 písm. d)",
+   "anchor": "p10-2-d",
+   "text": "předloží návrh vnitřního předpisu, který vymezí zásady činnosti akreditované osoby a způsob ověřování kvalifikace odborných instruktorů akreditovanou osobou, a",
+   "parent": "p10-2"
+  },
+  {
+   "id": "p10-2-e",
+   "label": "§ 10 odst. 2 písm. e)",
+   "anchor": "p10-2-e",
+   "text": "doloží, že disponuje prostory a vybavením nezbytným pro zajištění kurzu, a to včetně oprávnění užívat odpovídající střelnici.",
+   "parent": "p10-2"
+  },
+  {
+   "id": "p10-3",
+   "label": "§ 10 odst. 3",
+   "anchor": "p10-3",
+   "text": "Akreditovaná osoba je povinna",
+   "parent": null
+  },
+  {
+   "id": "p10-3-a",
+   "label": "§ 10 odst. 3 písm. a)",
+   "anchor": "p10-3-a",
+   "text": "v návaznosti na požadavky na kurz stanovené nařízením vlády aktualizovat projekt podle odstavce 2 písm. c) a vnitřní předpis podle odstavce 2 písm. d) a zajistit jejich dodržování při poskytování kurzu,",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-b",
+   "label": "§ 10 odst. 3 písm. b)",
+   "anchor": "p10-3-b",
+   "text": "zajistit ověření kvalifikace odborného instruktora vždy před zahájením činnosti odborného instruktora a následně vždy před uplynutím 3 let ode dne ověření jeho kvalifikace,",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-c",
+   "label": "§ 10 odst. 3 písm. c)",
+   "anchor": "p10-3-c",
+   "text": "zajistit provádění kurzu pod přímým vedením odborného instruktora kvalifikovaného pro příslušný program střelecké přípravy, zpracovat záznam o ověření kvalifikace odborného instruktora v podobě a rozsahu, které stanoví vláda nařízením, a tyto záznamy uchovávat po dobu 10 let ode dne ukončení činnosti odborného instruktora pro akreditovanou osobu,",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-d",
+   "label": "§ 10 odst. 3 písm. d)",
+   "anchor": "p10-3-d",
+   "text": "po celou dobu kurzu disponovat nezbytnými prostory a vybavením, a to včetně odpovídající střelnice,",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-e",
+   "label": "§ 10 odst. 3 písm. e)",
+   "anchor": "p10-3-e",
+   "text": "vést seznam účastníků kurzu, včetně záznamu o jejich účasti,",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-f",
+   "label": "§ 10 odst. 3 písm. f)",
+   "anchor": "p10-3-f",
+   "text": "nejpozději 10 pracovních dnů před zahájením kurzu vyznačit údaj o konání kurzu, včetně místa a času jeho konání, v centrálním registru zbraní podle zákona o zbraních a střelivu a před zahájením kurzu zapsat do centrálního registru zbraní každého účastníka takového kurzu,",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-g",
+   "label": "§ 10 odst. 3 písm. g)",
+   "anchor": "p10-3-g",
+   "text": "oznámit orgánu, který akreditaci udělil, změny údajů rozhodných pro její udělení a předložit o nich doklady do 10 pracovních dnů ode dne, kdy k nim došlo; pokud mají změny těchto údajů vliv na pořádání kurzu, který již byl zahájen nebo bude zahájen ve lhůtě kratší než 10 pracovních dnů ode dne, kdy ke změně došlo, je akreditovaná osoba povinna oznámit tyto změny neprodleně,",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-h",
+   "label": "§ 10 odst. 3 písm. h)",
+   "anchor": "p10-3-h",
+   "text": "do 10 pracovních dnů po skončení kurzu zpracovat záznam o průběhu kurzu v podobě a rozsahu, které stanoví vláda nařízením, uvést v něm zejména informace o absolvování kurzu jeho účastníkem a tyto záznamy uchovávat po dobu 10 let ode dne skončení kurzu,",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-i",
+   "label": "§ 10 odst. 3 písm. i)",
+   "anchor": "p10-3-i",
+   "text": "vydat potvrzení pro účely vydání aprobace v systému střelecké přípravy pouze osobě, která splní stanovené podmínky pro získání aprobace v rámci kurzu zajišťovaného akreditovanou osobou a",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p10-3-j",
+   "label": "§ 10 odst. 3 písm. j)",
+   "anchor": "p10-3-j",
+   "text": "vést evidenci podle § 14a v centrálním registru zbraní podle zákona o zbraních a střelivu.",
+   "parent": "p10-3"
+  },
+  {
+   "id": "p11-1",
+   "label": "§ 11 odst. 1",
+   "anchor": "p11-1",
+   "text": "Orgán, který akreditaci udělil, prověří nejméně jednou za 5 let, že akreditovaná osoba splňuje podmínky uvedené v § 10 odst. 2; za tím účelem je orgán, který akreditaci udělil, oprávněn vyzvat akreditovanou osobu k prokázání příslušných skutečností.",
+   "parent": null
+  },
+  {
+   "id": "p12-1",
+   "label": "§ 12 odst. 1",
+   "anchor": "p12-1",
+   "text": "Akreditace je pozastavena po dobu pozastavení zbrojní licence.",
+   "parent": null
+  },
+  {
+   "id": "p12-2",
+   "label": "§ 12 odst. 2",
+   "anchor": "p12-2",
+   "text": "Akreditace zaniká, pokud",
+   "parent": null
+  },
+  {
+   "id": "p12-2-a",
+   "label": "§ 12 odst. 2 písm. a)",
+   "anchor": "p12-2-a",
+   "text": "akreditované osobě zanikla platnost zbrojní licence podle zákona o zbraních a střelivu,",
+   "parent": "p12-2"
+  },
+  {
+   "id": "p12-2-b",
+   "label": "§ 12 odst. 2 písm. b)",
+   "anchor": "p12-2-b",
+   "text": "akreditovaná osoba se akreditace vzdá, nebo",
+   "parent": "p12-2"
+  },
+  {
+   "id": "p12-2-c",
+   "label": "§ 12 odst. 2 písm. c)",
+   "anchor": "p12-2-c",
+   "text": "byla akreditované osobě akreditace odňata.",
+   "parent": "p12-2"
+  },
+  {
+   "id": "p12-3",
+   "label": "§ 12 odst. 3",
+   "anchor": "p12-3",
+   "text": "Orgán, který akreditaci udělil, ji odejme, jestliže akreditovaná osoba",
+   "parent": null
+  },
+  {
+   "id": "p12-3-a",
+   "label": "§ 12 odst. 3 písm. a)",
+   "anchor": "p12-3-a",
+   "text": "opakovaně nebo hrubým způsobem porušila povinnosti stanovené tímto zákonem, zákonem o zbraních a střelivu nebo zákonem o munici,",
+   "parent": "p12-3"
+  },
+  {
+   "id": "p12-3-b",
+   "label": "§ 12 odst. 3 písm. b)",
+   "anchor": "p12-3-b",
+   "text": "opakovaně nezajistila, aby kurz dosáhl svého účelu, nebo dosažení jeho účelu opakovaně závažným způsobem ohrozila,",
+   "parent": "p12-3"
+  },
+  {
+   "id": "p12-3-c",
+   "label": "§ 12 odst. 3 písm. c)",
+   "anchor": "p12-3-c",
+   "text": "nejméně po dobu 3 let nezajišťuje konání kurzu, nebo",
+   "parent": "p12-3"
+  },
+  {
+   "id": "p12-3-d",
+   "label": "§ 12 odst. 3 písm. d)",
+   "anchor": "p12-3-d",
+   "text": "přestane splňovat některou z podmínek uvedených v § 10 odst. 2.",
+   "parent": "p12-3"
+  },
+  {
+   "id": "p12-4",
+   "label": "§ 12 odst. 4",
+   "anchor": "p12-4",
+   "text": "O udělení akreditace může osoba, které byla akreditace odňata z důvodů uvedených v odstavci 3 písm. a) nebo b), znovu požádat nejdříve po uplynutí 3 let ode dne nabytí právní moci rozhodnutí o odnětí akreditace.",
+   "parent": null
+  },
+  {
+   "id": "p13-1",
+   "label": "§ 13 odst. 1",
+   "anchor": "p13-1",
+   "text": "Činnost odborného instruktora může pro akreditovanou osobu vykonávat fyzická osoba,",
+   "parent": null
+  },
+  {
+   "id": "p13-1-a",
+   "label": "§ 13 odst. 1 písm. a)",
+   "anchor": "p13-1-a",
+   "text": "která je nepřetržitě alespoň po 3 roky držitelem rozšířeného zbrojního oprávnění podle zákona o zbraních a střelivu a",
+   "parent": "p13-1"
+  },
+  {
+   "id": "p13-1-b",
+   "label": "§ 13 odst. 1 písm. b)",
+   "anchor": "p13-1-b",
+   "text": "která má ukončené alespoň střední vzdělání s maturitní zkouškou.",
+   "parent": "p13-1"
+  },
+  {
+   "id": "p13-2",
+   "label": "§ 13 odst. 2",
+   "anchor": "p13-2",
+   "text": "Orgán, který zajišťuje organizaci příslušného programu střelecké přípravy, vysloví zákaz vykonávat činnost odborného instruktora až na dobu 3 let osobě, která jako odborný instruktor opakovaně nebo hrubým způsobem při zajišťování kurzu",
+   "parent": null
+  },
+  {
+   "id": "p13-2-a",
+   "label": "§ 13 odst. 2 písm. a)",
+   "anchor": "p13-2-a",
+   "text": "porušila povinnosti stanovené tímto zákonem, zákonem o zbraních a střelivu nebo zákonem o munici, nebo",
+   "parent": "p13-2"
+  },
+  {
+   "id": "p13-2-b",
+   "label": "§ 13 odst. 2 písm. b)",
+   "anchor": "p13-2-b",
+   "text": "ohrozila dosažení účelu kurzu.",
+   "parent": "p13-2"
+  },
+  {
+   "id": "p13-3",
+   "label": "§ 13 odst. 3",
+   "anchor": "p13-3",
+   "text": "Rozhodnutí o vyslovení zákazu vykonávat činnost odborného instruktora podle odstavce 2 se oznamuje akreditované osobě, u níž taková osoba činnost odborného instruktora vykonává.",
+   "parent": null
+  },
+  {
+   "id": "p14-1",
+   "label": "§ 14 odst. 1",
+   "anchor": "p14-1",
+   "text": "Kontrolu nad dodržováním povinností podle tohoto dílu vykonává orgán, který organizuje program střelecké přípravy, a Policie České republiky.",
+   "parent": null
+  },
+  {
+   "id": "p14-2",
+   "label": "§ 14 odst. 2",
+   "anchor": "p14-2",
+   "text": "Na kontrolu vykonávanou Policií České republiky podle odstavce 1 se použije kontrolní řád.",
+   "parent": null
+  },
+  {
+   "id": "p14a-1",
+   "label": "§ 14a odst. 1",
+   "anchor": "p14a-1",
+   "text": "K výkonu státní správy podle tohoto zákona, zajišťování podpory systému střelecké přípravy a k provádění opatření podle § 17 se využívá centrální registr zbraní podle zákona o zbraních a střelivu.",
+   "parent": null
+  },
+  {
+   "id": "p14a-2",
+   "label": "§ 14a odst. 2",
+   "anchor": "p14a-2",
+   "text": "V centrálním registru zbraní se v rozsahu nezbytném pro plnění úkolů podle odstavce 1 vedou údaje o",
+   "parent": null
+  },
+  {
+   "id": "p14a-2-a",
+   "label": "§ 14a odst. 2 písm. a)",
+   "anchor": "p14a-2-a",
+   "text": "akreditovaných osobách,",
+   "parent": "p14a-2"
+  },
+  {
+   "id": "p14a-2-b",
+   "label": "§ 14a odst. 2 písm. b)",
+   "anchor": "p14a-2-b",
+   "text": "účastnících programu střelecké přípravy,",
+   "parent": "p14a-2"
+  },
+  {
+   "id": "p14a-2-c",
+   "label": "§ 14a odst. 2 písm. c)",
+   "anchor": "p14a-2-c",
+   "text": "vydaných aprobacích a potvrzeních pro účely vydání základní aprobace,",
+   "parent": "p14a-2"
+  },
+  {
+   "id": "p14a-2-d",
+   "label": "§ 14a odst. 2 písm. d)",
+   "anchor": "p14a-2-d",
+   "text": "osobách a zbraních, které jsou součástí stanovené zálohy státu,",
+   "parent": "p14a-2"
+  },
+  {
+   "id": "p14a-2-e",
+   "label": "§ 14a odst. 2 písm. e)",
+   "anchor": "p14a-2-e",
+   "text": "hodnocených střelbách,",
+   "parent": "p14a-2"
+  },
+  {
+   "id": "p14a-2-f",
+   "label": "§ 14a odst. 2 písm. f)",
+   "anchor": "p14a-2-f",
+   "text": "podpoře střelecké přípravy a",
+   "parent": "p14a-2"
+  },
+  {
+   "id": "p14a-2-g",
+   "label": "§ 14a odst. 2 písm. g)",
+   "anchor": "p14a-2-g",
+   "text": "jiných skutečnostech významných pro výkon státní správy a plnění dalších úkolů podle tohoto zákona nebo jiného právního předpisu při nakládání se zbraněmi v systému střelecké přípravy, a to včetně osobních údajů o osobách, jichž se tyto skutečnosti týkají.",
+   "parent": "p14a-2"
+  },
+  {
+   "id": "p14a-3",
+   "label": "§ 14a odst. 3",
+   "anchor": "p14a-3",
+   "text": "Způsob zápisu a vedení údajů podle tohoto zákona v centrálním registru zbraní stanoví vláda nařízením.",
+   "parent": null
+  },
+  {
+   "id": "p14b-1",
+   "label": "§ 14b odst. 1",
+   "anchor": "p14b-1",
+   "text": "Akreditovaná osoba nebo jí určená osoba přistupují do centrálního registru zbraní prostřednictvím prostředku pro elektronickou identifikaci.",
+   "parent": null
+  },
+  {
+   "id": "p14b-2",
+   "label": "§ 14b odst. 2",
+   "anchor": "p14b-2",
+   "text": "Krajské ředitelství policie umožní přístup do centrálního registru zbraní akreditované osobě do 2 pracovních dnů ode dne vydání akreditace.",
+   "parent": null
+  },
+  {
+   "id": "p14b-3",
+   "label": "§ 14b odst. 3",
+   "anchor": "p14b-3",
+   "text": "Akreditovaná osoba může požádat krajské ředitelství policie o umožnění nebo zabránění přístupu do centrálního registru zbraní jí určeným osobám.",
+   "parent": null
+  },
+  {
+   "id": "p14c-1",
+   "label": "§ 14c odst. 1",
+   "anchor": "p14c-1",
+   "text": "Akreditovaná osoba je povinna zapisovat do centrálního registru zbraní údaje o",
+   "parent": null
+  },
+  {
+   "id": "p14c-1-a",
+   "label": "§ 14c odst. 1 písm. a)",
+   "anchor": "p14c-1-a",
+   "text": "účastnících kurzu v rámci programu střelecké přípravy, který akreditovaná osoba zajišťuje,",
+   "parent": "p14c-1"
+  },
+  {
+   "id": "p14c-1-b",
+   "label": "§ 14c odst. 1 písm. b)",
+   "anchor": "p14c-1-b",
+   "text": "vydaných potvrzeních pro účely vydání aprobace,",
+   "parent": "p14c-1"
+  },
+  {
+   "id": "p14c-1-c",
+   "label": "§ 14c odst. 1 písm. c)",
+   "anchor": "p14c-1-c",
+   "text": "absolvování hodnocených střeleb účastníkem programu střelecké přípravy a",
+   "parent": "p14c-1"
+  },
+  {
+   "id": "p14c-1-d",
+   "label": "§ 14c odst. 1 písm. d)",
+   "anchor": "p14c-1-d",
+   "text": "poskytnuté podpoře střelecké přípravy.",
+   "parent": "p14c-1"
+  },
+  {
+   "id": "p14d-1",
+   "label": "§ 14d odst. 1",
+   "anchor": "p14d-1",
+   "text": "Údaje vedené v centrálním registru zbraní podle tohoto zákona se uchovávají po dobu 30 let ode dne, kdy podle tohoto zákona zanikla povinnost vést tyto údaje v centrálním registru zbraní.",
+   "parent": null
+  },
+  {
+   "id": "p14d-2",
+   "label": "§ 14d odst. 2",
+   "anchor": "p14d-2",
+   "text": "Po uplynutí doby uvedené v odstavci 1 zajistí správce centrálního registru zbraní vymazání osobních údajů akreditovaných osob a účastníků programu střelecké přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p15-1",
+   "label": "§ 15 odst. 1",
+   "anchor": "p15-1",
+   "text": "Osobou oprávněnou nosit služební střelnou zbraň se pro účely tohoto zákona rozumí",
+   "parent": null
+  },
+  {
+   "id": "p15-1-a",
+   "label": "§ 15 odst. 1 písm. a)",
+   "anchor": "p15-1-a",
+   "text": "příslušník ozbrojeného bezpečnostního sboru,",
+   "parent": "p15-1"
+  },
+  {
+   "id": "p15-1-b",
+   "label": "§ 15 odst. 1 písm. b)",
+   "anchor": "p15-1-b",
+   "text": "příslušník Vojenské policie, nebo",
+   "parent": "p15-1"
+  },
+  {
+   "id": "p15-1-c",
+   "label": "§ 15 odst. 1 písm. c)",
+   "anchor": "p15-1-c",
+   "text": "strážník obecní policie.",
+   "parent": "p15-1"
+  },
+  {
+   "id": "p15-2",
+   "label": "§ 15 odst. 2",
+   "anchor": "p15-2",
+   "text": "Osoba oprávněná nosit služební střelnou zbraň je oprávněna nosit služební střelnou zbraň též v době mimo službu nebo v mimopracovní době, pokud",
+   "parent": null
+  },
+  {
+   "id": "p15-2-a",
+   "label": "§ 15 odst. 2 písm. a)",
+   "anchor": "p15-2-a",
+   "text": "taková zbraň odpovídá služební přípravě a výcviku takové osoby,",
+   "parent": "p15-2"
+  },
+  {
+   "id": "p15-2-b",
+   "label": "§ 15 odst. 2 písm. b)",
+   "anchor": "p15-2-b",
+   "text": "taková zbraň je této osobě přidělena a",
+   "parent": "p15-2"
+  },
+  {
+   "id": "p15-2-c",
+   "label": "§ 15 odst. 2 písm. c)",
+   "anchor": "p15-2-c",
+   "text": "ozbrojený bezpečnostní sbor, Vojenská policie nebo obec vymezí podmínky nakládání se služební střelnou zbraní přenechanou na dobu mimo službu nebo na mimopracovní dobu ve vnitřním předpise.",
+   "parent": "p15-2"
+  },
+  {
+   "id": "p15-3",
+   "label": "§ 15 odst. 3",
+   "anchor": "p15-3",
+   "text": "Osoba oprávněná nosit služební střelnou zbraň je oprávněna v době mimo službu nebo v mimopracovní době za podmínek stanovených pro použití služební střelné zbraně použít namísto služební střelné zbraně též střelnou zbraň, jejímž oprávněným držitelem je podle tohoto zákona nebo podle zákona o zbraních a střelivu.",
+   "parent": null
+  },
+  {
+   "id": "p16-1",
+   "label": "§ 16 odst. 1",
+   "anchor": "p16-1",
+   "text": "Na žádost Policie České republiky, Ministerstva vnitra nebo zpravodajské služby vydá správce informačního systému, ve kterém jsou vedeny údaje o zbraních, za účelem provádění opatření k evidenční ochraně údajů informace o poskytnutí a využití údajů a o přístupu do tohoto informačního systému, včetně informace, na čí žádost se tak stalo. Informace podle věty první a žádosti o jejich poskytnutí se předávají v elektronické podobě způsobem umožňujícím nepřetržitý dálkový přístup.",
+   "parent": null
+  },
+  {
+   "id": "p17-1",
+   "label": "§ 17 odst. 1",
+   "anchor": "p17-1",
+   "text": "Je-li to nezbytné pro plnění úkolů v rámci krizového stavu, kterým se rozumí stav nebezpečí, nouzový stav, stav ohrožení státu nebo válečný stav, může vláda po dobu trvání vyhlášeného krizového stavu nařízením",
+   "parent": null
+  },
+  {
+   "id": "p17-1-a",
+   "label": "§ 17 odst. 1 písm. a)",
+   "anchor": "p17-1-a",
+   "text": "stanovit, nejdéle však vždy na 3 měsíce, podmínky nakládání nebo oprávnění nakládat se střelnými zbraněmi odchylně od právních předpisů uvedených v § 2 odst. 1, nebo",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-b",
+   "label": "§ 17 odst. 1 písm. b)",
+   "anchor": "p17-1-b",
+   "text": "nařídit ve zvýšené míře výkon kontrolní činnosti na úseku nakládání se zbraněmi.",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-2",
+   "label": "§ 17 odst. 2",
+   "anchor": "p17-2",
+   "text": "Vláda nařízením stanoví zvláštní opatření k ochraně, utajení nebo zabránění zneužití informačních systémů a evidencí obsahujících informace o zbraních a držitelích příslušných oprávnění; tím nejsou dotčena ustanovení jiných právních předpisů o zajišťování bezpečnosti sítí a informačních systémů. O provedení zvláštních opatření podle věty první může vláda rozhodnout v případě vyhlášení krizového stavu.",
+   "parent": null
+  },
+  {
+   "id": "p17-3",
+   "label": "§ 17 odst. 3",
+   "anchor": "p17-3",
+   "text": "Podmínky nakládání nebo oprávnění nakládat se střelnými zbraněmi stanovené podle odstavce 1 písm. a) nesmí být v rozporu se zájmem fyzických osob na ochraně života, zdraví nebo majetku v souladu se zákonem o zbraních a střelivu.",
+   "parent": null
+  },
+  {
+   "id": "p18-1",
+   "label": "§ 18 odst. 1",
+   "anchor": "p18-1",
+   "text": "Fyzická, právnická nebo podnikající fyzická osoba se dopustí přestupku tím, že za krizového stavu nakládá se střelnými zbraněmi v rozporu s nařízením vlády vydaným podle § 17 odst. 1 nebo neprovede zvláštní opatření k ochraně, utajení nebo zabránění zneužití informací o zbraních a držitelích příslušných oprávnění nařízená nařízením vlády podle § 17 odst. 2.",
+   "parent": null
+  },
+  {
+   "id": "p18-2",
+   "label": "§ 18 odst. 2",
+   "anchor": "p18-2",
+   "text": "Právnická nebo podnikající fyzická osoba se dopustí přestupku tím, že",
+   "parent": null
+  },
+  {
+   "id": "p18-2-a",
+   "label": "§ 18 odst. 2 písm. a)",
+   "anchor": "p18-2-a",
+   "text": "úmyslně poruší zákaz podle § 3 odst. 1, nebo",
+   "parent": "p18-2"
+  },
+  {
+   "id": "p18-2-b",
+   "label": "§ 18 odst. 2 písm. b)",
+   "anchor": "p18-2-b",
+   "text": "jako akreditovaná osoba poruší některou z povinností uvedenou v § 10 odst. 3.",
+   "parent": "p18-2"
+  },
+  {
+   "id": "p18-3",
+   "label": "§ 18 odst. 3",
+   "anchor": "p18-3",
+   "text": "Fyzická osoba se dopustí přestupku tím, že",
+   "parent": null
+  },
+  {
+   "id": "p18-3-a",
+   "label": "§ 18 odst. 3 písm. a)",
+   "anchor": "p18-3-a",
+   "text": "úmyslně poruší zákaz podle § 3 odst. 1, nebo",
+   "parent": "p18-3"
+  },
+  {
+   "id": "p18-3-b",
+   "label": "§ 18 odst. 3 písm. b)",
+   "anchor": "p18-3-b",
+   "text": "nakládá se střelnými zbraněmi nebo střelivem v rámci systému střelecké přípravy v rozporu s § 6, 7, 8 nebo 9.",
+   "parent": "p18-3"
+  },
+  {
+   "id": "p18-4",
+   "label": "§ 18 odst. 4",
+   "anchor": "p18-4",
+   "text": "Za přestupek lze uložit pokutu do výše",
+   "parent": null
+  },
+  {
+   "id": "p18-4-a",
+   "label": "§ 18 odst. 4 písm. a)",
+   "anchor": "p18-4-a",
+   "text": "200000 Kč, jde-li o přestupek podle odstavce 2 písm. a) nebo odstavce 3 písm. a), anebo byl-li přestupek spáchán v rámci podnikatelské činnosti pachatele přestupku, nebo",
+   "parent": "p18-4"
+  },
+  {
+   "id": "p18-4-b",
+   "label": "§ 18 odst. 4 písm. b)",
+   "anchor": "p18-4-b",
+   "text": "100000 Kč v ostatních případech.",
+   "parent": "p18-4"
+  },
+  {
+   "id": "p18-5",
+   "label": "§ 18 odst. 5",
+   "anchor": "p18-5",
+   "text": "Za přestupky podle odstavců 1 až 3 lze spolu s pokutou uložit i trest zákazu činnosti spočívající v zákazu nakládání se zbraněmi podle tohoto zákona, účasti na systému střelecké přípravy, činnosti akreditované osoby anebo nakládání se zbraněmi podle zákona uvedeného v § 2 odst. 1. Za přestupek podle odstavce 2 písm. a) anebo odstavce 3 písm. a) lze zákaz činnosti podle tohoto ustanovení uložit až na dobu 7 let.",
+   "parent": null
+  },
+  {
+   "id": "p19-1",
+   "label": "§ 19 odst. 1",
+   "anchor": "p19-1",
+   "text": "Přestupky podle tohoto zákona projednává",
+   "parent": null
+  },
+  {
+   "id": "p19-1-a",
+   "label": "§ 19 odst. 1 písm. a)",
+   "anchor": "p19-1-a",
+   "text": "Ministerstvo vnitra, jde-li o přestupek podle § 18 odst. 2 písm. a) nebo § 18 odst. 3 písm. a),",
+   "parent": "p19-1"
+  },
+  {
+   "id": "p19-1-b",
+   "label": "§ 19 odst. 1 písm. b)",
+   "anchor": "p19-1-b",
+   "text": "obecní úřad obce s rozšířenou působností v ostatních případech.",
+   "parent": "p19-1"
+  },
+  {
+   "id": "p19-2",
+   "label": "§ 19 odst. 2",
+   "anchor": "p19-2",
+   "text": "Pravomocná rozhodnutí o přestupku podle tohoto zákona se zapisují do evidence přestupků vedené Rejstříkem trestů.",
+   "parent": null
+  },
+  {
+   "id": "p20-1",
+   "label": "§ 20 odst. 1",
+   "anchor": "p20-1",
+   "text": "Ministerstvo vnitra, Ministerstvo obrany a Policie České republiky jsou za účelem plnění úkolů stanovených tímto zákonem oprávněny v nezbytném rozsahu využívat údaje z informačních systémů veřejné správy, ve kterých jsou vedeny údaje o zbraních a jejich držitelích.",
+   "parent": null
+  },
+  {
+   "id": "p21-1",
+   "label": "§ 21 odst. 1",
+   "anchor": "p21-1",
+   "text": "Vyžaduje-li nařízení vlády vydané k provedení § 5 odst. 4 písm. d) prokázání trestní nebo přestupkové zachovalosti nad rámec prokázání bezúhonnosti nebo spolehlivosti podle zákona o zbraních a střelivu, je orgán veřejné moci, který organizuje příslušný program střelecké přípravy, oprávněn vyžádat si pro účely ověření podmínek účasti osoby na programu střelecké přípravy opis z rejstříku trestů a opis z evidence přestupků spravované Ministerstvem spravedlnosti. Opis z rejstříku trestů a opis z evidence přestupků spravované Ministerstvem spravedlnosti, jakož i žádost o jejich vydání, se předávají elektronicky způsobem umožňujícím dálkový přístup prostřednictvím referenčního rozhraní.",
+   "parent": null
+  },
+  {
+   "id": "p22-1",
+   "label": "§ 22 odst. 1",
+   "anchor": "p22-1",
+   "text": "Podání podle tohoto zákona se činí na předepsaném formuláři, jde-li o",
+   "parent": null
+  },
+  {
+   "id": "p22-1-a",
+   "label": "§ 22 odst. 1 písm. a)",
+   "anchor": "p22-1-a",
+   "text": "přihlášku k účasti na programu střelecké přípravy,",
+   "parent": "p22-1"
+  },
+  {
+   "id": "p22-1-b",
+   "label": "§ 22 odst. 1 písm. b)",
+   "anchor": "p22-1-b",
+   "text": "žádost o vydání aprobace v systému střelecké přípravy a",
+   "parent": "p22-1"
+  },
+  {
+   "id": "p22-1-c",
+   "label": "§ 22 odst. 1 písm. c)",
+   "anchor": "p22-1-c",
+   "text": "žádost o udělení akreditace.",
+   "parent": "p22-1"
+  },
+  {
+   "id": "p22-2",
+   "label": "§ 22 odst. 2",
+   "anchor": "p22-2",
+   "text": "Vzor předepsaných formulářů podle odstavce 1 stanoví vláda nařízením.",
+   "parent": null
+  },
+  {
+   "id": "p23-1",
+   "label": "§ 23 odst. 1",
+   "anchor": "p23-1",
+   "text": "Zákon č. 240/2000 Sb., o krizovém řízení a o změně některých zákonů (krizový zákon), ve znění zákona č. 320/2002 Sb., zákona č. 127/2005 Sb., zákona č. 112/2006 Sb., zákona č. 110/2007 Sb., zákona č. 306/2008 Sb., zákona č. 153/2010 Sb., zákona č. 430/2010 Sb., zákona č. 375/2011 Sb., zákona č. 333/2012 Sb., zákona č. 303/2013 Sb., zákona č. 64/2014 Sb., zákona č. 320/2015 Sb., zákona č. 323/2016 Sb., zákona č. 183/2017 Sb., zákona č. 205/2017 Sb. a zákona č. 277/2019 Sb., se mění takto:",
+   "parent": null
+  },
+  {
+   "id": "p23-1",
+   "label": "§ 23 odst. 1",
+   "anchor": "p23-1",
+   "text": "V § 6 odst. 2 písm. b) se slova „zbraní, výbušnin,“ zrušují.",
+   "parent": null
+  },
+  {
+   "id": "p23-2",
+   "label": "§ 23 odst. 2",
+   "anchor": "p23-2",
+   "text": "V § 7 se písmeno b) zrušuje.",
+   "parent": null
+  },
+  {
+   "id": "p23-3",
+   "label": "§ 23 odst. 3",
+   "anchor": "p23-3",
+   "text": "V § 7 písm. b) se slova „střelných zbraní, střeliva, munice, výbušnin,“ zrušují.",
+   "parent": null
+  },
+  {
+   "id": "p24-1",
+   "label": "§ 24 odst. 1",
+   "anchor": "p24-1",
+   "text": "V položce 31 přílohy k zákonu č. 634/2004 Sb., o správních poplatcích, ve znění zákona č. 217/2005 Sb., zákona č. 228/2005 Sb., zákona č. 361/2005 Sb., zákona č. 444/2005 Sb., zákona č. 545/2005 Sb., zákona č. 553/2005 Sb., zákona č. 48/2006 Sb., zákona č. 56/2006 Sb., zákona č. 57/2006 Sb., zákona č. 81/2006 Sb., zákona č. 109/2006 Sb., zákona č. 112/2006 Sb., zákona č. 130/2006 Sb., zákona č. 136/2006 Sb., zákona č. 138/2006 Sb., zákona č. 161/2006 Sb., zákona č. 179/2006 Sb., zákona č. 186/2006 Sb., zákona č. 215/2006 Sb., zákona č. 226/2006 Sb., zákona č. 227/2006 Sb., zákona č. 235/2006 Sb., zákona č. 312/2006 Sb., zákona č. 575/2006 Sb., zákona č. 106/2007 Sb., zákona č. 261/2007 Sb., zákona č. 269/2007 Sb., zákona č. 374/2007 Sb., zákona č. 379/2007 Sb., zákona č. 38/2008 Sb., zákona č. 130/2008 Sb., zákona č. 140/2008 Sb., zákona č. 182/2008 Sb., zákona č. 189/2008 Sb., zákona č. 230/2008 Sb., zákona č. 239/2008 Sb., zákona č. 254/2008 Sb., zákona č. 296/2008 Sb., zákona č. 297/2008 Sb., zákona č. 301/2008 Sb., zákona č. 309/2008 Sb., zákona č. 312/2008 Sb., zákona č. 382/2008 Sb., zákona č. 9/2009 Sb., zákona č. 141/2009 Sb., zákona č. 197/2009 Sb., zákona č. 206/2009 Sb., zákona č. 227/2009 Sb., zákona č. 281/2009 Sb., zákona č. 291/2009 Sb., zákona č. 301/2009 Sb., zákona č. 346/2009 Sb., zákona č. 420/2009 Sb., zákona č. 132/2010 Sb., zákona č. 148/2010 Sb., zákona č. 153/2010 Sb., zákona č. 160/2010 Sb., zákona č. 343/2010 Sb., zákona č. 427/2010 Sb., zákona č. 30/2011 Sb., zákona č. 105/2011 Sb., zákona č. 133/2011 Sb., zákona č. 134/2011 Sb., zákona č. 152/2011 Sb., zákona č. 188/2011 Sb., zákona č. 245/2011 Sb., zákona č. 249/2011 Sb., zákona č. 255/2011 Sb., zákona č. 262/2011 Sb., zákona č. 300/2011 Sb., zákona č. 308/2011 Sb., zákona č. 329/2011 Sb., zákona č. 344/2011 Sb., zákona č. 349/2011 Sb., zákona č. 350/2011 Sb., zákona č. 357/2011 Sb., zákona č. 375/2011 Sb., zákona č. 428/2011 Sb., zákona č. 457/2011 Sb., zákona č. 458/2011 Sb., zákona č. 472/2011 Sb., zákona č. 19/2012 Sb., zákona č. 37/2012 Sb., zákona č. 53/2012 Sb., zákona č. 119/2012 Sb., zákona č. 169/2012 Sb., zákona č. 172/2012 Sb., zákona č. 202/2012 Sb., zákona č. 221/2012 Sb., zákona č. 225/2012 Sb., zákona č. 274/2012 Sb., zákona č. 350/2012 Sb., zákona č. 359/2012 Sb., zákona č. 399/2012 Sb., zákona č. 407/2012 Sb., zákona č. 428/2012 Sb., zákona č. 496/2012 Sb., zákona č. 502/2012 Sb., zákona č. 503/2012 Sb., zákona č. 50/2013 Sb., zákona č. 69/2013 Sb., zákona č. 102/2013 Sb., zákona č. 170/2013 Sb., zákona č. 185/2013 Sb., zákona č. 186/2013 Sb., zákona č. 232/2013 Sb., zákona č. 239/2013 Sb., zákona č. 241/2013 Sb., zákona č. 257/2013 Sb., zákona č. 273/2013 Sb., zákona č. 279/2013 Sb., zákona č. 281/2013 Sb., zákona č. 306/2013 Sb., zákona č. 313/2013 Sb., zákonného opatření Senátu č. 344/2013 Sb., zákona č. 101/2014 Sb., zákona č. 127/2014 Sb., zákona č. 187/2014 Sb., zákona č. 249/2014 Sb., zákona č. 257/2014 Sb., zákona č. 259/2014 Sb., zákona č. 264/2014 Sb., zákona č. 268/2014 Sb., zákona č. 331/2014 Sb., zákona č. 81/2015 Sb., zákona č. 103/2015 Sb., zákona č. 204/2015 Sb., zákona č. 206/2015 Sb., zákona č. 224/2015 Sb., zákona č. 268/2015 Sb. zákona č. 314/2015 Sb., zákona č. 318/2015 Sb., zákona č. 113/2016 Sb., zákona č. 126/2016 Sb., zákona č. 137/2016 Sb., zákona č. 148/2016 Sb., zákona č. 188/2016 Sb., zákona č. 229/2016 Sb., zákona č. 243/2016 Sb., zákona č. 258/2016 Sb., zákona č. 264/2016 Sb., zákona č. 298/2016 Sb., zákona č. 319/2016 Sb., zákona č. 324/2016 Sb., zákona č. 369/2016 Sb., zákona č. 63/2017 Sb., zákona č. 170/2017 Sb., zákona č. 194/2017 Sb., zákona č. 195/2017 Sb., zákona č. 199/2017 Sb., zákona č. 202/2017 Sb., zákona č. 204/2017 Sb., zákona č. 206/2017 Sb., zákona č. 222/2017 Sb., zákona č. 225/2017 Sb., zákona č. 251/2017 Sb., zákona č. 261/2017 Sb., zákona č. 289/2017 Sb., zákona č. 295/2017 Sb., zákona č. 299/2017 Sb., zákona č. 302/2017 Sb., zákona č. 304/2017 Sb., zákona č. 371/2017 Sb., zákona č. 90/2018 Sb., zákona č. 171/2018 Sb., zákona č. 193/2018 Sb., zákona č. 286/2018 Sb., zákona č. 307/2018 Sb., zákona č. 135/2019 Sb., zákona č. 176/2019 Sb., zákona č. 209/2019 Sb., zákona č. 255/2019 Sb., zákona č. 277/2019 Sb., zákona č. 279/2019 Sb., zákona č. 364/2019 Sb., zákona č. 368/2019 Sb., zákona č. 369/2019 Sb., zákona č. 12/2020 Sb., zákona č. 115/2020 Sb., zákona č. 117/2020 Sb., zákona č. 119/2020 Sb., zákona č. 334/2020 Sb., zákona č. 336/2020 Sb. a zákona č. 337/2020 Sb., se doplňuje písmeno k), které zní:",
+   "parent": null
+  },
+  {
+   "id": "p25-1",
+   "label": "§ 25 odst. 1",
+   "anchor": "p25-1",
+   "text": "Tento zákon nabývá účinnosti patnáctým dnem po jeho vyhlášení.",
+   "parent": null
+  }
+ ]
+}
