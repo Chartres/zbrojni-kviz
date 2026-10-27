@@ -20,6 +20,7 @@ jobs:
   # The gate: typecheck · test · build · e2e. Runs on push and every PR.
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -34,7 +35,15 @@ jobs:
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
-      - run: npx playwright install --with-deps chromium
+      # `--with-deps` runs apt and has hung for 15+ minutes on GitHub runners (27 Oct 2026).
+      # The browser download doesn't need apt; ubuntu-latest already carries Chromium's system
+      # libraries, so the deps step is capped and allowed to fail. If a library is ever really
+      # missing, the E2E step fails with a clear launch error rather than hanging.
+      - name: Install Playwright Chromium
+        timeout-minutes: 6
+        run: |
+          npx playwright install chromium
+          timeout 180 npx playwright install-deps chromium || echo "::warning::install-deps skipped (timed out or failed)"
       - name: E2E (Playwright)
         run: npm run e2e
       - uses: actions/upload-pages-artifact@v3
