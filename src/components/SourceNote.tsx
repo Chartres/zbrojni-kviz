@@ -18,7 +18,7 @@ export function SourceNote({ source }: { source: Source }) {
       {long ? (
         <details className="mt-2">
           <summary className="cursor-pointer list-none leading-relaxed text-steel-200">
-            <q className="quotes-none">{head}</q>
+            <span>{head}</span>
             <span className="mt-1 block text-[0.8125rem] font-medium text-verdigris-400 underline">
               Zobrazit celé ustanovení
             </span>

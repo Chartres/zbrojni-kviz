@@ -7502,8 +7502,8 @@
    "parent": null
   },
   {
-   "id": "a1-1.",
-   "label": "příloha č. 1 bod 1.",
+   "id": "a1-1",
+   "label": "příloha č. 1 bod 1",
    "anchor": "f7878479",
    "text": "Druhy zbraní",
    "parent": null
@@ -7513,35 +7513,35 @@
    "label": "příloha č. 1 bod 1.1",
    "anchor": "f7878480",
    "text": "palná zbraň - zbraň, jejíž funkce je odvozena od okamžitého uvolnění chemické energie; za palnou zbraň se považují také jiné předměty, na které se vztahuje tento zákon a které lze na palnou zbraň upravit, zejména poplašné a signalizační zbraně, akustické a salutní zbraně a polotovary hlavních částí zbraní,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.2",
    "label": "příloha č. 1 bod 1.2",
    "anchor": "f7878481",
    "text": "plynová zbraň - zbraň, jejíž funkce je odvozena od okamžitého uvolnění energie stlačeného vzduchu nebo jiného plynu,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.3",
    "label": "příloha č. 1 bod 1.3",
    "anchor": "f7878482",
    "text": "krátká palná zbraň - palná zbraň, jejíž délka v nejkratším funkčním stavu nepřesahuje 600 mm nebo jejíž délka hlavně nepřesahuje 300 mm,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.4",
    "label": "příloha č. 1 bod 1.4",
    "anchor": "f7878483",
    "text": "dlouhá palná zbraň - palná zbraň, která není krátkou zbraní,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.5",
    "label": "příloha č. 1 bod 1.5",
    "anchor": "f7878484",
    "text": "samočinná (automatická) palná zbraň - palná zbraň, u níž se opětovné nabití děje využitím",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.5.1",
@@ -7562,56 +7562,56 @@
    "label": "příloha č. 1 bod 1.6",
    "anchor": "f7878487",
    "text": "samonabíjecí (poloautomatická) palná zbraň - palná zbraň, u níž se opětovné nabití děje v důsledku předchozího výstřelu a jejíž konstrukce neumožňuje více výstřelů na jedno stisknutí spouště,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.7",
    "label": "příloha č. 1 bod 1.7",
    "anchor": "f7878488",
    "text": "opakovací palná zbraň - palná zbraň, jejíž konstrukce umožňuje použití se zásobníkem nebo jiným podávacím ústrojím a u níž je opětovné nabití prováděno ruční manipulací se závěrovým mechanismem zbraně,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.8",
    "label": "příloha č. 1 bod 1.8",
    "anchor": "f7878489",
    "text": "palná zbraň nabíjená jednotlivě - jednoranová, dvouranová nebo víceranová palná zbraň, která není zkonstruována nebo upravena pro použití zásobníku, revolverového válce nebo jiného podávacího ústrojí; palná zbraň nabíjená jednotlivě se nabíjí ručním vložením nebo nabitím střeliva do nábojové komory, hlavně nebo nábojiště,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.9",
    "label": "příloha č. 1 bod 1.9",
    "anchor": "f7878490",
    "text": "akustická a salutní zbraň - palná zbraň zvláště upravená pro střelbu pouze s využitím nábojek nebo cvičných nábojů, pro použití například při divadelních představeních, fotografování, filmových a televizních záznamech, rekonstrukcích historických událostí, přehlídkách nebo sportovních akcích,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.10",
    "label": "příloha č. 1 bod 1.10",
    "anchor": "f7878491",
    "text": "poplašná a signalizační zbraň - palná zbraň pro střelbu nábojek nebo cvičných nábojů, dráždivých nebo obdobných účinných látek anebo pyrotechnických signalizačních nábojů, která nemůže být přeměněna na palnou zbraň umožňující ostrou střelbu,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.11",
    "label": "příloha č. 1 bod 1.11",
    "anchor": "f7878492",
    "text": "expanzní přístroj - pracovní zařízení nebo rázový stroj zkonstruované na principu palné zbraně a určené k průmyslovým nebo technickým účelům nebo k jateční porážce zvířat,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.12",
    "label": "příloha č. 1 bod 1.12",
    "anchor": "f7878493",
    "text": "signální zbraň - jednoúčelová palná zbraň určená pro použití signálních nábojů,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.13",
    "label": "příloha č. 1 bod 1.13",
    "anchor": "f7878494",
    "text": "neaktivní zbraň - původně palná zbraň, která se stala trvale a nevratně nefunkční",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.13.1",
@@ -7639,14 +7639,14 @@
    "label": "příloha č. 1 bod 1.14",
    "anchor": "f7878498",
    "text": "paintballová a airsoftová zbraň - plynová zbraň konstruovaná pro vystřelování neletální střely a určená pro výcvikové, sportovní nebo rekreační účely,",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.15",
    "label": "příloha č. 1 bod 1.15",
    "anchor": "f7878499",
    "text": "historická zbraň",
-   "parent": null
+   "parent": "a1-1"
   },
   {
    "id": "a1-1.15.1",
@@ -7670,8 +7670,8 @@
    "parent": "a1-1.15"
   },
   {
-   "id": "a1-2.",
-   "label": "příloha č. 1 bod 2.",
+   "id": "a1-2",
+   "label": "příloha č. 1 bod 2",
    "anchor": "f7878503",
    "text": "Druhy střeliva",
    "parent": null
@@ -7681,14 +7681,14 @@
    "label": "příloha č. 1 bod 2.1",
    "anchor": "f7878504",
    "text": "aktivní komponenty střeliva - zápalky a střeliviny, se kterými se nakládá za účelem výroby střeliva, jeho přebíjení nebo pro použití ve zbrani, a střely obsahující aktivní náplň, zejména střely výbušné, zápalné a svítící,",
-   "parent": null
+   "parent": "a1-2"
   },
   {
    "id": "a1-2.2",
    "label": "příloha č. 1 bod 2.2",
    "anchor": "f7878505",
    "text": "náboj - celek určený k nabití do palné zbraně, který obsahuje aktivní komponent střeliva a který není nábojkou nebo děleným střelivem,",
-   "parent": null
+   "parent": "a1-2"
   },
   {
    "id": "a1-2.2.1",
@@ -7716,21 +7716,21 @@
    "label": "příloha č. 1 bod 2.3",
    "anchor": "f7878509",
    "text": "nábojka - celek, který je za nábojku považován podle Úmluvy o vzájemném uznávání zkušebních značek ručních palných zbraní,",
-   "parent": null
+   "parent": "a1-2"
   },
   {
    "id": "a1-2.4",
    "label": "příloha č. 1 bod 2.4",
    "anchor": "f7878510",
    "text": "dělené střelivo - sestava, která je určena k nabití do palné zbraně a u níž jsou střela a aktivní komponenty střeliva nabíjeny do palné zbraně samostatně,",
-   "parent": null
+   "parent": "a1-2"
   },
   {
    "id": "a1-2.5",
    "label": "příloha č. 1 bod 2.5",
    "anchor": "f7878511",
    "text": "střela - pevné těleso nebo více pevných těles určené k zasažení cíle nebo vyvolání jiného účinku,",
-   "parent": null
+   "parent": "a1-2"
   },
   {
    "id": "a1-2.5.1",
@@ -7775,8 +7775,8 @@
    "parent": "a1-2.5"
   },
   {
-   "id": "a1-3.",
-   "label": "příloha č. 1 bod 3.",
+   "id": "a1-3",
+   "label": "příloha č. 1 bod 3",
    "anchor": "f7878518",
    "text": "Druhy regulovaných součástí zbraní",
    "parent": null
@@ -7786,7 +7786,7 @@
    "label": "příloha č. 1 bod 3.1",
    "anchor": "f7878519",
    "text": "hlavní části zbraně:",
-   "parent": null
+   "parent": "a1-3"
   },
   {
    "id": "a1-3.1.1",
@@ -7821,32 +7821,32 @@
    "label": "příloha č. 1 bod 3.2",
    "anchor": "f7878524",
    "text": "součásti zbraně umožňující samočinnou střelbu - součásti zbraně nebo doplňková zařízení, které jsou nezbytné k úpravě palné zbraně, s výjimkou poplašné a signalizační zbraně, na samočinnou palnou zbraň nebo pro použití takové zbraně pro samočinnou střelbu nebo pro střelbu obdobnou samočinné střelbě; součástmi umožňujícími samočinnou střelbu jsou například samočinné spouště a spušťadla, vyřazovače přerušovačů nebo dynamické pažby (bump-fire stock),",
-   "parent": null
+   "parent": "a1-3"
   },
   {
    "id": "a1-3.3",
    "label": "příloha č. 1 bod 3.3",
    "anchor": "f7878525",
    "text": "polotovar hlavní části zbraně - polotovar hlavně (hlavňovina) s dokončeným drážkovaným vývrtem,",
-   "parent": null
+   "parent": "a1-3"
   },
   {
    "id": "a1-3.4",
    "label": "příloha č. 1 bod 3.4",
    "anchor": "f7878526",
    "text": "tlumič hluku výstřelu - zařízení určené pro použití s palnou zbraní a konstruované pro celkové snížení hluku výstřelu, a to včetně snížení hluku výstřelu ve směru střelby; za tlumič hluku výstřelu se považuje zařízení, které při použití běžného střeliva snižuje hluk výstřelu alespoň o 10 dB,",
-   "parent": null
+   "parent": "a1-3"
   },
   {
    "id": "a1-3.5",
    "label": "příloha č. 1 bod 3.5",
    "anchor": "f7878527",
    "text": "nadlimitní zásobník - zásobník nebo sestava nábojové schránky určené pro palnou zbraň pro střelivo se středovým zápalem s kapacitou přesahující 20 nábojů v případě krátké palné zbraně nebo s kapacitou přesahující 10 nábojů v případě dlouhé palné zbraně.",
-   "parent": null
+   "parent": "a1-3"
   },
   {
-   "id": "a2-1.",
-   "label": "příloha č. 2 bod 1.",
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
    "anchor": "f7881496",
    "text": "Kategorie zbraní:",
    "parent": null
@@ -7856,7 +7856,7 @@
    "label": "příloha č. 2 bod 1.1",
    "anchor": "f7878531",
    "text": "zbraně kategorie R1:",
-   "parent": null
+   "parent": "a2-1"
   },
   {
    "id": "a2-1.1.1",
@@ -7926,7 +7926,7 @@
    "label": "příloha č. 2 bod 1.2",
    "anchor": "f7878542",
    "text": "zbraně kategorie R2:",
-   "parent": null
+   "parent": "a2-1"
   },
   {
    "id": "a2-1.2.1",
@@ -7961,7 +7961,7 @@
    "label": "příloha č. 2 bod 1.3",
    "anchor": "f7878547",
    "text": "zbraně kategorie R3:",
-   "parent": null
+   "parent": "a2-1"
   },
   {
    "id": "a2-1.3.1",
@@ -8031,14 +8031,14 @@
    "label": "příloha č. 2 bod 1.4",
    "anchor": "f7878557",
    "text": "zbraně kategorie R4 - samonabíjecí, opakovací a jednotlivě nabíjené palné zbraně neuvedené v jiných kategoriích,",
-   "parent": null
+   "parent": "a2-1"
   },
   {
    "id": "a2-1.5",
    "label": "příloha č. 2 bod 1.5",
    "anchor": "f7878558",
    "text": "zbraně kategorie PO:",
-   "parent": null
+   "parent": "a2-1"
   },
   {
    "id": "a2-1.5.1",
@@ -8094,7 +8094,7 @@
    "label": "příloha č. 2 bod 1.6",
    "anchor": "f7878567",
    "text": "zbraně kategorie NO:",
-   "parent": null
+   "parent": "a2-1"
   },
   {
    "id": "a2-1.6.1",
@@ -8132,8 +8132,8 @@
    "parent": "a2-1.6"
   },
   {
-   "id": "a2-2.",
-   "label": "příloha č. 2 bod 2.",
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
    "anchor": "f7878573",
    "text": "Kategorie střeliva:",
    "parent": null
@@ -8143,7 +8143,7 @@
    "label": "příloha č. 2 bod 2.1",
    "anchor": "f7878574",
    "text": "střelivo kategorie S1:",
-   "parent": null
+   "parent": "a2-2"
   },
   {
    "id": "a2-2.1.1",
@@ -8171,7 +8171,7 @@
    "label": "příloha č. 2 bod 2.2",
    "anchor": "f7878578",
    "text": "střelivo kategorie S2:",
-   "parent": null
+   "parent": "a2-2"
   },
   {
    "id": "a2-2.2.1",
@@ -8199,7 +8199,7 @@
    "label": "příloha č. 2 bod 2.3",
    "anchor": "f7878582",
    "text": "střelivo kategorie S3:",
-   "parent": null
+   "parent": "a2-2"
   },
   {
    "id": "a2-2.3.1",
@@ -8234,7 +8234,7 @@
    "label": "příloha č. 2 bod 2.4",
    "anchor": "f7878587",
    "text": "střelivo kategorie S4:",
-   "parent": null
+   "parent": "a2-2"
   },
   {
    "id": "a2-2.4.1",
@@ -8258,39 +8258,39 @@
    "parent": "a2-2.4"
   },
   {
-   "id": "a3-1.",
-   "label": "příloha č. 3 bod 1.",
+   "id": "a3-1",
+   "label": "příloha č. 3 bod 1",
    "anchor": "f7878594",
    "text": "Ohrožené prostory",
    "parent": null
   },
   {
-   "id": "a3-1.1.",
-   "label": "příloha č. 3 bod 1.1.",
+   "id": "a3-1.1",
+   "label": "příloha č. 3 bod 1.1",
    "anchor": "f7878595",
    "text": "Ohrožený prostor - prostor, v němž může být při dodržení pravidel a opatření stanovených provozním řádem střelnice ohrožen život nebo zdraví účinkem kinetické energie střel, střepin nebo povýstřelových zplodin.",
-   "parent": null
+   "parent": "a3-1"
   },
   {
-   "id": "a3-2.",
-   "label": "příloha č. 3 bod 2.",
+   "id": "a3-2",
+   "label": "příloha č. 3 bod 2",
    "anchor": "f7878596",
    "text": "Zajištění bezpečnosti provozu střelnice",
    "parent": null
   },
   {
-   "id": "a3-2.1.",
-   "label": "příloha č. 3 bod 2.1.",
+   "id": "a3-2.1",
+   "label": "příloha č. 3 bod 2.1",
    "anchor": "f7878597",
    "text": "K zajištění ochrany života a zdraví osob v ohroženém prostoru a při zacházení se zbraněmi a střelivem na střelnici i mimo ohrožené prostory, jakož i při příchodu a odchodu ze střelnice stanoví provozní řád přiměřená technicko-organizační opatření. Technicko-organizační opatření spočívají v kombinaci technických opatření (ochranných a dalších technických prvků) a organizačních opatření (zásad a pokynů).",
-   "parent": null
+   "parent": "a3-2"
   },
   {
-   "id": "a3-2.2.",
-   "label": "příloha č. 3 bod 2.2.",
+   "id": "a3-2.2",
+   "label": "příloha č. 3 bod 2.2",
    "anchor": "f7878598",
    "text": "Technicko-organizační opatření musí stanovovat pravidla pro bezpečné provádění střelby a bezpečné zacházení se zbraní a střelivem, jejich bezpečné používání, kontrolu, odkládání, vnášení a odnášení, a to zejména s cílem předcházet nebo zabraňovat:",
-   "parent": null
+   "parent": "a3-2"
   },
   {
    "id": "a3--",
@@ -8321,60 +8321,60 @@
    "parent": null
   },
   {
-   "id": "a3-2.3.",
-   "label": "příloha č. 3 bod 2.3.",
+   "id": "a3-2.3",
+   "label": "příloha č. 3 bod 2.3",
    "anchor": "f7878603",
    "text": "Při stanovení konkrétní podoby technicko-organizačních opatření a jejich kombinace se vychází z místních podmínek, povahy a účelu střelnice a zbraní a střeliva používaných na střelnici.",
-   "parent": null
+   "parent": "a3-2"
   },
   {
-   "id": "a3-3.",
-   "label": "příloha č. 3 bod 3.",
+   "id": "a3-3",
+   "label": "příloha č. 3 bod 3",
    "anchor": "f7878604",
    "text": "Některá technická opatření",
    "parent": null
   },
   {
-   "id": "a3-3.1.",
-   "label": "příloha č. 3 bod 3.1.",
+   "id": "a3-3.1",
+   "label": "příloha č. 3 bod 3.1",
    "anchor": "f7878605",
    "text": "Dopadiště",
-   "parent": null
+   "parent": "a3-3"
   },
   {
-   "id": "a3-3.2.",
-   "label": "příloha č. 3 bod 3.2.",
+   "id": "a3-3.2",
+   "label": "příloha č. 3 bod 3.2",
    "anchor": "f7878607",
    "text": "Terče a terčová zařízení",
-   "parent": null
+   "parent": "a3-3"
   },
   {
-   "id": "a3-3.3.",
-   "label": "příloha č. 3 bod 3.3.",
+   "id": "a3-3.3",
+   "label": "příloha č. 3 bod 3.3",
    "anchor": "f7878610",
    "text": "Ochranné prvky",
-   "parent": null
+   "parent": "a3-3"
   },
   {
-   "id": "a3-3.4.",
-   "label": "příloha č. 3 bod 3.4.",
+   "id": "a3-3.4",
+   "label": "příloha č. 3 bod 3.4",
    "anchor": "f7878612",
    "text": "Opatření proti vstupu nezúčastněných osob do ohroženého prostoru",
-   "parent": null
+   "parent": "a3-3"
   },
   {
-   "id": "a3-4.",
-   "label": "příloha č. 3 bod 4.",
+   "id": "a3-4",
+   "label": "příloha č. 3 bod 4",
    "anchor": "f7878614",
    "text": "Některá organizační opatření",
    "parent": null
   },
   {
-   "id": "a3-4.1.",
-   "label": "příloha č. 3 bod 4.1.",
+   "id": "a3-4.1",
+   "label": "příloha č. 3 bod 4.1",
    "anchor": "f7878615",
    "text": "Organizačními opatřeními jsou zejména:",
-   "parent": null
+   "parent": "a3-4"
   },
   {
    "id": "a3--",
@@ -8412,11 +8412,11 @@
    "parent": null
   },
   {
-   "id": "a3-4.2.",
-   "label": "příloha č. 3 bod 4.2.",
+   "id": "a3-4.2",
+   "label": "příloha č. 3 bod 4.2",
    "anchor": "f7878622",
    "text": "Při stanovování organizačních opatření se vychází z předpokladu jejich dodržování průměrně způsobilým střelcem, který dbá zvýšené opatrnosti při zacházení se zbraní a střelivem; nekázeň a hrubé chyby při zamíření se nepředpokládají.",
-   "parent": null
+   "parent": "a3-4"
   }
  ]
 }

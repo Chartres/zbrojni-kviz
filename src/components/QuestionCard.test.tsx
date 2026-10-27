@@ -3,6 +3,8 @@ import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { QuestionCard } from './QuestionCard'
 import type { Question } from '@/domain/types'
+import { ALL_QUESTIONS } from '@/domain/questions'
+import { sourceFor } from '@/domain/sources'
 
 const Q: Question = {
   id: 1,
@@ -191,6 +193,16 @@ describe('QuestionCard', () => {
       cleanup()
       setup({ chosen: 'a', reveal: false })
       expect(screen.queryByRole('region', { name: /zdroj/i })).toBeNull()
+    })
+
+    it('Enter on the "full provision" toggle does not advance to the next question', async () => {
+      const long = ALL_QUESTIONS.find((q) => (sourceFor(q.id)?.quote.length ?? 0) > 600)!
+      const { onNext } = setup({ question: long, chosen: long.correct })
+      const toggle = screen.getByText(/zobrazit celé ustanovení/i).closest('summary')!
+      toggle.focus()
+      await userEvent.keyboard('{Enter}')
+      // the browser toggles <details> natively (jsdom doesn't); what we own is not advancing
+      expect(onNext).not.toHaveBeenCalled()
     })
 
     it('shows nothing for a question without a confident citation', () => {

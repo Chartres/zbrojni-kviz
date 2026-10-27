@@ -54,7 +54,8 @@ function Marked({ segments, as: Tag }: { segments: Segment[]; as: 'del' | 'ins' 
   return (
     <>
       <span className="sr-only">
-        {segments.map((s) => s.text).join('')} (liší se: {changed.join(', ')})
+        {segments.map((s) => s.text).join('')}
+        {changed.length > 0 && ` (liší se: ${changed.join(', ')})`}
       </span>
       <span aria-hidden="true">
         {segments.map((s, i) =>
@@ -127,8 +128,8 @@ export function QuestionCard({
       } else if (
         answered &&
         (e.key === 'Enter' || e.key === ' ') &&
-        // a focused button/link (Záložka, ← Konec, Další itself) activates natively
-        !(e.target instanceof Element && e.target.closest('button, a'))
+        // a focused button/link/toggle (Záložka, ← Konec, Další, the full provision) activates natively
+        !(e.target instanceof Element && e.target.closest('button, a, summary'))
       ) {
         e.preventDefault()
         onNext()

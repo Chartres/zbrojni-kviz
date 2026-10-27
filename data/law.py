@@ -62,9 +62,9 @@ def parse(doc: str):
             ident, anchor, label = pid.group(1), pid.group(1), label_for(pid.group(1))
             lead_key = ident.rsplit('-', 1)[0] if '-' in ident else None
         elif annex and fid and num and not clean(num.group(1)).endswith(')'):  # "9)" = footnote
-            point = clean(num.group(1))
+            point = clean(num.group(1)).rstrip('.')  # "1." and "1.1" → parent key "1"
             ident, anchor, label = f'a{annex}-{point}', fid.group(1), f'příloha č. {annex} bod {point}'
-            lead_key = f'a{annex}-{point.rsplit(".", 1)[0]}' if '.' in point.strip('.') else None
+            lead_key = f'a{annex}-{point.rsplit(".", 1)[0]}' if '.' in point else None
         else:
             continue
         units.append({'id': ident, 'label': label, 'anchor': anchor, 'text': text, 'parent': lead_key})

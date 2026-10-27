@@ -97,10 +97,15 @@ def main():
             return u['text'] + ' ' + ' '.join(subtree(k) for k in kids.get(u['id'], []))
 
         for u in act['units']:
-            lead = by_id[u['parent']]['text'] if u['parent'] else ''
+            # Annex points: a sub-point's lead carries meaning ("střelivo kategorie S2:" over
+            # "náboje se svítící střelou"), a top heading does not ("Druhy zbraní:" would blur all
+            # definitions), and an annex point with all its children is a whole glossary.
+            in_annex = not u['id'].startswith('p')
+            meaningful = u['parent'] and (not in_annex or '.' in u['parent'].split('-', 1)[1])
+            lead = by_id[u['parent']]['text'] if meaningful else ''
             quote = (lead + ' … ' if lead else '') + u['text']
             units.append((act, {**u, 'quote': quote}, set(stems(quote))))
-            if u['id'] in kids:
+            if u['id'] in kids and (not in_annex or '.' in u['id'].split('-', 1)[1]):
                 # a provision with its písmena/body, for answers that list several of them
                 quote = (lead + ' … ' if lead else '') + subtree(u).strip()
                 units.append((act, {**u, 'whole': True, 'quote': quote}, set(stems(quote))))
@@ -137,7 +142,8 @@ def main():
             a, b = x['id'], y['id']
             return a == b or a.startswith(b + '-') or b.startswith(a + '-')
 
-        second = next(t for t in scored[1:] if not (t[4] is act and related(t[5], u)))
+        nobody = (0.0, 0.0, 0.0, 0.0, None, {'label': '—', 'id': ''})
+        second = next((t for t in scored[1:] if not (t[4] is act and related(t[5], u))), nobody)
         if second[4] is act and second[0] > score - NEAR:
             # Near-tie with a sibling (§ 8 odst. 1 písm. a vs c): the question tests what they
             # share, so cite their common ancestor as a whole when it is at least an odstavec.
@@ -145,7 +151,7 @@ def main():
             whole = next((t for t in scored if t[4] is act and t[5]['id'] == common and t[5].get('whole')), None)
             if whole:
                 u = whole[5]
-                second = next(t for t in scored if not (t[4] is act and related(t[5], u)))
+                second = next((t for t in scored if not (t[4] is act and related(t[5], u))), nobody)
         prov = words(u['quote'])
         run = max(longest_run(words(q[q['correct']]), prov), longest_run(words(q['q']), prov))
         margin = score - second[0]
