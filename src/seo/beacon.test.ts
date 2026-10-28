@@ -71,6 +71,13 @@ describe('static question page beacon', () => {
     expect(row!.visitor_id).toBe('anon')
   })
 
+  it('still sends when reading window.localStorage itself throws (site data blocked)', () => {
+    const { w, fetch } = fakeWindow()
+    const blocked = Object.defineProperty({ ...w }, 'localStorage', { get: () => { throw new DOMException('denied', 'SecurityError') } })
+    expect(sendPageView(blocked as never, CFG)!.visitor_id).toBe('anon')
+    expect(fetch).toHaveBeenCalledTimes(1)
+  })
+
   it('the shipped file runs standalone and uses the same bot rule as flywheel-client', () => {
     const src = beaconScript({ url: 'https://abc.supabase.co/', key: 'k' })
     const { w, fetch } = fakeWindow()

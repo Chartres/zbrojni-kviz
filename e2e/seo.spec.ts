@@ -105,8 +105,12 @@ test('a static question page sends no page_view from an automated browser', asyn
     inserts.push(route.request().url())
     return route.fulfill({ status: 201, body: '' })
   })
+  // CI builds with the Supabase env, so the beacon must be there and load; otherwise this test
+  // would pass with no beacon at all.
+  const beacon = process.env.CI ? page.waitForResponse('**/fw-beacon.js') : null
   await page.goto('/otazka/313/')
   await expect(page.locator('h1')).toContainText('Paintballovou a airsoftovou zbraň')
+  if (beacon) expect((await beacon).status()).toBe(200)
   await page.waitForLoadState('networkidle')
   expect(inserts).toEqual([])
 })

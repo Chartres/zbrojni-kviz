@@ -17,12 +17,14 @@ const BOT_UA = /bot\b|crawl|spider|slurp|headless|lighthouse|prerender|pagespeed
 export function sendPageView(w, cfg) {
   const nav = w.navigator || {}
   if (nav.webdriver === true || cfg.botUa.test(nav.userAgent || '')) return null
+  // Storage is read inside the try: with site data blocked, touching window.localStorage throws.
   const id = (store, k) => {
     try {
-      let v = store.getItem(k)
+      const s = store()
+      let v = s.getItem(k)
       if (!v) {
         v = w.crypto.randomUUID()
-        store.setItem(k, v)
+        s.setItem(k, v)
       }
       return v
     } catch {
@@ -33,8 +35,8 @@ export function sendPageView(w, cfg) {
     app: cfg.app,
     event: 'page_view',
     props: { path: w.location.pathname, static: true },
-    visitor_id: id(w.localStorage, 'fw:vid'),
-    session_id: id(w.sessionStorage || w.localStorage, 'fw:sid'),
+    visitor_id: id(() => w.localStorage, 'fw:vid'),
+    session_id: id(() => w.sessionStorage || w.localStorage, 'fw:sid'),
     flywheel_uid: null,
     created_at: new Date().toISOString(),
   }
