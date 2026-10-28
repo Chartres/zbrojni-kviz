@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { renderQuestionPage, questionPath } from '../src/seo/questionPage.mjs'
+import { beaconScript, BEACON_PATH } from '../src/seo/beacon.mjs'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const ORIGIN = 'https://zbrojnikviz.dravec.org'
@@ -120,6 +121,13 @@ for (const t of topics) {
   writeFileSync(`${root}dist/okruh/${t.slug}/index.html`, html)
 }
 
+// The question pages carry no app bundle; a tiny beacon sends their page_view. Same build env as
+// the app's analytics; without it (local builds, tests) the pages ship with no beacon.
+const sbUrl = process.env.VITE_SUPABASE_URL
+const sbKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? process.env.VITE_SUPABASE_ANON_KEY
+const beaconSrc = sbUrl && sbKey ? BEACON_PATH : null
+if (beaconSrc) writeFileSync(`${root}dist${BEACON_PATH}`, beaconScript({ url: sbUrl, key: sbKey }))
+
 const topicOf = Object.fromEntries(topics.map((t) => [t.category, t]))
 const firstCopyOf = new Map(meta.duplicatePairs.map(([first, twin]) => [twin, first]))
 questions.forEach((q, i) => {
@@ -132,6 +140,7 @@ questions.forEach((q, i) => {
     origin: ORIGIN,
     cssHref,
     canonicalId: firstCopyOf.get(q.id) ?? null,
+    beaconSrc,
   })
   mkdirSync(`${root}dist${questionPath(q.id)}`, { recursive: true })
   writeFileSync(`${root}dist${questionPath(q.id)}index.html`, html)
@@ -149,4 +158,4 @@ ${urls.map((u) => `  <url><loc>${ORIGIN}${u}</loc><lastmod>${today}</lastmod></u
 </urlset>
 `
 writeFileSync(`${root}dist/sitemap.xml`, sitemap)
-console.log(`prerendered ${topics.length} topic pages, ${questions.length} question pages + sitemap.xml`)
+console.log(`prerendered ${topics.length} topic pages, ${questions.length} question pages + sitemap.xml${beaconSrc ? ' (with page_view beacon)' : ' (no Supabase env: no beacon)'}`)
