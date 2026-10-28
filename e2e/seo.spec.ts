@@ -70,3 +70,29 @@ test('head carries the share-card block and WebApplication JSON-LD', async ({ pa
   expect(ld.url).toBe('https://zbrojnikviz.dravec.org/')
   expect(ld.isAccessibleForFree).toBe(true)
 })
+
+test('every official question has a static page readable without JavaScript', async ({ browser, request }) => {
+  const xml = await (await request.get('/sitemap.xml')).text()
+  expect(xml).toContain('<loc>https://zbrojnikviz.dravec.org/otazka/837/</loc>')
+
+  const okruh = await (await request.get('/okruh/zakon-o-zbranich/')).text()
+  expect(okruh).toContain('href="https://zbrojnikviz.dravec.org/otazka/313/"')
+  // deep pages carry JSON-LD for what they show (their FAQ), not the home page's WebApplication
+  const ld = [...okruh.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) =>
+    JSON.parse(m[1]),
+  )
+  expect(ld.map((x) => x['@type'])).toEqual(['FAQPage'])
+
+  const ctx = await browser.newContext({ javaScriptEnabled: false })
+  const page = await ctx.newPage()
+  await page.goto('/otazka/313/')
+  await expect(page.locator('h1')).toContainText('Paintballovou a airsoftovou zbraň')
+  await expect(page.getByText(/^Správná odpověď: B/)).toBeVisible()
+  await expect(page.getByRole('region', { name: /Zdroj: § 78 odst\. 5/ })).toBeVisible()
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://zbrojnikviz.dravec.org/otazka/313/',
+  )
+  await page.screenshot({ path: 'e2e/shots/question-page.png', fullPage: true })
+  await ctx.close()
+})

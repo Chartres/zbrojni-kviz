@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, it, expect } from 'vitest'
-import { fileNavigation } from '../vite.config'
+import { fileNavigation, questionPage } from '../vite.config'
 
 // Workbox matches the denylist against pathname + search.
 describe('service worker app-shell fallback denylist', () => {
@@ -14,4 +14,9 @@ describe('service worker app-shell fallback denylist', () => {
     '/okruh/zakon-o-zbranich/?utm_source=seznam.cz',
     '/?u=https://a.cz/x.html',
   ])('serves the shell for app route %s', (u) => expect(fileNavigation.test(u)).toBe(false))
+
+  it('skips the shell for static question pages, not for okruh pages', () => {
+    expect(questionPage.test('/otazka/83/')).toBe(true)
+    expect(questionPage.test('/okruh/zakon-o-zbranich/')).toBe(false)
+  })
 })
