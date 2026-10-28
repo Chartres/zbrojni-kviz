@@ -20,13 +20,13 @@
     },
     {
       "q": "Odkud se otázky berou? Jsou veřejné?",
-      "a": "Ano. Ministerstvo vnitra sestavuje soubor otázek, ze kterého se testy losují, a zveřejňuje ho i se správnými odpověďmi. Současný soubor platí od 1. 1. 2026 a má 837 otázek. Šířit se nesmí jen samotné písemné testy, které ministerstvo sestaví pro zkoušku.",
+      "a": "Ano. Ministerstvo vnitra zpracovává soubor otázek, ze kterého se písemné testy sestavují, a zveřejňuje ho i se správnými odpověďmi. Šířit nebo dále poskytovat se naopak nesmí písemné testy, které ministerstvo pro zkoušku sestaví.",
       "cites": [{ "act": "2024-90", "unit": "p27-1" }, { "act": "2024-90", "unit": "p11-3-h" }]
     },
     {
       "q": "Co je v praktické části?",
       "a": "Postupy bezpečného nakládání se zbraní a střelba na kruhový terč o průměru 500 mm: 5 ran krátkou kulovou zbraní na 10 m a 5 ran dlouhou kulovou zbraní na 25 m, celkem do 5 minut. Potřeba je alespoň 6 zásahů (obecné oprávnění), nebo 8 zásahů (rozšířené).",
-      "cites": [{ "act": "2024-90", "unit": "p20-3-c", "whole": true }]
+      "cites": [{ "act": "2024-90", "unit": "p20-3-b" }, { "act": "2024-90", "unit": "p20-3-c", "whole": true }]
     },
     {
       "q": "Co když neuspěji?",
@@ -36,7 +36,7 @@
     {
       "q": "Jaký je rozdíl mezi obecným a rozšířeným zbrojním oprávněním?",
       "a": "Rozšířené oprávnění v sobě zahrnuje obecné a je potřeba tam, kde to zákon vyžaduje, například pro nošení zbraně podléhající registraci (s výjimkami podle § 81). U testu se liší jen hranice úspěchu: 28 místo 26 správných.",
-      "cites": [{ "act": "2024-90", "unit": "p12-2" }, { "act": "2024-90", "unit": "p80-2" }]
+      "cites": [{ "act": "2024-90", "unit": "p12-2", "whole": true }, { "act": "2024-90", "unit": "p80-2" }]
     }
   ]
 }
