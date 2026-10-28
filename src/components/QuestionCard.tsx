@@ -220,7 +220,7 @@ export function QuestionCard({
         </p>
       )}
 
-      {source && <SourceNote source={source} />}
+      {source && <SourceNote source={source} questionId={question.id} />}
 
       {answered && (
         <footer
