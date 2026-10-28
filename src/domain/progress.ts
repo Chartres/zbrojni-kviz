@@ -27,6 +27,20 @@ export interface ExamAttempt {
   byCategory: Record<string, { correct: number; total: number }>
 }
 
+/**
+ * The best attempt by share of correct answers. Attempts before the § 20 fix (#10) were out of
+ * 60 and current ones out of 30, so raw scores don't compare. Ties go to the newer attempt.
+ */
+export function bestExamAttempt(attempts: ExamAttempt[]): ExamAttempt | null {
+  let best: ExamAttempt | null = null
+  for (const a of attempts) {
+    if (!(a.total > 0)) continue // also skips a malformed row with no total (synced data)
+    const d = best ? a.score * best.total - best.score * a.total : 1
+    if (d > 0 || (d === 0 && a.at > best!.at)) best = a
+  }
+  return best
+}
+
 /** Most exam attempts we keep per user — older ones roll off. */
 export const MAX_EXAM_ATTEMPTS = 50
 
