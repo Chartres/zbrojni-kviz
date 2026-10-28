@@ -17,7 +17,7 @@
       "title": "fix(stats): rank exam attempts by ratio; mark the old 60-question format",
       "pr": "https://github.com/Chartres/zbrojni-kviz/pull/18",
       "merged": true,
-      "live_checked": "LIVE_18"
+      "live_checked": "Main run 76 deployed it. On the live site in real Chromium, with seeded attempts [26/30 new, 50/60 old], the tile shows 26 / 30 with no old-format mark. With [25/30, 58/60] it shows 58 / 60 plus starý test (60 otázek)."
     }
   ],
   "signals_fixed": [
