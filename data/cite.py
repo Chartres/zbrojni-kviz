@@ -75,6 +75,21 @@ def shared_ancestor(a: str, b: str) -> str | None:
 APP = '--app' in sys.argv  # emit only accepted links, in the shape the app imports
 
 
+def option(name: str) -> str | None:
+    """--reviewed ids.json: keep only links a reviewer graded exact (a list of question ids).
+    --merge citations.json: add the result to an existing app file, leaving its links as they are."""
+    if name in sys.argv:
+        i = sys.argv.index(name)
+        value = sys.argv[i + 1]
+        del sys.argv[i : i + 2]
+        return value
+    return None
+
+
+REVIEWED = option('--reviewed')
+MERGE = option('--merge')
+
+
 def main():
     args = [a for a in sys.argv[1:] if a != '--app']
     questions = json.load(open(args[0], encoding='utf-8'))
@@ -172,14 +187,22 @@ def main():
             'quote': u['quote'],
         }
     if APP:
+        reviewed = set(json.load(open(REVIEWED, encoding='utf-8'))) if REVIEWED else None
         out = {
             'acts': {a['act']: {'name': a['name'], 'url': a['url'], 'retrieved': a['retrieved']} for a in acts},
             'questions': {
                 i: {'act': c['act'], 'label': c['label'], 'anchor': c['anchor'], 'quote': c['quote']}
                 for i, c in out.items()
-                if c['ok']
+                if c['ok'] and (reviewed is None or i in reviewed)
             },
         }
+        if MERGE:
+            base = json.load(open(MERGE, encoding='utf-8'))
+            used = {c['act'] for c in out['questions'].values()}
+            base['acts'].update({k: v for k, v in out['acts'].items() if k in used})
+            for i, c in out['questions'].items():
+                base['questions'].setdefault(str(i), c)
+            out = base
     json.dump(out, sys.stdout, ensure_ascii=False, indent=None if APP else 1)
 
 

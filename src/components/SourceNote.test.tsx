@@ -6,7 +6,7 @@ vi.mock('@/analytics', () => ({ track: (...a: unknown[]) => track(...a) }))
 
 import { SourceNote } from './SourceNote'
 
-const SHORT = { label: '§ 1 odst. 1', act: 'Zákon č. 90/2024 Sb.', url: 'https://x/#p1-1', quote: 'Krátké ustanovení.' }
+const SHORT = { heading: 'Ze zákona', label: '§ 1 odst. 1', act: 'Zákon č. 90/2024 Sb.', url: 'https://x/#p1-1', quote: 'Krátké ustanovení.' }
 const LONG = { ...SHORT, quote: 'slovo '.repeat(120).trim() }
 
 describe('SourceNote — measuring whether learners go to the source', () => {

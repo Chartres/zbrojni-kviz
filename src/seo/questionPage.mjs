@@ -70,7 +70,7 @@ export function renderQuestionPage({ q, source, topic, prev, next, origin, cssHr
   const law = source
     ? `
         <section aria-label="Zdroj: ${esc(source.label)}" class="mt-6 border-l-2 border-brass-500/70 bg-steel-900/60 py-3 pl-4 pr-3">
-          <p class="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-brass-300">Ze zákona · ${esc(source.label)}</p>
+          <p class="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-brass-300">${source.act.startsWith('Nařízení vlády') ? 'Z nařízení vlády' : 'Ze zákona'} · ${esc(source.label)}</p>
           <blockquote class="mt-2 leading-relaxed text-steel-200">${esc(source.quote)}</blockquote>
           <p class="mt-2 text-[0.8125rem] text-steel-400">${esc(source.act)}. <a class="whitespace-nowrap text-verdigris-400 underline" href="${esc(source.url)}" rel="noopener">Celé znění ↗</a></p>
         </section>`

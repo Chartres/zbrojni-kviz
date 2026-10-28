@@ -17,6 +17,16 @@ describe('sourceFor — ad fontes: the provision a question tests', () => {
     expect(sourceFor(1)!.quote).toMatch(/za podmínek stanovených tímto zákonem/)
   })
 
+  it('cites implementing regulations and the criminal code too, under the right heading', () => {
+    const exam = sourceFor(562)!
+    expect(exam.act).toMatch(/^Nařízení vlády č\. 238\/2025 Sb\./)
+    expect(exam.heading).toBe('Z nařízení vlády')
+    const defence = sourceFor(641)!
+    expect(defence.act).toBe('Zákon č. 40/2009 Sb., trestní zákoník')
+    expect(defence.label).toBe('§ 29 odst. 1')
+    expect(defence.heading).toBe('Ze zákona')
+  })
+
   it('returns nothing rather than a guess when no provision was matched with confidence', () => {
     const uncited = ALL_QUESTIONS.find((q) => !sourceFor(q.id))
     expect(uncited).toBeDefined()

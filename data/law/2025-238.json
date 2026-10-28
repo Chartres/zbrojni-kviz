@@ -1,0 +1,1674 @@
+{
+ "act": "2025-238",
+ "name": "Nařízení vlády č. 238/2025 Sb., o provádění zkoušek podle zákona o zbraních a střelivu",
+ "url": "https://www.zakonyprolidi.cz/cs/2025-238",
+ "retrieved": "2026-10-27",
+ "units": [
+  {
+   "id": "p1-1",
+   "label": "§ 1 odst. 1",
+   "anchor": "p1-1",
+   "text": "Toto nařízení upravuje",
+   "parent": null
+  },
+  {
+   "id": "p1-1-a",
+   "label": "§ 1 odst. 1 písm. a)",
+   "anchor": "p1-1-a",
+   "text": "pravidla určování zkušebních komisařů na zkoušky odborné způsobilosti a komisionální zkoušky,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-b",
+   "label": "§ 1 odst. 1 písm. b)",
+   "anchor": "p1-1-b",
+   "text": "výši odměny zkušebního komisaře za provedení zkoušky odborné způsobilosti a za účast ve zkušební komisi pro komisionální zkoušku,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-c",
+   "label": "§ 1 odst. 1 písm. c)",
+   "anchor": "p1-1-c",
+   "text": "nejvyšší možnou výši a obsahové vymezení uplatnitelných nákladů provozovatele zapsané zkouškové střelnice, na které se koná komisionální zkouška,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-d",
+   "label": "§ 1 odst. 1 písm. d)",
+   "anchor": "p1-1-d",
+   "text": "způsob a rozsah prokázání znalostí při teoretické části zkoušky odborné způsobilosti a komisionální zkoušky,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-e",
+   "label": "§ 1 odst. 1 písm. e)",
+   "anchor": "p1-1-e",
+   "text": "rozsah a způsob prokázání znalostí, schopností a dovedností v oblasti postupů bezpečného nakládání se zbraněmi a střelivem při praktické části zkoušky odborné způsobilosti a komisionální zkoušky,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-f",
+   "label": "§ 1 odst. 1 písm. f)",
+   "anchor": "p1-1-f",
+   "text": "rozsah a způsob provedení střelby na terč při praktické části zkoušky odborné způsobilosti a komisionální zkoušky,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-g",
+   "label": "§ 1 odst. 1 písm. g)",
+   "anchor": "p1-1-g",
+   "text": "druhy a typy zbraní, které lze použít při praktické části zkoušky odborné způsobilosti a komisionální zkoušky,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-h",
+   "label": "§ 1 odst. 1 písm. h)",
+   "anchor": "p1-1-h",
+   "text": "organizační a zkušební řád zkoušky odborné způsobilosti a komisionální zkoušky,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-i",
+   "label": "§ 1 odst. 1 písm. i)",
+   "anchor": "p1-1-i",
+   "text": "rozsah a způsob prokázání znalostí, schopností a dovedností při teoretické části zkoušky zkušebního komisaře,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-j",
+   "label": "§ 1 odst. 1 písm. j)",
+   "anchor": "p1-1-j",
+   "text": "rozsah a způsob prokázání znalostí, schopností a dovedností v oblastech, které jsou předmětem činnosti zkušebního komisaře, při praktické části zkoušky zkušebního komisaře,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-k",
+   "label": "§ 1 odst. 1 písm. k)",
+   "anchor": "p1-1-k",
+   "text": "druhy a typy zbraní, které lze použít při praktické části zkoušky zkušebního komisaře,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-l",
+   "label": "§ 1 odst. 1 písm. l)",
+   "anchor": "p1-1-l",
+   "text": "organizační a zkušební řád zkoušky zkušebního komisaře,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-m",
+   "label": "§ 1 odst. 1 písm. m)",
+   "anchor": "p1-1-m",
+   "text": "technické požadavky a požadavky na vybavenost zapsané zkouškové střelnice,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-n",
+   "label": "§ 1 odst. 1 písm. n)",
+   "anchor": "p1-1-n",
+   "text": "tiskopis záznamu o výsledcích zkoušky odborné způsobilosti a komisionální zkoušky (dále jen „tiskopis“) a",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-o",
+   "label": "§ 1 odst. 1 písm. o)",
+   "anchor": "p1-1-o",
+   "text": "přehled základních postupů k prokázání znalosti bezpečného nakládání se zbraněmi a střelivem.",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p2-1",
+   "label": "§ 2 odst. 1",
+   "anchor": "p2-1",
+   "text": "Krajské ředitelství Policie České republiky (dále jen „krajské ředitelství policie“) určí zkušebního komisaře zpravidla 10 pracovních dnů před termínem zkoušky odborné způsobilosti. Při určení zkušebního komisaře postupuje krajské ředitelství policie podle pořadí v seznamu zkušebních komisařů, který vede v rámci své územní působnosti; vychází přitom ze zápisu v centrálním registru zbraní. Zkušební komisař, který zkoušku odborné způsobilosti provedl, je pro účely příštího možného určení zařazen na konec seznamu zkušebních komisařů.",
+   "parent": null
+  },
+  {
+   "id": "p2-2",
+   "label": "§ 2 odst. 2",
+   "anchor": "p2-2",
+   "text": "Odmítne-li zkušební komisař určení na zkoušku odborné způsobilosti, krajské ředitelství policie odmítnutí poznamená do spisu a novým zkušebním komisařem určí dalšího v pořadí v seznamu zkušebních komisařů. Zkušební komisař, který určení na zkoušku odborné způsobilosti odmítne, je zařazen na konec seznamu zkušebních komisařů stejně jako zkušební komisař, který zkoušku odborné způsobilosti provedl.",
+   "parent": null
+  },
+  {
+   "id": "p2-3",
+   "label": "§ 2 odst. 3",
+   "anchor": "p2-3",
+   "text": "Nemůže-li se zkušební komisař určený na zkoušku odborné způsobilosti zkoušky zúčastnit, oznámí tuto skutečnost bez zbytečného odkladu krajskému ředitelství policie, které ji poznamená do spisu a novým zkušebním komisařem určí dalšího v pořadí v seznamu zkušebních komisařů. Zkušební komisař, který se nemůže zúčastnit zkoušky odborné způsobilosti, není pro účely příštího možného určení zařazen na konec seznamu zkušebních komisařů.",
+   "parent": null
+  },
+  {
+   "id": "p3-1",
+   "label": "§ 3 odst. 1",
+   "anchor": "p3-1",
+   "text": "Pro účely účasti ve zkušební komisi pro komisionální zkoušku určí zkušebního komisaře ze seznamu odborných osob oprávněných provádět komisionální zkoušku Policejní prezidium České republiky (dále jen „Policejní prezidium“); ustanovení § 2 se použije obdobně.",
+   "parent": null
+  },
+  {
+   "id": "p4-1",
+   "label": "§ 4 odst. 1",
+   "anchor": "p4-1",
+   "text": "Zkušebnímu komisaři náleží za provedení zkoušky odborné způsobilosti a za účast ve zkušební komisi pro komisionální zkoušku odměna zkušebního komisaře, která zahrnuje",
+   "parent": null
+  },
+  {
+   "id": "p4-1-a",
+   "label": "§ 4 odst. 1 písm. a)",
+   "anchor": "p4-1-a",
+   "text": "paušální odměnu ve výši 3500 Kč za účast na takové zkoušce,",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-1-b",
+   "label": "§ 4 odst. 1 písm. b)",
+   "anchor": "p4-1-b",
+   "text": "odměnu ve výši 350 Kč za každého žadatele o vydání zbrojního oprávnění, který se účastní teoretické části takové zkoušky, a",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-1-c",
+   "label": "§ 4 odst. 1 písm. c)",
+   "anchor": "p4-1-c",
+   "text": "odměnu ve výši 350 Kč za každého žadatele o vydání zbrojního oprávnění, který se účastní praktické části takové zkoušky.",
+   "parent": "p4-1"
+  },
+  {
+   "id": "p4-2",
+   "label": "§ 4 odst. 2",
+   "anchor": "p4-2",
+   "text": "Je-li zkušební komisař plátcem daně z přidané hodnoty, je povinen oznámit tuto skutečnost krajskému ředitelství policie nebo Policejnímu prezidiu před konáním zkoušky odborné způsobilosti nebo komisionální zkoušky, na kterou byl určen. Odměna zkušebního komisaře se v takovém případě zvyšuje o daň z přidané hodnoty.",
+   "parent": null
+  },
+  {
+   "id": "p4-3",
+   "label": "§ 4 odst. 3",
+   "anchor": "p4-3",
+   "text": "Odměnu zkušebního komisaře vyplatí krajské ředitelství policie nebo Policejní prezidium, které zkušebního komisaře na zkoušku odborné způsobilosti nebo komisionální zkoušku určilo, do 1 měsíce ode dne jejího provedení, pokud jsou krajskému ředitelství policie nebo Policejnímu prezidiu známy údaje nezbytné pro provedení platby, nebo do 1 měsíce ode dne obdržení sdělení zkušebního komisaře o údajích nezbytných pro provedení platby.",
+   "parent": null
+  },
+  {
+   "id": "p5-1",
+   "label": "§ 5 odst. 1",
+   "anchor": "p5-1",
+   "text": "Uplatnitelnými náklady provozovatele zapsané zkouškové střelnice, na níž se koná komisionální zkouška, jsou s jejím konáním spojené skutečně vynaložené náklady provozovatele zapsané zkouškové střelnice na",
+   "parent": null
+  },
+  {
+   "id": "p5-1-a",
+   "label": "§ 5 odst. 1 písm. a)",
+   "anchor": "p5-1-a",
+   "text": "pronájem školicí místnosti,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-b",
+   "label": "§ 5 odst. 1 písm. b)",
+   "anchor": "p5-1-b",
+   "text": "pronájem střeleckého stavu,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-c",
+   "label": "§ 5 odst. 1 písm. c)",
+   "anchor": "p5-1-c",
+   "text": "zapůjčení ochranných pomůcek,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-d",
+   "label": "§ 5 odst. 1 písm. d)",
+   "anchor": "p5-1-d",
+   "text": "zapůjčení krátké kulové zbraně a dlouhé kulové zbraně,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-e",
+   "label": "§ 5 odst. 1 písm. e)",
+   "anchor": "p5-1-e",
+   "text": "použité terče a",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-f",
+   "label": "§ 5 odst. 1 písm. f)",
+   "anchor": "p5-1-f",
+   "text": "spotřebované střelivo.",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p6-1",
+   "label": "§ 6 odst. 1",
+   "anchor": "p6-1",
+   "text": "Uplatnitelné náklady provozovatele zapsané zkouškové střelnice se hradí podle cen platných v době konání komisionální zkoušky zveřejněných provozovatelem zapsané zkouškové střelnice při dodržení maximální stanovené výše podle odstavce 2.",
+   "parent": null
+  },
+  {
+   "id": "p6-2",
+   "label": "§ 6 odst. 2",
+   "anchor": "p6-2",
+   "text": "Účtované ceny za plnění související s konáním komisionální zkoušky nesmí být vyšší než běžně účtované ceny za obdobná plnění poskytovaná provozovatelem zapsané zkouškové střelnice běžným zákazníkům.",
+   "parent": null
+  },
+  {
+   "id": "p6-3",
+   "label": "§ 6 odst. 3",
+   "anchor": "p6-3",
+   "text": "Za běžně účtované ceny se považují průměry cen za poslední 3 měsíce. Účtované ceny za plnění související s konáním komisionální zkoušky lze v případě, že v průběhu posledních 3 měsíců došlo k trvalému zvýšení ceníkových cen provozovatele zapsané zkouškové střelnice, zvýšit na úroveň zvýšených ceníkových cen, avšak nejvýše o 15 % oproti běžně účtovaným cenám.",
+   "parent": null
+  },
+  {
+   "id": "p7-1",
+   "label": "§ 7 odst. 1",
+   "anchor": "p7-1",
+   "text": "Nárok na úhradu uplatnitelných nákladů provozovatele zapsané zkouškové střelnice se uplatňuje u Policejního prezidia.",
+   "parent": null
+  },
+  {
+   "id": "p7-2",
+   "label": "§ 7 odst. 2",
+   "anchor": "p7-2",
+   "text": "V požadavku na úhradu uplatnitelných nákladů provozovatel zapsané zkouškové střelnice uvede vedle údajů identifikujících fyzickou nebo právnickou osobu, adresy místa podnikání nebo sídla, popřípadě adresy pro doručování a podpisu, také označení komisionální zkoušky, s jejímž konáním jsou uplatnitelné náklady spojeny, druh a výši uplatnitelných nákladů, počet jednotek, jednotkovou cenu, celkovou výši uplatnitelných nákladů a bankovní spojení.",
+   "parent": null
+  },
+  {
+   "id": "p8-1",
+   "label": "§ 8 odst. 1",
+   "anchor": "p8-1",
+   "text": "Zkušební komisař řídí průběh zkoušky odborné způsobilosti a udílí žadatelům o vydání zbrojního oprávnění pokyny a povely, které musí být jednoznačné, srozumitelné a nesmí být v rozporu se zásadami bezpečného nakládání se zbraněmi a střelivem a provozním řádem střelnice.",
+   "parent": null
+  },
+  {
+   "id": "p9-1",
+   "label": "§ 9 odst. 1",
+   "anchor": "p9-1",
+   "text": "Před zahájením zkoušky odborné způsobilosti seznámí zkušební komisař žadatele o vydání zbrojního oprávnění obecně s jejím průběhem a v potřebném rozsahu také s provozním řádem střelnice.",
+   "parent": null
+  },
+  {
+   "id": "p9-2",
+   "label": "§ 9 odst. 2",
+   "anchor": "p9-2",
+   "text": "Zkušební komisař poučí žadatele o vydání zbrojního oprávnění o zákazu používat v průběhu zkoušky odborné způsobilosti jakékoliv nedovolené pomůcky, které by mohly nepříznivě ovlivnit její regulérnost, bez dovolení opouštět místo konání zkoušky odborné způsobilosti nebo rušit její řádný průběh. Při hrubém nebo opakovaném porušení pravidel uvedených ve větě první zkušební komisař zkoušku odborné způsobilosti bezprostředně ukončí a žadatel o vydání zbrojního oprávnění je hodnocen stupněm „neprospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p9-3",
+   "label": "§ 9 odst. 3",
+   "anchor": "p9-3",
+   "text": "O možnost používat při zkoušce odborné způsobilosti zdravotnický prostředek může žadatel o vydání zbrojního oprávnění požádat nejpozději před jejím zahájením. Potřebu používání zdravotnického prostředku je žadatel o vydání zbrojního oprávnění povinen doložit. Zkušební komisař použití zdravotnického prostředku nepřipustí, pokud by jeho použití mohlo nepříznivě ovlivnit regulérnost zkoušky odborné způsobilosti nebo tomu brání provozní řád střelnice.",
+   "parent": null
+  },
+  {
+   "id": "p10-1",
+   "label": "§ 10 odst. 1",
+   "anchor": "p10-1",
+   "text": "Pro zápis do tiskopisu, který stanoví příloha č. 1 k tomuto nařízení, používají zkušební komisař a žadatel o vydání zbrojního oprávnění psací prostředky zajišťující nesmazatelný záznam.",
+   "parent": null
+  },
+  {
+   "id": "p11-1",
+   "label": "§ 11 odst. 1",
+   "anchor": "p11-1",
+   "text": "Před zahájením zkoušky odborné způsobilosti ověří zkušební komisař totožnost žadatele o vydání zbrojního oprávnění, zejména kontrolou seznamu žadatelů o vydání zbrojního oprávnění přihlášených ke zkoušce odborné způsobilosti, který mu předá krajské ředitelství policie, a předložením dokladu totožnosti. Neprokáže-li žadatel o vydání zbrojního oprávnění svou totožnost spolehlivým způsobem, a to ani za případné součinnosti krajského ředitelství policie, zkušební komisař ho k vykonání zkoušky odborné způsobilosti nepřipustí, žadatel o vydání zbrojního oprávnění o termín zkoušky odborné způsobilosti nepřichází a může se na ni znovu přihlásit.",
+   "parent": null
+  },
+  {
+   "id": "p11-2",
+   "label": "§ 11 odst. 2",
+   "anchor": "p11-2",
+   "text": "Zkušební komisař zejména dotazem ověří, zda žadateli o vydání zbrojního oprávnění nebrání v řádném vykonání zkoušky odborné způsobilosti jeho zdravotní stav nebo jiné okolnosti, které by mohly nepříznivě ovlivnit jeho schopnost zkoušku vykonat. Při zjištění okolností, které by mohly nepříznivě ovlivnit bezpečnost vykonání zkoušky odborné způsobilosti, k ní zkušební komisař žadatele o vydání zbrojního oprávnění nepřipustí, žadatel o vydání zbrojního oprávnění o termín zkoušky odborné způsobilosti nepřichází a může se na ni znovu přihlásit.",
+   "parent": null
+  },
+  {
+   "id": "p12-1",
+   "label": "§ 12 odst. 1",
+   "anchor": "p12-1",
+   "text": "Před zahájením teoretické části zkoušky odborné způsobilosti seznámí zkušební komisař žadatele o vydání zbrojního oprávnění s jejím průběhem a se způsobem vyznačování správných odpovědí a případných oprav.",
+   "parent": null
+  },
+  {
+   "id": "p12-2",
+   "label": "§ 12 odst. 2",
+   "anchor": "p12-2",
+   "text": "Teoretická část zkoušky odborné způsobilosti má podobu písemného testu, který se provádí formou výběru 1 správné odpovědi ze 3 možných odpovědí u každé testové otázky. Písemný test je složen",
+   "parent": null
+  },
+  {
+   "id": "p12-2-a",
+   "label": "§ 12 odst. 2 písm. a)",
+   "anchor": "p12-2-a",
+   "text": "ze 17 testových otázek ze znalosti právních předpisů z oblasti nakládání se zbraněmi a střelivem, ověřování střelných zbraní a střeliva a z trestněprávních aspektů nakládání se zbraněmi a střelivem,",
+   "parent": "p12-2"
+  },
+  {
+   "id": "p12-2-b",
+   "label": "§ 12 odst. 2 písm. b)",
+   "anchor": "p12-2-b",
+   "text": "z 5 testových otázek ze znalosti nauky o zbraních a střelivu,",
+   "parent": "p12-2"
+  },
+  {
+   "id": "p12-2-c",
+   "label": "§ 12 odst. 2 písm. c)",
+   "anchor": "p12-2-c",
+   "text": "z 5 testových otázek ze znalosti zásad bezpečného nakládání se zbraněmi a střelivem a",
+   "parent": "p12-2"
+  },
+  {
+   "id": "p12-2-d",
+   "label": "§ 12 odst. 2 písm. d)",
+   "anchor": "p12-2-d",
+   "text": "ze 3 testových otázek ze znalosti zdravotnického minima.",
+   "parent": "p12-2"
+  },
+  {
+   "id": "p12-3",
+   "label": "§ 12 odst. 3",
+   "anchor": "p12-3",
+   "text": "Zkušební komisař vyzve žadatele o vydání zbrojního oprávnění k namátkovému výběru jednoho testového souboru tak, aby žadateli o vydání zbrojního oprávnění nebylo předem známo jeho číslo. Číslo vybraného testového souboru zapíše žadatel o vydání zbrojního oprávnění do příslušné kolonky na tiskopisu.",
+   "parent": null
+  },
+  {
+   "id": "p12-4",
+   "label": "§ 12 odst. 4",
+   "anchor": "p12-4",
+   "text": "Testové soubory uvedené v odstavci 3 předá zkušebnímu komisaři na místě krajské ředitelství policie. Po ukončení teoretické části zkoušky odborné způsobilosti vrátí zkušební komisař testové soubory zpět krajskému ředitelství policie, které zkontroluje jejich úplnost.",
+   "parent": null
+  },
+  {
+   "id": "p12-5",
+   "label": "§ 12 odst. 5",
+   "anchor": "p12-5",
+   "text": "Stanovený časový limit pro zodpovězení testových otázek začíná běžet všem žadatelům o vydání zbrojního oprávnění současně; začátek určuje a pokyn k zahájení zapisování odpovědí udílí zkušební komisař.",
+   "parent": null
+  },
+  {
+   "id": "p12-6",
+   "label": "§ 12 odst. 6",
+   "anchor": "p12-6",
+   "text": "Zkušební komisař určí místo a čas pro seznámení žadatele o vydání zbrojního oprávnění s výsledkem teoretické části zkoušky odborné způsobilosti.",
+   "parent": null
+  },
+  {
+   "id": "p12-7",
+   "label": "§ 12 odst. 7",
+   "anchor": "p12-7",
+   "text": "Žadatel o vydání zbrojního oprávnění zapisuje odpovědi do vyhodnocovací tabulky v tiskopisu. K odpovědím vyznačeným jiným způsobem se nepřihlíží.",
+   "parent": null
+  },
+  {
+   "id": "p12-8",
+   "label": "§ 12 odst. 8",
+   "anchor": "p12-8",
+   "text": "Zkušební komisař dohlíží nad průběhem teoretické části zkoušky odborné způsobilosti. Při hrubém nebo opakovaném porušení pravidel stanovených pro teoretickou část zkoušky odborné způsobilosti zkušební komisař zkoušku odborné způsobilosti bezprostředně ukončí a žadatel o vydání zbrojního oprávnění je hodnocen stupněm „neprospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p13-1",
+   "label": "§ 13 odst. 1",
+   "anchor": "p13-1",
+   "text": "Žadatel o vydání zbrojního oprávnění po zapsání odpovědí tiskopis spolu s testovým souborem odevzdá zkušebnímu komisaři. Po odevzdání tiskopisu není možné činit v odpovědích zaznamenaných v tiskopisu žádné úpravy.",
+   "parent": null
+  },
+  {
+   "id": "p13-2",
+   "label": "§ 13 odst. 2",
+   "anchor": "p13-2",
+   "text": "Po odevzdání tiskopisů všemi žadateli o vydání zbrojního oprávnění, nejpozději však po uplynutí časového limitu, zkušební komisař teoretickou část zkoušky odborné způsobilosti ukončí.",
+   "parent": null
+  },
+  {
+   "id": "p14-1",
+   "label": "§ 14 odst. 1",
+   "anchor": "p14-1",
+   "text": "Bezprostředně po vyhodnocení odpovědí zkušební komisař označí v tiskopisu chybné odpovědi a označí správné řešení; pro zápis použije psací prostředky barevně odlišné od psacích prostředků žadatele o vydání zbrojního oprávnění. Zkušební komisař zaznamená v tiskopisu dosažený počet správně zodpovězených testových otázek a následně vyznačí hodnocení teoretické části zkoušky odborné způsobilosti, zda při ní byl žadatel o vydání zbrojního oprávnění hodnocen stupněm „prospěl“ nebo „neprospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p14-2",
+   "label": "§ 14 odst. 2",
+   "anchor": "p14-2",
+   "text": "Žadatel o vydání zbrojního oprávnění je při teoretické části zkoušky odborné způsobilosti hodnocen stupněm „prospěl“, pokud ve stanoveném časovém limitu zodpoví správně alespoň stanovený minimální počet testových otázek.",
+   "parent": null
+  },
+  {
+   "id": "p14-3",
+   "label": "§ 14 odst. 3",
+   "anchor": "p14-3",
+   "text": "Výsledek teoretické části zkoušky odborné způsobilosti vyhlašuje zkušební komisař pro všechny žadatele o vydání zbrojního oprávnění současně. Zkušební komisař seznámí žadatele o vydání zbrojního oprávnění s dalším průběhem zkoušky odborné způsobilosti.",
+   "parent": null
+  },
+  {
+   "id": "p14-4",
+   "label": "§ 14 odst. 4",
+   "anchor": "p14-4",
+   "text": "Zkušební komisař po vyhlášení výsledku teoretické části zkoušky odborné způsobilosti umožní na požádání žadateli o vydání zbrojního oprávnění nahlédnout do tiskopisu a odpovídajícího testového souboru za účelem porovnání jeho chybných odpovědí a správného řešení.",
+   "parent": null
+  },
+  {
+   "id": "p14-5",
+   "label": "§ 14 odst. 5",
+   "anchor": "p14-5",
+   "text": "Zkoušku odborné způsobilosti žadatele o vydání zbrojního oprávnění, který byl v její teoretické části hodnocen stupněm „neprospěl“, zkušební komisař ukončí, tento žadatel praktickou část zkoušky odborné způsobilosti nekoná a je celkově hodnocen stupněm „neprospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p14-6",
+   "label": "§ 14 odst. 6",
+   "anchor": "p14-6",
+   "text": "Neúspěšný žadatel o vydání zbrojního oprávnění potvrdí seznámení se s výsledkem zkoušky odborné způsobilosti svým podpisem na tiskopisu a může opustit místo jejího konání. Odmítne-li neúspěšný žadatel o vydání zbrojního oprávnění potvrdit svým podpisem seznámení se s výsledkem, vyznačí zkušební komisař tuto skutečnost spolu s důvodem odepření podpisu do tiskopisu.",
+   "parent": null
+  },
+  {
+   "id": "p15-1",
+   "label": "§ 15 odst. 1",
+   "anchor": "p15-1",
+   "text": "Praktickou část zkoušky odborné způsobilosti vykoná žadatel o vydání zbrojního oprávnění ve stejný den jako její teoretickou část. Ve výjimečných a odůvodněných případech může zkušební komisař umožnit konání praktické části zkoušky odborné způsobilosti v jiný den. Důvod pro vykonání praktické části zkoušky odborné způsobilosti v jiný den vyznačí zkušební komisař na tiskopisu.",
+   "parent": null
+  },
+  {
+   "id": "p16-1",
+   "label": "§ 16 odst. 1",
+   "anchor": "p16-1",
+   "text": "Před zahájením praktické části zkoušky odborné způsobilosti ověří zkušební komisař, zda byl žadatel o vydání zbrojního oprávnění hodnocen v její teoretické části stupněm „prospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p16-2",
+   "label": "§ 16 odst. 2",
+   "anchor": "p16-2",
+   "text": "Zkušební komisař seznámí žadatele o vydání zbrojního oprávnění se zásadami bezpečného nakládání se zbraněmi a střelivem a s pokyny a povely, které bude používat v průběhu praktické části zkoušky odborné způsobilosti.",
+   "parent": null
+  },
+  {
+   "id": "p17-1",
+   "label": "§ 17 odst. 1",
+   "anchor": "p17-1",
+   "text": "K prokázání znalostí, schopností a dovedností v oblasti postupů bezpečného nakládání se zbraněmi a střelivem žadatel o vydání zbrojního oprávnění podle pokynu zkušebního komisaře samostatně prakticky předvede a podle potřeby doplní předváděný postup slovním popisem",
+   "parent": null
+  },
+  {
+   "id": "p17-1-a",
+   "label": "§ 17 odst. 1 písm. a)",
+   "anchor": "p17-1-a",
+   "text": "kontrolu zbraně za účelem zjištění jejího stavu,",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-b",
+   "label": "§ 17 odst. 1 písm. b)",
+   "anchor": "p17-1-b",
+   "text": "přípravu zbraně k jejímu částečnému rozebrání a složení v rozsahu nezbytném pro vyčištění zbraně,",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-c",
+   "label": "§ 17 odst. 1 písm. c)",
+   "anchor": "p17-1-c",
+   "text": "postup při přípravě zbraně a střeliva ke střelbě,",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-d",
+   "label": "§ 17 odst. 1 písm. d)",
+   "anchor": "p17-1-d",
+   "text": "postup při zjištění a odstranění závady na zbrani nebo střelivu při střelbě a",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-1-e",
+   "label": "§ 17 odst. 1 písm. e)",
+   "anchor": "p17-1-e",
+   "text": "postup při ukončení střelby.",
+   "parent": "p17-1"
+  },
+  {
+   "id": "p17-2",
+   "label": "§ 17 odst. 2",
+   "anchor": "p17-2",
+   "text": "Činnosti uvedené v odstavci 1 předvede žadatel o vydání zbrojního oprávnění postupně podle pokynu zkušebního komisaře s krátkou kulovou zbraní a s dlouhou kulovou zbraní.",
+   "parent": null
+  },
+  {
+   "id": "p17-3",
+   "label": "§ 17 odst. 3",
+   "anchor": "p17-3",
+   "text": "Konkrétní krátkou kulovou zbraň a dlouhou kulovou zbraň určí žadateli o vydání zbrojního oprávnění zkušební komisař ze zbraní uvedených v § 43 odst. 4 a 5.",
+   "parent": null
+  },
+  {
+   "id": "p17-4",
+   "label": "§ 17 odst. 4",
+   "anchor": "p17-4",
+   "text": "Při předvádění činností uvedených v odstavci 1 se použijí jako střelivo školní náboje neobsahující výmetné náplně, nárazové slože ani zápalky se zápalkovou složí.",
+   "parent": null
+  },
+  {
+   "id": "p17-5",
+   "label": "§ 17 odst. 5",
+   "anchor": "p17-5",
+   "text": "Přehled základních postupů k prokázání znalosti bezpečného nakládání se zbraněmi a střelivem stanoví příloha č. 2 k tomuto nařízení.",
+   "parent": null
+  },
+  {
+   "id": "p18-1",
+   "label": "§ 18 odst. 1",
+   "anchor": "p18-1",
+   "text": "Zkušební komisař určí žadateli o vydání zbrojního oprávnění bezpečný směr a svěří mu zbraň za účelem předvedení postupů bezpečného nakládání se zbraněmi a střelivem podle § 17 odst. 1.",
+   "parent": null
+  },
+  {
+   "id": "p18-2",
+   "label": "§ 18 odst. 2",
+   "anchor": "p18-2",
+   "text": "Postupy, které nejsou povinnou obsahovou náležitostí praktické části zkoušky odborné způsobilosti, nebo postupy, které nejsou uvedeny v příloze č. 2 k tomuto nařízení, mohou být žadateli o vydání zbrojního oprávnění zkušebním komisařem zadány, ale jejich nevykonání, nesprávný popis nebo nesprávné předvedení není důvodem pro hodnocení žadatele o vydání zbrojního oprávnění stupněm „neprospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p19-1",
+   "label": "§ 19 odst. 1",
+   "anchor": "p19-1",
+   "text": "Žadatel o vydání zbrojního oprávnění je při předvádění postupů bezpečného nakládání se zbraněmi a střelivem v rámci praktické části zkoušky odborné způsobilosti hodnocen stupněm „prospěl“, pokud v dostatečném rozsahu předvede postupy bezpečného nakládání se zbraněmi a střelivem, a to s krátkou kulovou zbraní a s dlouhou kulovou zbraní, a podle potřeby je doplní slovním popisem.",
+   "parent": null
+  },
+  {
+   "id": "p19-2",
+   "label": "§ 19 odst. 2",
+   "anchor": "p19-2",
+   "text": "Zkušební komisař hodnotí žadatele o vydání zbrojního oprávnění při předvádění postupů bezpečného nakládání se zbraněmi a střelivem v rámci praktické části zkoušky odborné způsobilosti stupněm „neprospěl“, pokud žadatel",
+   "parent": null
+  },
+  {
+   "id": "p19-2-a",
+   "label": "§ 19 odst. 2 písm. a)",
+   "anchor": "p19-2-a",
+   "text": "v dostatečném rozsahu nepředvede zvládnutí postupů bezpečného nakládání se zbraněmi a střelivem,",
+   "parent": "p19-2"
+  },
+  {
+   "id": "p19-2-b",
+   "label": "§ 19 odst. 2 písm. b)",
+   "anchor": "p19-2-b",
+   "text": "poruší zásady bezpečného nakládání se zbraněmi a střelivem v takové míře, že bezprostředně ohrozí nebo by v praxi bezprostředně ohrozil bezpečnost osob, nebo",
+   "parent": "p19-2"
+  },
+  {
+   "id": "p19-2-c",
+   "label": "§ 19 odst. 2 písm. c)",
+   "anchor": "p19-2-c",
+   "text": "hrubým způsobem nebo opakovaně poruší zásady bezpečného nakládání se zbraněmi a střelivem.",
+   "parent": "p19-2"
+  },
+  {
+   "id": "p19-3",
+   "label": "§ 19 odst. 3",
+   "anchor": "p19-3",
+   "text": "Při porušení zásad bezpečného nakládání se zbraněmi a střelivem podle odstavce 2 písm. b) a c) zkušební komisař zkoušku odborné způsobilosti bezprostředně ukončí.",
+   "parent": null
+  },
+  {
+   "id": "p19-4",
+   "label": "§ 19 odst. 4",
+   "anchor": "p19-4",
+   "text": "Bezprostředně po ukončení předvádění postupů bezpečného nakládání se zbraněmi a střelivem vyznačí zkušební komisař do tiskopisu hodnocení předvádění postupů bezpečného nakládání se zbraněmi a střelivem v rámci praktické části zkoušky odborné způsobilosti, zda při něm byl žadatel o vydání zbrojního oprávnění hodnocen stupněm „prospěl“ nebo „neprospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p19-5",
+   "label": "§ 19 odst. 5",
+   "anchor": "p19-5",
+   "text": "Zkoušku odborné způsobilosti žadatele o vydání zbrojního oprávnění, který byl při předvádění postupů bezpečného nakládání se zbraněmi a střelivem v rámci praktické části zkoušky odborné způsobilosti hodnocen stupněm „neprospěl“, zkušební komisař ukončí, tento žadatel střelbu na terč neprovádí a je celkově hodnocen stupněm „neprospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p19-6",
+   "label": "§ 19 odst. 6",
+   "anchor": "p19-6",
+   "text": "Neúspěšný žadatel o vydání zbrojního oprávnění potvrdí seznámení se s výsledkem předvádění postupů bezpečného nakládání se zbraněmi a střelivem v rámci praktické části zkoušky odborné způsobilosti svým podpisem na tiskopisu a může opustit místo konání zkoušky. Odmítne-li neúspěšný žadatel o vydání zbrojního oprávnění potvrdit svým podpisem seznámení se s výsledkem, vyznačí zkušební komisař tuto skutečnost spolu s důvodem odepření podpisu do tiskopisu.",
+   "parent": null
+  },
+  {
+   "id": "p20-1",
+   "label": "§ 20 odst. 1",
+   "anchor": "p20-1",
+   "text": "Žadatel o vydání zbrojního oprávnění, který byl při předvedení postupů bezpečného nakládání se zbraněmi a střelivem hodnocen stupněm „prospěl“, provede střelbu na terč.",
+   "parent": null
+  },
+  {
+   "id": "p21-1",
+   "label": "§ 21 odst. 1",
+   "anchor": "p21-1",
+   "text": "Zkušební komisař seznámí žadatele o vydání zbrojního oprávnění, kteří pokračují v praktické části zkoušky odborné způsobilosti, s organizací střelby, včetně způsobu oznámení závady na zbrani, a je-li to třeba, také se zásadami bezpečného nakládání se zbraněmi a střelivem a s pokyny a povely, které bude používat.",
+   "parent": null
+  },
+  {
+   "id": "p21-2",
+   "label": "§ 21 odst. 2",
+   "anchor": "p21-2",
+   "text": "Konkrétní krátkou kulovou zbraň a dlouhou kulovou zbraň k provedení střelby na terč určí žadateli o vydání zbrojního oprávnění zkušební komisař ze zbraní uvedených v § 43 odst. 4 a 5.",
+   "parent": null
+  },
+  {
+   "id": "p21-3",
+   "label": "§ 21 odst. 3",
+   "anchor": "p21-3",
+   "text": "Střelbu na terč provádí žadatel o vydání zbrojního oprávnění individuálně v souladu se zásadami stanovenými provozním řádem střelnice a pod přímým dohledem a podle pokynů a povelů zkušebního komisaře.",
+   "parent": null
+  },
+  {
+   "id": "p21-4",
+   "label": "§ 21 odst. 4",
+   "anchor": "p21-4",
+   "text": "Použití ochranných pomůcek se řídí provozním řádem střelnice. Žadatel o vydání zbrojního oprávnění je oprávněn používat při střelbě na terč také zdravotnický prostředek, nebrání-li jeho použití provozní řád střelnice; potřebu jeho používání je žadatel o vydání zbrojního oprávnění povinen doložit.",
+   "parent": null
+  },
+  {
+   "id": "p21-5",
+   "label": "§ 21 odst. 5",
+   "anchor": "p21-5",
+   "text": "Oporu dlouhé kulové zbraně při střelbě na terč může použít pouze žadatel o vydání zbrojního oprávnění, jehož trvalý nebo dlouhodobý zdravotní stav použití opory vyžaduje. Opora zbraně nesmí umožňovat stabilní fixaci nebo nastavení zamíření zbraně. Opora krátké kulové zbraně při střelbě na terč se nepřipouští.",
+   "parent": null
+  },
+  {
+   "id": "p22-1",
+   "label": "§ 22 odst. 1",
+   "anchor": "p22-1",
+   "text": "Střelba na terč se provádí v poloze vstoje, popřípadě vsedě u žadatele o vydání zbrojního oprávnění, jehož trvalý nebo dlouhodobý zdravotní stav neumožňuje provedení střelby v poloze vstoje.",
+   "parent": null
+  },
+  {
+   "id": "p22-2",
+   "label": "§ 22 odst. 2",
+   "anchor": "p22-2",
+   "text": "Ke střelbě na terč se použijí kulové náboje s jednotnou střelou a papírový terč nebo terčové zařízení umožňující vytištění série hodnocené střelby, včetně grafické podoby terče s vyznačenými zásahy.",
+   "parent": null
+  },
+  {
+   "id": "p22-3",
+   "label": "§ 22 odst. 3",
+   "anchor": "p22-3",
+   "text": "Před zahájením hodnocené střelby je žadatel o vydání zbrojního oprávnění oprávněn ověřit si správnost nastřelení zbraně, a to 3 výstřely z krátké kulové zbraně a 3 výstřely z dlouhé kulové zbraně.",
+   "parent": null
+  },
+  {
+   "id": "p22-4",
+   "label": "§ 22 odst. 4",
+   "anchor": "p22-4",
+   "text": "Časový limit pro provedení střelby na terč začíná běžet pokynem zkušebního komisaře ke střelbě a jeho běh se přerušuje mezi posledním výstřelem z jednoho druhu zbraně a přechodem na jiný druh zbraně.",
+   "parent": null
+  },
+  {
+   "id": "p22-5",
+   "label": "§ 22 odst. 5",
+   "anchor": "p22-5",
+   "text": "Po provedení kontroly po ukončení střelby předloží žadatel o vydání zbrojního oprávnění zkušebnímu komisaři zbraň tak, aby mohl provést vizuální kontrolu nábojové komory, popřípadě nábojových komor nebo zásobníkové šachty zbraně. Předložení zbraně se provede se zbraní směřující do bezpečného směru. Je-li zbraň vybavena odnímatelným zásobníkem, předloží se ke kontrole jeho vyústění, pokud tak určí zkušební komisař.",
+   "parent": null
+  },
+  {
+   "id": "p23-1",
+   "label": "§ 23 odst. 1",
+   "anchor": "p23-1",
+   "text": "V případě vzniku technické závady na zbrani nebo na střelivu žadatel o vydání zbrojního oprávnění střelbu přeruší a zajistí v součinnosti se zkušebním komisařem její odstranění. Po odstranění závady zkušební komisař nařídí pokračování ve střelbě nebo znovuprovedení střelby na terč, pokud závada mohla mít vliv na doposud provedenou část střelby na terč. Doba, po kterou je závada odstraňována, se do časového limitu pro provedení střelby na terč nezapočítává. Nepodaří-li se závadu odstranit, zajistí zkušební komisař jinou zbraň uvedenou v § 43 odst. 4 a 5 a nařídí znovuprovedení střelby na terč; žadatel o vydání zbrojního oprávnění je oprávněn ověřit si správnost nastřelení této zbraně 3 výstřely.",
+   "parent": null
+  },
+  {
+   "id": "p23-2",
+   "label": "§ 23 odst. 2",
+   "anchor": "p23-2",
+   "text": "V případě přerušení střelby z důvodu překážky na straně žadatele o vydání zbrojního oprávnění odstraní žadatel pod přímým dohledem zkušebního komisaře vzniklou překážku a dokončí střelbu, pokud to okolnosti dovolí. Doba, po kterou je překážka odstraňována, se do časového limitu pro provedení střelby na terč nezapočítává.",
+   "parent": null
+  },
+  {
+   "id": "p24-1",
+   "label": "§ 24 odst. 1",
+   "anchor": "p24-1",
+   "text": "Zásahem terče se rozumí zasažení terče střelou do prostoru vyznačeného kruhu, a to včetně tečného zasažení kruhu.",
+   "parent": null
+  },
+  {
+   "id": "p24-2",
+   "label": "§ 24 odst. 2",
+   "anchor": "p24-2",
+   "text": "Zkušební komisař hodnotí žadatele o vydání zbrojního oprávnění při střelbě na terč v rámci praktické části zkoušky odborné způsobilosti stupněm „neprospěl“, pokud žadatel",
+   "parent": null
+  },
+  {
+   "id": "p24-2-a",
+   "label": "§ 24 odst. 2 písm. a)",
+   "anchor": "p24-2-a",
+   "text": "ve stanoveném časovém limitu nedosáhne alespoň minimální počet zásahů v terči,",
+   "parent": "p24-2"
+  },
+  {
+   "id": "p24-2-b",
+   "label": "§ 24 odst. 2 písm. b)",
+   "anchor": "p24-2-b",
+   "text": "poruší zásady bezpečného nakládání se zbraněmi a střelivem v takové míře, že bezprostředně ohrozí nebo by v praxi bezprostředně ohrozil bezpečnost osob, nebo",
+   "parent": "p24-2"
+  },
+  {
+   "id": "p24-2-c",
+   "label": "§ 24 odst. 2 písm. c)",
+   "anchor": "p24-2-c",
+   "text": "hrubým způsobem nebo opakovaně poruší zásady bezpečného nakládání se zbraněmi a střelivem.",
+   "parent": "p24-2"
+  },
+  {
+   "id": "p24-3",
+   "label": "§ 24 odst. 3",
+   "anchor": "p24-3",
+   "text": "Při porušení zásad bezpečného nakládání se zbraněmi a střelivem podle odstavce 2 písm. b) a c) zkušební komisař zkoušku odborné způsobilosti bezprostředně ukončí.",
+   "parent": null
+  },
+  {
+   "id": "p24-4",
+   "label": "§ 24 odst. 4",
+   "anchor": "p24-4",
+   "text": "Bezprostředně po ukončení střelby na terč vyznačí zkušební komisař do tiskopisu počet zásahů z krátké kulové zbraně a z dlouhé kulové zbraně. Terč s označenými zásahy žadatele o vydání zbrojního oprávnění se přiloží k tiskopisu pouze tehdy, vznikla-li pochybnost o zásahu v terči; důvod přiložení terče uvede zkušební komisař v tiskopisu.",
+   "parent": null
+  },
+  {
+   "id": "p24-5",
+   "label": "§ 24 odst. 5",
+   "anchor": "p24-5",
+   "text": "Zkušební komisař vyznačí do tiskopisu hodnocení střelby na terč v rámci praktické části zkoušky odborné způsobilosti, zda při ní byl žadatel o vydání zbrojního oprávnění hodnocen stupněm „prospěl“ nebo „neprospěl“.",
+   "parent": null
+  },
+  {
+   "id": "p25-1",
+   "label": "§ 25 odst. 1",
+   "anchor": "p25-1",
+   "text": "Žadatel o vydání zbrojního oprávnění je při zkoušce odborné způsobilosti celkově hodnocen stupněm „prospěl“, pokud je hodnocen stupněm „prospěl“",
+   "parent": null
+  },
+  {
+   "id": "p25-1-a",
+   "label": "§ 25 odst. 1 písm. a)",
+   "anchor": "p25-1-a",
+   "text": "v teoretické části zkoušky odborné způsobilosti,",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p25-1-b",
+   "label": "§ 25 odst. 1 písm. b)",
+   "anchor": "p25-1-b",
+   "text": "při předvádění postupů bezpečného nakládání se zbraněmi a střelivem v rámci praktické části zkoušky odborné způsobilosti a",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p25-1-c",
+   "label": "§ 25 odst. 1 písm. c)",
+   "anchor": "p25-1-c",
+   "text": "při střelbě na terč v rámci praktické části zkoušky odborné způsobilosti.",
+   "parent": "p25-1"
+  },
+  {
+   "id": "p25-2",
+   "label": "§ 25 odst. 2",
+   "anchor": "p25-2",
+   "text": "Zkušební komisař vyznačí do tiskopisu celkové vyhodnocení zkoušky odborné způsobilosti, zda při ní byl žadatel o vydání zbrojního oprávnění hodnocen stupněm „prospěl“ nebo „neprospěl“. Zkušební komisař v tiskopisu uvede své jméno, popřípadě jména, příjmení, místo a datum konání zkoušky odborné způsobilosti a opatří jej svým podpisem.",
+   "parent": null
+  },
+  {
+   "id": "p25-3",
+   "label": "§ 25 odst. 3",
+   "anchor": "p25-3",
+   "text": "Celkové vyhodnocení zkoušky odborné způsobilosti vyhlašuje zkušební komisař průběžně.",
+   "parent": null
+  },
+  {
+   "id": "p25-4",
+   "label": "§ 25 odst. 4",
+   "anchor": "p25-4",
+   "text": "Žadatel o vydání zbrojního oprávnění potvrdí seznámení se s výsledkem zkoušky odborné způsobilosti svým podpisem na tiskopisu. Odmítne-li žadatel o vydání zbrojního oprávnění potvrdit svým podpisem seznámení se s výsledkem, vyznačí zkušební komisař tuto skutečnost spolu s důvodem odepření podpisu do tiskopisu.",
+   "parent": null
+  },
+  {
+   "id": "p25-5",
+   "label": "§ 25 odst. 5",
+   "anchor": "p25-5",
+   "text": "Vyplněné tiskopisy všech žadatelů o vydání zbrojního oprávnění předá zkušební komisař krajskému ředitelství policie bez zbytečného odkladu po ukončení zkoušky odborné způsobilosti.",
+   "parent": null
+  },
+  {
+   "id": "p26-1",
+   "label": "§ 26 odst. 1",
+   "anchor": "p26-1",
+   "text": "Členem zkušební komise pro komisionální zkoušku musí být alespoň jeden zástupce Ministerstva vnitra, Policejního prezidia nebo krajského ředitelství policie a alespoň jeden zkušební komisař. Předsedu zkušební komise pro komisionální zkoušku určí Policejní prezidium.",
+   "parent": null
+  },
+  {
+   "id": "p26-2",
+   "label": "§ 26 odst. 2",
+   "anchor": "p26-2",
+   "text": "Průběh komisionální zkoušky řídí a pokyny a povely žadatelům o vydání zbrojního oprávnění udílí předseda zkušební komise nebo z jeho pověření její jiný člen; pokyny a povely musí být jednoznačné, srozumitelné a nesmí být v rozporu se zásadami bezpečného nakládání se zbraněmi a střelivem a provozním řádem střelnice.",
+   "parent": null
+  },
+  {
+   "id": "p26-3",
+   "label": "§ 26 odst. 3",
+   "anchor": "p26-3",
+   "text": "O hodnocení žadatele o vydání zbrojního oprávnění u komisionální zkoušky rozhoduje zkušební komise prostou většinou hlasů.",
+   "parent": null
+  },
+  {
+   "id": "p26-4",
+   "label": "§ 26 odst. 4",
+   "anchor": "p26-4",
+   "text": "Není-li dále stanoveno jinak, použijí se pro obsahovou náplň, organizaci a průběh komisionální zkoušky ustanovení části třetí obdobně.",
+   "parent": null
+  },
+  {
+   "id": "p27-1",
+   "label": "§ 27 odst. 1",
+   "anchor": "p27-1",
+   "text": "Nekoná-li se komisionální zkouška na střelnici provozované vyňatou veřejnoprávní institucí, umožní Policejní prezidium vykonat komisionální zkoušku na některé ze zapsaných zkouškových střelnic takovým způsobem, aby byla zajištěna jejich pravidelná rotace.",
+   "parent": null
+  },
+  {
+   "id": "p28-1",
+   "label": "§ 28 odst. 1",
+   "anchor": "p28-1",
+   "text": "Teoretická část zkoušky zkušebního komisaře má podobu",
+   "parent": null
+  },
+  {
+   "id": "p28-1-a",
+   "label": "§ 28 odst. 1 písm. a)",
+   "anchor": "p28-1-a",
+   "text": "písemného testu, který se provádí formou výběru 1 správné odpovědi ze 3 možných odpovědí u každé testové otázky, a",
+   "parent": "p28-1"
+  },
+  {
+   "id": "p28-1-b",
+   "label": "§ 28 odst. 1 písm. b)",
+   "anchor": "p28-1-b",
+   "text": "ústního pohovoru.",
+   "parent": "p28-1"
+  },
+  {
+   "id": "p28-2",
+   "label": "§ 28 odst. 2",
+   "anchor": "p28-2",
+   "text": "Písemný test je složen z",
+   "parent": null
+  },
+  {
+   "id": "p28-2-a",
+   "label": "§ 28 odst. 2 písm. a)",
+   "anchor": "p28-2-a",
+   "text": "34 testových otázek ze znalosti právních předpisů z oblasti nakládání se zbraněmi a střelivem, ověřování střelných zbraní a střeliva a trestněprávních aspektů nakládání se zbraněmi a střelivem,",
+   "parent": "p28-2"
+  },
+  {
+   "id": "p28-2-b",
+   "label": "§ 28 odst. 2 písm. b)",
+   "anchor": "p28-2-b",
+   "text": "10 testových otázek ze znalosti nauky o zbraních a střelivu,",
+   "parent": "p28-2"
+  },
+  {
+   "id": "p28-2-c",
+   "label": "§ 28 odst. 2 písm. c)",
+   "anchor": "p28-2-c",
+   "text": "10 testových otázek ze znalosti zásad bezpečného nakládání se zbraněmi a střelivem a",
+   "parent": "p28-2"
+  },
+  {
+   "id": "p28-2-d",
+   "label": "§ 28 odst. 2 písm. d)",
+   "anchor": "p28-2-d",
+   "text": "6 testových otázek ze znalosti zdravotnického minima.",
+   "parent": "p28-2"
+  },
+  {
+   "id": "p28-3",
+   "label": "§ 28 odst. 3",
+   "anchor": "p28-3",
+   "text": "Ústní pohovor, při kterém žadatel o jmenování zkušebním komisařem odpovídá na otázky kladené zkušební komisí, je zaměřen na ověření znalostí, schopností a dovedností z oblastí, jejichž znalost je ověřována písemným testem.",
+   "parent": null
+  },
+  {
+   "id": "p29-1",
+   "label": "§ 29 odst. 1",
+   "anchor": "p29-1",
+   "text": "Praktická část zkoušky zkušebního komisaře, která se provádí ověřením praktických znalostí, schopností a dovedností nezbytných pro zajišťování průběhu praktické části zkoušky odborné způsobilosti, se skládá z",
+   "parent": null
+  },
+  {
+   "id": "p29-1-a",
+   "label": "§ 29 odst. 1 písm. a)",
+   "anchor": "p29-1-a",
+   "text": "předvedení znalostí, schopností a dovedností v oblasti postupů bezpečného nakládání se zbraněmi a střelivem a aplikace znalostí ověřovaných v teoretické části zkoušky zkušebního komisaře a",
+   "parent": "p29-1"
+  },
+  {
+   "id": "p29-1-b",
+   "label": "§ 29 odst. 1 písm. b)",
+   "anchor": "p29-1-b",
+   "text": "předvedení znalostí postupu řídícího střelby a řízení průběhu zkoušky odborné způsobilosti.",
+   "parent": "p29-1"
+  },
+  {
+   "id": "p29-2",
+   "label": "§ 29 odst. 2",
+   "anchor": "p29-2",
+   "text": "K prokázání znalostí, schopností a dovedností v oblasti postupů bezpečného nakládání se zbraněmi a střelivem žadatel o jmenování zkušebním komisařem samostatně slovně popíše a podle pokynu zkušební komise prakticky předvede nejméně 2 z těchto činností:",
+   "parent": null
+  },
+  {
+   "id": "p29-2-a",
+   "label": "§ 29 odst. 2 písm. a)",
+   "anchor": "p29-2-a",
+   "text": "prohlídka nejméně 2 různých druhů zbraní za účelem zjištění jejich stavu,",
+   "parent": "p29-2"
+  },
+  {
+   "id": "p29-2-b",
+   "label": "§ 29 odst. 2 písm. b)",
+   "anchor": "p29-2-b",
+   "text": "částečné rozebrání a složení nejméně 2 různých druhů zbraní v rozsahu, který je nutný k vyčištění zbraní v rámci běžné údržby,",
+   "parent": "p29-2"
+  },
+  {
+   "id": "p29-2-c",
+   "label": "§ 29 odst. 2 písm. c)",
+   "anchor": "p29-2-c",
+   "text": "postup při přípravě zbraně a střeliva ke střelbě,",
+   "parent": "p29-2"
+  },
+  {
+   "id": "p29-2-d",
+   "label": "§ 29 odst. 2 písm. d)",
+   "anchor": "p29-2-d",
+   "text": "postup při zjištění závady na zbrani při střelbě a při ukončení střelby.",
+   "parent": "p29-2"
+  },
+  {
+   "id": "p29-3",
+   "label": "§ 29 odst. 3",
+   "anchor": "p29-3",
+   "text": "K prokázání znalostí postupu řídícího střelby a řízení průběhu zkoušky odborné způsobilosti žadatel o jmenování zkušebním komisařem samostatně slovně popíše nejméně 3 z těchto činností, které popřípadě podle pokynu zkušební komise doplní praktickým předvedením a vyřešením související modelové situace:",
+   "parent": null
+  },
+  {
+   "id": "p29-3-a",
+   "label": "§ 29 odst. 3 písm. a)",
+   "anchor": "p29-3-a",
+   "text": "seznámení žadatele o vydání zbrojního oprávnění s náležitostmi provozního řádu střelnice podstatnými pro průběh zkoušky odborné způsobilosti,",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p29-3-b",
+   "label": "§ 29 odst. 3 písm. b)",
+   "anchor": "p29-3-b",
+   "text": "řízení střelby a povelovou techniku,",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p29-3-c",
+   "label": "§ 29 odst. 3 písm. c)",
+   "anchor": "p29-3-c",
+   "text": "postup při přerušení střelby z důvodu, že do cílového prostoru vstoupí osoba nebo dojde k jiné nepředpokládané události, která neumožní bezpečné pokračování ve střelbě,",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p29-3-d",
+   "label": "§ 29 odst. 3 písm. d)",
+   "anchor": "p29-3-d",
+   "text": "postup při vzniku mimořádné události na střelnici,",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p29-3-e",
+   "label": "§ 29 odst. 3 písm. e)",
+   "anchor": "p29-3-e",
+   "text": "postup při okamžitém zhoršení zdravotního stavu žadatele o vydání zbrojního oprávnění v průběhu zkoušky odborné způsobilosti,",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p29-3-f",
+   "label": "§ 29 odst. 3 písm. f)",
+   "anchor": "p29-3-f",
+   "text": "řízení průběhu zkoušky odborné způsobilosti, je-li žadatelem o vydání zbrojního oprávnění osoba se zdravotním postižením,",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p29-3-g",
+   "label": "§ 29 odst. 3 písm. g)",
+   "anchor": "p29-3-g",
+   "text": "postup při řešení pochybnosti o zásahu v terči,",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p29-3-h",
+   "label": "§ 29 odst. 3 písm. h)",
+   "anchor": "p29-3-h",
+   "text": "postup při nesouhlasu žadatele o vydání zbrojního oprávnění s průběhem nebo hodnocením zkoušky odborné způsobilosti,",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p29-3-i",
+   "label": "§ 29 odst. 3 písm. i)",
+   "anchor": "p29-3-i",
+   "text": "součinnost s krajským ředitelstvím policie vykonávajícím dozor nad průběhem zkoušky odborné způsobilosti.",
+   "parent": "p29-3"
+  },
+  {
+   "id": "p30-1",
+   "label": "§ 30 odst. 1",
+   "anchor": "p30-1",
+   "text": "Průběh zkoušky zkušebního komisaře řídí a pokyny a povely žadatelům o jmenování zkušebním komisařem udílí předseda zkušební komise nebo z jeho pověření její jiný člen; pokyny a povely musí být jednoznačné, srozumitelné a nesmí být v rozporu se zásadami bezpečného nakládání se zbraněmi a střelivem.",
+   "parent": null
+  },
+  {
+   "id": "p30-2",
+   "label": "§ 30 odst. 2",
+   "anchor": "p30-2",
+   "text": "O hodnocení žadatele o jmenování zkušebním komisařem rozhoduje zkušební komise prostou většinou hlasů; při rovnosti hlasů rozhoduje hlas jejího předsedy.",
+   "parent": null
+  },
+  {
+   "id": "p30-3",
+   "label": "§ 30 odst. 3",
+   "anchor": "p30-3",
+   "text": "Není-li dále stanoveno jinak, použijí se pro organizaci a průběh zkoušky zkušebního komisaře ustanovení části třetí přiměřeně.",
+   "parent": null
+  },
+  {
+   "id": "p31-1",
+   "label": "§ 31 odst. 1",
+   "anchor": "p31-1",
+   "text": "Žadatel o jmenování zkušebním komisařem odpovídá při ústním pohovoru na otázky kladené zkušební komisí bez předchozí přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p31-2",
+   "label": "§ 31 odst. 2",
+   "anchor": "p31-2",
+   "text": "Žadatel o jmenování zkušebním komisařem je při ústním pohovoru hodnocen stupněm „prospěl“, pokud v časovém limitu určeném zkušební komisí zodpoví v dostatečném rozsahu otázky kladené zkušební komisí.",
+   "parent": null
+  },
+  {
+   "id": "p32-1",
+   "label": "§ 32 odst. 1",
+   "anchor": "p32-1",
+   "text": "Zkušební komise seznámí žadatele o jmenování zkušebním komisařem, kteří byli hodnoceni v teoretické části zkoušky zkušebního komisaře stupněm „prospěl“, s průběhem její praktické části.",
+   "parent": null
+  },
+  {
+   "id": "p33-1",
+   "label": "§ 33 odst. 1",
+   "anchor": "p33-1",
+   "text": "Žadatel o jmenování zkušebním komisařem předvádí činnosti a řeší situace uvedené v rámci praktické části zkoušky zkušebního komisaře bez přípravy.",
+   "parent": null
+  },
+  {
+   "id": "p34-1",
+   "label": "§ 34 odst. 1",
+   "anchor": "p34-1",
+   "text": "Konkrétní zbraně k předvedení postupů bezpečného nakládání se zbraněmi a střelivem určí žadateli o jmenování zkušebním komisařem zkušební komise.",
+   "parent": null
+  },
+  {
+   "id": "p35-1",
+   "label": "§ 35 odst. 1",
+   "anchor": "p35-1",
+   "text": "Žadatel o jmenování zkušebním komisařem je při předvedení znalostí postupu řídícího střelby a řízení průběhu zkoušky odborné způsobilosti v rámci praktické části zkoušky zkušebního komisaře hodnocen stupněm „prospěl“, pokud v dostatečném rozsahu popíše a předvede činnosti a vyřeší související modelové situace podle pokynu zkušební komise.",
+   "parent": null
+  },
+  {
+   "id": "p36-1",
+   "label": "§ 36 odst. 1",
+   "anchor": "p36-1",
+   "text": "Termín opakované zkoušky zkušebního komisaře oznámí žadateli o jmenování zkušebním komisařem Ministerstvo vnitra zpravidla nejméně 10 pracovních dnů předem.",
+   "parent": null
+  },
+  {
+   "id": "p37-1",
+   "label": "§ 37 odst. 1",
+   "anchor": "p37-1",
+   "text": "Podoba a zařízení zapsané zkouškové střelnice musí umožňovat provedení zkoušky odborné způsobilosti a komisionální zkoušky i za zhoršených povětrnostních nebo světelných podmínek.",
+   "parent": null
+  },
+  {
+   "id": "p38-1",
+   "label": "§ 38 odst. 1",
+   "anchor": "p38-1",
+   "text": "Provozovatel zapsané zkouškové střelnice musí pro účely zkoušky odborné způsobilosti a komisionální zkoušky disponovat místností, kterou lze s ohledem na její stavebně technické provedení a vybavení využít jako školicí místnost pro konání teoretické části zkoušky odborné způsobilosti a komisionální zkoušky.",
+   "parent": null
+  },
+  {
+   "id": "p38-2",
+   "label": "§ 38 odst. 2",
+   "anchor": "p38-2",
+   "text": "Místnost uvedená v odstavci 1 musí mít kapacitu alespoň 25 osob a tomu odpovídající počet míst k sezení a musí být vytápěná, větratelná a vybavena tak, aby umožňovala vykonání teoretické části zkoušky odborné způsobilosti nebo komisionální zkoušky 20 žadatelům o vydání zbrojního oprávnění současně.",
+   "parent": null
+  },
+  {
+   "id": "p38-3",
+   "label": "§ 38 odst. 3",
+   "anchor": "p38-3",
+   "text": "V prostoru zapsané zkouškové střelnice musí být umístěno hygienické zařízení se záchodem a umyvadlem s tekoucí vodou, vybavené prostředky pro hygienické mytí a osušení rukou.",
+   "parent": null
+  },
+  {
+   "id": "p39-1",
+   "label": "§ 39 odst. 1",
+   "anchor": "p39-1",
+   "text": "V prostoru zapsané zkouškové střelnice se musí nacházet místnost nebo prostor, které lze využít pro předvedení postupů bezpečného nakládání se zbraněmi a střelivem.",
+   "parent": null
+  },
+  {
+   "id": "p39-2",
+   "label": "§ 39 odst. 2",
+   "anchor": "p39-2",
+   "text": "Pokud má být pro předvedení postupů bezpečného nakládání se zbraněmi a střelivem využito střelecké stanoviště, musí být pro ostatní žadatele o vydání zbrojního oprávnění, kteří čekají na vykonání praktické části zkoušky odborné způsobilosti nebo komisionální zkoušky, vyčleněna v prostoru zapsané zkouškové střelnice čekací místnost, není-li pro tento účel využita školicí místnost.",
+   "parent": null
+  },
+  {
+   "id": "p40-1",
+   "label": "§ 40 odst. 1",
+   "anchor": "p40-1",
+   "text": "Provozní řád zapsané zkouškové střelnice musí umožňovat střelbu z krátké kulové zbraně a z dlouhé kulové zbraně v poloze vstoje a vsedě, a to včetně opory dlouhé kulové zbraně.",
+   "parent": null
+  },
+  {
+   "id": "p40-2",
+   "label": "§ 40 odst. 2",
+   "anchor": "p40-2",
+   "text": "V prostoru zapsané zkouškové střelnice se musí nacházet střelecké stanoviště umožňující střelbu z krátké kulové zbraně na terč nebo terčové zařízení podle § 22 odst. 2 na vzdálenost 10 m.",
+   "parent": null
+  },
+  {
+   "id": "p40-3",
+   "label": "§ 40 odst. 3",
+   "anchor": "p40-3",
+   "text": "V prostoru zapsané zkouškové střelnice se musí nacházet střelecké stanoviště umožňující střelbu z dlouhé kulové zbraně na terč nebo terčové zařízení podle § 22 odst. 2 na vzdálenost 25 m.",
+   "parent": null
+  },
+  {
+   "id": "p41-1",
+   "label": "§ 41 odst. 1",
+   "anchor": "p41-1",
+   "text": "Pokud má být pro předvedení postupů bezpečného nakládání se zbraněmi a střelivem využit jiný prostor než střelecké stanoviště, musí",
+   "parent": null
+  },
+  {
+   "id": "p41-1-a",
+   "label": "§ 41 odst. 1 písm. a)",
+   "anchor": "p41-1-a",
+   "text": "umožňovat předvedení všech činností uvedených v § 17 odst. 1 v běžném rozsahu,",
+   "parent": "p41-1"
+  },
+  {
+   "id": "p41-1-b",
+   "label": "§ 41 odst. 1 písm. b)",
+   "anchor": "p41-1-b",
+   "text": "v něm být jednoznačně a viditelně vyznačen bezpečný směr umožňující předvádění postupů bezpečného nakládání se zbraní a střelivem v obdobném rozsahu jako na střeleckém stanovišti a",
+   "parent": "p41-1"
+  },
+  {
+   "id": "p41-1-c",
+   "label": "§ 41 odst. 1 písm. c)",
+   "anchor": "p41-1-c",
+   "text": "být stavebně oddělen od prostoru, ve kterém na vykonání praktické části zkoušky odborné způsobilosti nebo komisionální zkoušky čekají ostatní žadatelé o vydání zbrojního oprávnění.",
+   "parent": "p41-1"
+  },
+  {
+   "id": "p41-2",
+   "label": "§ 41 odst. 2",
+   "anchor": "p41-2",
+   "text": "Prostor uvedený v odstavci 1 musí být vybaven nábytkem nebo zařízením umožňujícím bezpečné odkládání zbraní a střeliva.",
+   "parent": null
+  },
+  {
+   "id": "p41-3",
+   "label": "§ 41 odst. 3",
+   "anchor": "p41-3",
+   "text": "Prostor uvedený v odstavci 1 a místnost uvedená v § 39 odst. 2 musí být vytápěné a větratelné.",
+   "parent": null
+  },
+  {
+   "id": "p42-1",
+   "label": "§ 42 odst. 1",
+   "anchor": "p42-1",
+   "text": "Střelecké stanoviště musí být vybaveno nábytkem nebo zařízením umožňujícím bezpečné odkládání zbraní, střeliva a ochranných pomůcek.",
+   "parent": null
+  },
+  {
+   "id": "p42-2",
+   "label": "§ 42 odst. 2",
+   "anchor": "p42-2",
+   "text": "Střelecké stanoviště musí být vybaveno zařízením umožňujícím upevnění terče nebo terčového zařízení do výstřelného prostoru střelnice.",
+   "parent": null
+  },
+  {
+   "id": "p43-1",
+   "label": "§ 43 odst. 1",
+   "anchor": "p43-1",
+   "text": "Pro účely provedení praktické části zkoušky odborné způsobilosti nebo komisionální zkoušky musí být na zapsané zkouškové střelnici připraveny k použití alespoň 2 funkční a střelbyschopné kusy zbraní každého druhu uvedeného v odstavcích 4 a 5, přičemž nesmí jít o typy zbraní, jejichž konstrukce a ovládání jsou neobvyklé nebo nestandardní ve srovnání se zbraněmi vyskytujícími se běžně v praxi a dostupnými na trhu. Konkrétní značku a model ke každému typu zbraně, která se použije při praktické části zkoušky odborné způsobilosti nebo komisionální zkoušky, a to včetně uvedení typu mířidel a případných doplňků zbraně, je provozovatel zapsané zkouškové střelnice povinen zveřejnit na svých internetových stránkách nejméně 14 dní před stanoveným termínem zkoušky odborné způsobilosti nebo komisionální zkoušky.",
+   "parent": null
+  },
+  {
+   "id": "p43-2",
+   "label": "§ 43 odst. 2",
+   "anchor": "p43-2",
+   "text": "Zbraně pro účely provedení praktické části zkoušky odborné způsobilosti nebo komisionální zkoušky musí umožňovat provedení kontroly zbraně podle bodu 2.2 přílohy č. 2 k tomuto nařízení a simulaci závad a provedení jejich odstranění.",
+   "parent": null
+  },
+  {
+   "id": "p43-3",
+   "label": "§ 43 odst. 3",
+   "anchor": "p43-3",
+   "text": "Kulovou zbraní se pro účely provedení praktické části zkoušky odborné způsobilosti a komisionální zkoušky rozumí krátká palná zbraň pro kulové střelivo se středovým zápalem a dlouhá palná zbraň pro kulové střelivo se středovým zápalem nebo pro střelivo s okrajovým zápalem ráže 22 Long Rifle nebo 22 WMR.",
+   "parent": null
+  },
+  {
+   "id": "p43-4",
+   "label": "§ 43 odst. 4",
+   "anchor": "p43-4",
+   "text": "Na zapsané zkouškové střelnici musí být připraveny k použití tyto krátké kulové zbraně:",
+   "parent": null
+  },
+  {
+   "id": "p43-4-a",
+   "label": "§ 43 odst. 4 písm. a)",
+   "anchor": "p43-4-a",
+   "text": "samonabíjecí pistole s dvojčinným a jednočinným spoušťovým mechanismem DA/SA a s vnějším bicím kohoutem,",
+   "parent": "p43-4"
+  },
+  {
+   "id": "p43-4-b",
+   "label": "§ 43 odst. 4 písm. b)",
+   "anchor": "p43-4-b",
+   "text": "samonabíjecí pistole s bicím mechanismem s přímoběžným úderníkem a",
+   "parent": "p43-4"
+  },
+  {
+   "id": "p43-4-c",
+   "label": "§ 43 odst. 4 písm. c)",
+   "anchor": "p43-4-c",
+   "text": "revolver s výklopným válcem s dvojčinným a jednočinným spoušťovým mechanismem DA/SA.",
+   "parent": "p43-4"
+  },
+  {
+   "id": "p43-5",
+   "label": "§ 43 odst. 5",
+   "anchor": "p43-5",
+   "text": "Na zapsané zkouškové střelnici musí být připraveny k použití tyto dlouhé kulové zbraně:",
+   "parent": null
+  },
+  {
+   "id": "p43-5-a",
+   "label": "§ 43 odst. 5 písm. a)",
+   "anchor": "p43-5-a",
+   "text": "samonabíjecí dlouhá kulová zbraň s odnímatelným zásobníkem a",
+   "parent": "p43-5"
+  },
+  {
+   "id": "p43-5-b",
+   "label": "§ 43 odst. 5 písm. b)",
+   "anchor": "p43-5-b",
+   "text": "opakovací dlouhá kulová zbraň s otočným odsuvným závěrem a s odnímatelným zásobníkem.",
+   "parent": "p43-5"
+  },
+  {
+   "id": "p43-6",
+   "label": "§ 43 odst. 6",
+   "anchor": "p43-6",
+   "text": "Zbraně podle odstavců 4 a 5 mohou být vybaveny mechanickými mířidly, kolimátorem nebo optickým zaměřovačem a tlumičem hluku výstřelu.",
+   "parent": null
+  },
+  {
+   "id": "p43-7",
+   "label": "§ 43 odst. 7",
+   "anchor": "p43-7",
+   "text": "Pro účely provedení praktické části zkoušky odborné způsobilosti nebo komisionální zkoušky musí být na zapsané zkouškové střelnici připraveno k použití alespoň 10 kusů školních nábojů neobsahujících výmetné náplně, nárazové slože ani zápalky se zápalkovou složí, a to pro každý druh zbraně uvedený v odstavcích 4 a 5.",
+   "parent": null
+  },
+  {
+   "id": "p44-1",
+   "label": "§ 44 odst. 1",
+   "anchor": "p44-1",
+   "text": "Pro účely provedení střelby na terč musí být na zapsané zkouškové střelnici k dispozici odpovídající počet",
+   "parent": null
+  },
+  {
+   "id": "p44-1-a",
+   "label": "§ 44 odst. 1 písm. a)",
+   "anchor": "p44-1-a",
+   "text": "kruhových papírových terčů o průměru 500 mm nebo terčových zařízení uvedených v § 22 odst. 2; jako terč se použije papírový mezinárodní pistolový terč 50/20 nebo jiný papírový terč s vyobrazeným kruhem o průměru 500 mm nebo terčové zařízení s obdobnou plochou terče,",
+   "parent": "p44-1"
+  },
+  {
+   "id": "p44-1-b",
+   "label": "§ 44 odst. 1 písm. b)",
+   "anchor": "p44-1-b",
+   "text": "ochranných brýlí a chráničů sluchu,",
+   "parent": "p44-1"
+  },
+  {
+   "id": "p44-1-c",
+   "label": "§ 44 odst. 1 písm. c)",
+   "anchor": "p44-1-c",
+   "text": "kusů nábojů do každého druhu krátké kulové zbraně a dlouhé kulové zbraně uvedeného v § 43 odst. 4 a 5 a",
+   "parent": "p44-1"
+  },
+  {
+   "id": "p44-1-d",
+   "label": "§ 44 odst. 1 písm. d)",
+   "anchor": "p44-1-d",
+   "text": "opor dlouhé kulové zbraně, které neumožňují stabilní fixaci nebo nastavení zamíření zbraně.",
+   "parent": "p44-1"
+  },
+  {
+   "id": "p45-1",
+   "label": "§ 45 odst. 1",
+   "anchor": "p45-1",
+   "text": "Toto nařízení nabývá účinnosti dnem 1. ledna 2026.",
+   "parent": null
+  },
+  {
+   "id": "a2-1.1",
+   "label": "příloha č. 2 bod 1.1",
+   "anchor": "f8107841",
+   "text": "Bezpečný směr",
+   "parent": "a2-1"
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107842",
+   "text": "Bezpečný směr se určí tak, aby v běžném rozsahu umožňoval předvedení postupů bezpečného nakládání se zbraněmi a střelivem v souladu s tímto nařízením. Bezpečný směr je možno určit zejména tak, že směřuje k dopadišti střel vymezenému provozním řádem střelnice.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107843",
+   "text": "Zbraň, u které nebyla provedena kontrola podle bodu 2 této přílohy, musí při manipulaci směřovat do bezpečného směru.",
+   "parent": null
+  },
+  {
+   "id": "a2-3",
+   "label": "příloha č. 2 bod 3",
+   "anchor": "f8107844",
+   "text": "Při zkoušce odborné způsobilosti nebo komisionální zkoušce se nepřipouští provádění manipulace nebo simulace situací, při kterých by zbraň, u níž nebyla provedena kontrola podle bodu 2 této přílohy nebo se kterou se simuluje nabitý stav zbraně nebo střelba, nesměřovala do bezpečného směru.",
+   "parent": null
+  },
+  {
+   "id": "a2-4",
+   "label": "příloha č. 2 bod 4",
+   "anchor": "f8107845",
+   "text": "Určený bezpečný směr musí respektovat každá osoba přítomná při zkoušce odborné způsobilosti nebo komisionální zkoušce a nesmí do něj v jejím průběhu vstupovat nebo jinak zasahovat.",
+   "parent": null
+  },
+  {
+   "id": "a2-1.2",
+   "label": "příloha č. 2 bod 1.2",
+   "anchor": "f8107846",
+   "text": "Rána jistoty",
+   "parent": "a2-1"
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107847",
+   "text": "Rána jistoty se provádí vždy tak, aby zbraň směřovala do bezpečného směru.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107848",
+   "text": "Rána jistoty, při níž se provádí zamíření zbraně do bezpečného směru s využitím mířidel zbraně (mířená rána jistoty), se provádí, pokud tak určí zkušební komisař, a to způsobem, který zkušební komisař určí.",
+   "parent": null
+  },
+  {
+   "id": "a2-1.3",
+   "label": "příloha č. 2 bod 1.3",
+   "anchor": "f8107849",
+   "text": "Nabití zbraně",
+   "parent": "a2-1"
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107850",
+   "text": "Nabití zbraně se provede uvedením zbraně do stavu, ve kterém je ke střelbě zapotřebí pouze přesunutí prstu ruky do prostoru lučíku a stisknutí spouště.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107851",
+   "text": "Není-li vydán pokyn ke střelbě, musí být prst ruky mimo lučík zbraně. Zbraň neustále směřuje do bezpečného směru.",
+   "parent": null
+  },
+  {
+   "id": "a2-1.4",
+   "label": "příloha č. 2 bod 1.4",
+   "anchor": "f8107852",
+   "text": "Prst mimo spoušť a lučík",
+   "parent": "a2-1"
+  },
+  {
+   "id": "a2-1.5",
+   "label": "příloha č. 2 bod 1.5",
+   "anchor": "f8107854",
+   "text": "Přerušení střelby",
+   "parent": "a2-1"
+  },
+  {
+   "id": "a2-1.6",
+   "label": "příloha č. 2 bod 1.6",
+   "anchor": "f8107856",
+   "text": "Ukončení střelby",
+   "parent": "a2-1"
+  },
+  {
+   "id": "a2-2.1",
+   "label": "příloha č. 2 bod 2.1",
+   "anchor": "f8107859",
+   "text": "Obecná pravidla",
+   "parent": "a2-2"
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107860",
+   "text": "Účelem kontroly zbraně je její vybití a uvedení do stavu bezpečného pro odložení zbraně nebo další manipulaci, například rozebrání zbraně. Zbraň, která není uvedena do bezpečného stavu, musí v průběhu zkoušky odborné způsobilosti nebo komisionální zkoušky vždy směřovat do bezpečného směru. Mimo případů naplněných zákonných podmínek nutné obrany a krajní nouze není přípustné mířit na osoby ani v případě, je-li zbraň vybitá, zkontrolovaná nebo nekompletní; úmyslné míření na osoby je v takovém případě porušením zásad bezpečného nakládání se zbraní.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107861",
+   "text": "Závisí-li podle bodu 2.2 postup kontroly zbraně na konstrukci použité zbraně, určí konkrétní postup zkušební komisař.",
+   "parent": null
+  },
+  {
+   "id": "a2-3",
+   "label": "příloha č. 2 bod 3",
+   "anchor": "f8107862",
+   "text": "Využití dodatečných bezpečnostních prvků konkrétního typu zbraně pro její uvedení do bezpečného stavu není povinnou součástí zkoušky odborné způsobilosti nebo komisionální zkoušky.",
+   "parent": null
+  },
+  {
+   "id": "a2-4",
+   "label": "příloha č. 2 bod 4",
+   "anchor": "f8107863",
+   "text": "Kontrola technického stavu vnitřního mechanismu zbraně, ověření funkčnosti zbraně pro střelbu nebo průchodnosti vývrtu hlavně není povinnou součástí zkoušky odborné způsobilosti nebo komisionální zkoušky.",
+   "parent": null
+  },
+  {
+   "id": "a2-5",
+   "label": "příloha č. 2 bod 5",
+   "anchor": "f8107864",
+   "text": "Není-li v této příloze stanoveno jinak, provádí se kontrola zbraně vždy při první manipulaci se zbraní. V případě, že zkušební komisař vyžaduje provádět opakovanou kontrolu zbraně také v jiných případech, upozorní žadatele o vydání zbrojního oprávnění na nutnost jejího provedení před každou takovou opakovanou kontrolou.",
+   "parent": null
+  },
+  {
+   "id": "a2-6",
+   "label": "příloha č. 2 bod 6",
+   "anchor": "f8107865",
+   "text": "Je-li zbraň vybavena odnímatelným zásobníkem, který je při kontrole zbraně a jejím uvedení do bezpečného stavu ze zbraně vyjmut, není vybití nábojů z vyňatého zásobníku povinnou součástí zkoušky odborné způsobilosti nebo komisionální zkoušky.",
+   "parent": null
+  },
+  {
+   "id": "a2-2.2",
+   "label": "příloha č. 2 bod 2.2",
+   "anchor": "f8107866",
+   "text": "Postup při kontrole jednotlivých typů zbraní",
+   "parent": "a2-2"
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107868",
+   "text": "Provede se vyjmutí zásobníku, po stažení závěru do zadní polohy se přes výhozné okénko provede vizuální kontrola nábojové komory.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107869",
+   "text": "Provede se kontrola zásobníkové šachty, zda se v ní nenachází zásobník. Tuto kontrolu lze provést vizuálně pohledem přes výhozné okénko při stažení závěru do zadní polohy nebo pohmatem prsty ruky, která nedrží zbraň, přes ústí zásobníkové šachty.",
+   "parent": null
+  },
+  {
+   "id": "a2-3",
+   "label": "příloha č. 2 bod 3",
+   "anchor": "f8107870",
+   "text": "Po provedení kontroly lze závěr ponechat v zadní poloze, pokud to konstrukce zbraně umožňuje, nebo jej vypustit do přední polohy. V přední poloze závěru se provede rána jistoty.",
+   "parent": null
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107872",
+   "text": "Provede se vyklopení nábojového válce a vizuální kontrola jeho nábojových komor.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107873",
+   "text": "Odložení zkontrolované zbraně se provede s vyklopeným válcem.",
+   "parent": null
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107875",
+   "text": "Provede se vyjmutí zásobníku. Pokud to konstrukce zbraně umožňuje, provede se vizuální kontrola nábojové komory po stažení závěru do zadní polohy přes výhozné okénko. Pokud konstrukce zbraně vizuální kontrolu nábojové komory přes výhozné okénko neumožňuje, provede se opakované stažení závěru do zadní polohy s následným vypuštěním do přední polohy.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107876",
+   "text": "Provede se kontrola zásobníkové šachty, zda se v ní nenachází zásobník. Tuto kontrolu lze provést vizuálně pohledem přes výhozné okénko při stažení závěru do zadní polohy nebo pohmatem prsty ruky, která nedrží zbraň, přes ústí zásobníkové šachty.",
+   "parent": null
+  },
+  {
+   "id": "a2-3",
+   "label": "příloha č. 2 bod 3",
+   "anchor": "f8107877",
+   "text": "Po provedení kontroly lze závěr ponechat v zadní poloze, pokud to konstrukce zbraně umožňuje, nebo jej vypustit do přední polohy. V přední poloze závěru se provede rána jistoty.",
+   "parent": null
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107879",
+   "text": "Provede se vyjmutí zásobníku, otevření závěru a následně vizuální kontrola nábojové komory a zásobníkové šachty.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107880",
+   "text": "Odložení zbraně se provede se závěrem v otevřené poloze. Při uzamčení nenabité zkontrolované zbraně se provede vypuštění bicího mechanismu prostřednictvím rány jistoty.",
+   "parent": null
+  },
+  {
+   "id": "a2-3.1",
+   "label": "příloha č. 2 bod 3.1",
+   "anchor": "f8107882",
+   "text": "Obecná pravidla",
+   "parent": "a2-3"
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107883",
+   "text": "Popis možných technických příčin vzniku závady a možných způsobů likvidace selhaného náboje, jakož i kontrola stavu vnitřního mechanismu zbraně není povinnou součástí zkoušky odborné způsobilosti nebo komisionální zkoušky.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107884",
+   "text": "Simulace jiných než níže uvedených běžných závad nebo předvedení alternativních, například taktických, postupů při odstranění závady není povinnou součástí zkoušky odborné způsobilosti nebo komisionální zkoušky.",
+   "parent": null
+  },
+  {
+   "id": "a2-3.2",
+   "label": "příloha č. 2 bod 3.2",
+   "anchor": "f8107885",
+   "text": "Postup při jednotlivých závadách",
+   "parent": "a2-3"
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107887",
+   "text": "Nedojde-li k iniciaci náboje, je třeba vyčkat minimálně 10 sekund se zbraní směřující do bezpečného směru. Pokud výrobce zbraně nebo střeliva použitých k předvedení činností podle tohoto nařízení nebo ke střelbě předepisuje vyčkat delší dobu, seznámí zkušební komisař žadatele o vydání zbrojního oprávnění s touto skutečností.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107888",
+   "text": "Po uplynutí příslušné doby se provede kontrola zbraně podle bodu 2 této přílohy. Následně je také třeba zkontrolovat otisk zápalníku na zápalce pro zjištění, zda je závada zapříčiněna zbraní nebo střelivem.",
+   "parent": null
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107890",
+   "text": "Provede se kontrola zbraně podle bodu 2 této přílohy. Následně se provede kontrola průchodnosti vývrtu hlavně, které bude u zbraní většiny konstrukcí předcházet rozebrání zbraně. V případě, že střela je uvízlá v hlavni, pouze se slovně popíše správný postup jejího odstranění. Provedení rány jistoty po kontrole zbraně, u které došlo ke slabé ráně, není porušením zásad bezpečného nakládání se zbraní, a to zejména pokud je takový způsob uvolnění spoušťového a bicího mechanismu nezbytný pro její rozebrání.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107891",
+   "text": "Vyčkávání před dalším postupem po slabé ráně obdobně jako v případě selhače je možné, ale nevyžaduje se.",
+   "parent": null
+  },
+  {
+   "id": "a2-1",
+   "label": "příloha č. 2 bod 1",
+   "anchor": "f8107893",
+   "text": "Závadu je třeba řešit s ohledem na její konkrétní charakter. Zpravidla se nejprve provede vyjmutí zásobníku, je-li zbraň vybavena odnímatelným zásobníkem, a vnější vizuální kontrola zbraně a zjištění druhu závady.",
+   "parent": null
+  },
+  {
+   "id": "a2-2",
+   "label": "příloha č. 2 bod 2",
+   "anchor": "f8107894",
+   "text": "Následně se provede odstranění příčiny zádržky.",
+   "parent": null
+  },
+  {
+   "id": "a2-3",
+   "label": "příloha č. 2 bod 3",
+   "anchor": "f8107895",
+   "text": "V případě, že nelze vysunout zásobník, například z důvodu náboje vzpříčeného ve vývodkách zásobníku, je třeba pokud možno zachytit závěr v zadní poloze a odstranit příčinu zádržky přes výhozné okénko.",
+   "parent": null
+  }
+ ]
+}

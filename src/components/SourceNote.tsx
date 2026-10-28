@@ -15,7 +15,7 @@ export function SourceNote({ source, questionId }: { source: Source; questionId:
       className="mt-5 border-l-2 border-brass-500/70 bg-steel-900/60 py-3 pl-4 pr-3"
     >
       <p className="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-brass-300">
-        Ze zákona · {source.label}
+        {source.heading} · {source.label}
       </p>
       {long ? (
         <details

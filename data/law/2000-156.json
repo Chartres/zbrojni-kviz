@@ -1,0 +1,1604 @@
+{
+ "act": "2000-156",
+ "name": "Zákon č. 156/2000 Sb., o ověřování střelných zbraní, střeliva a pyrotechnických předmětů",
+ "url": "https://www.zakonyprolidi.cz/cs/2000-156",
+ "retrieved": "2026-10-27",
+ "units": [
+  {
+   "id": "p1-1",
+   "label": "§ 1 odst. 1",
+   "anchor": "p1-1",
+   "text": "Tento zákon upravuje",
+   "parent": null
+  },
+  {
+   "id": "p1-1-a",
+   "label": "§ 1 odst. 1 písm. a)",
+   "anchor": "p1-1-a",
+   "text": "práva a povinnosti výrobců, dovozců, vývozců, distributorů a opravců střelných zbraní, doplňků zbraní a střeliva (dále jen \"kontrolované osoby\"), jakož i dalších osob nakládajících se střelnými zbraněmi při jejich ověřování,",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p1-1-b",
+   "label": "§ 1 odst. 1 písm. b)",
+   "anchor": "p1-1-b",
+   "text": "výkon státní správy při ověřování střelných zbraní, doplňků zbraní a střeliva a při kontrole identifikačních údajů střelných zbraní nebo střeliva, zajišťování úkolů plynoucích z mezinárodní smlouvy, kterou je Česká republika vázána, a kontrolní činnost s tím spojenou.",
+   "parent": "p1-1"
+  },
+  {
+   "id": "p2-1",
+   "label": "§ 2 odst. 1",
+   "anchor": "p2-1",
+   "text": "Pro účely tohoto zákona se rozumí",
+   "parent": null
+  },
+  {
+   "id": "p2-1-a",
+   "label": "§ 2 odst. 1 písm. a)",
+   "anchor": "p2-1-a",
+   "text": "kontrolovanými výrobky stanovené střelné zbraně, stanovené střelivo a stanovené doplňky,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-b",
+   "label": "§ 2 odst. 1 písm. b)",
+   "anchor": "p2-1-b",
+   "text": "stanovenou střelnou zbraní střelná zbraň nebo její část, které podléhají ověřování nebo kontrole identifikačních údajů,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-c",
+   "label": "§ 2 odst. 1 písm. c)",
+   "anchor": "p2-1-c",
+   "text": "stanoveným střelivem střelivo nebo jeho komponenty, které podléhají ověřování nebo kontrole identifikačních údajů,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-d",
+   "label": "§ 2 odst. 1 písm. d)",
+   "anchor": "p2-1-d",
+   "text": "stanoveným doplňkem doplněk zbraně, který podléhá ověřování nebo kontrole identifikačních údajů,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-e",
+   "label": "§ 2 odst. 1 písm. e)",
+   "anchor": "p2-1-e",
+   "text": "komponentem střeliva je střela, nábojnice, zápalka, výmetná náplň nebo jejich kombinace,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-f",
+   "label": "§ 2 odst. 1 písm. f)",
+   "anchor": "p2-1-f",
+   "text": "ověřováním činnost, při které se technickými zkouškami, měřením a zkušební střelbou zjišťují vlastnosti kontrolovaných výrobků, shoda s technickými požadavky na ně stanovenými (§ 4) a označování uvedených výrobků zkušebními značkami (§ 19),",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-g",
+   "label": "§ 2 odst. 1 písm. g)",
+   "anchor": "p2-1-g",
+   "text": "výrobcem ten, kdo navrhuje nebo vyrábí kontrolované výrobky nebo jejich hlavní části, nebo kdo dal takový výrobek navrhnout či vyrobit, s cílem uvést jej na trh pod označením svou obchodní firmou, názvem, jménem a příjmením, ochrannou známkou nebo jiným rozlišovacím znakem; za výrobce kontrolovaných výrobků se považuje i ten, kdo na hlavní části stanovené střelné zbraně nebo na jiném kontrolovaném výrobku provede zásadní technickou konstrukční změnu,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-h",
+   "label": "§ 2 odst. 1 písm. h)",
+   "anchor": "p2-1-h",
+   "text": "dovozcem ten, kdo uvádí na trh v České republice kontrolované výrobky pocházející ze zahraničí, včetně členských států Evropské unie, anebo zastupuje výrobce, který se nenachází na území České republiky,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-i",
+   "label": "§ 2 odst. 1 písm. i)",
+   "anchor": "p2-1-i",
+   "text": "distributorem ten, kdo v rámci své podnikatelské činnosti kontrolované výrobky prodává, jejich prodej zprostředkovává, nebo je jiným způsobem dodává na trh nebo poskytuje uživatelům,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-j",
+   "label": "§ 2 odst. 1 písm. j)",
+   "anchor": "p2-1-j",
+   "text": "vývozcem ten, kdo kontrolované výrobky vyváží z České republiky,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-k",
+   "label": "§ 2 odst. 1 písm. k)",
+   "anchor": "p2-1-k",
+   "text": "opravcem ten, kdo u stanovených střelných zbraní nebo stanovených doplňků zejména odstraňuje závady, mění jejich vlastnosti podle objednávky nebo provádí jejich údržbu, úpravu, montáž nebo seřizování,",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-1-l",
+   "label": "§ 2 odst. 1 písm. l)",
+   "anchor": "p2-1-l",
+   "text": "uvedením na trh každé úplatné nebo bezúplatné předání nebo nabídnutí k předání kontrolovaného výrobku za účelem distribuce nebo používání, anebo převedení vlastnického práva ke kontrolovaným výrobkům výrobcem, dovozcem, distributorem nebo opravcem v České republice.",
+   "parent": "p2-1"
+  },
+  {
+   "id": "p2-2",
+   "label": "§ 2 odst. 2",
+   "anchor": "p2-2",
+   "text": "Zkušební značkou se rozumí značka, která osvědčuje, že kontrolovaný výrobek byl ověřen v souladu s tímto zákonem nebo s mezinárodní smlouvou, kterou je Česká republika vázána, a splňuje stanovené technické požadavky, přičemž",
+   "parent": null
+  },
+  {
+   "id": "p2-2-a",
+   "label": "§ 2 odst. 2 písm. a)",
+   "anchor": "p2-2-a",
+   "text": "jednotnou zkušební značkou se rozumí zkušební značka podle mezinárodní smlouvy, kterou je Česká republika vázána,",
+   "parent": "p2-2"
+  },
+  {
+   "id": "p2-2-b",
+   "label": "§ 2 odst. 2 písm. b)",
+   "anchor": "p2-2-b",
+   "text": "národní zkušební značkou se rozumí zkušební značka, která osvědčuje splnění národních technických požadavků.",
+   "parent": "p2-2"
+  },
+  {
+   "id": "p2-3",
+   "label": "§ 2 odst. 3",
+   "anchor": "p2-3",
+   "text": "Další značkou se rozumí značka, která je umístěna na kontrolovaném výrobku, avšak neosvědčuje, že kontrolovaný výrobek byl ověřen v souladu s tímto zákonem nebo s mezinárodní smlouvou, kterou je Česká republika vázána, ani že splňuje stanovené technické požadavky; další značkou je zejména",
+   "parent": null
+  },
+  {
+   "id": "p2-3-a",
+   "label": "§ 2 odst. 3 písm. a)",
+   "anchor": "p2-3-a",
+   "text": "kontrolní značka, kterou je značka osvědčující, že kontrolovaný výrobek je označen identifikačními údaji ve stanoveném rozsahu,",
+   "parent": "p2-3"
+  },
+  {
+   "id": "p2-3-b",
+   "label": "§ 2 odst. 3 písm. b)",
+   "anchor": "p2-3-b",
+   "text": "identifikační značka zkušebny, kterou je identifikační značka podle mezinárodní smlouvy, která označuje zahraniční zkušebnu, která ověřovala kontrolovaný výrobek,",
+   "parent": "p2-3"
+  },
+  {
+   "id": "p2-3-c",
+   "label": "§ 2 odst. 3 písm. c)",
+   "anchor": "p2-3-c",
+   "text": "identifikační značka úřadu, kterou je identifikační značka, která osvědčuje, že kontrolovaný výrobek byl ověřován Českým úřadem pro zkoušení zbraní a střeliva (dále jen „Úřad“).",
+   "parent": "p2-3"
+  },
+  {
+   "id": "p2-4",
+   "label": "§ 2 odst. 4",
+   "anchor": "p2-4",
+   "text": "Identifikačním údajem se rozumí údaj nebo symbol, který není zkušební značkou, kontrolní značkou nebo identifikační značkou, ani dvojčíslím nebo symbolem označujícím rok provedení zkoušky.",
+   "parent": null
+  },
+  {
+   "id": "p2a-1",
+   "label": "§ 2a odst. 1",
+   "anchor": "p2a-1",
+   "text": "Stanovené střelné zbraně jsou",
+   "parent": null
+  },
+  {
+   "id": "p2a-1-a",
+   "label": "§ 2a odst. 1 písm. a)",
+   "anchor": "p2a-1-a",
+   "text": "palné zbraně, kterými jsou",
+   "parent": "p2a-1"
+  },
+  {
+   "id": "p2a-1-a-1",
+   "label": "§ 2a odst. 1 písm. a) bod 1",
+   "anchor": "p2a-1-a-1",
+   "text": "brokové zbraně,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-2",
+   "label": "§ 2a odst. 1 písm. a) bod 2",
+   "anchor": "p2a-1-a-2",
+   "text": "kulové zbraně,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-3",
+   "label": "§ 2a odst. 1 písm. a) bod 3",
+   "anchor": "p2a-1-a-3",
+   "text": "zbraně vybavené kulovými a brokovými hlavněmi,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-4",
+   "label": "§ 2a odst. 1 písm. a) bod 4",
+   "anchor": "p2a-1-a-4",
+   "text": "zbraně s omezenou kinetickou energií,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-5",
+   "label": "§ 2a odst. 1 písm. a) bod 5",
+   "anchor": "p2a-1-a-5",
+   "text": "zbraně pro jedno použití,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-6",
+   "label": "§ 2a odst. 1 písm. a) bod 6",
+   "anchor": "p2a-1-a-6",
+   "text": "historické zbraně, repliky a napodobeniny historických zbraní, které jsou způsobilé ke střelbě,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-7",
+   "label": "§ 2a odst. 1 písm. a) bod 7",
+   "anchor": "p2a-1-a-7",
+   "text": "balistická měřidla určená k zjišťování balistických hodnot, zejména tlaku, rozptylu nebo rychlosti střely,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-8",
+   "label": "§ 2a odst. 1 písm. a) bod 8",
+   "anchor": "p2a-1-a-8",
+   "text": "signální zbraně,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-9",
+   "label": "§ 2a odst. 1 písm. a) bod 9",
+   "anchor": "p2a-1-a-9",
+   "text": "narkotizační zbraně,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-10",
+   "label": "§ 2a odst. 1 písm. a) bod 10",
+   "anchor": "p2a-1-a-10",
+   "text": "expanzní přístroje, u nichž je primárním zdrojem energie výbušná látka, kterými mohou být zejména přístroje jateční nebo metné,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-a-11",
+   "label": "§ 2a odst. 1 písm. a) bod 11",
+   "anchor": "p2a-1-a-11",
+   "text": "expanzní zbraně, kterými jsou akustické, salutní, poplašné a signalizační zbraně, plynovky a zbraně na granule,",
+   "parent": "p2a-1-a"
+  },
+  {
+   "id": "p2a-1-b",
+   "label": "§ 2a odst. 1 písm. b)",
+   "anchor": "p2a-1-b",
+   "text": "plynové zbraně, kterými jsou",
+   "parent": "p2a-1"
+  },
+  {
+   "id": "p2a-1-b-1",
+   "label": "§ 2a odst. 1 písm. b) bod 1",
+   "anchor": "p2a-1-b-1",
+   "text": "vzduchovky,",
+   "parent": "p2a-1-b"
+  },
+  {
+   "id": "p2a-1-b-2",
+   "label": "§ 2a odst. 1 písm. b) bod 2",
+   "anchor": "p2a-1-b-2",
+   "text": "větrovky,",
+   "parent": "p2a-1-b"
+  },
+  {
+   "id": "p2a-1-b-3",
+   "label": "§ 2a odst. 1 písm. b) bod 3",
+   "anchor": "p2a-1-b-3",
+   "text": "zbraně na oxid uhličitý či jiný plyn,",
+   "parent": "p2a-1-b"
+  },
+  {
+   "id": "p2a-1-b-4",
+   "label": "§ 2a odst. 1 písm. b) bod 4",
+   "anchor": "p2a-1-b-4",
+   "text": "paintballové a airsoftové zbraně,",
+   "parent": "p2a-1-b"
+  },
+  {
+   "id": "p2a-1-b-5",
+   "label": "§ 2a odst. 1 písm. b) bod 5",
+   "anchor": "p2a-1-b-5",
+   "text": "metné zbraně,",
+   "parent": "p2a-1-b"
+  },
+  {
+   "id": "p2a-1-b-6",
+   "label": "§ 2a odst. 1 písm. b) bod 6",
+   "anchor": "p2a-1-b-6",
+   "text": "narkotizační zbraně,",
+   "parent": "p2a-1-b"
+  },
+  {
+   "id": "p2a-1-b-7",
+   "label": "§ 2a odst. 1 písm. b) bod 7",
+   "anchor": "p2a-1-b-7",
+   "text": "expanzní přístroje, u nichž je primárním zdrojem energie plyn,",
+   "parent": "p2a-1-b"
+  },
+  {
+   "id": "p2a-1-c",
+   "label": "§ 2a odst. 1 písm. c)",
+   "anchor": "p2a-1-c",
+   "text": "části stanovených palných zbraní, kterými jsou hlavní části zbraní, jakož i dnové šrouby palných zbraní nabíjených ústím hlavně.",
+   "parent": "p2a-1"
+  },
+  {
+   "id": "p2a-2",
+   "label": "§ 2a odst. 2",
+   "anchor": "p2a-2",
+   "text": "Stanoveným doplňkem je tlumič hluku výstřelu pro palné zbraně používající střelivo se středovým zápalem.",
+   "parent": null
+  },
+  {
+   "id": "p2a-3",
+   "label": "§ 2a odst. 3",
+   "anchor": "p2a-3",
+   "text": "Stanoveným střelivem je",
+   "parent": null
+  },
+  {
+   "id": "p2a-3-a",
+   "label": "§ 2a odst. 3 písm. a)",
+   "anchor": "p2a-3-a",
+   "text": "průmyslově vyráběné nebo průmyslově přebíjené střelivo pro palné zbraně,",
+   "parent": "p2a-3"
+  },
+  {
+   "id": "p2a-3-b",
+   "label": "§ 2a odst. 3 písm. b)",
+   "anchor": "p2a-3-b",
+   "text": "střelivo pro expanzní přístroje, kterým jsou",
+   "parent": "p2a-3"
+  },
+  {
+   "id": "p2a-3-b-1",
+   "label": "§ 2a odst. 3 písm. b) bod 1",
+   "anchor": "p2a-3-b-1",
+   "text": "průmyslově vyráběné pracovní nábojky,",
+   "parent": "p2a-3-b"
+  },
+  {
+   "id": "p2a-3-b-2",
+   "label": "§ 2a odst. 3 písm. b) bod 2",
+   "anchor": "p2a-3-b-2",
+   "text": "prachové tablety,",
+   "parent": "p2a-3-b"
+  },
+  {
+   "id": "p2a-3-c",
+   "label": "§ 2a odst. 3 písm. c)",
+   "anchor": "p2a-3-c",
+   "text": "střelivo pro expanzní zbraně, kterým jsou",
+   "parent": "p2a-3"
+  },
+  {
+   "id": "p2a-3-c-1",
+   "label": "§ 2a odst. 3 písm. c) bod 1",
+   "anchor": "p2a-3-c-1",
+   "text": "průmyslově vyráběné akustické nábojky,",
+   "parent": "p2a-3-c"
+  },
+  {
+   "id": "p2a-3-c-2",
+   "label": "§ 2a odst. 3 písm. c) bod 2",
+   "anchor": "p2a-3-c-2",
+   "text": "průmyslově vyráběné plynové nábojky,",
+   "parent": "p2a-3-c"
+  },
+  {
+   "id": "p2a-3-c-3",
+   "label": "§ 2a odst. 3 písm. c) bod 3",
+   "anchor": "p2a-3-c-3",
+   "text": "průmyslově vyráběné nábojky s granulemi,",
+   "parent": "p2a-3-c"
+  },
+  {
+   "id": "p2a-3-d",
+   "label": "§ 2a odst. 3 písm. d)",
+   "anchor": "p2a-3-d",
+   "text": "průmyslově vyráběné střely pro plynové zbraně,",
+   "parent": "p2a-3"
+  },
+  {
+   "id": "p2a-3-e",
+   "label": "§ 2a odst. 3 písm. e)",
+   "anchor": "p2a-3-e",
+   "text": "průmyslově vyráběné komponenty střeliva nutné k sestavení náboje nebo nábojky, pokud jsou na trh uváděny samostatně,",
+   "parent": "p2a-3"
+  },
+  {
+   "id": "p2a-3-f",
+   "label": "§ 2a odst. 3 písm. f)",
+   "anchor": "p2a-3-f",
+   "text": "průmyslově vyráběná výmetná náplň určená pro palné zbraně, která není komponentem střeliva podle písmene e), je-li na trh uváděna samostatně.",
+   "parent": "p2a-3"
+  },
+  {
+   "id": "p2a-4",
+   "label": "§ 2a odst. 4",
+   "anchor": "p2a-4",
+   "text": "Ověřování nepodléhají expanzní přístroje, jejichž uvádění na trh upravují zvláštní právní předpisy.",
+   "parent": null
+  },
+  {
+   "id": "p3-1",
+   "label": "§ 3 odst. 1",
+   "anchor": "p3-1",
+   "text": "Tento zákon se nevztahuje na",
+   "parent": null
+  },
+  {
+   "id": "p3-1-a",
+   "label": "§ 3 odst. 1 písm. a)",
+   "anchor": "p3-1-a",
+   "text": "stanovené střelné zbraně a střelivo určené pro účely výzkumu, vývoje a zkoušení, pokud Úřad toto určení potvrdí,",
+   "parent": "p3-1"
+  },
+  {
+   "id": "p3-1-b",
+   "label": "§ 3 odst. 1 písm. b)",
+   "anchor": "p3-1-b",
+   "text": "střelné mechanické zbraně,",
+   "parent": "p3-1"
+  },
+  {
+   "id": "p3-1-c",
+   "label": "§ 3 odst. 1 písm. c)",
+   "anchor": "p3-1-c",
+   "text": "kontrolované výrobky, s nimiž nakládá vyňatá veřejnoprávní instituce podle zákona o zbraních a střelivu,",
+   "parent": "p3-1"
+  },
+  {
+   "id": "p3-1-d",
+   "label": "§ 3 odst. 1 písm. d)",
+   "anchor": "p3-1-d",
+   "text": "kontrolované výrobky vyrobené nebo dovezené pro potřeby Úřadu za účelem zajištění jeho činností stanovených v § 17,",
+   "parent": "p3-1"
+  },
+  {
+   "id": "p3-1-e",
+   "label": "§ 3 odst. 1 písm. e)",
+   "anchor": "p3-1-e",
+   "text": "náboje do střelných zbraní, které pro vlastní potřebu zhotovily osoby oprávněné k tomu podle zvláštních právních předpisů,",
+   "parent": "p3-1"
+  },
+  {
+   "id": "p3-1-f",
+   "label": "§ 3 odst. 1 písm. f)",
+   "anchor": "p3-1-f",
+   "text": "střelné zbraně, které nejsou určeny ke střelbě, zejména zbraně pro muzejní nebo sběratelské účely, anebo střelné zbraně, u nichž Policie České republiky podle zákona o zbraních a střelivu zakázala jejich použití ke střelbě.",
+   "parent": "p3-1"
+  },
+  {
+   "id": "p4-1",
+   "label": "§ 4 odst. 1",
+   "anchor": "p4-1",
+   "text": "Technické a bezpečnostní požadavky na kontrolované výrobky (dále jen „stanovené technické požadavky“) se považují za splněné, jestliže tyto výrobky při uvedení na trh a po dobu jejich distribuce a používání splňují požadavky stanovené zvláštními právními předpisy, nebo pokud takové zvláštní právní předpisy neexistují, splňují požadavky stanovené českými technickými normami. Tyto výrobky musí být schopny plnit funkci, pro kterou jsou určeny, a nesmí při dodržení podmínek určených výrobcem nebo dovozcem ohrozit zdraví, život nebo majetek svých uživatelů anebo přírodní prostředí (dále jen „bezpečnost“).",
+   "parent": null
+  },
+  {
+   "id": "p4-2",
+   "label": "§ 4 odst. 2",
+   "anchor": "p4-2",
+   "text": "Splnění stanovených technických požadavků u kontrolovaných výrobků je po provedeném ověřování vyjádřeno jejich označením zkušební značkou (§ 19 odst. 1).",
+   "parent": null
+  },
+  {
+   "id": "p5-1",
+   "label": "§ 5 odst. 1",
+   "anchor": "p5-1",
+   "text": "Ověřování stanovených střelných zbraní se provádí formou",
+   "parent": null
+  },
+  {
+   "id": "p5-1-a",
+   "label": "§ 5 odst. 1 písm. a)",
+   "anchor": "p5-1-a",
+   "text": "homologace,",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-b",
+   "label": "§ 5 odst. 1 písm. b)",
+   "anchor": "p5-1-b",
+   "text": "kusového ověřování, nebo",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-1-c",
+   "label": "§ 5 odst. 1 písm. c)",
+   "anchor": "p5-1-c",
+   "text": "opakovaného kusového ověřování.",
+   "parent": "p5-1"
+  },
+  {
+   "id": "p5-2",
+   "label": "§ 5 odst. 2",
+   "anchor": "p5-2",
+   "text": "Ověřování podle odstavce 1 písm. a) až c) se neprovádí u dovezených stanovených střelných zbraní před jejich uvedením na trh, pokud jsou označené na základě mezinárodní smlouvy, kterou je Česká republika vázána.",
+   "parent": null
+  },
+  {
+   "id": "p6-1",
+   "label": "§ 6 odst. 1",
+   "anchor": "p6-1",
+   "text": "Homologace stanovených střelných zbraní je postup, při kterém se po ověření dvou kusů od každého typu stanovené střelné zbraně vydává certifikát o homologaci, kterým se dokládá, že",
+   "parent": null
+  },
+  {
+   "id": "p6-1-a",
+   "label": "§ 6 odst. 1 písm. a)",
+   "anchor": "p6-1-a",
+   "text": "typ stanovené střelné zbraně splňuje stanovené technické požadavky,",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-b",
+   "label": "§ 6 odst. 1 písm. b)",
+   "anchor": "p6-1-b",
+   "text": "technická a průvodní dokumentace je úplná [§ 18 odst. 3 písm. a)] a",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-1-c",
+   "label": "§ 6 odst. 1 písm. c)",
+   "anchor": "p6-1-c",
+   "text": "kontrolovaná osoba má k dispozici kalibrovaná měřidla a nástroje a má zajištěn systém technické kontroly v rozsahu, který stanoví vyhláškou Ministerstvo průmyslu a obchodu (dále jen \"ministerstvo\").",
+   "parent": "p6-1"
+  },
+  {
+   "id": "p6-2",
+   "label": "§ 6 odst. 2",
+   "anchor": "p6-2",
+   "text": "Homologaci podléhají ze stanovených střelných zbraní",
+   "parent": null
+  },
+  {
+   "id": "p6-2-a",
+   "label": "§ 6 odst. 2 písm. a)",
+   "anchor": "p6-2-a",
+   "text": "palné zbraně určené pro střelbu náboji typu flobert s nábojovou komorou o průměru do 5 mm včetně a délce do 15 mm včetně nebo ty, které mají nábojovou komoru o průměru a délce do 6 mm včetně, přičemž zápalková slož náboje je jedinou hnací náplní udělující střele energii na ústí hlavně do 7,5 J včetně,",
+   "parent": "p6-2"
+  },
+  {
+   "id": "p6-2-b",
+   "label": "§ 6 odst. 2 písm. b)",
+   "anchor": "p6-2-b",
+   "text": "expanzní zbraně a expanzní přístroje určené pro střelivo s okrajovým zápalem do ráže 6 mm včetně a s délkou nábojnice do 7 mm včetně,",
+   "parent": "p6-2"
+  },
+  {
+   "id": "p6-2-c",
+   "label": "§ 6 odst. 2 písm. c)",
+   "anchor": "p6-2-c",
+   "text": "plynové zbraně, u nichž kinetická energie střely je na ústí hlavně do 10 J včetně.",
+   "parent": "p6-2"
+  },
+  {
+   "id": "p6-3",
+   "label": "§ 6 odst. 3",
+   "anchor": "p6-3",
+   "text": "Homologaci nepodléhají stanovené střelné zbraně uvedené v odstavci 2, pokud týž výrobce nebo dovozce uvede na trh nejvíce pět kusů zbraní v jednom roce; v takovém případě je nutno jednotlivě ověřit, zda každá stanovená střelná zbraň splňuje požadavky podle odstavce 1 písm. a) a b). Takto ověřené stanovené střelné zbraně se označují stejným způsobem jako zbraně kusově ověřené.",
+   "parent": null
+  },
+  {
+   "id": "p6-4",
+   "label": "§ 6 odst. 4",
+   "anchor": "p6-4",
+   "text": "Platnost certifikátu o homologaci zaniká, není-li dále stanoveno jinak, dnem uvedeným v certifikátu, nejdéle však uplynutím dvou let ode dne jeho vydání. Nejpozději tři měsíce před uplynutím jeho platnosti může výrobce nebo dovozce požádat o prodloužení platnosti certifikátu na dobu nejdéle dvou let. Za tím účelem požádá o jednotlivé ověření pěti kusů od každého typu homologované střelné zbraně ke zjištění, zda tyto typy odpovídají stanoveným technickým požadavkům. Stanovené střelné zbraně předložené Úřadu k jednotlivému ověření za účelem prodloužení platnosti certifikátu o homologaci označí Úřad stejným způsobem jako zbraně kusově ověřené.",
+   "parent": null
+  },
+  {
+   "id": "p8-1",
+   "label": "§ 8 odst. 1",
+   "anchor": "p8-1",
+   "text": "Opakované kusové ověřování stanovených střelných zbraní je postup shodný s kusovým ověřováním a provádí se v případech, kdy stanovená střelná zbraň nevyhoví stanoveným technickým požadavkům při kusovém ověřování a je vrácena výrobci nebo dovozci po označení identifikační značkou úřadu (§ 19). Po splnění stanovených technických požadavků se stanovená střelná zbraň označí zkušební značkou. Podrobnosti o postupu Úřadu při opakovaném kusovém ověřování stanovených střelných zbraní stanoví ministerstvo vyhláškou.",
+   "parent": null
+  },
+  {
+   "id": "p8a-1",
+   "label": "§ 8a odst. 1",
+   "anchor": "p8a-1",
+   "text": "Ověřování stanovených doplňků se provádí formou kusového ověřování.",
+   "parent": null
+  },
+  {
+   "id": "p8a-2",
+   "label": "§ 8a odst. 2",
+   "anchor": "p8a-2",
+   "text": "Ověřování se neprovádí u dovezeného stanoveného doplňku před jeho uvedením na trh, pokud je označen platnou zkušební značkou na základě mezinárodní smlouvy, kterou je Česká republika vázána.",
+   "parent": null
+  },
+  {
+   "id": "p8a-3",
+   "label": "§ 8a odst. 3",
+   "anchor": "p8a-3",
+   "text": "Kusové ověřování stanoveného doplňku je postup, při kterém se ověřuje a dokládá označením každého stanoveného doplňku příslušnou zkušební značkou, že stanovený doplněk splňuje stanovené technické požadavky.",
+   "parent": null
+  },
+  {
+   "id": "p8a-4",
+   "label": "§ 8a odst. 4",
+   "anchor": "p8a-4",
+   "text": "Postup při kusovém ověřování stanoveného doplňku stanoví ministerstvo vyhláškou.",
+   "parent": null
+  },
+  {
+   "id": "p9-1",
+   "label": "§ 9 odst. 1",
+   "anchor": "p9-1",
+   "text": "Ověřování stanoveného střeliva se provádí formou",
+   "parent": null
+  },
+  {
+   "id": "p9-1-a",
+   "label": "§ 9 odst. 1 písm. a)",
+   "anchor": "p9-1-a",
+   "text": "typové kontroly, nebo",
+   "parent": "p9-1"
+  },
+  {
+   "id": "p9-1-b",
+   "label": "§ 9 odst. 1 písm. b)",
+   "anchor": "p9-1-b",
+   "text": "inspekční kontroly.",
+   "parent": "p9-1"
+  },
+  {
+   "id": "p9-2",
+   "label": "§ 9 odst. 2",
+   "anchor": "p9-2",
+   "text": "Ověřování se neprovádí u dováženého stanoveného střeliva před jeho uvedením na trh, pokud je označeno platnými zkušebními značkami na základě mezinárodní smlouvy, kterou je Česká republika vázána.",
+   "parent": null
+  },
+  {
+   "id": "p10-1",
+   "label": "§ 10 odst. 1",
+   "anchor": "p10-1",
+   "text": "Typová kontrola stanoveného střeliva je postup, při kterém se ověřuje a dokládá vydáním certifikátu o typové kontrole střeliva, že",
+   "parent": null
+  },
+  {
+   "id": "p10-1-a",
+   "label": "§ 10 odst. 1 písm. a)",
+   "anchor": "p10-1-a",
+   "text": "typ střeliva splňuje stanovené technické požadavky,",
+   "parent": "p10-1"
+  },
+  {
+   "id": "p10-1-b",
+   "label": "§ 10 odst. 1 písm. b)",
+   "anchor": "p10-1-b",
+   "text": "technická a průvodní dokumentace je úplná a",
+   "parent": "p10-1"
+  },
+  {
+   "id": "p10-1-c",
+   "label": "§ 10 odst. 1 písm. c)",
+   "anchor": "p10-1-c",
+   "text": "kontrolovaná osoba má předpoklady k provádění kontroly výroby v rozsahu stanoveném vyhláškou ministerstva.",
+   "parent": "p10-1"
+  },
+  {
+   "id": "p10-2",
+   "label": "§ 10 odst. 2",
+   "anchor": "p10-2",
+   "text": "Platnost certifikátu o typové kontrole střeliva zaniká, není-li dále stanoveno jinak, dnem uvedeným v certifikátu, nejdéle však uplynutím 3 let ode dne vydání. Nejpozději 3 měsíce před uplynutím platnosti certifikátu může výrobce nebo dovozce požádat o prodloužení jeho platnosti na dobu nejdéle 3 let; za tím účelem požádá o provedení inspekční kontroly stanoveného střeliva.",
+   "parent": null
+  },
+  {
+   "id": "p11-1",
+   "label": "§ 11 odst. 1",
+   "anchor": "p11-1",
+   "text": "Inspekční kontrola stanoveného střeliva je postup, při kterém se ověřuje, zda jsou plněny stanovené technické požadavky, podle kterých byl vydán certifikát o typové kontrole střeliva. Pokud se při tomto ověřování zjistí odchylky od stanovených technických požadavků, certifikát se ve správním řízení odejme. Pokud jsou stanovené technické požadavky splněny, platnost certifikátu se prodlouží na dobu nejdéle 3 let.",
+   "parent": null
+  },
+  {
+   "id": "p11a-1",
+   "label": "§ 11a odst. 1",
+   "anchor": "p11a-1",
+   "text": "Kontrola identifikačních údajů je postup, při kterém Úřad vyznačením kontrolní značky dokládá, že kontrolované výrobky jsou označeny identifikačními údaji ve stanoveném rozsahu.",
+   "parent": null
+  },
+  {
+   "id": "p11a-2",
+   "label": "§ 11a odst. 2",
+   "anchor": "p11a-2",
+   "text": "Postup při kontrole identifikačních údajů stanoví ministerstvo vyhláškou.",
+   "parent": null
+  },
+  {
+   "id": "p11a-3",
+   "label": "§ 11a odst. 3",
+   "anchor": "p11a-3",
+   "text": "Kontrola identifikačních údajů není ověřováním ve smyslu této hlavy.",
+   "parent": null
+  },
+  {
+   "id": "p15-1",
+   "label": "§ 15 odst. 1",
+   "anchor": "p15-1",
+   "text": "Úkon spojený s ověřováním kontrolovaného výrobku (zejména vydání certifikátu, označení výrobku zkušební značkou) nebo úkon spojený s kontrolou identifikačních údajů podléhá správnímu poplatku podle zvláštních právních předpisů.",
+   "parent": null
+  },
+  {
+   "id": "p15-2",
+   "label": "§ 15 odst. 2",
+   "anchor": "p15-2",
+   "text": "Za odborné činnosti související se zkoušením kontrolovaných výrobků a se zkoušením balisticky odolných materiálů a konstrukcí se poskytuje úplata. Výši úplaty stanoví ministerstvo vyhláškou.",
+   "parent": null
+  },
+  {
+   "id": "p15-3",
+   "label": "§ 15 odst. 3",
+   "anchor": "p15-3",
+   "text": "Za klasifikaci výbušných látek a předmětů třídy 1, samovolně se rozkládajících látek a znecitlivěných tuhých výbušných látek třídy 4.1, jiných nebezpečných látek a předmětů třídy 9 obsahujících výbušné látky a předměty na základě Dohody o mezinárodní silniční přepravě nebezpečných věcí ADR se poskytuje úplata. Výši úplaty stanoví ministerstvo vyhláškou.",
+   "parent": null
+  },
+  {
+   "id": "p16-1",
+   "label": "§ 16 odst. 1",
+   "anchor": "p16-1",
+   "text": "Výrobce, dovozce a vývozce je povinen",
+   "parent": null
+  },
+  {
+   "id": "p16-1-a",
+   "label": "§ 16 odst. 1 písm. a)",
+   "anchor": "p16-1-a",
+   "text": "uvádět na trh kontrolované výrobky, jen pokud jsou ověřeny a opatřeny platnou zkušební značkou,",
+   "parent": "p16-1"
+  },
+  {
+   "id": "p16-1-b",
+   "label": "§ 16 odst. 1 písm. b)",
+   "anchor": "p16-1-b",
+   "text": "vyvážet kontrolované výrobky, jen pokud jsou opatřeny platnou zkušební nebo kontrolní značkou,",
+   "parent": "p16-1"
+  },
+  {
+   "id": "p16-1-c",
+   "label": "§ 16 odst. 1 písm. c)",
+   "anchor": "p16-1-c",
+   "text": "po vydání certifikátu o homologaci označit alespoň jednu z hlavních částí střelné zbraně zkušební značkou určenou v certifikátu; pokud to není možné, Úřad stanoví jiný vhodný způsob označení,",
+   "parent": "p16-1"
+  },
+  {
+   "id": "p16-1-d",
+   "label": "§ 16 odst. 1 písm. d)",
+   "anchor": "p16-1-d",
+   "text": "po vydání certifikátu o typové kontrole střeliva označit vnější stranu nejmenšího spotřebitelského obalu stanoveného střeliva nebo jeho průmyslově vyráběné části, je-li uváděna na trh samostatně, zkušební značkou uvedenou v certifikátu a zajistit v rozsahu stanoveném vyhláškou ministerstva výrobní kontrolu ke zjištění, zda jsou ve výrobě dodrženy stanovené technické požadavky, a vést o tom evidenci,",
+   "parent": "p16-1"
+  },
+  {
+   "id": "p16-1-e",
+   "label": "§ 16 odst. 1 písm. e)",
+   "anchor": "p16-1-e",
+   "text": "ponechat na hlavních částech zbraní, které jsou z kovu, měkké místo pro vyražení příslušné zkušební značky; pokud to není možné, Úřad stanoví vhodný způsob označení,",
+   "parent": "p16-1"
+  },
+  {
+   "id": "p16-1-f",
+   "label": "§ 16 odst. 1 písm. f)",
+   "anchor": "p16-1-f",
+   "text": "do 30 dnů písemně informovat Úřad o všech změnách ve výrobě kontrolovaných výrobků, pokud tyto změny mohou ovlivnit vlastnosti některého z těchto výrobků,",
+   "parent": "p16-1"
+  },
+  {
+   "id": "p16-1-g",
+   "label": "§ 16 odst. 1 písm. g)",
+   "anchor": "p16-1-g",
+   "text": "označit kontrolované výrobky identifikačními údaji v souladu s prováděcím právním předpisem, a to bez zbytečného odkladu po jejich vyrobení nebo dovezení.",
+   "parent": "p16-1"
+  },
+  {
+   "id": "p16-2",
+   "label": "§ 16 odst. 2",
+   "anchor": "p16-2",
+   "text": "Výrobce je dále povinen",
+   "parent": null
+  },
+  {
+   "id": "p16-2-a",
+   "label": "§ 16 odst. 2 písm. a)",
+   "anchor": "p16-2-a",
+   "text": "opatřit kontrolované výrobky svou obchodní firmou nebo názvem, jde-li o právnickou osobu, nebo jménem a příjmením, jde-li o fyzickou osobu, anebo ochrannou známkou a dalšími údaji, pokud tak stanoví vyhláška ministerstva nebo zvláštní právní předpis,",
+   "parent": "p16-2"
+  },
+  {
+   "id": "p16-2-b",
+   "label": "§ 16 odst. 2 písm. b)",
+   "anchor": "p16-2-b",
+   "text": "umožnit zaměstnancům Úřadu vstup do výrobních prostor a poskytnout jim potřebnou součinnost včetně používání zkušebního zařízení, poskytnutí střeliva, zkušebních a dalších prostor, jestliže je prováděno ověřování na jeho žádost v jeho provozovnách.",
+   "parent": "p16-2"
+  },
+  {
+   "id": "p16-3",
+   "label": "§ 16 odst. 3",
+   "anchor": "p16-3",
+   "text": "Distributor může uvádět na trh jen kontrolované výrobky označené platnou zkušební značkou.",
+   "parent": null
+  },
+  {
+   "id": "p16-4",
+   "label": "§ 16 odst. 4",
+   "anchor": "p16-4",
+   "text": "Opravce, kterému byla vydána zbrojní licence podle zákona o zbraních a střelivu, je povinen",
+   "parent": null
+  },
+  {
+   "id": "p16-4-a",
+   "label": "§ 16 odst. 4 písm. a)",
+   "anchor": "p16-4-a",
+   "text": "provádět opravy a úpravy střelných zbraní nebo stanovených doplňků tak, aby splňovaly stanovené technické požadavky, a je povinen Úřadu předložit v písemné podobě postup opravy nebo úpravy střelné zbraně, pokud není dále stanoveno jinak,",
+   "parent": "p16-4"
+  },
+  {
+   "id": "p16-4-b",
+   "label": "§ 16 odst. 4 písm. b)",
+   "anchor": "p16-4-b",
+   "text": "předložit Úřadu opravenou střelnou zbraň, u níž byla provedena výměna některé z hlavních částí nebo nevratná úprava zbraně podle zákona o zbraních a střelivu.",
+   "parent": "p16-4"
+  },
+  {
+   "id": "p17-1",
+   "label": "§ 17 odst. 1",
+   "anchor": "p17-1",
+   "text": "Zřizuje se Úřad jako správní úřad s celostátní působností se sídlem v Praze, který je podřízen ministerstvu.",
+   "parent": null
+  },
+  {
+   "id": "p17-2",
+   "label": "§ 17 odst. 2",
+   "anchor": "p17-2",
+   "text": "V čele Úřadu je předseda; jeho výběr, jmenování a odvolání se řídí zákonem o státní službě.",
+   "parent": null
+  },
+  {
+   "id": "p17-3",
+   "label": "§ 17 odst. 3",
+   "anchor": "p17-3",
+   "text": "Úřad",
+   "parent": null
+  },
+  {
+   "id": "p17-3-a",
+   "label": "§ 17 odst. 3 písm. a)",
+   "anchor": "p17-3-a",
+   "text": "provádí ověřování kontrolovaných výrobků a provádí kontrolu identifikačních údajů,",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-3-b",
+   "label": "§ 17 odst. 3 písm. b)",
+   "anchor": "p17-3-b",
+   "text": "vydává certifikáty podle tohoto zákona, rozhoduje o odejmutí nebo o odmítnutí vydání certifikátu,",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-3-c",
+   "label": "§ 17 odst. 3 písm. c)",
+   "anchor": "p17-3-c",
+   "text": "zajišťuje označování kontrolovaných výrobků zkušebními a dalšími značkami podle tohoto zákona,",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-3-d",
+   "label": "§ 17 odst. 3 písm. d)",
+   "anchor": "p17-3-d",
+   "text": "provádí další odborné činnosti související se zkoušením střelných zbraní, střeliva a doplňků zbraní, zkouší balisticky odolné materiály a konstrukce a vydává o tom nálezy,",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-3-e",
+   "label": "§ 17 odst. 3 písm. e)",
+   "anchor": "p17-3-e",
+   "text": "rozhoduje o zařazení zbraně, stanovené součásti zbraně, střeliva nebo komponentu střeliva do kategorie zbraně nebo střeliva podle zákona o zbraních a střelivu,",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-3-f",
+   "label": "§ 17 odst. 3 písm. f)",
+   "anchor": "p17-3-f",
+   "text": "vydává rozhodnutí podle § 19a odst. 5,",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-3-g",
+   "label": "§ 17 odst. 3 písm. g)",
+   "anchor": "p17-3-g",
+   "text": "spolupracuje se správními úřady a orgány územní samosprávy v oblasti přenesené působnosti, jakož i s jinými státními orgány a institucemi, jejichž spolupráce je pro činnost Úřadu nezbytná. Zjistí-li Úřad při své činnosti skutečnosti, na jejichž základě je třeba učinit opatření, jež jsou v pravomoci jiných orgánů, oznámí tyto skutečnosti těmto orgánům,",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-3-h",
+   "label": "§ 17 odst. 3 písm. h)",
+   "anchor": "p17-3-h",
+   "text": "vykonává státní správu v oblasti pyrotechnických výrobků podle zákona upravujícího oblast pyrotechniky,",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-3-i",
+   "label": "§ 17 odst. 3 písm. i)",
+   "anchor": "p17-3-i",
+   "text": "vydává nález o klasifikaci výbušných látek a předmětů třídy 1, samovolně se rozkládajících látek a znecitlivěných tuhých výbušných látek třídy 4.1, jiných nebezpečných látek a předmětů třídy 9 obsahujících výbušné látky a předměty na základě Dohody o mezinárodní silniční přepravě nebezpečných věcí ADR.",
+   "parent": "p17-3"
+  },
+  {
+   "id": "p17-4",
+   "label": "§ 17 odst. 4",
+   "anchor": "p17-4",
+   "text": "Úřad dále",
+   "parent": null
+  },
+  {
+   "id": "p17-4-a",
+   "label": "§ 17 odst. 4 písm. a)",
+   "anchor": "p17-4-a",
+   "text": "plní informační povinnosti vyplývající z mezinárodní smlouvy, kterou je Česká republika vázána,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-b",
+   "label": "§ 17 odst. 4 písm. b)",
+   "anchor": "p17-4-b",
+   "text": "před ověřováním každé stanovené střelné zbraně nebo stanoveného doplňku, které jsou předloženy k ověřování po opravě nebo úpravě, posuzuje technologický postup opravy nebo úpravy,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-c",
+   "label": "§ 17 odst. 4 písm. c)",
+   "anchor": "p17-4-c",
+   "text": "spolupracuje v oblasti kontrolovaných výrobků a balisticky odolných materiálů a konstrukcí s obdobnými zahraničními úřady a zkušebnami,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-d",
+   "label": "§ 17 odst. 4 písm. d)",
+   "anchor": "p17-4-d",
+   "text": "organizuje, koordinuje a provádí vědeckou činnost, výzkum a vývoj, které souvisí s odbornými činnostmi,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-e",
+   "label": "§ 17 odst. 4 písm. e)",
+   "anchor": "p17-4-e",
+   "text": "zajišťuje u kontrolovaných výrobků mezilaboratorní zkoušení referenčních materiálů,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-f",
+   "label": "§ 17 odst. 4 písm. f)",
+   "anchor": "p17-4-f",
+   "text": "poskytuje odborné informace a provádí odborná školení,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-g",
+   "label": "§ 17 odst. 4 písm. g)",
+   "anchor": "p17-4-g",
+   "text": "podílí se na certifikaci systémů řízení jakosti,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-h",
+   "label": "§ 17 odst. 4 písm. h)",
+   "anchor": "p17-4-h",
+   "text": "uchovává a porovnává referenční střelivo a referenční piezoelektrické snímače v rámci plnění povinností vyplývajících z mezinárodní smlouvy, kterou je Česká republika vázána,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-i",
+   "label": "§ 17 odst. 4 písm. i)",
+   "anchor": "p17-4-i",
+   "text": "podílí se na tvorbě českých technických norem a technických předpisů v oblasti kontrolovaných výrobků a balisticky odolných materiálů a konstrukcí,",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-j",
+   "label": "§ 17 odst. 4 písm. j)",
+   "anchor": "p17-4-j",
+   "text": "vybírá správní poplatky a úplaty (§ 15) a",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-4-k",
+   "label": "§ 17 odst. 4 písm. k)",
+   "anchor": "p17-4-k",
+   "text": "zveřejňuje ve Věstníku Úřadu pro technickou normalizaci, metrologii a státní zkušebnictví rozhodnutí Mezinárodní stálé komise pro zkoušky ručních palných zbraní.",
+   "parent": "p17-4"
+  },
+  {
+   "id": "p17-5",
+   "label": "§ 17 odst. 5",
+   "anchor": "p17-5",
+   "text": "Úřad vede evidenci kontrolovaných výrobků, které používá při provádění ověřování a k odborným službám.",
+   "parent": null
+  },
+  {
+   "id": "p17-6",
+   "label": "§ 17 odst. 6",
+   "anchor": "p17-6",
+   "text": "Při plnění úkolů státní správy podle tohoto zákona nebo zvláštního právního předpisu je Úřad oprávněn pro výkon své působnosti vstupovat do centrálního registru zbraní, ve kterém jsou vedeny údaje o zbraních a střelivu, a provádět v něm záznamy.",
+   "parent": null
+  },
+  {
+   "id": "p17-7",
+   "label": "§ 17 odst. 7",
+   "anchor": "p17-7",
+   "text": "Zaměstnanci Úřadu, kteří provádějí ověřování, odbornou nebo kontrolní činnost podle tohoto zákona, jsou povinni zachovávat mlčenlivost o všech skutečnostech, o nichž se dozvěděli v souvislosti s prováděním ověřování kontrolovaných výrobků anebo při provádění odborné nebo kontrolní činnosti podle tohoto zákona, i když přestali být zaměstnanci Úřadu, a to po dobu pěti let, pokud zvláštní právní předpisy nestanoví jinak, s výjimkou informací, které musí být zveřejněny v zájmu ochrany bezpečnosti a v zájmu zajištění účinné kontroly trhu a činnosti Úřadu jako orgánu dozoru.",
+   "parent": null
+  },
+  {
+   "id": "p17a-1",
+   "label": "§ 17a odst. 1",
+   "anchor": "p17a-1",
+   "text": "Ministerstvo stanoví vyhláškou rozsah dokumentace nezbytné pro provedení klasifikace výbušných látek a předmětů třídy 1, samovolně se rozkládajících látek a znecitlivěných tuhých výbušných látek třídy 4.1, jiných nebezpečných látek a předmětů třídy 9 obsahujících výbušné látky a předměty na základě Dohody o mezinárodní silniční přepravě nebezpečných věcí ADR.",
+   "parent": null
+  },
+  {
+   "id": "p18-1",
+   "label": "§ 18 odst. 1",
+   "anchor": "p18-1",
+   "text": "Žadatel, který předkládá Úřadu kontrolované výrobky k ověřování, (dále jen \"žadatel\") je povinen v písemné žádosti o ověření uvést vedle náležitostí stanovených správním řádem",
+   "parent": null
+  },
+  {
+   "id": "p18-1-a",
+   "label": "§ 18 odst. 1 písm. a)",
+   "anchor": "p18-1-a",
+   "text": "typ výrobku včetně odvozených variant s údaji",
+   "parent": "p18-1"
+  },
+  {
+   "id": "p18-1-a-1",
+   "label": "§ 18 odst. 1 písm. a) bod 1",
+   "anchor": "p18-1-a-1",
+   "text": "druh, značka, model a ráže pro stanovené střelné zbraně a stanovený doplněk,",
+   "parent": "p18-1-a"
+  },
+  {
+   "id": "p18-1-a-2",
+   "label": "§ 18 odst. 1 písm. a) bod 2",
+   "anchor": "p18-1-a-2",
+   "text": "druh, značka a ráže pro stanovené střelivo,",
+   "parent": "p18-1-a"
+  },
+  {
+   "id": "p18-1-b",
+   "label": "§ 18 odst. 1 písm. b)",
+   "anchor": "p18-1-b",
+   "text": "v případě dovozu název a sídlo výrobce,",
+   "parent": "p18-1"
+  },
+  {
+   "id": "p18-1-c",
+   "label": "§ 18 odst. 1 písm. c)",
+   "anchor": "p18-1-c",
+   "text": "druh požadované činnosti podle § 6 odst. 1, § 7, 8, 10 nebo 11.",
+   "parent": "p18-1"
+  },
+  {
+   "id": "p18-2",
+   "label": "§ 18 odst. 2",
+   "anchor": "p18-2",
+   "text": "K žádosti žadatel přikládá stanovené střelné zbraně, stanovené doplňky, stanovené střelivo, včetně spotřebitelského obalu, označené identifikačními údaji, jejichž rozsah a podrobnosti stanoví ministerstvo vyhláškou. Počet kusů střeliva ve vzorku předkládaném k ověřování stanoví ministerstvo vyhláškou.",
+   "parent": null
+  },
+  {
+   "id": "p18-3",
+   "label": "§ 18 odst. 3",
+   "anchor": "p18-3",
+   "text": "K žádosti přiloží též",
+   "parent": null
+  },
+  {
+   "id": "p18-3-a",
+   "label": "§ 18 odst. 3 písm. a)",
+   "anchor": "p18-3-a",
+   "text": "technickou a průvodní dokumentaci v rozsahu stanoveném vyhláškou ministerstva,",
+   "parent": "p18-3"
+  },
+  {
+   "id": "p18-3-b",
+   "label": "§ 18 odst. 3 písm. b)",
+   "anchor": "p18-3-b",
+   "text": "doklady, které potvrzují správnost údajů uvedených v žádosti.",
+   "parent": "p18-3"
+  },
+  {
+   "id": "p18-4",
+   "label": "§ 18 odst. 4",
+   "anchor": "p18-4",
+   "text": "Za poškození nebo zničení střelné zbraně nebo stanoveného doplňku, které Úřad převzal k ověření, odpovídá Úřad. Úřad se odpovědnosti zprostí, prokáže-li se, že ke škodě na zbrani nebo stanoveném doplňku došlo v souvislosti s vadou, kterou měla zbraň nebo stanovený doplněk v době předložení. Při náhradě škody se postupuje podle občanského zákoníku. Vzorky střeliva se nevracejí.",
+   "parent": null
+  },
+  {
+   "id": "p18-5",
+   "label": "§ 18 odst. 5",
+   "anchor": "p18-5",
+   "text": "Výrobce nebo dovozce je povinen na vyžádání Úřadu poskytnout další vzorky kontrolovaných výrobků, jsou-li potřebné pro jejich ověřování.",
+   "parent": null
+  },
+  {
+   "id": "p19-1",
+   "label": "§ 19 odst. 1",
+   "anchor": "p19-1",
+   "text": "Kontrolované výrobky, které splňují stanovené technické požadavky a byly Úřadem ověřeny, se označují jednotnými zkušebními značkami a identifikační značkou úřadu, anebo národními zkušebními značkami.",
+   "parent": null
+  },
+  {
+   "id": "p19-2",
+   "label": "§ 19 odst. 2",
+   "anchor": "p19-2",
+   "text": "Stanovené střelné zbraně a stanovené doplňky označí Úřad dále dvojčíslím nebo symbolem roku zkoušky, nejedná-li se o stanovené střelné zbraně, u kterých byl vydán certifikát o homologaci.",
+   "parent": null
+  },
+  {
+   "id": "p19-3",
+   "label": "§ 19 odst. 3",
+   "anchor": "p19-3",
+   "text": "Ministerstvo vyhláškou stanoví grafickou podobu, provedení a umístění značek podle odstavců 1 a 2.",
+   "parent": null
+  },
+  {
+   "id": "p19-4",
+   "label": "§ 19 odst. 4",
+   "anchor": "p19-4",
+   "text": "Na stanovenou střelnou zbraň nebo stanovený doplněk, který nesplňuje stanovené technické požadavky při kusovém ověřování, vyrazí Úřad identifikační značku úřadu a číslo a rok zkoušky. Na stanovenou střelnou zbraň nebo stanovený doplněk, který nesplňuje stanovené technické požadavky při opakovaném kusovém ověřování, vyrazí Úřad přes dříve vyznačené značky uvedené v odstavcích 1 a 2 písmeno „X“. Samostatná identifikační značka, nebo identifikační značka a písmeno „X“ žadatele neopravňuje k používání a uvedení takto označené stanovené střelné zbraně nebo stanoveného doplňku na trh.",
+   "parent": null
+  },
+  {
+   "id": "p19-5",
+   "label": "§ 19 odst. 5",
+   "anchor": "p19-5",
+   "text": "Na žádost žadatele, který předložil k ověřování stanovenou střelnou zbraň nebo stanovený doplněk, budou tato zbraň nebo stanovený doplněk Úřadem označeny tak, aby nedošlo k narušení jejich historické či jiné hodnoty. Úřad provede označení na vhodném místě vzhledem k typu stanovené střelné zbraně nebo stanoveného doplňku.",
+   "parent": null
+  },
+  {
+   "id": "p19-6",
+   "label": "§ 19 odst. 6",
+   "anchor": "p19-6",
+   "text": "Kontrolované výrobky, které jsou označeny identifikačními údaji ve stanoveném rozsahu, označí Úřad kontrolní značkou. Grafickou podobu, provedení a umístění kontrolní značky stanoví ministerstvo vyhláškou. Kontrolní značka není zkušební značkou a žadatele neopravňuje k uvedení takto označeného kontrolovaného výrobku na trh.",
+   "parent": null
+  },
+  {
+   "id": "p19a-1",
+   "label": "§ 19a odst. 1",
+   "anchor": "p19a-1",
+   "text": "Zkušební značka je považována za platnou, jestliže je vyznačena v souladu s podmínkami označování podle tohoto zákona.",
+   "parent": null
+  },
+  {
+   "id": "p19a-2",
+   "label": "§ 19a odst. 2",
+   "anchor": "p19a-2",
+   "text": "Za platnou zkušební značku je považována i zkušební značka, která je vyznačena v souladu s mezinárodní smlouvou, kterou je Česká republika vázána.",
+   "parent": null
+  },
+  {
+   "id": "p19a-3",
+   "label": "§ 19a odst. 3",
+   "anchor": "p19a-3",
+   "text": "Ministerstvo zveřejní vyhláškou grafickou podobu zkušebních značek smluvních států mezinárodní smlouvy, kterou je Česká republika vázána, a které jsou uznávány za platné. Ministerstvo rovněž zveřejní vyhláškou grafickou podobu identifikačních značek zkušeben smluvních států mezinárodní smlouvy, kterou je Česká republika vázána, a případně dalších značek, jestliže jejich vyznačením podmiňuje taková mezinárodní smlouva platnost značek podle věty první.",
+   "parent": null
+  },
+  {
+   "id": "p19a-4",
+   "label": "§ 19a odst. 4",
+   "anchor": "p19a-4",
+   "text": "Jestliže zkušební značka není vyznačena v souladu s podmínkami podle tohoto zákona, posuzuje se platnost jejího vyznačení podle právního předpisu nebo mezinárodní smlouvy účinné v době jejího vyznačení.",
+   "parent": null
+  },
+  {
+   "id": "p19a-5",
+   "label": "§ 19a odst. 5",
+   "anchor": "p19a-5",
+   "text": "V pochybnostech rozhodne o platnosti zkušební značky Úřad. Anonymizované rozhodnutí Úřadu o platnosti zkušební značky zveřejní Úřad způsobem umožňujícím dálkový přístup.",
+   "parent": null
+  },
+  {
+   "id": "p20-1",
+   "label": "§ 20 odst. 1",
+   "anchor": "p20-1",
+   "text": "Kontrolu dodržování povinností stanovených tímto zákonem provádí Úřad a jím pověření inspektoři Úřadu. Inspektoři Úřadu se prokazují služebními průkazy, jejichž vzor stanoví ministerstvo vyhláškou. Kontrola se provádí i bez předchozího ohlášení.",
+   "parent": null
+  },
+  {
+   "id": "p20-2",
+   "label": "§ 20 odst. 2",
+   "anchor": "p20-2",
+   "text": "Náhradu nákladů na posouzení souladu odebraných výrobků s požadavky zákona může Úřad uložit jen tehdy, bylo-li posouzením zjištěno, že výrobek nesplňuje požadavky tohoto zákona.",
+   "parent": null
+  },
+  {
+   "id": "p20a-1",
+   "label": "§ 20a odst. 1",
+   "anchor": "p20a-1",
+   "text": "Pokud inspektor Úřadu má důvodné podezření, že kontrolovaný výrobek nesplňuje požadavky tohoto zákona, zakáže jeho uvedení na trh nebo dodávání po dobu potřebnou k provedení kontroly.",
+   "parent": null
+  },
+  {
+   "id": "p20a-2",
+   "label": "§ 20a odst. 2",
+   "anchor": "p20a-2",
+   "text": "Inspektor Úřadu na základě provedené kontroly zakáže do zjednání nápravy uvádět na trh nebo dodávat kontrolované výrobky, které nesplňují požadavky zákona nebo zvláštních právních předpisů. Toto opatření oznámí kontrolované osobě ústně a následně o něm učiní písemný záznam do protokolu o kontrole.",
+   "parent": null
+  },
+  {
+   "id": "p20a-3",
+   "label": "§ 20a odst. 3",
+   "anchor": "p20a-3",
+   "text": "Pokud inspektor Úřadu má důvodné podezření, že kontrolované výrobky nesplňují požadavky tohoto zákona a zároveň ohrožují zdraví nebo bezpečnost, nařídí jejich zajištění do doby, než bude Úřadem pravomocně rozhodnuto o jejich propadnutí nebo zabrání, popřípadě do doby, kdy bude prokázáno, že se nejedná o výrobky, které by mohly ohrozit zdraví nebo bezpečnost. Toto opatření oznámí inspektor kontrolované osobě ústně a následně o něm učiní písemný záznam do protokolu o kontrole, ve kterém uvede též důvod zajištění, popis zajištěných výrobků a jejich množství.",
+   "parent": null
+  },
+  {
+   "id": "p20a-4",
+   "label": "§ 20a odst. 4",
+   "anchor": "p20a-4",
+   "text": "Nesouhlasí-li kontrolovaná osoba s opatřením uloženým podle odstavce 2 nebo 3, může proti němu podat námitky, které se uvedou v protokolu o kontrole, nebo je může podat Úřadu písemně nejpozději do 10 dnů ode dne doručení protokolu o kontrole. Podané námitky nemají odkladný účinek. Předseda Úřadu rozhodne o námitkách bez zbytečného odkladu, nejdéle však do 5 pracovních dnů, a jeho rozhodnutí je konečné. Písemné vyhotovení rozhodnutí o námitkách se doručí kontrolované osobě.",
+   "parent": null
+  },
+  {
+   "id": "p20a-5",
+   "label": "§ 20a odst. 5",
+   "anchor": "p20a-5",
+   "text": "Kontrolovaná osoba je povinna kontrolované výrobky zajištěné podle odstavce 3 bezodkladně vydat inspektorovi Úřadu. V případě, že kontrolovaná osoba jejich vydání odmítne, provede inspektor jejich odnětí.",
+   "parent": null
+  },
+  {
+   "id": "p20a-6",
+   "label": "§ 20a odst. 6",
+   "anchor": "p20a-6",
+   "text": "Náklady na uskladnění zajištěných kontrolovaných výrobků a náklady na zničení propadlých nebo zabraných kontrolovaných výrobků hradí kontrolovaná osoba. Kontrolovaná osoba není povinna uhradit náklady na uskladnění zajištěných kontrolovaných výrobků, jestliže se prokáže, že tyto výrobky odpovídají tomuto zákonu a neohrožují zdraví nebo bezpečnost.",
+   "parent": null
+  },
+  {
+   "id": "p20a-7",
+   "label": "§ 20a odst. 7",
+   "anchor": "p20a-7",
+   "text": "Pokud bylo prokázáno, že zajištěné kontrolované výrobky splňují požadavky tohoto zákona a neohrožují zdraví nebo bezpečnost, Úřad rozhodne o zrušení opatření o jejich zajištění. Pokud bylo zrušeno opatření o zajištění, zajištěné výrobky musí být kontrolované osobě bez zbytečných průtahů vráceny v neporušeném stavu, s výjimkou výrobků použitých pro posouzení. O vrácení výrobků se sepíše písemný záznam.",
+   "parent": null
+  },
+  {
+   "id": "p20a-8",
+   "label": "§ 20a odst. 8",
+   "anchor": "p20a-8",
+   "text": "Propadlé nebo zabrané výrobky Úřad může zničit nebo jinak znehodnotit.",
+   "parent": null
+  },
+  {
+   "id": "p20b-1",
+   "label": "§ 20b odst. 1",
+   "anchor": "p20b-1",
+   "text": "V případě, že kontrolované výrobky nesplňují podmínky pro uvedení na trh nebo bezprostředně ohrožují bezpečnost, Úřad rozhodne o zákazu další distribuce kontrolovaných výrobků.",
+   "parent": null
+  },
+  {
+   "id": "p20b-2",
+   "label": "§ 20b odst. 2",
+   "anchor": "p20b-2",
+   "text": "Pokud kontrolované výrobky mají technickou vadu a prokazatelně ohrožují zdraví nebo bezpečnost, Úřad rozhodne o stažení těchto výrobků z trhu.",
+   "parent": null
+  },
+  {
+   "id": "p20b-3",
+   "label": "§ 20b odst. 3",
+   "anchor": "p20b-3",
+   "text": "Úřad je povinen informovat včas a vhodným způsobem osoby, které mohou být vystaveny vážnému riziku vyvolanému kontrolovaným výrobkem, o tomto riziku.",
+   "parent": null
+  },
+  {
+   "id": "p20c-1",
+   "label": "§ 20c odst. 1",
+   "anchor": "p20c-1",
+   "text": "Úřad je povinen oznámit ministerstvu přijetí opatření týkajícího se kontrolovaného výrobku v případech, kdy výrobek představuje vážné riziko.",
+   "parent": null
+  },
+  {
+   "id": "p20c-2",
+   "label": "§ 20c odst. 2",
+   "anchor": "p20c-2",
+   "text": "Informace poskytované ministerstvu musí obsahovat veškeré údaje nezbytné pro identifikaci kontrolovaného výrobku, jeho původu, dodavatelského řetězce, ohrožení, které kontrolovaný výrobek představuje, povahu a trvání opatření přijatého Úřadem a také informace o dobrovolném opatření přijatém kontrolovanou osobou.",
+   "parent": null
+  },
+  {
+   "id": "p20c-3",
+   "label": "§ 20c odst. 3",
+   "anchor": "p20c-3",
+   "text": "Pokud riziko může přesáhnout území České republiky, je ministerstvo povinno neprodleně informovat o výskytu takového výrobku Komisi.",
+   "parent": null
+  },
+  {
+   "id": "p20c-4",
+   "label": "§ 20c odst. 4",
+   "anchor": "p20c-4",
+   "text": "Obdrží-li ministerstvo od Komise informaci o přijetí opatření vůči kontrolovanému výrobku anebo jejich sérii představující vážné riziko, předá tyto informace bez zbytečného odkladu Úřadu k dalšímu postupu.",
+   "parent": null
+  },
+  {
+   "id": "p20c-5",
+   "label": "§ 20c odst. 5",
+   "anchor": "p20c-5",
+   "text": "K zajištění fungování systému výměny informací podle odstavců 1 až 4 se obdobně použije právní předpis upravující postup, obsah a formu informace o výskytu nebezpečných nepotravinářských výrobků.",
+   "parent": null
+  },
+  {
+   "id": "p21-1",
+   "label": "§ 21 odst. 1",
+   "anchor": "p21-1",
+   "text": "Jestliže Úřad při ověřování zjistí, že kontrolované výrobky splňují stanovené technické požadavky, vydá podle povahy věci správní rozhodnutí, certifikát nebo označí výrobek zkušební značkou.",
+   "parent": null
+  },
+  {
+   "id": "p21-2",
+   "label": "§ 21 odst. 2",
+   "anchor": "p21-2",
+   "text": "Pokud Úřad na základě ověřování odmítne vydat certifikát nebo odmítne označit výrobek zkušební značkou nebo odejme certifikát, vydá o tom rozhodnutí.",
+   "parent": null
+  },
+  {
+   "id": "p21-3",
+   "label": "§ 21 odst. 3",
+   "anchor": "p21-3",
+   "text": "Odvolání proti rozhodnutí vydanému podle tohoto zákona nemá, s výjimkou řízení o ukládání pokut, odkladný účinek.",
+   "parent": null
+  },
+  {
+   "id": "p21-4",
+   "label": "§ 21 odst. 4",
+   "anchor": "p21-4",
+   "text": "Při vydání opatření podle § 20a odst. 2 se nepostupuje podle správního řádu.",
+   "parent": null
+  },
+  {
+   "id": "p21-5",
+   "label": "§ 21 odst. 5",
+   "anchor": "p21-5",
+   "text": "Po obdržení žádosti o ověřování kontrolovaných výrobků podle § 6 nebo 9 Úřad sdělí žadateli požadavky na ověřování podle tohoto zákona a prováděcích právních předpisů bez zbytečného odkladu a nejpozději do 90 dnů vydá certifikát nebo rozhodnutí podle povahy věci. Jedná-li se o zvlášť složitý případ, nebo není-li z jiných vážných důvodů možné dodržet lhůtu podle věty první, prodlužuje se tato lhůta o dalších 30 dnů.",
+   "parent": null
+  },
+  {
+   "id": "p21-6",
+   "label": "§ 21 odst. 6",
+   "anchor": "p21-6",
+   "text": "Pokud Úřad zjistí, že kontrolovaná osoba neplní podmínky uvedené v certifikátu, rozhodne o jeho odejmutí.",
+   "parent": null
+  },
+  {
+   "id": "p22a-1",
+   "label": "§ 22a odst. 1",
+   "anchor": "p22a-1",
+   "text": "Kontrolovaná osoba se dopustí přestupku tím, že",
+   "parent": null
+  },
+  {
+   "id": "p22a-1-a",
+   "label": "§ 22a odst. 1 písm. a)",
+   "anchor": "p22a-1-a",
+   "text": "neoprávněně použije zkušební nebo další značku, certifikát anebo jiný dokument vydaný Úřadem podle tohoto zákona,",
+   "parent": "p22a-1"
+  },
+  {
+   "id": "p22a-1-b",
+   "label": "§ 22a odst. 1 písm. b)",
+   "anchor": "p22a-1-b",
+   "text": "uvede na trh nebo distribuuje kontrolovaný výrobek, který nesplňuje stanovené technické požadavky podle § 4 odst. 1, nebo",
+   "parent": "p22a-1"
+  },
+  {
+   "id": "p22a-1-c",
+   "label": "§ 22a odst. 1 písm. c)",
+   "anchor": "p22a-1-c",
+   "text": "nesplní opatření podle § 20a odst. 2.",
+   "parent": "p22a-1"
+  },
+  {
+   "id": "p22a-2",
+   "label": "§ 22a odst. 2",
+   "anchor": "p22a-2",
+   "text": "Výrobce, dovozce nebo vývozce se dopustí přestupku tím, že",
+   "parent": null
+  },
+  {
+   "id": "p22a-2-a",
+   "label": "§ 22a odst. 2 písm. a)",
+   "anchor": "p22a-2-a",
+   "text": "uvede na trh kontrolovaný výrobek v rozporu s § 16 odst. 1 písm. a),",
+   "parent": "p22a-2"
+  },
+  {
+   "id": "p22a-2-b",
+   "label": "§ 22a odst. 2 písm. b)",
+   "anchor": "p22a-2-b",
+   "text": "v rozporu s § 16 odst. 1 písm. b) vyveze kontrolovaný výrobek,",
+   "parent": "p22a-2"
+  },
+  {
+   "id": "p22a-2-c",
+   "label": "§ 22a odst. 2 písm. c)",
+   "anchor": "p22a-2-c",
+   "text": "neoznačí alespoň jednu z hlavních částí střelné zbraně podle § 16 odst. 1 písm. c),",
+   "parent": "p22a-2"
+  },
+  {
+   "id": "p22a-2-d",
+   "label": "§ 22a odst. 2 písm. d)",
+   "anchor": "p22a-2-d",
+   "text": "v rozporu s § 16 odst. 1 písm. d) neoznačí vnější stranu nejmenšího spotřebitelského obalu stanoveného střeliva zkušební značkou uvedenou v certifikátu nebo nezajistí výrobní kontrolu ke zjištění, zda jsou ve výrobě dodrženy stanovené technické požadavky nebo o tom nevede evidenci,",
+   "parent": "p22a-2"
+  },
+  {
+   "id": "p22a-2-e",
+   "label": "§ 22a odst. 2 písm. e)",
+   "anchor": "p22a-2-e",
+   "text": "neponechá na hlavní části zbraně, která je vyrobena z kovu, měkké místo pro vyražení příslušné zkušební značky podle § 16 odst. 1 písm. e),",
+   "parent": "p22a-2"
+  },
+  {
+   "id": "p22a-2-f",
+   "label": "§ 22a odst. 2 písm. f)",
+   "anchor": "p22a-2-f",
+   "text": "neinformuje Úřad o změnách ve výrobě kontrolovaných výrobků podle § 16 odst. 1 písm. f), nebo",
+   "parent": "p22a-2"
+  },
+  {
+   "id": "p22a-2-g",
+   "label": "§ 22a odst. 2 písm. g)",
+   "anchor": "p22a-2-g",
+   "text": "neoznačí kontrolované výrobky identifikačními údaji bez zbytečného odkladu po jejich vyrobení nebo dovezení podle § 16 odst. 1 písm. g).",
+   "parent": "p22a-2"
+  },
+  {
+   "id": "p22a-3",
+   "label": "§ 22a odst. 3",
+   "anchor": "p22a-3",
+   "text": "Výrobce se dopustí přestupku tím, že neopatří kontrolovaný výrobek údaji podle § 16 odst. 2 písm. a).",
+   "parent": null
+  },
+  {
+   "id": "p22a-4",
+   "label": "§ 22a odst. 4",
+   "anchor": "p22a-4",
+   "text": "Distributor se dopustí přestupku tím, že v rozporu s § 16 odst. 3 uvede na trh kontrolovaný výrobek, který není označený platnou zkušební značkou.",
+   "parent": null
+  },
+  {
+   "id": "p22a-5",
+   "label": "§ 22a odst. 5",
+   "anchor": "p22a-5",
+   "text": "Opravce, kterému byla vydána zbrojní licence podle zvláštního právního předpisu, se dopustí přestupku tím, že",
+   "parent": null
+  },
+  {
+   "id": "p22a-5-a",
+   "label": "§ 22a odst. 5 písm. a)",
+   "anchor": "p22a-5-a",
+   "text": "v rozporu s § 16 odst. 4 písm. a) neprovede opravu nebo úpravu střelné zbraně tak, aby splňovala stanovené technické požadavky, nebo nepředloží Úřadu v písemné podobě postup opravy nebo úpravy, nebo",
+   "parent": "p22a-5"
+  },
+  {
+   "id": "p22a-5-b",
+   "label": "§ 22a odst. 5 písm. b)",
+   "anchor": "p22a-5-b",
+   "text": "nepředloží Úřadu opravenou střelnou zbraň, u níž byla provedena výměna některé z hlavních částí nebo nevratná úprava zbraně, podle § 16 odst. 4 písm. b).",
+   "parent": "p22a-5"
+  },
+  {
+   "id": "p22a-6",
+   "label": "§ 22a odst. 6",
+   "anchor": "p22a-6",
+   "text": "Za přestupek lze uložit pokutu do",
+   "parent": null
+  },
+  {
+   "id": "p22a-6-a",
+   "label": "§ 22a odst. 6 písm. a)",
+   "anchor": "p22a-6-a",
+   "text": "5000000 Kč, jde-li o přestupek podle odstavce 1 písm. a) až c), odstavce 2 písm. a) až e) nebo g) nebo odstavce 4,",
+   "parent": "p22a-6"
+  },
+  {
+   "id": "p22a-6-b",
+   "label": "§ 22a odst. 6 písm. b)",
+   "anchor": "p22a-6-b",
+   "text": "1000000 Kč, jde-li o přestupek podle odstavce 3,",
+   "parent": "p22a-6"
+  },
+  {
+   "id": "p22a-6-c",
+   "label": "§ 22a odst. 6 písm. c)",
+   "anchor": "p22a-6-c",
+   "text": "500000 Kč, jde-li o přestupek podle odstavce 2 písm. f) nebo odstavce 5.",
+   "parent": "p22a-6"
+  },
+  {
+   "id": "p22b-1",
+   "label": "§ 22b odst. 1",
+   "anchor": "p22b-1",
+   "text": "Přestupky podle tohoto zákona projednává Úřad.",
+   "parent": null
+  },
+  {
+   "id": "p22b-2",
+   "label": "§ 22b odst. 2",
+   "anchor": "p22b-2",
+   "text": "Pokuty vybírá Úřad.",
+   "parent": null
+  },
+  {
+   "id": "p22b-3",
+   "label": "§ 22b odst. 3",
+   "anchor": "p22b-3",
+   "text": "Pokus přestupku podle § 22a odst. 1 písm. b) a c), § 22a odst. 2 písm. a) a b) nebo § 22a odst. 4 je trestný.",
+   "parent": null
+  },
+  {
+   "id": "p22b-4",
+   "label": "§ 22b odst. 4",
+   "anchor": "p22b-4",
+   "text": "U přestupků podle § 22a nelze upustit od uložení správního trestu.",
+   "parent": null
+  },
+  {
+   "id": "p23-1",
+   "label": "§ 23 odst. 1",
+   "anchor": "p23-1",
+   "text": "Ověřování započatá před účinností tohoto zákona se dokončí podle dosavadních předpisů.",
+   "parent": null
+  },
+  {
+   "id": "p23-2",
+   "label": "§ 23 odst. 2",
+   "anchor": "p23-2",
+   "text": "Platnost certifikátů týkajících se stanovených střelných zbraní, stanoveného střeliva nebo pyrotechnických předmětů vydaných podle dosavadních předpisů skončí uplynutím doby, na kterou byly vydány.",
+   "parent": null
+  },
+  {
+   "id": "p23-3",
+   "label": "§ 23 odst. 3",
+   "anchor": "p23-3",
+   "text": "Stanovené střelné zbraně, stanovené střelivo nebo pyrotechnické předměty označené zkušebními značkami podle dosavadních předpisů se považují za ověřené podle tohoto zákona.",
+   "parent": null
+  },
+  {
+   "id": "p24-1",
+   "label": "§ 24 odst. 1",
+   "anchor": "p24-1",
+   "text": "Ministerstvo vydá vyhlášku k provedení § 6 odst. 1 písm. c), § 7 a 8, § 8a odst. 4, § 10 odst. 1 písm. c), § 11a odst. 2, § 15 odst. 2 a 3, § 16 odst. 1 písm. d), § 16 odst. 2 písm. a), § 17a, § 18 odst. 2, § 18 odst. 3 písm. a), § 19 odst. 3 a 6, § 19a odst. 3 a § 20 odst. 1.",
+   "parent": null
+  },
+  {
+   "id": "p26-1",
+   "label": "§ 26 odst. 1",
+   "anchor": "p26-1",
+   "text": "Zákon č. 368/1992 Sb., o správních poplatcích, ve znění zákona č. 10/1993 Sb., zákona č. 72/1994 Sb., zákona č. 85/1994 Sb., zákona č. 273/1994 Sb., zákona č. 36/1995 Sb., zákona č. 118/1995 Sb., zákona č. 160/1995 Sb., zákona č. 301/1995 Sb., zákona č. 151/1997 Sb., zákona č. 305/1997 Sb., zákona č. 149/1998 Sb., zákona č. 157/1998 Sb., zákona č. 167/1998 Sb., zákona č. 63/1999 Sb., zákona č. 166/1999 Sb., zákona č. 167/1999 Sb., zákona č. 223/1999 Sb., zákona č. 326/1999 Sb., zákona č. 352/1999 Sb., zákona č. 357/1999 Sb., zákona č. 360/1999 Sb., zákona č. 363/1999 Sb., zákona č. 46/2000 Sb., zákona č. 62/2000 Sb., zákona č. 117/2000 Sb., zákona č. 133/2000 Sb., zákona č. 151/2000 Sb., zákona č. 153/2000 Sb., zákona č. 154/2000 Sb. a zákona č. 158/2000 Sb., se mění takto:",
+   "parent": null
+  },
+  {
+   "id": "p26-1",
+   "label": "§ 26 odst. 1",
+   "anchor": "p26-1",
+   "text": "V položce 30 Sazebníku správních poplatků se za písmeno b) doplňují písmena c) až g), která znějí:",
+   "parent": null
+  },
+  {
+   "id": "p26-2",
+   "label": "§ 26 odst. 2",
+   "anchor": "p26-2",
+   "text": "K položce 30 se doplňují poznámky č. 1 až 4, které znějí:",
+   "parent": null
+  },
+  {
+   "id": "p27-1",
+   "label": "§ 27 odst. 1",
+   "anchor": "p27-1",
+   "text": "Tento zákon nabývá účinnosti prvním dnem druhého měsíce následujícího po dni jeho vyhlášení.",
+   "parent": null
+  }
+ ]
+}

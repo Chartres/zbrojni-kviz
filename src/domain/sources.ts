@@ -20,6 +20,8 @@ interface Cite {
 const DATA = raw as { acts: Record<string, Act>; questions: Record<string, Cite> }
 
 export interface Source {
+  /** "Ze zákona" or "Z nařízení vlády": what kind of text is being quoted. */
+  heading: string
   /** "§ 20 odst. 3 písm. a)" */
   label: string
   /** Full name of the act. */
@@ -34,7 +36,11 @@ export function sourceFor(questionId: number): Source | undefined {
   const c = DATA.questions[String(questionId)]
   if (!c) return undefined
   const act = DATA.acts[c.act]
-  return { label: c.label, act: act.name, url: `${act.url}#${c.anchor}`, quote: c.quote }
+  return { heading: headingFor(act.name), label: c.label, act: act.name, url: `${act.url}#${c.anchor}`, quote: c.quote }
+}
+
+export function headingFor(actName: string): string {
+  return actName.startsWith('Nařízení vlády') ? 'Z nařízení vlády' : 'Ze zákona'
 }
 
 export function citedCount(): number {

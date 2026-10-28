@@ -72,10 +72,26 @@ zákon č. 90/2024 Sb. they restate, with the provision quoted verbatim (statute
 - Questions without a confident link show no citation. A missing citation is honest; a wrong
   one is not.
 
-Regenerate:
+**Prováděcí and Jiné předpisy** (added 2026-10-27): 30 more links, to NV č. 238/2025 Sb.
+(exam rules), NV č. 187/2025 Sb. (technical requirements, storage in a vehicle), zákon
+č. 14/2021 Sb. and the trestní zákoník (nutná obrana, krajní nouze). The matcher accepted 37
+of 87; a blind grader judged all 37 (30 exact, 5 partial, 2 wrong) and only the 30 exact ones
+ship, listed in `law/reviewed-secondary.json`. Also parsed and searched: NV č. 255/2021 Sb.,
+zákon č. 156/2000 Sb. Total: **320 of 837 questions** link to their provision.
+
+Regenerate (each act from https://www.zakonyprolidi.cz/cs/<act>, saved to /tmp/<act>.html first):
 
 ```bash
-curl -sS https://www.zakonyprolidi.cz/cs/2024-90 -o /tmp/z90.html
-python3 -I data/law.py /tmp/z90.html 2024-90 "Zákon č. 90/2024 Sb., o zbraních a střelivu" > data/law/2024-90.json
-python3 -I data/cite.py --app data/questions.json "data/law/2024-90.json=Zákon o zbraních" > data/citations.json
+python3 -I data/law.py /tmp/2024-90.html 2024-90 "Zákon č. 90/2024 Sb., o zbraních a střelivu" > data/law/2024-90.json
+# …same for 2025-238, 2025-187, 2009-40, 2021-14, 2021-255, 2000-156 (names in each law/*.json)
+cd data
+python3 -I cite.py --app questions.json "law/2024-90.json=Zákon o zbraních" > citations.json
+python3 -I cite.py --app --reviewed law/reviewed-secondary.json --merge citations.json questions.json \
+  "law/2025-238.json=Prováděcí předpisy" "law/2025-187.json=Prováděcí předpisy" \
+  "law/2024-90.json=Prováděcí předpisy|Jiné předpisy" "law/2009-40.json=Jiné předpisy" \
+  "law/2021-14.json=Jiné předpisy" "law/2021-255.json=Jiné předpisy" \
+  "law/2000-156.json=Jiné předpisy" > /tmp/c.json && mv /tmp/c.json citations.json
 ```
+
+The two passes are separate because word weights (IDF) depend on which provisions are pooled;
+keeping the zákon pass alone keeps its validated links unchanged.

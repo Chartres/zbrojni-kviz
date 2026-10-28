@@ -31,9 +31,9 @@
 - Topic pages are real URLs under https://zbrojnikviz.dravec.org/okruh/… (see the sitemap).
 - Every official question has a static page that works without JavaScript:
   https://zbrojnikviz.dravec.org/otazka/<number>/ (1–837, the numbering of the Ministry's file).
-  It gives the three options, the correct answer as the Ministry marks it, and for 290 of the
-  561 questions on the Act the provision of zákon č. 90/2024 Sb. that decides it, quoted
-  verbatim with a link to the consolidated text. Example: https://zbrojnikviz.dravec.org/otazka/313/
+  It gives the three options, the correct answer as the Ministry marks it, and for 320 of the
+  837 questions the provision that decides it (zákon č. 90/2024 Sb., NV č. 238/2025 Sb.,
+  NV č. 187/2025 Sb., the criminal code), quoted verbatim with a link to the consolidated text. Example: https://zbrojnikviz.dravec.org/otazka/313/
 
 ## Data & provenance
 - Official question set of the Ministry of the Interior (Ministerstvo vnitra ČR) for the
