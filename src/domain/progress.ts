@@ -34,7 +34,7 @@ export interface ExamAttempt {
 export function bestExamAttempt(attempts: ExamAttempt[]): ExamAttempt | null {
   let best: ExamAttempt | null = null
   for (const a of attempts) {
-    if (a.total <= 0) continue
+    if (!(a.total > 0)) continue // also skips a malformed row with no total (synced data)
     const d = best ? a.score * best.total - best.score * a.total : 1
     if (d > 0 || (d === 0 && a.at > best!.at)) best = a
   }
