@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { renderQuestionPage, questionPath } from '../src/seo/questionPage.mjs'
+import { renderExamPage, EXAM_PATH } from '../src/seo/examPage.mjs'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const ORIGIN = 'https://zbrojnikviz.dravec.org'
@@ -61,7 +62,8 @@ for (const t of topics) {
         </ol>
         <h2 class="mt-6 font-display text-lg font-semibold text-brass-300">Další okruhy</h2>
         <ul class="mt-2 text-steel-300">
-          <li><a class="text-verdigris-400 hover:underline" href="${ORIGIN}/">Všechny testy ke zbrojnímu průkazu zdarma</a></li>${others
+          <li><a class="text-verdigris-400 hover:underline" href="${ORIGIN}/">Všechny testy ke zbrojnímu průkazu zdarma</a></li>
+          <li><a class="text-verdigris-400 hover:underline" href="${ORIGIN}/zkouska/">Jak probíhá zkouška na zbrojní oprávnění 2026</a></li>${others
             .map(
               (o) => `
           <li><a class="text-verdigris-400 hover:underline" href="${ORIGIN}/okruh/${o.slug}/">${esc(o.category)}</a></li>`,
@@ -137,9 +139,18 @@ questions.forEach((q, i) => {
   writeFileSync(`${root}dist${questionPath(q.id)}index.html`, html)
 })
 
+const guide = JSON.parse(readFileSync(`${root}data/exam-guide.json`, 'utf8'))
+const actIds = [...new Set(guide.faq.flatMap((f) => f.cites.map((c) => c.act)))]
+const acts = Object.fromEntries(
+  actIds.map((id) => [id, JSON.parse(readFileSync(`${root}data/law/${id}.json`, 'utf8'))]),
+)
+mkdirSync(`${root}dist${EXAM_PATH}`, { recursive: true })
+writeFileSync(`${root}dist${EXAM_PATH}index.html`, renderExamPage({ guide, acts, origin: ORIGIN, cssHref }))
+
 const today = new Date().toISOString().slice(0, 10)
 const urls = [
   '/',
+  EXAM_PATH,
   ...topics.map((t) => `/okruh/${t.slug}/`),
   ...questions.filter((q) => !firstCopyOf.has(q.id)).map((q) => questionPath(q.id)),
 ]
@@ -149,4 +160,4 @@ ${urls.map((u) => `  <url><loc>${ORIGIN}${u}</loc><lastmod>${today}</lastmod></u
 </urlset>
 `
 writeFileSync(`${root}dist/sitemap.xml`, sitemap)
-console.log(`prerendered ${topics.length} topic pages, ${questions.length} question pages + sitemap.xml`)
+console.log(`prerendered ${topics.length} topic pages, ${questions.length} question pages, ${EXAM_PATH} + sitemap.xml`)

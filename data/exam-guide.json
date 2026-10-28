@@ -1,0 +1,42 @@
+{
+  "title": "Zkouška na zbrojní oprávnění 2026: jak probíhá, kolik otázek, kolik bodů",
+  "description": "Od 1. 1. 2026 podle zákona č. 90/2024 Sb.: test 30 otázek za 40 minut, k úspěchu 26 správných (28 u rozšířeného oprávnění), složení 17 + 5 + 5 + 3, praktická část a opakování. U každé odpovědi znění zákona.",
+  "intro": "Zkoušku odborné způsobilosti od 1. ledna 2026 upravuje zákon č. 90/2024 Sb., o zbraních a střelivu, a nařízení vlády č. 238/2025 Sb. Níže jsou odpovědi na nejčastější otázky; pod každou je ustanovení, ze kterého vychází, v plném znění.",
+  "faq": [
+    {
+      "q": "Z čeho se zkouška skládá?",
+      "a": "Z teoretické části (písemný test) a z praktické části (bezpečné nakládání se zbraní a střelba na terč). Stejně je postavena i komisionální zkouška.",
+      "cites": [{ "act": "2024-90", "unit": "p20-1", "whole": true }]
+    },
+    {
+      "q": "Kolik otázek má test, kolik je času a kolik správných odpovědí je potřeba?",
+      "a": "Test má 30 otázek a na vyplnění je nejvýše 40 minut. Žadatel o obecné zbrojní oprávnění uspěje s alespoň 26 správnými odpověďmi, žadatel o rozšířené zbrojní oprávnění s alespoň 28.",
+      "cites": [{ "act": "2024-90", "unit": "p20-3-a" }]
+    },
+    {
+      "q": "Z jakých okruhů se test skládá?",
+      "a": "17 otázek z právních předpisů, 5 z nauky o zbraních a střelivu, 5 ze zásad bezpečného nakládání se zbraněmi a střelivem a 3 ze zdravotnického minima. U každé otázky se vybírá 1 správná odpověď ze 3.",
+      "cites": [{ "act": "2025-238", "unit": "p12-2", "whole": true }]
+    },
+    {
+      "q": "Odkud se otázky berou? Jsou veřejné?",
+      "a": "Ano. Ministerstvo vnitra sestavuje soubor otázek, ze kterého se testy losují, a zveřejňuje ho i se správnými odpověďmi. Současný soubor platí od 1. 1. 2026 a má 837 otázek. Šířit se nesmí jen samotné písemné testy, které ministerstvo sestaví pro zkoušku.",
+      "cites": [{ "act": "2024-90", "unit": "p27-1" }, { "act": "2024-90", "unit": "p11-3-h" }]
+    },
+    {
+      "q": "Co je v praktické části?",
+      "a": "Postupy bezpečného nakládání se zbraní a střelba na kruhový terč o průměru 500 mm: 5 ran krátkou kulovou zbraní na 10 m a 5 ran dlouhou kulovou zbraní na 25 m, celkem do 5 minut. Potřeba je alespoň 6 zásahů (obecné oprávnění), nebo 8 zásahů (rozšířené).",
+      "cites": [{ "act": "2024-90", "unit": "p20-3-c", "whole": true }]
+    },
+    {
+      "q": "Co když neuspěji?",
+      "a": "Zkoušku je třeba složit do 12 měsíců od zápisu do centrálního registru zbraní a lze ji jednou opakovat. Kdo neuspěje ani při opakování, ale aspoň jednou prošel teoretickou částí, může jít na komisionální zkoušku.",
+      "cites": [{ "act": "2024-90", "unit": "p24-2", "whole": true }, { "act": "2024-90", "unit": "p24-3" }]
+    },
+    {
+      "q": "Jaký je rozdíl mezi obecným a rozšířeným zbrojním oprávněním?",
+      "a": "Rozšířené oprávnění v sobě zahrnuje obecné a je potřeba tam, kde to zákon vyžaduje, například pro nošení zbraně podléhající registraci (s výjimkami podle § 81). U testu se liší jen hranice úspěchu: 28 místo 26 správných.",
+      "cites": [{ "act": "2024-90", "unit": "p12-2" }, { "act": "2024-90", "unit": "p80-2" }]
+    }
+  ]
+}
