@@ -32,13 +32,11 @@ function migrateLegacyIds() {
 }
 migrateLegacyIds()
 
-// Automated browsers (CI Playwright runs against the production-configured
-// build) must not send events into the real KPI tables.
-const automated = typeof navigator !== 'undefined' && navigator.webdriver === true
-
+// Automated browsers (CI Playwright runs against the production-configured build, crawlers that
+// run JS) are dropped by the client's default isAutomated check, so KPIs count people only.
 const fw = createFlywheelClient({
   app: 'zbrojni-kviz',
-  supabase: automated ? null : (supabase as unknown as SupabaseLike | null),
+  supabase: supabase as unknown as SupabaseLike | null,
 })
 
 /** Only names on the shared allow-list compile; anything else the database drops silently. */
