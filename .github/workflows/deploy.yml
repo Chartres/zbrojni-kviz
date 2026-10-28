@@ -11,10 +11,11 @@ permissions:
   pages: write
   id-token: write
 
-# One run per ref; PRs don't cancel the main deploy.
+# One group per ref. A newer push cancels an older run on a PR branch, never on main: a cancelled
+# main run is a skipped deploy.
 concurrency:
-  group: pages-${{ github.ref }}
-  cancel-in-progress: true
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
   # The gate: typecheck · test · build · e2e. Runs on push and every PR.
@@ -46,6 +47,10 @@ jobs:
           timeout 180 npx playwright install-deps chromium || echo "::warning::install-deps skipped (timed out or failed)"
       - name: E2E (Playwright)
         run: npm run e2e
+      # The exact dist that gets uploaded must carry the Supabase config. Nothing may rebuild dist
+      # after this step (e2e rebuilt it without the env from Jul to Oct 2026).
+      - name: Analytics bundle guard
+        run: node scripts/check-analytics.mjs dist # flywheel:analytics-guard
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

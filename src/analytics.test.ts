@@ -27,4 +27,13 @@ describe('analytics', () => {
     track('app_open')
     expect(insert).not.toHaveBeenCalled()
   })
+
+  it('sends nothing from a crawler that runs JS (Googlebot renders pages with fresh storage)', async () => {
+    setWebdriver(false)
+    const ua = vi.spyOn(navigator, 'userAgent', 'get').mockReturnValue('Mozilla/5.0 (compatible; Googlebot/2.1)')
+    const { track } = await import('./analytics')
+    track('app_open')
+    expect(insert).not.toHaveBeenCalled()
+    ua.mockRestore()
+  })
 })
