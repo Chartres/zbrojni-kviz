@@ -1,0 +1,74 @@
+{
+  "headline": "Pass 2: main deploys can no longer be cancelled by a PR push. The signals kit is vendored, with the bundle guard on the uploaded dist. The 837 static question pages now send page_view (checked live: a real browser inserts one row, webdriver sends nothing). The best exam score no longer compares old 60-question attempts with 30-question ones.",
+  "shipped": [
+    {
+      "title": "ci: never cancel a main deploy; vendor the signals contract kit",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/16",
+      "merged": true,
+      "live_checked": "Main run 70 succeeded, with the analytics guard passing on the uploaded dist. The live bundle carries the Supabase project URL and the isAutomatedBrowser pattern (googleother)."
+    },
+    {
+      "title": "feat(analytics): page_view beacon on the 837 static question pages",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/17",
+      "merged": true,
+      "live_checked": "/fw-beacon.js is served, and /otazka/313/ loads it. Real Chromium (webdriver off, normal UA) sent POST /rest/v1/events and got 201, and the row is in flywheel-core events: page_view {path:/otazka/313/, static:true}. Default Playwright (webdriver on) sent no request."
+    },
+    {
+      "title": "fix(stats): rank exam attempts by ratio; mark the old 60-question format",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/18",
+      "merged": true,
+      "live_checked": "Main run 76 deployed it. On the live site in real Chromium, with seeded attempts [26/30 new, 50/60 old], the tile shows 26 / 30 with no old-format mark. With [25/30, 58/60] it shows 58 / 60 plus starý test (60 otázek)."
+    }
+  ],
+  "signals_fixed": [
+    "Static question pages (837 URLs, the SEO surface) sent no events. They now send page_view {path, static:true} with the shared fw:vid visitor id.",
+    "Crawlers and headless browsers that run JS (Googlebot etc.) were counted as visitors by the app. flywheel-client now drops them, along with webdriver.",
+    "Analytics bundle guard (flywheel:analytics-guard) runs on the exact dist that is uploaded, so a build without VITE_SUPABASE_* fails the deploy instead of shipping silent.",
+    "A PR push could cancel an in-flight main deploy. Concurrency now cancels only off main.",
+    "Kit file names (flywheel-events.contract.test.ts, flywheel-events.json, check-analytics.mjs) now exist for the fleet check."
+  ],
+  "decisions": [
+    {
+      "question": "Two allow-lists after vendoring the kit: which governs track()?",
+      "options": ["kit flywheel-events.json (includes pending names)", "typed mirror allowed-events.ts (live policy only)", "delete one"],
+      "default_taken": "Kept both. The typed mirror stays what track() accepts, and a test fails if it has a name missing from the kit list or still pending there.",
+      "why": "The kit's events array includes pending names the live policy drops (read back from pg_policies today), so on its own it would pass a start_weak_drill-style loss. The typed mirror is stricter."
+    },
+    {
+      "question": "Where to run the analytics guard, given the upload step sits in the test job that also runs on PRs",
+      "options": ["unconditionally, right before upload", "only on push to main"],
+      "default_taken": "Unconditionally, right before upload-pages-artifact",
+      "why": "This keeps it on the exact dist that ships, as specified. The cost is that a fork PR (no secrets) would fail the guard, but this repo has no fork contributors."
+    },
+    {
+      "question": "How the static beacon sends",
+      "options": ["fetch keepalive with apikey header", "navigator.sendBeacon", "load supabase-js"],
+      "default_taken": "fetch with keepalive, apikey header only, Prefer: return=minimal; ~1 KB file /fw-beacon.js written at prerender with the build env",
+      "why": "sendBeacon can't set the apikey header, and supabase-js would be the app bundle weight the pages avoid. Publishable keys need no Authorization header. Without the env, no beacon is written (local builds)."
+    },
+    {
+      "question": "Beacon scope",
+      "options": ["question pages only", "also okruh pages"],
+      "default_taken": "Question pages only",
+      "why": "Okruh pages boot the app, which already sends app_open, so beaconing them too would double count."
+    },
+    {
+      "question": "Old 60-question exam attempts in the best-score tile",
+      "options": ["rank by ratio across both and label old", "hide old attempts", "show only percent"],
+      "default_taken": "Rank by share correct (tie goes to the newer attempt), show score / total, and add 'starý test (60 otázek)' when the best is an old attempt",
+      "why": "Keeps people's history and makes the format visible. Stored data is untouched."
+    },
+    {
+      "question": "Verification row in production events",
+      "options": ["leave it", "delete it"],
+      "default_taken": "Left one page_view row (visitor_id d188952a-9989-440e-988c-83ad5458ed5f, 2026-10-28 10:16:36 UTC) from the live check",
+      "why": "Deleting rows from the shared table is a data deletion that waits for Pavol. Filter it out by visitor_id if it matters."
+    }
+  ],
+  "next": [
+    "Pavol: review the signature moves held back this pass (/zkouska/ on proposal/zkouska-page, the readiness card, near-miss marks, the citation box, question page design).",
+    "Add the beacon's 'static: true' page_view split to the zbrojni-kviz KPI view, so question-page reach is visible apart from app opens.",
+    "When the pending names land in the live policy, refresh src/platform/flywheel-events.json and only then add them to allowed-events.ts.",
+    "If outside contributors appear, gate the analytics guard to push events so fork PRs don't fail."
+  ]
+}
