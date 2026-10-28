@@ -12,7 +12,7 @@ const base = '/'
 // Workbox tests pathname + query, so the dotted name must sit in the pathname:
 // `/?ref=news.ycombinator.com` is still an app navigation.
 export const fileNavigation = /^[^?]*\/[^/?]+\.[a-z0-9]+(\?.*)?$/i
-export const questionPage = /^\/(otazka|zkouska)\//
+export const questionPage = /^\/otazka\//
 
 export default defineConfig({
   base,
