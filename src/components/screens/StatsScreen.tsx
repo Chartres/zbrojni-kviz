@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { ALL_QUESTIONS, META } from '@/domain/questions'
-import { summary } from '@/domain/progress'
+import { bestExamAttempt, summary } from '@/domain/progress'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { InfoDot } from '@/components/ui/InfoDot'
 import { ReadinessCard } from '@/components/ReadinessCard'
@@ -10,7 +10,7 @@ export function StatsScreen() {
   const { state } = useApp()
   const sum = useMemo(() => summary(state.progress, ALL_QUESTIONS), [state.progress])
   const attempts = state.progress.examAttempts
-  const bestScore = attempts.reduce((max, a) => Math.max(max, a.score), 0)
+  const best = bestExamAttempt(attempts)
 
   const stats = [
     {
@@ -103,8 +103,13 @@ export function StatsScreen() {
                 data-testid="exam-best-score"
                 className="font-mono text-2xl font-semibold text-brass-300 tabular-nums"
               >
-                {bestScore}
+                {best ? `${best.score} / ${best.total}` : '–'}
               </div>
+              {best && best.total !== META.exam.totalQuestions && (
+                <div data-testid="exam-best-old-format" className="mt-0.5 text-xs text-steel-400">
+                  starý test ({best.total} otázek)
+                </div>
+              )}
               <div className="mt-0.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-steel-500">
                 Nejlepší skóre
               </div>
