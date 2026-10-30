@@ -36,6 +36,7 @@ const finishedSession: SessionState = {
 let session: SessionState | null = finishedSession
 let mode = 'lesson'
 let caseSlug: string | null = null
+let foundation = false
 
 vi.mock('@/app/AppContext', () => ({
   useApp: () => ({
@@ -44,6 +45,7 @@ vi.mock('@/app/AppContext', () => ({
       examResult: null,
       mode,
       caseSlug,
+      foundation,
       progress: emptyProgress(),
       selectedCategories: new Set(),
       search: '',
@@ -59,6 +61,7 @@ describe('ResultsScreen analytics', () => {
     session = finishedSession
     mode = 'lesson'
     caseSlug = null
+    foundation = false
   })
 
   it('fires lesson_complete exactly once per completed lesson', () => {
@@ -116,5 +119,37 @@ describe('ResultsScreen analytics', () => {
     render(<ResultsScreen />)
     expect(track).toHaveBeenCalledWith('key_action', { kind: 'case_complete', case: 'nutna-obrana', score: 1, total: 1 })
     expect(track.mock.calls.filter(([n]) => n === 'session_finish')).toHaveLength(1)
+  })
+
+  it('a finished foundation lesson sends key_action foundation_lesson with its safe-handling score', () => {
+    foundation = true
+    const safe = getQuestion(562)!
+    const law = getQuestion(1)!
+    const wrongLaw = law.correct === 'a' ? 'b' : 'a'
+    session = {
+      questions: [safe, law],
+      index: 2,
+      records: [
+        { id: 562, choice: safe.correct, correct: true },
+        { id: 1, choice: wrongLaw, correct: false },
+      ],
+      chosen: { 562: safe.correct, 1: wrongLaw },
+    }
+    render(<ResultsScreen />)
+    const ka = track.mock.calls.filter(([name]) => name === 'key_action')
+    expect(ka).toEqual([
+      ['key_action', { kind: 'foundation_lesson', score: 1, total: 2, safety_correct: 1, safety_total: 1 }],
+    ])
+  })
+
+  it('an ordinary lesson sends no foundation key_action', () => {
+    render(<ResultsScreen />)
+    expect(track.mock.calls.filter(([name]) => name === 'key_action')).toEqual([])
+  })
+
+  it('a new learner starting the next lesson from results is tagged foundation', async () => {
+    render(<ResultsScreen />)
+    await userEvent.click(screen.getByRole('button', { name: 'Další lekce' }))
+    expect(track).toHaveBeenCalledWith('start_lesson', { from: 'results', foundation: true })
   })
 })

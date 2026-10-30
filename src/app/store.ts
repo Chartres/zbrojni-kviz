@@ -27,7 +27,7 @@ import {
   type ExamAttempt,
   type ProgressData,
 } from '@/domain/progress'
-import { buildLesson } from '@/domain/lesson'
+import { buildLesson, isFoundationPhase } from '@/domain/lesson'
 import { caseBySlug } from '@/domain/cases'
 import { ALL_QUESTIONS } from '@/domain/questions'
 import { shuffle } from '@/domain/rng'
@@ -50,6 +50,8 @@ export interface AppState {
   examEndsAt: number | null
   /** The case being worked through (mode 'case'). */
   caseSlug: string | null
+  /** The running lesson is a foundation lesson (bezpečnost first). */
+  foundation: boolean
   progress: ProgressData
   selectedCategories: Set<CategoryName>
   search: string
@@ -63,6 +65,7 @@ export function initialState(): AppState {
     examResult: null,
     examEndsAt: null,
     caseSlug: null,
+    foundation: false,
     progress: emptyProgress(),
     selectedCategories: new Set(),
     search: '',
@@ -105,6 +108,7 @@ function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
     session: createSession(questions),
     examResult: null,
     caseSlug: null,
+    foundation: false,
     view: mode === 'exam' ? 'exam' : 'quiz',
   }
 }
@@ -129,7 +133,10 @@ export function reducer(state: AppState, action: Action): AppState {
       return { ...state, search: action.search }
 
     case 'startLesson':
-      return begin(state, 'lesson', buildLesson(state.progress, action.rng))
+      return {
+        ...begin(state, 'lesson', buildLesson(state.progress, action.rng)),
+        foundation: isFoundationPhase(state.progress),
+      }
 
     case 'startPractice': {
       const qs = buildPractice(
