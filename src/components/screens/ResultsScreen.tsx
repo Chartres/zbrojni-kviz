@@ -21,6 +21,11 @@ export function ResultsScreen() {
     const t = session.questions.length
     const name = mode === 'exam' ? 'exam_finish' : mode === 'lesson' ? 'lesson_complete' : 'session_finish'
     track(name, { mode, score: s, total: t, passed: examResult?.passed })
+    // Case method metric (SIGNATURE.md): completion rate of started cases, and next-attempt
+    // accuracy on case questions against the same questions met outside a case.
+    if (mode === 'case' && state.caseSlug) {
+      track('key_action', { kind: 'case_complete', case: state.caseSlug, score: s, total: t })
+    }
     // fire once per results view
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

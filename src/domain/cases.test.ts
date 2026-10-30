@@ -1,0 +1,45 @@
+import { describe, it, expect } from 'vitest'
+import { CASES, caseBySlug } from './cases'
+import { resolveQuote } from '@/seo/examPage.mjs'
+import src from '@data/cases.src.json'
+import built from '@data/cases.json'
+import z90 from '@data/law/2024-90.json'
+import tz from '@data/law/2009-40.json'
+
+const ACTS = { '2024-90': z90, '2009-40': tz }
+
+describe('cases (case method)', () => {
+  it('has the three situations Pavol named: nutná obrana, carrying, minors', () => {
+    expect(CASES.map((c) => c.slug)).toEqual(expect.arrayContaining(['nutna-obrana', 'noseni-zbrane', 'nezletili']))
+  })
+
+  it('data/cases.json is current with cases.src.json (run node scripts/cases.mjs)', () => {
+    expect(built.cases.map((c) => ({ ...c, provisions: c.provisions.map((p) => p.cite) }))).toEqual(src.cases)
+  })
+
+  it('every provision is quoted verbatim from the parsed act', () => {
+    for (const c of built.cases)
+      for (const p of c.provisions) {
+        const q = resolveQuote(ACTS, p.cite)
+        expect(p.text).toBe(q.text)
+        expect(p.label).toBe(q.label)
+        expect(p.url).toBe(q.url)
+      }
+  })
+
+  it('every case has a situation, questions in order, and at least one provision', () => {
+    for (const c of CASES) {
+      expect(c.situation.length).toBeGreaterThan(40)
+      expect(c.questions.length).toBeGreaterThanOrEqual(5)
+      expect(new Set(c.questions.map((q) => q.id)).size).toBe(c.questions.length)
+      expect(c.provisions.length).toBeGreaterThan(0)
+    }
+    expect(caseBySlug('nutna-obrana')!.provisions[0].label).toBe('§ 29 odst. 1')
+    expect(caseBySlug('nutna-obrana')!.provisions[0].heading).toBe('Ze zákona')
+  })
+
+  it('no question sits in two cases', () => {
+    const ids = CASES.flatMap((c) => c.questions.map((q) => q.id))
+    expect(new Set(ids).size).toBe(ids.length)
+  })
+})

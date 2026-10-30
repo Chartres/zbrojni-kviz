@@ -4,6 +4,7 @@ import { differ, isNearMiss, type Segment } from '@/domain/difference'
 import { sourceFor } from '@/domain/sources'
 import { imageUrl } from '@/lib/assets'
 import { SourceNote } from './SourceNote'
+import type { Case } from '@/domain/cases'
 
 export interface QuestionCardProps {
   question: Question
@@ -17,6 +18,8 @@ export interface QuestionCardProps {
   onAnswer: (choice: Choice) => void
   onNext: () => void
   onToggleBookmark: () => void
+  /** Case method: the situation comes first, then after answering the rule and the provision. */
+  caseOf?: Case
 }
 
 const OPTIONS: Choice[] = ['a', 'b', 'c']
@@ -81,6 +84,13 @@ function Marked({ segments, as: Tag }: { segments: Segment[]; as: 'del' | 'ins' 
   )
 }
 
+// The rule a case question teaches, as one sentence: a stem that ends in a colon reads on
+// into its correct answer; a question stem is answered by the answer alone.
+export function ruleOf(q: Question): string {
+  const stem = q.q.trim()
+  return stem.endsWith(':') ? `${stem.slice(0, -1)} ${q[q.correct]}` : q[q.correct]
+}
+
 const STATE_CLASS: Record<OptionState, string> = {
   idle: 'border-steel-700 bg-steel-800/50 hover:border-brass-400 hover:bg-steel-700/50',
   selected: 'border-brass-500 bg-steel-700/70 glow-brass',
@@ -99,13 +109,16 @@ export function QuestionCard({
   onAnswer,
   onNext,
   onToggleBookmark,
+  caseOf,
 }: QuestionCardProps) {
   const answered = chosen !== undefined
   const isCorrect = answered && chosen === question.correct
   const nearMiss =
     reveal && answered && !isCorrect && isNearMiss(question[chosen], question[question.correct])
   const diff = nearMiss ? differ(question[chosen], question[question.correct]) : null
-  const source = reveal && answered ? sourceFor(question.id) : undefined
+  const own = reveal && answered ? sourceFor(question.id) : undefined
+  // In a case, a question without its own citation shows the provisions that decide the case.
+  const sources = own ? [own] : caseOf && reveal && answered ? caseOf.provisions : []
   const nextRef = useRef<HTMLButtonElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const verdictId = useId()
@@ -161,6 +174,15 @@ export function QuestionCard({
           {bookmarked ? '★' : '☆'} Záložka
         </button>
       </header>
+
+      {caseOf && (
+        <section aria-label="Situace" className="mb-5 border border-steel-700 bg-steel-900/50 px-4 py-3">
+          <p className="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-steel-400">
+            Případ · {caseOf.title}
+          </p>
+          <p className="mt-1 leading-relaxed text-steel-200">{caseOf.situation}</p>
+        </section>
+      )}
 
       <h2 ref={headingRef} tabIndex={-1} className="mb-5 text-balance text-xl font-semibold leading-relaxed text-steel-50">
         {question.q}
@@ -220,7 +242,16 @@ export function QuestionCard({
         </p>
       )}
 
-      {source && <SourceNote source={source} questionId={question.id} />}
+      {caseOf && reveal && answered && (
+        <section aria-label="Pravidlo" className="mt-5">
+          <p className="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-verdigris-400">Pravidlo</p>
+          <p className="mt-1 leading-relaxed text-steel-100">{ruleOf(question)}</p>
+        </section>
+      )}
+
+      {sources.map((s) => (
+        <SourceNote key={s.label} source={s} questionId={question.id} />
+      ))}
 
       {answered && (
         <footer

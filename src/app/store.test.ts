@@ -9,6 +9,17 @@ function start(overrides: Partial<AppState> = {}): AppState {
 }
 
 describe('app store', () => {
+  it('starts a case in its teaching order and clears it on the next mode', () => {
+    let s = reducer(start(), { type: 'startCase', slug: 'nutna-obrana' })
+    expect(s.mode).toBe('case')
+    expect(s.caseSlug).toBe('nutna-obrana')
+    expect(s.session?.questions.map((q) => q.id).slice(0, 3)).toEqual([637, 638, 639])
+    s = reducer(s, { type: 'goMenu' })
+    s = reducer(s, { type: 'startPractice', rng: makeRng(1) })
+    expect(s.caseSlug).toBeNull()
+    expect(reducer(start(), { type: 'startCase', slug: 'nope' }).mode).toBeNull()
+  })
+
   it('starts practice for the selected categories', () => {
     let s = start()
     s = reducer(s, { type: 'setCategories', categories: new Set(['Jiné předpisy']) })

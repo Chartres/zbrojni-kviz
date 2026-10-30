@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "slug": "nutna-obrana",
+      "title": "Nutná obrana",
+      "situation": "Na vás nebo na někoho vedle vás někdo útočí, nebo útok právě hrozí, a vy máte u sebe zbraň. Kdy je obrana beztrestná a kdy už ne?",
+      "ids": [637, 638, 639, 640, 641, 642, 643, 644, 645, 646, 647, 648],
+      "provisions": [
+        { "act": "2009-40", "unit": "p29-1" },
+        { "act": "2009-40", "unit": "p29-2" }
+      ]
+    },
+    {
+      "slug": "krajni-nouze",
+      "title": "Krajní nouze",
+      "situation": "Hrozí nebezpečí, které můžete odvrátit jen tím, že uděláte něco, co by jinak bylo trestné. Kdy to zákon omlouvá?",
+      "ids": [632, 633, 634, 635, 636],
+      "provisions": [
+        { "act": "2009-40", "unit": "p28-1" },
+        { "act": "2009-40", "unit": "p28-2" }
+      ]
+    },
+    {
+      "slug": "noseni-zbrane",
+      "title": "Zbraň na veřejnosti",
+      "situation": "Jdete se zbraní městem, vezete pušku v pouzdře na střelnici, nebo účinkujete v rekonstrukci bitvy. Kdy zbraň nosíte, jak ji nosit a kdo k tomu má oprávnění?",
+      "ids": [15, 16, 322, 72, 74, 323, 325, 327, 328, 329],
+      "provisions": [
+        { "act": "2024-90", "unit": "p3-1-b" },
+        { "act": "2024-90", "unit": "p80-1", "whole": true }
+      ]
+    },
+    {
+      "slug": "nezletili",
+      "title": "Nezletilí a zbraně",
+      "situation": "Šestnáctiletý chce střílet ve sportovním klubu, učí se myslivosti, nebo mu dospělý půjčí zbraň na střelnici. Co smí sám, co jen pod dohledem a kdo za zbraň odpovídá?",
+      "ids": [88, 87, 86, 125, 131, 42, 313, 319, 342],
+      "provisions": [
+        { "act": "2024-90", "unit": "p14-1", "whole": true },
+        { "act": "2024-90", "unit": "p83-5" }
+      ]
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { QuestionCard } from '@/components/QuestionCard'
 import { ExamTimer } from '@/components/ExamTimer'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { todayStr } from '@/lib/date'
+import { caseBySlug } from '@/domain/cases'
 
 const MODE_LABEL: Record<string, string> = {
   lesson: 'Dnešní lekce',
@@ -14,6 +15,7 @@ const MODE_LABEL: Record<string, string> = {
   bookmarks: 'Záložky',
   exam: 'Zkušební test',
   weakDrill: 'Slabá místa',
+  case: 'Případ',
 }
 
 export function QuizScreen() {
@@ -70,6 +72,7 @@ export function QuizScreen() {
       <QuestionCard
         key={question.id}
         question={question}
+        caseOf={mode === 'case' && state.caseSlug ? caseBySlug(state.caseSlug) : undefined}
         reveal={!isExam}
         chosen={currentChoice(session)}
         bookmarked={isBookmarked(state.progress, question.id)}

@@ -28,13 +28,14 @@ import {
   type ProgressData,
 } from '@/domain/progress'
 import { buildLesson } from '@/domain/lesson'
+import { caseBySlug } from '@/domain/cases'
 import { ALL_QUESTIONS } from '@/domain/questions'
 import { shuffle } from '@/domain/rng'
 
 // Bottom-tab destinations (persistent nav) + focused full-screen flows.
 export type TabView = 'home' | 'practice' | 'stats' | 'guide'
 export type View = TabView | 'quiz' | 'exam' | 'results'
-export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam' | 'lesson' | 'weakDrill'
+export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam' | 'lesson' | 'weakDrill' | 'case'
 
 export const TAB_VIEWS: TabView[] = ['home', 'practice', 'stats', 'guide']
 export function isTabView(v: View): v is TabView {
@@ -47,6 +48,8 @@ export interface AppState {
   session: SessionState | null
   examResult: ExamResult | null
   examEndsAt: number | null
+  /** The case being worked through (mode 'case'). */
+  caseSlug: string | null
   progress: ProgressData
   selectedCategories: Set<CategoryName>
   search: string
@@ -59,6 +62,7 @@ export function initialState(): AppState {
     session: null,
     examResult: null,
     examEndsAt: null,
+    caseSlug: null,
     progress: emptyProgress(),
     selectedCategories: new Set(),
     search: '',
@@ -75,6 +79,7 @@ export type Action =
   | { type: 'startReview' }
   | { type: 'startBookmarks'; rng: Rng }
   | { type: 'startWeakDrill'; rng: Rng }
+  | { type: 'startCase'; slug: string }
   | { type: 'startExam'; rng: Rng; now: number }
   | { type: 'answer'; choice: Choice; now: number }
   | { type: 'next'; today?: string; now: number }
@@ -99,6 +104,7 @@ function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
     mode,
     session: createSession(questions),
     examResult: null,
+    caseSlug: null,
     view: mode === 'exam' ? 'exam' : 'quiz',
   }
 }
@@ -149,6 +155,13 @@ export function reducer(state: AppState, action: Action): AppState {
         'weakDrill',
         buildWeakDrill(ALL_QUESTIONS, state.progress, action.rng),
       )
+
+    case 'startCase': {
+      // Served in the case's teaching order, not shuffled: definition, rule, then its limits.
+      const c = caseBySlug(action.slug)
+      if (!c) return state
+      return { ...begin(state, 'case', c.questions), caseSlug: c.slug }
+    }
 
     case 'startExam':
       return {

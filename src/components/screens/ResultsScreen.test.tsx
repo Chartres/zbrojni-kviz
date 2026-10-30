@@ -34,13 +34,16 @@ const finishedSession: SessionState = {
 }
 
 let session: SessionState | null = finishedSession
+let mode = 'lesson'
+let caseSlug: string | null = null
 
 vi.mock('@/app/AppContext', () => ({
   useApp: () => ({
     state: {
       session,
       examResult: null,
-      mode: 'lesson',
+      mode,
+      caseSlug,
       progress: emptyProgress(),
       selectedCategories: new Set(),
       search: '',
@@ -54,6 +57,8 @@ describe('ResultsScreen analytics', () => {
     track.mockClear()
     conversion.mockClear()
     session = finishedSession
+    mode = 'lesson'
+    caseSlug = null
   })
 
   it('fires lesson_complete exactly once per completed lesson', () => {
@@ -103,5 +108,13 @@ describe('ResultsScreen analytics', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Opakovat chyby' }))
     const starts = track.mock.calls.map(([name]) => name).filter((n) => n.startsWith('start_'))
     expect(starts).toEqual(['start_lesson', 'start_review'])
+  })
+
+  it('a finished case sends key_action case_complete with its slug and score', () => {
+    mode = 'case'
+    caseSlug = 'nutna-obrana'
+    render(<ResultsScreen />)
+    expect(track).toHaveBeenCalledWith('key_action', { kind: 'case_complete', case: 'nutna-obrana', score: 1, total: 1 })
+    expect(track.mock.calls.filter(([n]) => n === 'session_finish')).toHaveLength(1)
   })
 })

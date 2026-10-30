@@ -95,3 +95,10 @@ python3 -I cite.py --app --reviewed law/reviewed-secondary.json --merge citation
 
 The two passes are separate because word weights (IDF) depend on which provisions are pooled;
 keeping the zákon pass alone keeps its validated links unchanged.
+
+## Cases (case method)
+
+`cases.src.json` groups the situation questions into cases (nutná obrana, krajní nouze, carrying
+in public, minors) and names the provisions that decide each one. `node scripts/cases.mjs`
+writes `cases.json` with those provisions quoted verbatim from `law/*.json`;
+`src/domain/cases.test.ts` fails if the two drift apart or a quote no longer matches the act.

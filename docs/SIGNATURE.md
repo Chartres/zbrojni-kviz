@@ -48,9 +48,9 @@ trainer treats that part as the foundation the rest stands on, not as one okruh 
 
 **C. C. Langdell — the case method**. Harvard Law School from 1870; *A Selection of Cases on
 the Law of Contracts* (1871). https://en.wikipedia.org/wiki/Case_method
-`changes:` (proposed) questions that turn on a situation (nutná obrana, carrying in public, a
-minor at the range) are grouped as cases: the situation first, then the rule that decides it,
-then the provision.
+`changes:` questions that turn on a situation (nutná obrana, krajní nouze, carrying in public,
+a minor at the range) are grouped as four cases under Procvičovat › Případy: the situation
+first, then after each answer the rule that decides it, then the provision.
 
 Underneath all of them: Roediger & Karpicke (2006), the testing effect, and Ebbinghaus (1885),
 spacing. The daily lesson and the review queue already rest on these.
@@ -76,6 +76,7 @@ spacing. The daily lesson and the review queue already rest on these.
 | **Kontrola chyby** (control of error) | On a near-miss wrong answer, the differing words struck in the chosen option and marked in the correct one; "odpovědi se liší ve vyznačeném" | Montessori | shipped (PR #11), 208 questions | Next-attempt accuracy on questions first missed as a near miss vs other misses. Target: ≥ 70 % |
 | **Připravenost** (mastery readiness) | On Stats: estimated chance of passing at 26/30 and at 28/30, and which of the four parts holds it back | Bloom | building | Learners who see it and then pass a mock exam; correlation of the estimate with mock-exam results (calibration within ±10 pp) |
 | **Bezpečnost first** | New learners' first lessons lean on safe handling and first aid; the safe-handling part leads the results breakdown | Cooper's rules, Comenius | proposed | Day-7 return of new learners (lesson_complete on ≥ 2 days) |
+| **Případy** (case method) | Four cases (nutná obrana 12 q, krajní nouze 5, zbraň na veřejnosti 10, nezletilí 9), served in teaching order. Each question opens with the situation; after answering: "Pravidlo" (the stem read into the correct answer), then the question's own citation, or the case's provisions (TZ § 29, § 28; zákon 90/2024 § 3 odst. 1 písm. b), § 80 odst. 1, § 14 odst. 1, § 83 odst. 5) quoted verbatim | Langdell | shipped (2026-10-30) | `start_practice {kind:'case', case}` and `key_action {kind:'case_complete', case, score, total}`. Metrics: completion rate of started cases; accuracy on case questions when next met in a lesson or exam, for learners who did the case vs. not. Target: +10 pp |
 
 The engine-level parts (`src/domain/difference.ts`, `src/domain/sources.ts`,
 `data/law.py`, `data/cite.py`) are bank-agnostic, so autoskola-kviz and the other quiz
