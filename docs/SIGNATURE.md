@@ -112,3 +112,28 @@ The diff marks are hidden from screen readers, which get the plain sentence plus
 
 Differentiation that follows: competitors sell access to the same 837 questions. We teach from
 the source and show the learner where the mistake is.
+
+## 6. Decision log
+
+### 2026-10-30 — Pavol's picks on the decision page (08:25 CET)
+
+1. **Near-miss marks (Kontrola chyby): keep.** In his words: "This is quite annoying - having to
+   work out subtle difference bw options with long texts." The marks stay as they are. A reading aid
+   for long options that differ by a few words is *proposed, not built*: three options with
+   mock-ups and a recommendation are in `docs/review/2026-10-30.json` (proposals).
+2. **Ze zákona citation box: keep.**
+3. **837 question pages: keep.**
+4. **Readiness card (Připravenost): keep.**
+5. **/zkouska/ exam guide: "Ship as built."** Merged in #20 with main merged in; live at
+   https://zbrojnikviz.dravec.org/zkouska/ with FAQPage JSON-LD and in the sitemap.
+6. **Next signature move: "All three".** Each in its own PR, with tests, a persona-journey e2e at
+   390 px, and its metric in the existing taxonomy (key_action + props, no new event names):
+   Bezpečnost first (#21), Případy / case method (#22), statute serif (#23).
+7. **Safe-handling questions: "the exam-handling rules q562–596 plus the safety principles
+   q784–799".** This confirms what is live (`data/meta.json` › exam.composition › bezpecnost ranges);
+   recorded here as his decision, not ours.
+
+**Reuse across products.** A move approved for one product may be reused by another. His note:
+"Dont just blindly copy the pattern though." Here that means adapting, not copying: a port takes the
+reason behind a move (e.g. ad fontes: show the source text) and fits it to the other bank's subject,
+data and exam, and re-earns its metric there.
