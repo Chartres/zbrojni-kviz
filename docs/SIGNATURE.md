@@ -76,6 +76,7 @@ spacing. The daily lesson and the review queue already rest on these.
 | **Kontrola chyby** (control of error) | On a near-miss wrong answer, the differing words struck in the chosen option and marked in the correct one; "odpovědi se liší ve vyznačeném" | Montessori | shipped (PR #11), 208 questions | Next-attempt accuracy on questions first missed as a near miss vs other misses. Target: ≥ 70 % |
 | **Připravenost** (mastery readiness) | On Stats: estimated chance of passing at 26/30 and at 28/30, and which of the four parts holds it back | Bloom | building | Learners who see it and then pass a mock exam; correlation of the estimate with mock-exam results (calibration within ±10 pp) |
 | **Bezpečnost first** | Until a learner has answered 36 questions (about three lessons), new material is 5 safe handling + 3 first aid + 3 law + 1 weapons science per 12, served safe handling first; the home card says so. The safe-handling part leads the mock-exam breakdown | Cooper's rules, Comenius | shipped (2026-10-30) | `key_action {kind:'foundation_lesson', score, total, safety_correct, safety_total}` on each finished foundation lesson; `start_lesson {foundation:true}`. Metric: day-7 return of learners with a foundation_lesson row (lesson_complete on ≥ 2 distinct days within 7 days of the first), against the cohort that started before 2026-10-30 |
+| **Statute serif** | Every quoted provision (app, question pages, /zkouska/) set like a printed statute excerpt: § reference in serif, provision in IBM Plex Serif with Czech hyphenation, act in italic; the app's own voice stays sans/mono | Erasmus (ad fontes), the Sbírka zákonů page | shipped (2026-10-30) | `key_action {kind:'source_open'\|'source_expand', q, style:'statute'}`: open/expand rate per answered cited question after vs. before (events without `style`). Target: no drop; any rise is the serif's |
 
 The engine-level parts (`src/domain/difference.ts`, `src/domain/sources.ts`,
 `data/law.py`, `data/cite.py`) are bank-agnostic, so autoskola-kviz and the other quiz
@@ -89,8 +90,11 @@ odstavec numbers in parentheses, písmena, a narrow column, dense black text and
 decorative. The trainer keeps its existing "metal, not aggression" palette (gunmetal, brushed
 steel, brass) for the app shell. When the law speaks, it looks like the law: the source note
 uses the statute's own numbering, set off by a brass rule, so the learner can tell the app's
-voice from the act's. Next step (proposed): the quoted provision in a book serif (IBM Plex
-Serif, same family as the UI) so a citation reads as a printed excerpt.
+voice from the act's. Since 2026-10-30 the quoted provision is set in a book serif (IBM Plex
+Serif, same family as the UI) so a citation reads as a printed excerpt: the § reference as a
+serif heading, the text at a reading measure with Czech hyphenation, the act's name in italic.
+The same `.statute` classes set the citations in the app, on the 837 question pages and on
+/zkouska/.
 
 Accessibility and the phone contract (`flywheel/docs/standards/mobile-ux.md`) don't regress.
 The diff marks are hidden from screen readers, which get the plain sentence plus "liší se: …".

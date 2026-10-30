@@ -49,9 +49,9 @@ export function renderExamPage({ guide, acts, origin, cssHref, beaconSrc = null 
           const q = resolveQuote(acts, c)
           return `
           <figure class="mt-3 border-l-2 border-brass-500/70 bg-steel-900/60 py-3 pl-4 pr-3">
-            <figcaption class="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-brass-300">${esc(q.label)}</figcaption>
-            <blockquote class="mt-2 leading-relaxed text-steel-200">${esc(q.text)}</blockquote>
-            <p class="mt-2 text-[0.8125rem] text-steel-400">${esc(q.act)}. <a class="whitespace-nowrap text-verdigris-400 underline" href="${esc(q.url)}" rel="noopener">Celé znění ↗</a></p>
+            <figcaption class="statute-ref">${esc(q.label)}</figcaption>
+            <blockquote lang="cs" class="statute mt-1">${esc(q.text)}</blockquote>
+            <p class="statute-act mt-2">${esc(q.act)}. <a class="whitespace-nowrap not-italic font-sans text-verdigris-400 underline" href="${esc(q.url)}" rel="noopener">Celé znění ↗</a></p>
           </figure>`
         })
         .join('')
@@ -80,7 +80,7 @@ export function renderExamPage({ guide, acts, origin, cssHref, beaconSrc = null 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="${cssHref}" />
     <script type="application/ld+json">${JSON.stringify(ld).replaceAll('<', '\\u003c')}</script>
 ${beaconSrc ? `    <script src="${beaconSrc}" defer></script>\n` : ''}  </head>
