@@ -1,0 +1,169 @@
+{
+  "headline": "All seven picks done. /zkouska/ is live as built. The three signature moves shipped in their own PRs, each reviewed, green and read back live at 390 px: Bezpečnost first (a new learner's first lessons open with safe handling), Případy (four cases: situation, then rule, then provision), and statute serif (every citation set like a printed excerpt). The reading aid for near-miss options is proposed with three mock-ups, not built.",
+  "shipped": [
+    {
+      "title": "feat(seo): /zkouska/ — how the 2026 exam works, each answer with its provision",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/20",
+      "merged": true,
+      "live_checked": "Main run for #20 succeeded. Live at 390 px: /zkouska/ returns 200, has FAQPage JSON-LD with 7 questions, is in sitemap.xml, has no horizontal scroll (scrollWidth 390), and loads /fw-beacon.js. After #23 its provisions are set in IBM Plex Serif."
+    },
+    {
+      "title": "feat(lesson): bezpečnost first — first lessons lean on safe handling and first aid",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/21",
+      "merged": true,
+      "live_checked": "Main run for #21 succeeded. Live at 390 px, fresh visitor: the home card says 'První lekce začínají bezpečnou manipulací se zbraní a první pomocí.' Two first lessons were served in order: 572,799,585,570,591 | 820,827,806 | 671 | 138,56,398 and 583,591,799,590,580 | 811,816,812 | 692 | 261,64,19. Each was 5 safe handling (q562–596/q784–799), 3 first aid, 1 weapons science, 3 law, and each finished with 'Lekce dokončena'."
+    },
+    {
+      "title": "feat(cases): case method — situation, then rule, then provision",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/22",
+      "merged": true,
+      "live_checked": "Main run for #22 succeeded. Live at 390 px: Procvičovat › Případy › Nutná obrana opens 01 / 12 with the Situace box. After answering, Pravidlo and 'Ze zákona · § 29 odst. 1' (trestní zákoník) show, in serif since #23."
+    },
+    {
+      "title": "feat(sources): statute serif — citations set like a printed statute excerpt",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/23",
+      "merged": true,
+      "live_checked": "Main run for #23 (073a6a7) succeeded. Live at 390 px: after answering q322, the § 80 odst. 1 provision has computed font-family \"IBM Plex Serif\" and document.fonts.check('17px \"IBM Plex Serif\"') is true (the webfont loaded). No horizontal scroll (390). /zkouska/ blockquotes are in IBM Plex Serif too."
+    },
+    {
+      "title": "docs: decision log 2026-10-30 + this hand-back",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/24",
+      "merged": true,
+      "live_checked": "Docs only; read from raw.githubusercontent.com after merge."
+    }
+  ],
+  "decisions": [
+    {
+      "question": "Merging proposal/zkouska-page with main (conflicts with the page_view beacon, PR #17)",
+      "options": [
+        "keep both",
+        "take the proposal's prerender as is"
+      ],
+      "default_taken": "Kept both. /zkouska/ also loads /fw-beacon.js, so its views count as page_view {path:'/zkouska/', static:true}.",
+      "why": "The page has no app bundle and would otherwise send nothing. To undo, drop beaconSrc from the renderExamPage call in scripts/prerender.mjs."
+    },
+    {
+      "question": "/zkouska/ review nits about the page text (§ 24 odst. 1 wording; the general vs extended answer leaves out 6 vs 8 hits)",
+      "options": [
+        "edit the text",
+        "ship as built"
+      ],
+      "default_taken": "Shipped the text as built. Added only a service-worker test and a comment fix.",
+      "why": "Pavol said \"Ship as built\". The reviewer found every claim consistent with the cited provisions. The two wording points are listed under next."
+    },
+    {
+      "question": "Bezpečnost first: how long is 'first lessons', and what mix",
+      "options": [
+        "first lesson only",
+        "about three lessons (36 answered)",
+        "until all 89 safe+first-aid questions are seen"
+      ],
+      "default_taken": "Until 36 distinct questions are answered. Fresh material is 5 safe handling : 3 first aid : 1 weapons science : 3 law per 12, served in that order. Due reviews go at the end.",
+      "why": "It leans on safe handling without hiding the law, which is 17 of the exam's 30. Constants FOUNDATION_ANSWERS and FOUNDATION_MIX in src/domain/lesson.ts."
+    },
+    {
+      "question": "Bezpečnost first: where safe handling leads",
+      "options": [
+        "lesson order only",
+        "lesson order plus the mock-exam results breakdown"
+      ],
+      "default_taken": "Both. The lesson opens with safe handling, the safe-handling bar comes first in the mock-exam breakdown, and the home card says so during the phase.",
+      "why": "SIGNATURE.md already promised the breakdown order."
+    },
+    {
+      "question": "Duplicate twin 587/590 sat in the safe-handling pool (found by the PR #21 review)",
+      "options": [
+        "filter twins out of the pool",
+        "walk the shuffled pool until the group quota is met"
+      ],
+      "default_taken": "Walk the shuffled pool. It applies to every group, so the exam mix also holds when a twin is rejected.",
+      "why": "A fixed sample came up one short in about 1 lesson in 125, and the e2e test would have flaked."
+    },
+    {
+      "question": "Case method: which questions, which order, which provisions",
+      "options": [
+        "only questions that cite a provision",
+        "every question whose stem turns on the situation, each case provision tied to the questions it decides"
+      ],
+      "default_taken": "Four cases: nutná obrana (637–648), krajní nouze (632–636), zbraň na veřejnosti (15, 16, 322, 72, 74, 323, 325, 327–329), nezletilí (88, 87, 125, 131, 42, 313, 319, 342), in teaching order. A question shows its own citation, else the case provision that decides it, else none.",
+      "why": "Pavol named nutná obrana, carrying and minors. Krajní nouze is the twin of nutná obrana in the trestní zákoník. The review caught provisions shown for questions they don't decide, so each provision now lists its questions."
+    },
+    {
+      "question": "Case method: what 'the rule' is",
+      "options": [
+        "the correct option alone",
+        "the stem with its correct answer, as worded",
+        "a rewritten rule sentence"
+      ],
+      "default_taken": "The stem with its correct answer, as the bank words them.",
+      "why": "Rewriting would add our own legal claims. The bank's wording is what the exam tests."
+    },
+    {
+      "question": "Case method: situation texts",
+      "options": [
+        "none",
+        "short situations written as questions"
+      ],
+      "default_taken": "One short situation per case, phrased as a question with no legal claim. The rule and the provision answer it.",
+      "why": "The case method needs the situation first. Phrased as questions, the texts can't overstate the law (the reviewer confirmed no false claims)."
+    },
+    {
+      "question": "Statute serif: what is set in serif",
+      "options": [
+        "the whole question card",
+        "only the law's own words"
+      ],
+      "default_taken": "Only the law's words: the § reference, the provision and the act name (italic). Question, options and labels stay in Plex Sans/Mono.",
+      "why": "SIGNATURE.md §4: the learner should tell the app's voice from the act's. The exam prints questions in a plain sans."
+    },
+    {
+      "question": "Statute serif metric marker",
+      "options": [
+        "date cut-over",
+        "style:'statute' prop on the existing source key_actions"
+      ],
+      "default_taken": "style:'statute' prop",
+      "why": "An explicit marker survives cached old bundles (the PWA caches). It uses no new event name."
+    },
+    {
+      "question": "Merging my own PRs",
+      "options": [
+        "wait for Pavol",
+        "squash when CI is green, an independent review found nothing blocking, and there's no data change"
+      ],
+      "default_taken": "Squashed each one after an independent subagent review of the diff. Blocking findings were fixed first: #21 the twin flake, #22 provisions that didn't decide their question.",
+      "why": "Rule 3 of the brief. No data was deleted or migrated."
+    }
+  ],
+  "proposals": [
+    {
+      "name": "Reading aid for long near-miss options (item 1: \"quite annoying - having to work out subtle difference bw options with long texts\")",
+      "options": [
+        "A. 'Zvýraznit rozdíly' toggle before answering. It dotted-underlines the words that are not shared by all three options, in a neutral brass with no right or wrong colour. Opt-in per learner; off in the mock exam.",
+        "B. 'Zkráceno na rozdíly'. It prints the text all three options share once (\"Všechny tři začínají … a končí …\"), and each option shows only its differing core (e.g. 'pouze přenechání' / 'pouze svěření' / 'ani přenechání ani svěření'). Tap to see full wording; off in the mock exam.",
+        "C. A fading scaffold (A's marks, but earned). The marks turn on by themselves only for a question the learner last missed as a near miss, and disappear after two correct answers in a row (mastery). Never on first sight, never in the mock exam."
+      ],
+      "recommendation": "C, built on A's marking, with A available as a manual toggle in practice. Does marking before the answer still test what the exam tests? The real test prints three unmarked options. It checks two things: knowing the rule, and reading precisely enough to see which wording states it. Marking removes the second load and keeps the first: the learner still has to know whether it is 'pouze přenechání' or 'ani … ani'. So marks are a crutch if always on, and a good scaffold if they fade. C uses them only where a learner has shown the reading load is what's tripping them, and takes them away once they answer correctly unaided twice. That keeps practice honest to the exam. The mock exam stays unmarked. B is clearest on a phone but changes what the learner reads most: the exam never shows the shortened form. Metric if built: key_action {kind:'diff_aid', q, auto:true|false}; success = mock-exam accuracy on near-miss questions for aid users is no worse than for non-users, and their practice accuracy on those questions rises.",
+      "screenshots": [
+        "docs/review/shots/2026-10-30/proposal-a-diff.png",
+        "docs/review/shots/2026-10-30/proposal-b-fold.png",
+        "docs/review/shots/2026-10-30/proposal-c-fade.png"
+      ]
+    }
+  ],
+  "next": [
+    "Pavol: pick one of the reading-aid options (A, B, C), or none.",
+    "Pavol (data): q323's existing citation is § 90 odst. 1 (people working for a licence holder). The PR #22 reviewer flagged it as not the provision the question tests. The likely right one is § 80/§ 81 or the § on rozšířené ZO. Fixing it should go through data/cite.py --reviewed, not a hand edit.",
+    "Pavol (wording): /zkouska/ 'do 12 měsíců od zápisu do centrálního registru zbraní' could name what is recorded (§ 24 odst. 1). The 'rozdíl' answer could add that the practical part also differs (6 vs 8 hits). Both are true as written; the reviewer suggested them for precision.",
+    "Cases #640 and #647: the Pravidlo shows the official MV key ('obrana musí být intenzivnější'), which no provision states verbatim. Keep it (it is the exam key) or leave those two questions out of the case.",
+    "Metrics to read in about 14 days in flywheel-core: day-7 return of foundation_lesson learners vs the cohort before 2026-10-30; case_complete rate and next-attempt accuracy on case questions; source_open/source_expand rate with style:'statute' vs without.",
+    "Portfolio record flywheel/data/products/zbrojni-kviz.json (hub repo, not in this session's scope): add /zkouska/ under links and the three moves under signature. Orchestrator to apply.",
+    "IndexNow: /zkouska/ is a new URL in the sitemap. Submission is central, not done here."
+  ],
+  "screenshots": [
+    "docs/review/shots/2026-10-30/zkouska.png",
+    "docs/review/shots/2026-10-30/case.png",
+    "docs/review/shots/2026-10-30/statute-serif.png",
+    "docs/review/shots/2026-10-30/first-lesson.png"
+  ]
+}
