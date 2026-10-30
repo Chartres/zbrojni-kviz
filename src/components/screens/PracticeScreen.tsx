@@ -6,6 +6,7 @@ import { filterQuestions } from '@/domain/selection'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
 import type { CategoryName } from '@/domain/types'
+import { CASES } from '@/domain/cases'
 
 export function PracticeScreen() {
   const { state, dispatch } = useApp()
@@ -120,6 +121,36 @@ export function PracticeScreen() {
         >
           Spustit procvičování
         </button>
+      </section>
+
+      {/* MODE 3 — case method: situation, then rule, then provision */}
+      <section aria-labelledby="cases-h" className="mt-4 rounded-card border border-steel-700 bg-steel-800/40 p-4">
+        <h2 id="cases-h" className="font-display text-lg font-semibold uppercase tracking-wide text-steel-50">
+          Případy
+        </h2>
+        <p className="mt-0.5 mb-3 text-sm text-steel-400">
+          Situace, pravidlo, které ji rozhoduje, a ustanovení zákona.
+        </p>
+        <ul className="divide-y divide-steel-700/70">
+          {CASES.map((c) => (
+            <li key={c.slug}>
+              <button
+                type="button"
+                aria-label={`${c.title}, ${c.questions.length} otázek`}
+                onClick={() => {
+                  track('start_practice', { kind: 'case', case: c.slug })
+                  dispatch({ type: 'startCase', slug: c.slug })
+                }}
+                className="flex w-full items-center justify-between gap-3 py-3 text-left hover:text-brass-300"
+              >
+                <span className="font-medium text-steel-100">{c.title}</span>
+                <span className="shrink-0 font-mono text-sm text-steel-400 tabular-nums">
+                  {c.questions.length} otázek →
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Bookmarks */}

@@ -219,3 +219,38 @@ describe('QuestionCard', () => {
     expect(onNext).toHaveBeenCalledTimes(2)
   })
 })
+
+describe('QuestionCard in a case (case method)', () => {
+  it('shows the situation before answering, then the rule and the provision', async () => {
+    const { caseBySlug } = await import('@/domain/cases')
+    const c = caseBySlug('nutna-obrana')!
+    const q = c.questions.find((x) => !sourceFor(x.id))! // an uncited question: the case provisions decide it
+    setup({ question: q, caseOf: c })
+    const situation = screen.getByRole('region', { name: 'Situace' })
+    expect(situation).toHaveTextContent(c.situation)
+    expect(screen.getByRole('heading', { level: 2 })).toHaveAccessibleDescription(/Případ · Nutná obrana/)
+    expect(screen.queryByRole('region', { name: 'Pravidlo' })).toBeNull()
+    expect(screen.queryByRole('region', { name: /^Zdroj/ })).toBeNull()
+    cleanup()
+
+    setup({ question: q, caseOf: c, chosen: q.correct })
+    expect(screen.getByRole('region', { name: 'Pravidlo' })).toHaveTextContent(q[q.correct])
+    expect(screen.getByRole('region', { name: 'Zdroj: § 29 odst. 1' })).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'Zdroj: § 29 odst. 2' })).toBeInTheDocument()
+  })
+
+  it('a cited case question shows its own provision, not the case ones', async () => {
+    const { caseBySlug } = await import('@/domain/cases')
+    const c = caseBySlug('nutna-obrana')!
+    const q = c.questions.find((x) => sourceFor(x.id))!
+    setup({ question: q, caseOf: c, chosen: q.correct })
+    expect(screen.getAllByRole('region', { name: /^Zdroj/ })).toHaveLength(1)
+    expect(screen.getByRole('region', { name: `Zdroj: ${sourceFor(q.id)!.label}` })).toBeInTheDocument()
+  })
+
+  it('states the rule as the stem with its correct answer, as worded', async () => {
+    const { ruleOf } = await import('./QuestionCard')
+    expect(ruleOf(Q)).toBe('Tlumič hluku výstřelu je: regulovanou součástí zbraně.')
+    expect(ruleOf({ ...Q, q: 'Je to tak?', a: 'Ano.' })).toBe('Je to tak? Ano.')
+  })
+})

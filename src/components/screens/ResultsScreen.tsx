@@ -22,6 +22,11 @@ export function ResultsScreen() {
     const t = session.questions.length
     const name = mode === 'exam' ? 'exam_finish' : mode === 'lesson' ? 'lesson_complete' : 'session_finish'
     track(name, { mode, score: s, total: t, passed: examResult?.passed })
+    // Case method metric (SIGNATURE.md): completion rate of started cases, and next-attempt
+    // accuracy on case questions against the same questions met outside a case.
+    if (mode === 'case' && state.caseSlug) {
+      track('key_action', { kind: 'case_complete', case: state.caseSlug, score: s, total: t })
+    }
     // Bezpečnost first metric (SIGNATURE.md): day-7 return of learners who finished a
     // foundation lesson, read from these rows joined to later lesson_complete days.
     if (mode === 'lesson' && state.foundation) {
