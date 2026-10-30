@@ -34,6 +34,8 @@ const finishedSession: SessionState = {
 }
 
 let session: SessionState | null = finishedSession
+let mode = 'lesson'
+let caseSlug: string | null = null
 let foundation = false
 
 vi.mock('@/app/AppContext', () => ({
@@ -41,7 +43,8 @@ vi.mock('@/app/AppContext', () => ({
     state: {
       session,
       examResult: null,
-      mode: 'lesson',
+      mode,
+      caseSlug,
       foundation,
       progress: emptyProgress(),
       selectedCategories: new Set(),
@@ -56,6 +59,8 @@ describe('ResultsScreen analytics', () => {
     track.mockClear()
     conversion.mockClear()
     session = finishedSession
+    mode = 'lesson'
+    caseSlug = null
     foundation = false
   })
 
@@ -106,6 +111,14 @@ describe('ResultsScreen analytics', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Opakovat chyby' }))
     const starts = track.mock.calls.map(([name]) => name).filter((n) => n.startsWith('start_'))
     expect(starts).toEqual(['start_lesson', 'start_review'])
+  })
+
+  it('a finished case sends key_action case_complete with its slug and score', () => {
+    mode = 'case'
+    caseSlug = 'nutna-obrana'
+    render(<ResultsScreen />)
+    expect(track).toHaveBeenCalledWith('key_action', { kind: 'case_complete', case: 'nutna-obrana', score: 1, total: 1 })
+    expect(track.mock.calls.filter(([n]) => n === 'session_finish')).toHaveLength(1)
   })
 
   it('a finished foundation lesson sends key_action foundation_lesson with its safe-handling score', () => {

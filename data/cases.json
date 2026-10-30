@@ -1,0 +1,225 @@
+{
+  "cases": [
+    {
+      "slug": "nutna-obrana",
+      "title": "Nutná obrana",
+      "situation": "Na vás nebo na někoho vedle vás někdo útočí, nebo útok právě hrozí, a vy máte u sebe zbraň. Kdy je obrana beztrestná a kdy už ne?",
+      "ids": [
+        637,
+        638,
+        639,
+        640,
+        641,
+        642,
+        643,
+        644,
+        645,
+        646,
+        647,
+        648
+      ],
+      "provisions": [
+        {
+          "cite": {
+            "act": "2009-40",
+            "unit": "p29-1"
+          },
+          "for": [
+            637,
+            638,
+            639,
+            640,
+            641,
+            642,
+            643,
+            644,
+            645,
+            646,
+            647
+          ],
+          "label": "§ 29 odst. 1",
+          "act": "Zákon č. 40/2009 Sb., trestní zákoník",
+          "url": "https://www.zakonyprolidi.cz/cs/2009-40#p29-1",
+          "text": "Čin jinak trestný, kterým někdo odvrací přímo hrozící nebo trvající útok na zájem chráněný trestním zákonem, není trestným činem."
+        },
+        {
+          "cite": {
+            "act": "2009-40",
+            "unit": "p29-2"
+          },
+          "for": [
+            637,
+            638,
+            639,
+            640,
+            641,
+            642,
+            643,
+            644,
+            645,
+            646,
+            647
+          ],
+          "label": "§ 29 odst. 2",
+          "act": "Zákon č. 40/2009 Sb., trestní zákoník",
+          "url": "https://www.zakonyprolidi.cz/cs/2009-40#p29-2",
+          "text": "Nejde o nutnou obranu, byla-li obrana zcela zjevně nepřiměřená způsobu útoku."
+        }
+      ]
+    },
+    {
+      "slug": "krajni-nouze",
+      "title": "Krajní nouze",
+      "situation": "Hrozí nebezpečí, které můžete odvrátit jen tím, že uděláte něco, co by jinak bylo trestné. Kdy to zákon omlouvá?",
+      "ids": [
+        632,
+        633,
+        634,
+        635,
+        636
+      ],
+      "provisions": [
+        {
+          "cite": {
+            "act": "2009-40",
+            "unit": "p28-1"
+          },
+          "for": [
+            632,
+            633,
+            634,
+            635,
+            636
+          ],
+          "label": "§ 28 odst. 1",
+          "act": "Zákon č. 40/2009 Sb., trestní zákoník",
+          "url": "https://www.zakonyprolidi.cz/cs/2009-40#p28-1",
+          "text": "Čin jinak trestný, kterým někdo odvrací nebezpečí přímo hrozící zájmu chráněnému trestním zákonem, není trestným činem."
+        },
+        {
+          "cite": {
+            "act": "2009-40",
+            "unit": "p28-2"
+          },
+          "for": [
+            632,
+            633,
+            634,
+            635,
+            636
+          ],
+          "label": "§ 28 odst. 2",
+          "act": "Zákon č. 40/2009 Sb., trestní zákoník",
+          "url": "https://www.zakonyprolidi.cz/cs/2009-40#p28-2",
+          "text": "Nejde o krajní nouzi, jestliže bylo možno toto nebezpečí za daných okolností odvrátit jinak anebo způsobený následek je zřejmě stejně závažný nebo ještě závažnější než ten, který hrozil, anebo byl ten, komu nebezpečí hrozilo, povinen je snášet."
+        }
+      ]
+    },
+    {
+      "slug": "noseni-zbrane",
+      "title": "Zbraň na veřejnosti",
+      "situation": "Jdete se zbraní městem, vezete pušku v pouzdře na střelnici, nebo účinkujete v rekonstrukci bitvy. Kdy zbraň nosíte, jak ji nosit a kdo k tomu má oprávnění?",
+      "ids": [
+        15,
+        16,
+        322,
+        72,
+        74,
+        323,
+        325,
+        327,
+        328,
+        329
+      ],
+      "provisions": [
+        {
+          "cite": {
+            "act": "2024-90",
+            "unit": "p3-1-b"
+          },
+          "for": [
+            15,
+            16
+          ],
+          "label": "§ 3 odst. 1 písm. b)",
+          "act": "Zákon č. 90/2024 Sb., o zbraních a střelivu",
+          "url": "https://www.zakonyprolidi.cz/cs/2024-90#p3-1-b",
+          "text": "Pro účely tohoto zákona je … nošením zbraně způsob nakládání se zbraní, při kterém ji fyzická osoba má na místě veřejnosti přístupném při sobě nabitou nebo viditelně,"
+        },
+        {
+          "cite": {
+            "act": "2024-90",
+            "unit": "p80-1",
+            "whole": true
+          },
+          "for": [
+            322
+          ],
+          "label": "§ 80 odst. 1",
+          "act": "Zákon č. 90/2024 Sb., o zbraních a střelivu",
+          "url": "https://www.zakonyprolidi.cz/cs/2024-90#p80-1",
+          "text": "Zbraň musí být nošena skrytě; to neplatí, jde-li o nošení zbraně v provozovně držitele zbrojní licence, na střelnici nebo v jiném zřetelně ohraničeném prostoru, ve kterém se se zbraní nakládá se souhlasem jeho majitele, nájemce nebo provozovatele, nebo viditelné nošení anebo přepravu zbraně v souladu s § 81."
+        },
+        {
+          "cite": {
+            "act": "2024-90",
+            "unit": "p81-1"
+          },
+          "for": [
+            325,
+            327,
+            328,
+            329
+          ],
+          "label": "§ 81 odst. 1",
+          "act": "Zákon č. 90/2024 Sb., o zbraních a střelivu",
+          "url": "https://www.zakonyprolidi.cz/cs/2024-90#p81-1",
+          "text": "Osoba, která nakládá se zbraní, je oprávněna ji viditelně nosit, pokud se v souladu s tímto nebo jiným zákonem účastní akce nebo provádí činnost, při kterých se obvykle nakládá se zbraněmi, a pokud způsob nošení zbraně je přiměřený povaze této akce nebo činnosti. Účelem akce nebo činnosti uvedené ve větě první může být"
+        }
+      ]
+    },
+    {
+      "slug": "nezletili",
+      "title": "Nezletilí a zbraně",
+      "situation": "Šestnáctiletý chce střílet ve sportovním klubu, učí se myslivosti, nebo mu dospělý půjčí zbraň na střelnici. Co smí sám, co jen pod dohledem a kdo za zbraň odpovídá?",
+      "ids": [
+        88,
+        87,
+        125,
+        131,
+        42,
+        313,
+        319,
+        342
+      ],
+      "provisions": [
+        {
+          "cite": {
+            "act": "2024-90",
+            "unit": "p14-1-b"
+          },
+          "for": [
+            88
+          ],
+          "label": "§ 14 odst. 1 písm. b)",
+          "act": "Zákon č. 90/2024 Sb., o zbraních a střelivu",
+          "url": "https://www.zakonyprolidi.cz/cs/2024-90#p14-1-b",
+          "text": "Zbrojní oprávnění lze vydat fyzické osobě, která … je zletilá, pokud jde o obecné zbrojní oprávnění, nebo"
+        },
+        {
+          "cite": {
+            "act": "2024-90",
+            "unit": "p83-5"
+          },
+          "for": [
+            342
+          ],
+          "label": "§ 83 odst. 5",
+          "act": "Zákon č. 90/2024 Sb., o zbraních a střelivu",
+          "url": "https://www.zakonyprolidi.cz/cs/2024-90#p83-5",
+          "text": "V případě zbraně, s níž nakládá nezletilá osoba, je zákonný zástupce, opatrovník nebo poručník povinen zajistit dodržování pravidel zabezpečení zbraně, pokud není zabezpečena jinou osobou, která je s ní oprávněna nakládat."
+        }
+      ]
+    }
+  ]
+}
