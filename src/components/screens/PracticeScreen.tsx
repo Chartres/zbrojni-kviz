@@ -136,6 +136,7 @@ export function PracticeScreen() {
             <li key={c.slug}>
               <button
                 type="button"
+                aria-label={`${c.title}, ${c.questions.length} otázek`}
                 onClick={() => {
                   track('start_practice', { kind: 'case', case: c.slug })
                   dispatch({ type: 'startCase', slug: c.slug })

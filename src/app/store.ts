@@ -238,6 +238,7 @@ export function reducer(state: AppState, action: Action): AppState {
         view: 'home',
         mode: null,
         session: null,
+        caseSlug: null,
         examResult: null,
         examEndsAt: null,
       }

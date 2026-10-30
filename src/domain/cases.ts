@@ -12,7 +12,7 @@ interface RawCase {
   title: string
   situation: string
   ids: number[]
-  provisions: { act: string; label: string; url: string; text: string }[]
+  provisions: { for: number[]; act: string; label: string; url: string; text: string }[]
 }
 
 export interface Case {
@@ -22,8 +22,8 @@ export interface Case {
   situation: string
   /** In teaching order: definition first, then the rule, then its limits. */
   questions: Question[]
-  /** The provisions that decide the case, verbatim. */
-  provisions: Source[]
+  /** The provisions that decide the case, verbatim, each with the questions it decides. */
+  provisions: (Source & { for: number[] })[]
 }
 
 export const CASES: Case[] = (raw as { cases: RawCase[] }).cases.map((c) => ({
@@ -36,6 +36,7 @@ export const CASES: Case[] = (raw as { cases: RawCase[] }).cases.map((c) => ({
     return q
   }),
   provisions: c.provisions.map((p) => ({
+    for: p.for,
     heading: headingFor(p.act),
     label: p.label,
     act: p.act,
@@ -46,4 +47,9 @@ export const CASES: Case[] = (raw as { cases: RawCase[] }).cases.map((c) => ({
 
 export function caseBySlug(slug: string): Case | undefined {
   return CASES.find((c) => c.slug === slug)
+}
+
+/** The case provisions that decide this question (shown when it has no citation of its own). */
+export function provisionsFor(c: Case, questionId: number): Source[] {
+  return c.provisions.filter((p) => p.for.includes(questionId))
 }

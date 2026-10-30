@@ -228,6 +228,7 @@ describe('QuestionCard in a case (case method)', () => {
     setup({ question: q, caseOf: c })
     const situation = screen.getByRole('region', { name: 'Situace' })
     expect(situation).toHaveTextContent(c.situation)
+    expect(screen.getByRole('heading', { level: 2 })).toHaveAccessibleDescription(/Případ · Nutná obrana/)
     expect(screen.queryByRole('region', { name: 'Pravidlo' })).toBeNull()
     expect(screen.queryByRole('region', { name: /^Zdroj/ })).toBeNull()
     cleanup()
@@ -247,9 +248,9 @@ describe('QuestionCard in a case (case method)', () => {
     expect(screen.getByRole('region', { name: `Zdroj: ${sourceFor(q.id)!.label}` })).toBeInTheDocument()
   })
 
-  it('reads a colon stem on into its answer as the rule', async () => {
+  it('states the rule as the stem with its correct answer, as worded', async () => {
     const { ruleOf } = await import('./QuestionCard')
-    expect(ruleOf(Q)).toBe('Tlumič hluku výstřelu je regulovanou součástí zbraně.')
-    expect(ruleOf({ ...Q, q: 'Je to tak?', a: 'Ano.' })).toBe('Ano.')
+    expect(ruleOf(Q)).toBe('Tlumič hluku výstřelu je: regulovanou součástí zbraně.')
+    expect(ruleOf({ ...Q, q: 'Je to tak?', a: 'Ano.' })).toBe('Je to tak? Ano.')
   })
 })

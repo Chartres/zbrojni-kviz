@@ -4,7 +4,7 @@ import { differ, isNearMiss, type Segment } from '@/domain/difference'
 import { sourceFor } from '@/domain/sources'
 import { imageUrl } from '@/lib/assets'
 import { SourceNote } from './SourceNote'
-import type { Case } from '@/domain/cases'
+import { provisionsFor, type Case } from '@/domain/cases'
 
 export interface QuestionCardProps {
   question: Question
@@ -84,11 +84,9 @@ function Marked({ segments, as: Tag }: { segments: Segment[]; as: 'del' | 'ins' 
   )
 }
 
-// The rule a case question teaches, as one sentence: a stem that ends in a colon reads on
-// into its correct answer; a question stem is answered by the answer alone.
+// The rule a case question teaches: the stem with its correct answer, as the bank words them.
 export function ruleOf(q: Question): string {
-  const stem = q.q.trim()
-  return stem.endsWith(':') ? `${stem.slice(0, -1)} ${q[q.correct]}` : q[q.correct]
+  return `${q.q.trim()} ${q[q.correct]}`
 }
 
 const STATE_CLASS: Record<OptionState, string> = {
@@ -117,8 +115,9 @@ export function QuestionCard({
     reveal && answered && !isCorrect && isNearMiss(question[chosen], question[question.correct])
   const diff = nearMiss ? differ(question[chosen], question[question.correct]) : null
   const own = reveal && answered ? sourceFor(question.id) : undefined
-  // In a case, a question without its own citation shows the provisions that decide the case.
-  const sources = own ? [own] : caseOf && reveal && answered ? caseOf.provisions : []
+  // In a case, a question without its own citation shows the case provisions that decide it.
+  const sources = own ? [own] : caseOf && reveal && answered ? provisionsFor(caseOf, question.id) : []
+  const situationId = useId()
   const nextRef = useRef<HTMLButtonElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
   const verdictId = useId()
@@ -176,7 +175,7 @@ export function QuestionCard({
       </header>
 
       {caseOf && (
-        <section aria-label="Situace" className="mb-5 border border-steel-700 bg-steel-900/50 px-4 py-3">
+        <section id={situationId} aria-label="Situace" className="mb-5 border border-steel-700 bg-steel-900/50 px-4 py-3">
           <p className="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-steel-400">
             Případ · {caseOf.title}
           </p>
@@ -184,7 +183,7 @@ export function QuestionCard({
         </section>
       )}
 
-      <h2 ref={headingRef} tabIndex={-1} className="mb-5 text-balance text-xl font-semibold leading-relaxed text-steel-50">
+      <h2 ref={headingRef} tabIndex={-1} aria-describedby={caseOf ? situationId : undefined} className="mb-5 text-balance text-xl font-semibold leading-relaxed text-steel-50">
         {question.q}
       </h2>
 
