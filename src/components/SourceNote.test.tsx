@@ -15,7 +15,7 @@ describe('SourceNote — measuring whether learners go to the source', () => {
   it('opening the full text sends key_action {kind: source_open} with the question id', () => {
     render(<SourceNote source={SHORT} questionId={83} />)
     fireEvent.click(screen.getByRole('link', { name: /celé znění/i }))
-    expect(track).toHaveBeenCalledWith('key_action', { kind: 'source_open', q: 83 })
+    expect(track).toHaveBeenCalledWith('key_action', { kind: 'source_open', q: 83, style: 'statute' })
   })
 
   it('expanding a long provision sends key_action {kind: source_expand} once', () => {
@@ -26,6 +26,14 @@ describe('SourceNote — measuring whether learners go to the source', () => {
     details.open = false
     fireEvent(details, new Event('toggle'))
     expect(track).toHaveBeenCalledTimes(1)
-    expect(track).toHaveBeenCalledWith('key_action', { kind: 'source_expand', q: 7 })
+    expect(track).toHaveBeenCalledWith('key_action', { kind: 'source_expand', q: 7, style: 'statute' })
+  })
+
+  it('sets the provision as a printed statute excerpt: § reference, serif text, act in italic', () => {
+    render(<SourceNote source={SHORT} questionId={1} />)
+    expect(screen.getByText('§ 1 odst. 1')).toHaveClass('statute-ref')
+    expect(screen.getByText('Krátké ustanovení.')).toHaveClass('statute')
+    expect(screen.getByText('Krátké ustanovení.')).toHaveAttribute('lang', 'cs')
+    expect(screen.getByText(/Zákon č\. 90\/2024 Sb\./)).toHaveClass('statute-act')
   })
 })
