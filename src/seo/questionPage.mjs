@@ -21,9 +21,10 @@ export const questionPath = (id) => `/otazka/${id}/`
  *   prev: number | null, next: number | null,
  *   origin: string, cssHref: string,
  *   canonicalId?: number | null,
+ *   beaconSrc?: string | null,
  * }} p
  */
-export function renderQuestionPage({ q, source, topic, prev, next, origin, cssHref, canonicalId = null }) {
+export function renderQuestionPage({ q, source, topic, prev, next, origin, cssHref, canonicalId = null, beaconSrc = null }) {
   const url = `${origin}${questionPath(q.id)}`
   const right = q[q.correct]
   // Many stems repeat ("Vyberte správné tvrzení:"), so the number makes each title unique.
@@ -100,7 +101,7 @@ export function renderQuestionPage({ q, source, topic, prev, next, origin, cssHr
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="${cssHref}" />
     <script type="application/ld+json">${JSON.stringify(ld).replaceAll('<', '\\u003c')}</script>
-  </head>
+${beaconSrc ? `    <script src="${beaconSrc}" defer></script>\n` : ''}  </head>
   <body>
     <main class="mx-auto w-full max-w-2xl px-4 py-6 text-steel-200">
       <p class="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-steel-400">

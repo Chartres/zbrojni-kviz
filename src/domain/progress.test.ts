@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import type { Question } from './types'
 import {
+  bestExamAttempt,
   emptyProgress,
   recordAnswer,
   isMastered,
@@ -295,5 +296,23 @@ describe('mergeProgress — exam attempts', () => {
     const merged = mergeProgress(local, remote)
     expect(merged.examAttempts).toHaveLength(MAX_EXAM_ATTEMPTS)
     expect(merged.examAttempts?.[0].at).toBe(MAX_EXAM_ATTEMPTS * 2 - 1)
+  })
+})
+
+describe('bestExamAttempt (attempts before #10 were out of 60, now 30)', () => {
+  const at = (score: number, total: number, t: number) => ({ at: t, score, total, passed: false, byCategory: {} })
+
+  it('ranks by share correct, not raw score: 26/30 beats 50/60', () => {
+    expect(bestExamAttempt([at(50, 60, 1), at(26, 30, 2)])).toMatchObject({ score: 26, total: 30 })
+  })
+
+  it('keeps an old attempt when its share is higher: 58/60 beats 26/30', () => {
+    expect(bestExamAttempt([at(26, 30, 2), at(58, 60, 1)])).toMatchObject({ score: 58, total: 60 })
+  })
+
+  it('on a tie prefers the newer attempt, and is null with no attempts', () => {
+    expect(bestExamAttempt([at(52, 60, 1), at(26, 30, 2)])!.at).toBe(2)
+    expect(bestExamAttempt([at(26, 30, 2), at(52, 60, 1)])!.at).toBe(2)
+    expect(bestExamAttempt([])).toBeNull()
   })
 })

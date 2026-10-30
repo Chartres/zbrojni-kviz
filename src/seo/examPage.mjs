@@ -29,9 +29,9 @@ export function resolveQuote(acts, { act, unit, whole = false }) {
 export const EXAM_PATH = '/zkouska/'
 
 /**
- * @param {{ guide: { title: string, description: string, intro: string, faq: { q: string, a: string, cites: { act: string, unit: string, whole?: boolean }[] }[] }, acts: Record<string, any>, origin: string, cssHref: string }} p
+ * @param {{ guide: { title: string, description: string, intro: string, faq: { q: string, a: string, cites: { act: string, unit: string, whole?: boolean }[] }[] }, acts: Record<string, any>, origin: string, cssHref: string, beaconSrc?: string | null }} p
  */
-export function renderExamPage({ guide, acts, origin, cssHref }) {
+export function renderExamPage({ guide, acts, origin, cssHref, beaconSrc = null }) {
   const url = `${origin}${EXAM_PATH}`
   const ld = {
     '@context': 'https://schema.org',
@@ -83,7 +83,7 @@ export function renderExamPage({ guide, acts, origin, cssHref }) {
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="${cssHref}" />
     <script type="application/ld+json">${JSON.stringify(ld).replaceAll('<', '\\u003c')}</script>
-  </head>
+${beaconSrc ? `    <script src="${beaconSrc}" defer></script>\n` : ''}  </head>
   <body>
     <main class="mx-auto w-full max-w-2xl px-4 py-6 text-steel-200">
       <p class="font-mono text-[0.8125rem] uppercase tracking-[0.12em] text-steel-400">

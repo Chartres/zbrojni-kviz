@@ -13,4 +13,6 @@ export function renderQuestionPage(p: {
   cssHref: string
   /** For a verbatim duplicate in the MV file: the id of its first copy. */
   canonicalId?: number | null
+  /** The page_view beacon (src/seo/beacon.mjs); omitted when the build has no Supabase config. */
+  beaconSrc?: string | null
 }): string

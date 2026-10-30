@@ -109,3 +109,21 @@ test('"jak probíhá zkouška" page answers with the law, without JavaScript', a
   expect(ld['@type']).toBe('FAQPage')
   await ctx.close()
 })
+
+test('a static question page sends no page_view from an automated browser', async ({ page }) => {
+  // CI previews the production-configured dist, so the beacon is live here; Playwright sets
+  // navigator.webdriver, which the beacon (like flywheel-client) treats as not a visitor.
+  const inserts: string[] = []
+  await page.route('**/rest/v1/events', (route) => {
+    inserts.push(route.request().url())
+    return route.fulfill({ status: 201, body: '' })
+  })
+  // CI builds with the Supabase env, so the beacon must be there and load; otherwise this test
+  // would pass with no beacon at all.
+  const beacon = process.env.CI ? page.waitForResponse('**/fw-beacon.js') : null
+  await page.goto('/otazka/313/')
+  await expect(page.locator('h1')).toContainText('Paintballovou a airsoftovou zbraň')
+  if (beacon) expect((await beacon).status()).toBe(200)
+  await page.waitForLoadState('networkidle')
+  expect(inserts).toEqual([])
+})

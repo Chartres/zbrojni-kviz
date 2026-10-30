@@ -35,4 +35,10 @@ describe('"jak probíhá zkouška" page', () => {
   it('is static: no app bundle', () => {
     expect(html).not.toMatch(/<script type="module"/)
   })
+
+  it('loads the page_view beacon only when the build has one', () => {
+    expect(html).not.toContain('fw-beacon.js')
+    const withBeacon = renderExamPage({ guide, acts: ACTS, origin: ORIGIN, cssHref: '/x.css', beaconSrc: '/fw-beacon.js' })
+    expect(withBeacon).toContain('<script src="/fw-beacon.js" defer></script>')
+  })
 })

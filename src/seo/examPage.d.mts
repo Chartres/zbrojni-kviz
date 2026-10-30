@@ -21,4 +21,5 @@ export function renderExamPage(p: {
   acts: Record<string, ActData>
   origin: string
   cssHref: string
+  beaconSrc?: string | null
 }): string
