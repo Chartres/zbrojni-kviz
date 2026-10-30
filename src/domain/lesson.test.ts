@@ -88,12 +88,14 @@ describe('bezpečnost first (foundation lessons)', () => {
     expect(isFoundationPhase(p)).toBe(true)
     for (const q of ALL_QUESTIONS.slice(0, FOUNDATION_ANSWERS - 1)) p = recordAnswer(p, q.id, true, 1)
     expect(isFoundationPhase(p)).toBe(true)
-    p = recordAnswer(p, ALL_QUESTIONS[FOUNDATION_ANSWERS].id, true, 1)
+    p = recordAnswer(p, ALL_QUESTIONS[FOUNDATION_ANSWERS - 1].id, true, 1)
     expect(isFoundationPhase(p)).toBe(false)
   })
 
   it('the first lesson leans on safe handling and first aid, and opens with safe handling', () => {
-    for (let seed = 1; seed <= 30; seed++) {
+    // 2000 seeds: the twin pair 587/590 sits in the safe-handling pool, so a fixed sample of 5
+    // used to come up one short about once in 125 lessons.
+    for (let seed = 1; seed <= 2000; seed++) {
       const g = groups(buildLesson(emptyProgress(), makeRng(seed)))
       const count = (x: ExamGroup) => g.filter((y) => y === x).length
       expect(count('bezpecnost')).toBe(5)

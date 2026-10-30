@@ -1,7 +1,7 @@
 import type { Question } from './types'
 import { META, questionsForGroup, getQuestion, examGroupOf } from './questions'
 import { EXAM } from './exam'
-import { sample, shuffle, type Rng } from './rng'
+import { shuffle, type Rng } from './rng'
 import { answeredCount, dueForReview, isMastered, statFor, type ProgressData } from './progress'
 import type { ExamGroup } from './types'
 
@@ -77,9 +77,15 @@ export function buildLesson(
     const pool = questionsForGroup(part.group).filter(
       (q) => !used.has(q.id) && statFor(progress, q.id).seen === 0,
     )
-    for (const q of sample(pool, want, rng)) {
-      if (fresh.length >= newCount) break
-      if (take(q)) fresh.push(q)
+    // Walk the shuffled pool rather than taking a fixed sample: a duplicate twin that take()
+    // rejects is replaced from the same group, so the mix holds.
+    let got = 0
+    for (const q of shuffle(pool, rng)) {
+      if (got >= want || fresh.length >= newCount) break
+      if (take(q)) {
+        fresh.push(q)
+        got++
+      }
     }
   }
 
