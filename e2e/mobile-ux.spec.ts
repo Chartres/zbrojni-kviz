@@ -21,7 +21,7 @@ test('mobile UX walkthrough with screenshots', async ({ page }) => {
   // The sticky action bar (verdict + Další) must be on screen WITHOUT scrolling,
   // even on a long question. Scroll back to the top first to prove it.
   await page.evaluate(() => window.scrollTo(0, 0))
-  const nextBtn = page.getByRole('button', { name: /Další|Dokončit/ })
+  const nextBtn = page.getByRole('button', { name: /^(Další|Dokončit)/ })
   await expect(nextBtn).toBeInViewport()
   await page.screenshot({ path: 'e2e/shots/m-answered-top.png' })
 

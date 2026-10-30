@@ -2,7 +2,8 @@ import { useEffect, useMemo } from 'react'
 import { useApp } from '@/app/AppContext'
 import { track } from '@/analytics'
 import { score, unanswered, wrongAnswers } from '@/domain/session'
-import { getQuestion, ALL_QUESTIONS } from '@/domain/questions'
+import { getQuestion, ALL_QUESTIONS, examGroupOf } from '@/domain/questions'
+import { isFoundationPhase } from '@/domain/lesson'
 import { makeRng, timeSeed } from '@/domain/rng'
 import { weakCategories } from '@/domain/selection'
 import { ProgressBar } from '@/components/ui/ProgressBar'
@@ -21,6 +22,21 @@ export function ResultsScreen() {
     const t = session.questions.length
     const name = mode === 'exam' ? 'exam_finish' : mode === 'lesson' ? 'lesson_complete' : 'session_finish'
     track(name, { mode, score: s, total: t, passed: examResult?.passed })
+    // Bezpečnost first metric (SIGNATURE.md): day-7 return of learners who finished a
+    // foundation lesson, read from these rows joined to later lesson_complete days.
+    if (mode === 'lesson' && state.foundation) {
+      const safety = session.records.filter((r) => {
+        const q = getQuestion(r.id)
+        return q && examGroupOf(q) === 'bezpecnost'
+      })
+      track('key_action', {
+        kind: 'foundation_lesson',
+        score: s,
+        total: t,
+        safety_correct: safety.filter((r) => r.correct).length,
+        safety_total: safety.length,
+      })
+    }
     // fire once per results view
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
@@ -82,15 +98,18 @@ export function ResultsScreen() {
 
       {isExam && examResult && (
         <section className="mt-6 space-y-3">
-          {examResult.byPart.map((p) => (
-            <ProgressBar
-              key={p.group}
-              label={p.label}
-              value={p.correct}
-              max={p.total}
-              tone="verdigris"
-            />
-          ))}
+          {/* Safe handling leads: the part the rest of the licence stands on. */}
+          {[...examResult.byPart]
+            .sort((a, b) => Number(b.group === 'bezpecnost') - Number(a.group === 'bezpecnost'))
+            .map((p) => (
+              <ProgressBar
+                key={p.group}
+                label={p.label}
+                value={p.correct}
+                max={p.total}
+                tone="verdigris"
+              />
+            ))}
         </section>
       )}
 
@@ -125,7 +144,10 @@ export function ResultsScreen() {
           <button
             type="button"
             onClick={() => {
-              track('start_lesson', { from: 'results' })
+              track('start_lesson', {
+                from: 'results',
+                ...(isFoundationPhase(state.progress) ? { foundation: true } : {}),
+              })
               dispatch({ type: 'startLesson', rng: makeRng(timeSeed()) })
             }}
             className="glow-brass rounded-card bg-brass-500 px-5 py-2.5 font-display font-semibold uppercase tracking-wide text-steel-950 hover:bg-brass-400"
