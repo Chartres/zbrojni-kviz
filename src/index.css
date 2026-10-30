@@ -211,26 +211,28 @@ body {
   name in italic beneath. The app's own voice (sans, mono labels) stays outside it.
   Shared by the app (SourceNote) and the static pages (/otazka/, /zkouska/).
 */
-.statute-ref {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 0.9375rem;
-  letter-spacing: 0.01em;
-  color: var(--color-brass-300);
-}
-.statute {
-  font-family: var(--font-serif);
-  font-size: 1.0625rem;
-  line-height: 1.65;
-  max-width: 62ch;
-  color: var(--color-steel-100);
-  hyphens: auto;
-  text-wrap: pretty;
-  font-feature-settings: 'tnum' 0, 'onum' 1;
-}
-.statute-act {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.875rem;
-  color: var(--color-steel-400);
+@layer components {
+  .statute-ref {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    color: var(--color-brass-300);
+  }
+  .statute {
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 62ch;
+    color: var(--color-steel-100);
+    hyphens: auto;
+    text-wrap: pretty;
+    font-feature-settings: 'tnum' 0;
+  }
+  .statute-act {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.875rem;
+    color: var(--color-steel-400);
+  }
 }

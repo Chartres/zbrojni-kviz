@@ -20,6 +20,9 @@ test('statute serif: the cited provision is set like a printed statute excerpt',
   const quote = note.locator('.statute')
   await expect(quote).toContainText('Zbraň musí být nošena skrytě')
   expect(await quote.evaluate(serif)).toContain('IBM Plex Serif')
+  // CI has network: the webfont itself must load, not just be declared.
+  await page.evaluate(() => document.fonts.ready)
+  expect(await page.evaluate(() => document.fonts.check('17px "IBM Plex Serif"'))).toBe(true)
   expect(await page.locator('article h2').evaluate(serif)).toContain('IBM Plex Sans')
   expect(await note.locator('.statute-act').evaluate((el) => getComputedStyle(el).fontStyle)).toBe('italic')
   // The quote must not push the page sideways on a phone.

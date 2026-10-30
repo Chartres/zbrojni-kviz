@@ -49,7 +49,10 @@ export function renderExamPage({ guide, acts, origin, cssHref, beaconSrc = null 
           const q = resolveQuote(acts, c)
           return `
           <figure class="mt-3 border-l-2 border-brass-500/70 bg-steel-900/60 py-3 pl-4 pr-3">
-            <figcaption class="statute-ref">${esc(q.label)}</figcaption>
+            <figcaption>
+              <span class="block font-mono text-[0.75rem] uppercase tracking-[0.12em] text-steel-400">${q.act.startsWith('Nařízení vlády') ? 'Z nařízení vlády' : 'Ze zákona'}</span>
+              <span class="statute-ref mt-1 block">${esc(q.label)}</span>
+            </figcaption>
             <blockquote lang="cs" class="statute mt-1">${esc(q.text)}</blockquote>
             <p class="statute-act mt-2">${esc(q.act)}. <a class="whitespace-nowrap not-italic font-sans text-verdigris-400 underline" href="${esc(q.url)}" rel="noopener">Celé znění ↗</a></p>
           </figure>`
