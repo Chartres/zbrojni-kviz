@@ -15,7 +15,8 @@ describe('service worker app-shell fallback denylist', () => {
     '/?u=https://a.cz/x.html',
   ])('serves the shell for app route %s', (u) => expect(fileNavigation.test(u)).toBe(false))
 
-  it('skips the shell for static question pages, not for okruh pages', () => {
+  it('skips the shell for static question pages and /zkouska/, not for okruh pages', () => {
+    expect(questionPage.test('/zkouska/')).toBe(true)
     expect(questionPage.test('/otazka/83/')).toBe(true)
     expect(questionPage.test('/okruh/zakon-o-zbranich/')).toBe(false)
   })

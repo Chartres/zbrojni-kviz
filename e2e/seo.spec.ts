@@ -97,6 +97,19 @@ test('every official question has a static page readable without JavaScript', as
   await ctx.close()
 })
 
+test('"jak probíhá zkouška" page answers with the law, without JavaScript', async ({ browser, request }) => {
+  const xml = await (await request.get('/sitemap.xml')).text()
+  expect(xml).toContain('<loc>https://zbrojnikviz.dravec.org/zkouska/</loc>')
+  const ctx = await browser.newContext({ javaScriptEnabled: false })
+  const page = await ctx.newPage()
+  await page.goto('/zkouska/')
+  await expect(page.locator('h1')).toContainText('Zkouška na zbrojní oprávnění 2026')
+  await expect(page.getByText(/z 30 testových otázek alespoň 26 testových otázek/)).toBeVisible()
+  const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent()) ?? '{}')
+  expect(ld['@type']).toBe('FAQPage')
+  await ctx.close()
+})
+
 test('a static question page sends no page_view from an automated browser', async ({ page }) => {
   // CI previews the production-configured dist, so the beacon is live here; Playwright sets
   // navigator.webdriver, which the beacon (like flywheel-client) treats as not a visitor.
