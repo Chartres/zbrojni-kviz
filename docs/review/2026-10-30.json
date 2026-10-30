@@ -28,8 +28,8 @@
     {
       "title": "docs: decision log 2026-10-30 + this hand-back",
       "pr": "https://github.com/Chartres/zbrojni-kviz/pull/24",
-      "merged": true,
-      "live_checked": "Docs only; read from raw.githubusercontent.com after merge."
+      "merged": false,
+      "live_checked": "This file is #24's own content, so it can't record #24's merge. #24 is squash-merged as the last step once CI is green, and then read back from raw.githubusercontent.com. If you are reading this file from main, both happened."
     }
   ],
   "decisions": [
