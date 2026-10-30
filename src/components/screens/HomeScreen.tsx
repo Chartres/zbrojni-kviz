@@ -4,7 +4,7 @@ import { useApp } from '@/app/AppContext'
 import { ALL_QUESTIONS } from '@/domain/questions'
 import { summary, needsReviewIds, liveStreak } from '@/domain/progress'
 import { weakCategories } from '@/domain/selection'
-import { LESSON_SIZE } from '@/domain/lesson'
+import { LESSON_SIZE, isFoundationPhase } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
 import { ProgressBar } from '@/components/ui/ProgressBar'
@@ -23,6 +23,7 @@ export function HomeScreen() {
   )
   const streak = liveStreak(state.progress.streak, todayStr())
   const rng = () => makeRng(timeSeed())
+  const foundation = isFoundationPhase(state.progress)
 
   return (
     <div className="mx-auto w-full max-w-xl px-4 pt-2">
@@ -50,7 +51,7 @@ export function HomeScreen() {
       <button
         type="button"
         onClick={() => {
-          track('start_lesson')
+          track('start_lesson', foundation ? { foundation: true } : undefined)
           dispatch({ type: 'startLesson', rng: rng() })
         }}
         className="glow-brass instrument mb-3 block w-full rounded-card border border-brass-500/70 bg-brass-500/10 p-5 text-left transition-colors hover:bg-brass-500/20"
@@ -62,7 +63,9 @@ export function HomeScreen() {
           Procvičit {LESSON_SIZE} otázek
         </div>
         <div className="mt-1 text-sm text-steel-300">
-          Krátká dávka na míru — opakování slabých míst i nové otázky.
+          {foundation
+            ? 'První lekce začínají bezpečnou manipulací se zbraní a první pomocí.'
+            : 'Krátká dávka na míru — opakování slabých míst i nové otázky.'}
         </div>
         <div className="mt-3 inline-flex items-center gap-2 rounded-card bg-brass-500 px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide text-steel-950">
           Začít →

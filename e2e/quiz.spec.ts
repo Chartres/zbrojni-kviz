@@ -15,7 +15,7 @@ test('practice journey: home → practice tab → answer → feedback', async ({
   await expect(page.locator('button[data-state="correct"]')).toBeVisible()
   await page.screenshot({ path: 'e2e/shots/feedback.png', fullPage: true })
 
-  await page.getByRole('button', { name: /Další|Dokončit/ }).click()
+  await page.getByRole('button', { name: /^(Další|Dokončit)/ }).click()
   await expect(page.getByText('02 / 38')).toBeVisible()
 })
 
@@ -27,7 +27,7 @@ test('daily lesson from home: 12 questions with completion + streak', async ({
   await expect(page.getByText('01 / 12')).toBeVisible()
   for (let i = 0; i < 12; i++) {
     await page.locator('button[data-state="idle"]').first().click()
-    await page.getByRole('button', { name: /Další|Dokončit/ }).click()
+    await page.getByRole('button', { name: /^(Další|Dokončit)/ }).click()
   }
   await expect(page.getByText('Lekce dokončena')).toBeVisible()
   await expect(page.getByText(/den.*v řadě|dní.*v řadě/)).toBeVisible()

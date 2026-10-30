@@ -9,6 +9,14 @@ function start(overrides: Partial<AppState> = {}): AppState {
 }
 
 describe('app store', () => {
+  it('a new learner\'s lesson is a foundation lesson; practice is not', () => {
+    let s = reducer(start(), { type: 'startLesson', rng: makeRng(1) })
+    expect(s.foundation).toBe(true)
+    s = reducer(s, { type: 'goMenu' })
+    s = reducer(s, { type: 'startPractice', rng: makeRng(1) })
+    expect(s.foundation).toBe(false)
+  })
+
   it('starts practice for the selected categories', () => {
     let s = start()
     s = reducer(s, { type: 'setCategories', categories: new Set(['Jiné předpisy']) })
