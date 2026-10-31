@@ -16,6 +16,8 @@ function sourceFiles(dir: string): string[] {
 }
 
 const SRC = join(__dirname)
+// ponytail: ternary track() calls (ResultsScreen: exam_finish / lesson_complete / session_finish)
+// are invisible to this regex; the separate test below guards those three names explicitly.
 const TRACK_CALL = /\btrack\(\s*['"`]([a-z_]+)['"`]/g
 
 function sentEventNames(): Map<string, string> {
