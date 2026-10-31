@@ -213,7 +213,7 @@ export function reducer(state: AppState, action: Action): AppState {
     }
 
     case 'finishExam': {
-      if (!state.session) return state
+      if (!state.session || !state.examEndsAt) return state
       const examResult = evaluateExam(state.session)
       // Unanswered at time-out count as wrong in the score, so they go to the review queue too.
       let progress = state.progress
