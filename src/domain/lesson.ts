@@ -1,5 +1,5 @@
 import type { Question } from './types'
-import { META, questionsForGroup, getQuestion, examGroupOf } from './questions'
+import { META, ALL_QUESTIONS, questionsForGroup, getQuestion, examGroupOf } from './questions'
 import { EXAM } from './exam'
 import { shuffle, type Rng } from './rng'
 import { answeredCount, dueForReview, isMastered, statFor, type ProgressData } from './progress'
@@ -92,7 +92,7 @@ export function buildLesson(
   // 3) Top up to size: any remaining unseen, then seen-but-unmastered, then
   //    mastered (refresher) so a learner who mastered everything still gets a full lesson.
   if (review.length + fresh.length < size) {
-    const all = EXAM.composition.flatMap((p) => questionsForGroup(p.group))
+    const all = ALL_QUESTIONS
     const unseen = all.filter((q) => !used.has(q.id) && statFor(progress, q.id).seen === 0)
     const unmastered = all.filter(
       (q) => !used.has(q.id) && !isMastered(statFor(progress, q.id)),
