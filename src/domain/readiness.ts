@@ -9,7 +9,7 @@ import type { ExamGroup } from './types'
 /** No estimate until every part has at least this share of its questions answered. */
 export const MIN_COVERAGE = 0.3
 /** An unseen question is a coin flip — said openly in the UI, not hidden in the number. */
-export const UNSEEN = 0.5
+const UNSEEN = 0.5
 const MASTERED = 0.95
 
 /** Chance of answering this question right next time, from the learner's own history. */
