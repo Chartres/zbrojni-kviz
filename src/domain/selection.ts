@@ -56,7 +56,7 @@ export function bookmarkedQuestions(p: ProgressData): Question[] {
 
 /** A category only qualifies as "weak" once it has this many distinct seen questions. */
 const MIN_SEEN_FOR_WEAK_CATEGORY = 3
-export const WEAK_DRILL_SIZE = 12
+const WEAK_DRILL_SIZE = 12
 
 export interface WeakCategory {
   cat: CategoryName
