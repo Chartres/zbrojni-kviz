@@ -59,7 +59,8 @@ export function evaluateExam(s: SessionState): ExamResult {
   for (const q of s.questions) {
     const ok = s.chosen[q.id] === q.correct
     const b = (byCategory[q.cat] ??= { correct: 0, total: 0 })
-    const part = byPart.find((p) => p.group === examGroupOf(q))!
+    const part = byPart.find((p) => p.group === examGroupOf(q))
+    if (!part) throw new Error(`question ${q.id} has no matching exam part`)
     b.total++
     part.total++
     if (ok) {
