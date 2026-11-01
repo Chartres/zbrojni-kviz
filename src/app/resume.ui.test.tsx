@@ -66,3 +66,24 @@ describe('home: unfinished lesson', () => {
     expect(loadRounds().lesson).toBeUndefined()
   })
 })
+
+describe('two tabs', () => {
+  it('a round saved by another tab appears here and is not overwritten', async () => {
+    render(<App />)
+    const { act } = await import('@testing-library/react')
+    const { saveRounds } = await import('@/domain/storage')
+    const ids = [562, 563, 564]
+    const other = {
+      lesson: {
+        mode: 'lesson' as const, caseSlug: null, foundation: true, ids,
+        records: [{ id: 562, choice: 'a' as const, correct: true }], savedAt: 1,
+      },
+    }
+    saveRounds(other)
+    act(() => {
+      window.dispatchEvent(new StorageEvent('storage', { key: ROUNDS_KEY }))
+    })
+    expect(screen.getByRole('heading', { name: /1 \/ 3 zodpovězeno/ })).toBeTruthy()
+    expect(loadRounds().lesson?.ids).toEqual(ids)
+  })
+})

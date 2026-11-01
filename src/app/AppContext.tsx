@@ -12,6 +12,7 @@ import {
   loadProgress,
   loadRounds,
   OWNER_KEY,
+  ROUNDS_KEY,
   saveOwner,
   saveProgress,
   saveRounds,
@@ -93,6 +94,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       roundsInitialized.current = true
       return
     }
+    // Another tab switched accounts: these rounds hold the previous account's answers.
+    if (loadOwner() !== ownerRef.current) return
     saveRounds(state.rounds)
   }, [state.rounds])
 
@@ -100,6 +103,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // next local save does not overwrite its answers.
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
+      if (e.key === ROUNDS_KEY) {
+        // Another tab left or finished a round. Adopt the stored set (it already holds ours,
+        // since every tab adopts on each change), so neither tab overwrites the other's.
+        if (loadOwner() === ownerRef.current) dispatch({ type: 'hydrateRounds', rounds: loadRounds() })
+        return
+      }
       if (e.key !== STORAGE_KEY && e.key !== OWNER_KEY) return
       const owner = loadOwner()
       if (owner !== ownerRef.current) {
