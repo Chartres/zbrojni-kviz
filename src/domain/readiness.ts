@@ -13,7 +13,7 @@ const UNSEEN = 0.5
 const MASTERED = 0.95
 
 /** Chance of answering this question right next time, from the learner's own history. */
-export function questionChance(s: QuestionStat): number {
+function questionChance(s: QuestionStat): number {
   if (s.seen === 0) return UNSEEN
   if (isMastered(s)) return MASTERED
   return (s.correct + 1) / (s.seen + 2) // Laplace: 1 right of 1 → 2/3, 0 of 1 → 1/3
