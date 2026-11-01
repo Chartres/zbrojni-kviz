@@ -24,7 +24,7 @@ export function shuffle<T>(items: readonly T[], rng: Rng): T[] {
 
 /** Take up to `n` distinct elements, uniformly at random. */
 export function sample<T>(items: readonly T[], n: number, rng: Rng): T[] {
-  return shuffle(items, rng).slice(0, Math.min(n, items.length))
+  return shuffle(items, rng).slice(0, n)
 }
 
 /** A seed derived from the current time, for non-deterministic production use. */
