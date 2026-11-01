@@ -206,6 +206,7 @@ export function reducer(state: AppState, action: Action): AppState {
           session,
           view: 'results',
           examResult,
+          examEndsAt: null,
           progress,
         }
       }
