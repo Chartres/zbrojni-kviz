@@ -72,8 +72,11 @@ export function buildLesson(
   const mix = foundation
     ? FOUNDATION_MIX.map((p) => ({ group: p.group, share: p.weight / FOUNDATION_WEIGHT }))
     : EXAM.composition.map((p) => ({ group: p.group, share: p.count / EXAM.totalQuestions }))
-  for (const part of mix) {
-    const want = Math.round(newCount * part.share)
+  // ponytail: last-part remainder guarantees sum(wants) === newCount exactly
+  let wantsGiven = 0
+  for (const [i, part] of mix.entries()) {
+    const want = i < mix.length - 1 ? Math.floor(newCount * part.share) : newCount - wantsGiven
+    wantsGiven += want
     const pool = questionsForGroup(part.group).filter(
       (q) => !used.has(q.id) && statFor(progress, q.id).seen === 0,
     )
