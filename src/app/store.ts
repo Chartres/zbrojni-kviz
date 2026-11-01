@@ -107,6 +107,7 @@ function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
     mode,
     session: createSession(questions),
     examResult: null,
+    examEndsAt: null,
     caseSlug: null,
     foundation: false,
     view: mode === 'exam' ? 'exam' : 'quiz',
@@ -191,6 +192,7 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'next': {
       if (!state.session) return state
+      if (state.view === 'results') return state
       const session = advance(state.session)
       if (isFinished(session)) {
         const examResult = state.mode === 'exam' ? evaluateExam(session) : null
