@@ -30,8 +30,6 @@ export function PracticeScreen() {
     dispatch({ type: 'setCategories', categories: next })
   }
 
-  const rng = () => makeRng(timeSeed())
-
   return (
     <div className="mx-auto w-full max-w-xl px-4 pt-2">
       <h1 className="mb-4 font-display text-2xl font-bold uppercase tracking-tight text-steel-50">
@@ -43,7 +41,7 @@ export function PracticeScreen() {
         type="button"
         onClick={() => {
           track('start_exam')
-          dispatch({ type: 'startExam', rng: rng(), now: Date.now() })
+          dispatch({ type: 'startExam', rng: makeRng(timeSeed()), now: Date.now() })
         }}
         className="mb-5 flex w-full items-center justify-between gap-3 rounded-card border border-steel-700 bg-steel-800/40 p-4 text-left transition-colors hover:border-steel-500"
       >
@@ -115,7 +113,7 @@ export function PracticeScreen() {
           disabled={practiceCount === 0}
           onClick={() => {
             track('start_practice')
-            dispatch({ type: 'startPractice', rng: rng() })
+            dispatch({ type: 'startPractice', rng: makeRng(timeSeed()) })
           }}
           className="glow-brass mt-3 w-full rounded-card bg-brass-500 px-5 py-3 font-display font-semibold uppercase tracking-wide text-steel-950 transition-colors hover:bg-brass-400 disabled:cursor-not-allowed disabled:opacity-50"
         >
@@ -159,7 +157,7 @@ export function PracticeScreen() {
         disabled={bookmarkCount === 0}
         onClick={() => {
           track('start_bookmarks')
-          dispatch({ type: 'startBookmarks', rng: rng() })
+          dispatch({ type: 'startBookmarks', rng: makeRng(timeSeed()) })
         }}
         className="mt-4 flex w-full items-center justify-between rounded-card border border-steel-700 bg-steel-800/40 px-5 py-3.5 text-left transition-colors hover:border-steel-500 disabled:cursor-not-allowed disabled:opacity-50"
       >
