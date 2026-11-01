@@ -106,10 +106,8 @@ export function buildLesson(
   // A foundation lesson is served in mix order, safe handling first, with its review at the end.
   if (foundation) {
     const rank = new Map(FOUNDATION_MIX.map((p, i) => [p.group, i]))
-    const ordered = fresh
-      .map((q, i) => ({ q, i }))
-      .sort((x, y) => rank.get(examGroupOf(x.q))! - rank.get(examGroupOf(y.q))! || x.i - y.i)
-      .map((x) => x.q)
+    // ES2022 sort is stable — original order within a group is preserved without a tiebreaker.
+    const ordered = fresh.slice().sort((x, y) => rank.get(examGroupOf(x))! - rank.get(examGroupOf(y))!)
     return [...ordered, ...review].slice(0, size)
   }
   return shuffle([...review, ...fresh], rng).slice(0, size)
