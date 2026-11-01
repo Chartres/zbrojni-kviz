@@ -22,7 +22,6 @@ export function HomeScreen() {
     [state.progress],
   )
   const streak = liveStreak(state.progress.streak, todayStr())
-  const rng = () => makeRng(timeSeed())
   const foundation = isFoundationPhase(state.progress)
 
   return (
@@ -52,7 +51,7 @@ export function HomeScreen() {
         type="button"
         onClick={() => {
           track('start_lesson', foundation ? { foundation: true } : undefined)
-          dispatch({ type: 'startLesson', rng: rng() })
+          dispatch({ type: 'startLesson', rng: makeRng(timeSeed()) })
         }}
         className="glow-brass instrument mb-3 block w-full rounded-card border border-brass-500/70 bg-brass-500/10 p-5 text-left transition-colors hover:bg-brass-500/20"
       >
@@ -95,7 +94,7 @@ export function HomeScreen() {
           type="button"
           onClick={() => {
             track('start_practice', { kind: 'weak_drill' })
-            dispatch({ type: 'startWeakDrill', rng: rng() })
+            dispatch({ type: 'startWeakDrill', rng: makeRng(timeSeed()) })
           }}
           className="mb-3 flex w-full items-center justify-between rounded-card border border-steel-700 bg-steel-800/40 px-5 py-3.5 text-left transition-colors hover:border-steel-500"
         >

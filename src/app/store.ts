@@ -107,6 +107,7 @@ function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
     mode,
     session: createSession(questions),
     examResult: null,
+    examEndsAt: null,
     caseSlug: null,
     foundation: false,
     view: mode === 'exam' ? 'exam' : 'quiz',
@@ -191,6 +192,7 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'next': {
       if (!state.session) return state
+      if (state.view === 'results') return state
       const session = advance(state.session)
       if (isFinished(session)) {
         const examResult = state.mode === 'exam' ? evaluateExam(session) : null
@@ -206,6 +208,7 @@ export function reducer(state: AppState, action: Action): AppState {
           session,
           view: 'results',
           examResult,
+          examEndsAt: null,
           progress,
         }
       }
@@ -213,7 +216,7 @@ export function reducer(state: AppState, action: Action): AppState {
     }
 
     case 'finishExam': {
-      if (!state.session) return state
+      if (!state.session || !state.examEndsAt) return state
       const examResult = evaluateExam(state.session)
       // Unanswered at time-out count as wrong in the score, so they go to the review queue too.
       let progress = state.progress

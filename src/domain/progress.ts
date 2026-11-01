@@ -109,11 +109,7 @@ export function recordExamAttempt(
 /** True if `today` (YYYY-MM-DD) is exactly the day after `prev`. */
 function isNextDay(prev: string, today: string): boolean {
   if (!prev) return false
-  const [py, pm, pd] = prev.split('-').map(Number)
-  const [ty, tm, td] = today.split('-').map(Number)
-  const a = Date.UTC(py, pm - 1, pd)
-  const b = Date.UTC(ty, tm - 1, td)
-  return b - a === 86_400_000
+  return Date.parse(today) - Date.parse(prev) === 86_400_000
 }
 
 /** The streak to display on `today`: still alive the day after the last lesson, 0 once a day is missed. */

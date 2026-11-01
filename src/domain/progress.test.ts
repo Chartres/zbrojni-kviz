@@ -221,6 +221,13 @@ describe('mergeProgress — daily streak', () => {
     expect(m.streak).toMatchObject({ current: 5, lastDate: '2026-10-15' })
   })
 
+  it('latest.current > older.current + 1: latest streak wins and best is preserved', () => {
+    // latest had current=10 (independently built up), older had current=3 the day before
+    // Math.max(10, 3+1) must be 10, not 4
+    const m = mergeProgress(withStreak(10, '2026-10-15'), withStreak(3, '2026-10-14'))
+    expect(m.streak).toEqual({ current: 10, best: 10, lastDate: '2026-10-15' })
+  })
+
   it('after a gap the most recent side wins, best is kept', () => {
     const m = mergeProgress(withStreak(40, '2026-10-10'), withStreak(1, '2026-10-15'))
     expect(m.streak).toEqual({ current: 1, best: 40, lastDate: '2026-10-15' })

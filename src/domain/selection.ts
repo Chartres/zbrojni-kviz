@@ -33,9 +33,7 @@ export function buildPractice(opts: FilterOptions, rng: Rng): Question[] {
 }
 
 function questionsFor(ids: number[]): Question[] {
-  return ids
-    .map((id) => getQuestion(id))
-    .filter((q): q is Question => q !== undefined)
+  return ids.map(getQuestion).filter((q): q is Question => q !== undefined)
 }
 
 export function reviewQuestions(p: ProgressData): Question[] {
@@ -48,7 +46,7 @@ export function bookmarkedQuestions(p: ProgressData): Question[] {
 
 /** A category only qualifies as "weak" once it has this many distinct seen questions. */
 const MIN_SEEN_FOR_WEAK_CATEGORY = 3
-export const WEAK_DRILL_SIZE = 12
+const WEAK_DRILL_SIZE = 12
 
 export interface WeakCategory {
   cat: CategoryName
@@ -81,16 +79,11 @@ export function weakCategories(
     byCat.set(q.cat, entry)
   }
 
-  const qualifying: WeakCategory[] = []
-  for (const [cat, entry] of byCat) {
-    if (entry.seenQuestions < MIN_SEEN_FOR_WEAK_CATEGORY) continue
-    // attempts >= seenQuestions >= 1 here — entries only exist for seen questions
-    const accuracy = entry.correct / entry.attempts
-    if (accuracy >= 1) continue // no errors here — not "weak"
-    qualifying.push({ cat, seenQuestions: entry.seenQuestions, accuracy })
-  }
-  qualifying.sort((a, b) => a.accuracy - b.accuracy)
-  return qualifying.slice(0, 3)
+  return [...byCat]
+    .filter(([, e]) => e.seenQuestions >= MIN_SEEN_FOR_WEAK_CATEGORY && e.correct < e.attempts)
+    .map(([cat, e]) => ({ cat, seenQuestions: e.seenQuestions, accuracy: e.correct / e.attempts }))
+    .sort((a, b) => a.accuracy - b.accuracy)
+    .slice(0, 3)
 }
 
 /**

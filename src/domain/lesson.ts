@@ -1,5 +1,5 @@
 import type { Question } from './types'
-import { META, questionsForGroup, getQuestion, examGroupOf } from './questions'
+import { META, ALL_QUESTIONS, questionsForGroup, getQuestion, examGroupOf } from './questions'
 import { EXAM } from './exam'
 import { shuffle, type Rng } from './rng'
 import { answeredCount, dueForReview, isMastered, statFor, type ProgressData } from './progress'
@@ -72,8 +72,11 @@ export function buildLesson(
   const mix = foundation
     ? FOUNDATION_MIX.map((p) => ({ group: p.group, share: p.weight / FOUNDATION_WEIGHT }))
     : EXAM.composition.map((p) => ({ group: p.group, share: p.count / EXAM.totalQuestions }))
-  for (const part of mix) {
-    const want = Math.round(newCount * part.share)
+  // ponytail: last-part remainder guarantees sum(wants) === newCount exactly
+  let wantsGiven = 0
+  for (const [i, part] of mix.entries()) {
+    const want = i < mix.length - 1 ? Math.floor(newCount * part.share) : newCount - wantsGiven
+    wantsGiven += want
     const pool = questionsForGroup(part.group).filter(
       (q) => !used.has(q.id) && statFor(progress, q.id).seen === 0,
     )
@@ -92,12 +95,11 @@ export function buildLesson(
   // 3) Top up to size: any remaining unseen, then seen-but-unmastered, then
   //    mastered (refresher) so a learner who mastered everything still gets a full lesson.
   if (review.length + fresh.length < size) {
-    const all = EXAM.composition.flatMap((p) => questionsForGroup(p.group))
-    const unseen = all.filter((q) => !used.has(q.id) && statFor(progress, q.id).seen === 0)
-    const unmastered = all.filter(
+    const unseen = ALL_QUESTIONS.filter((q) => !used.has(q.id) && statFor(progress, q.id).seen === 0)
+    const unmastered = ALL_QUESTIONS.filter(
       (q) => !used.has(q.id) && !isMastered(statFor(progress, q.id)),
     )
-    for (const q of [...shuffle(unseen, rng), ...shuffle(unmastered, rng), ...shuffle(all, rng)]) {
+    for (const q of [...shuffle(unseen, rng), ...shuffle(unmastered, rng), ...shuffle(ALL_QUESTIONS, rng)]) {
       if (review.length + fresh.length >= size) break
       if (take(q)) fresh.push(q)
     }
@@ -106,10 +108,8 @@ export function buildLesson(
   // A foundation lesson is served in mix order, safe handling first, with its review at the end.
   if (foundation) {
     const rank = new Map(FOUNDATION_MIX.map((p, i) => [p.group, i]))
-    const ordered = fresh
-      .map((q, i) => ({ q, i }))
-      .sort((x, y) => rank.get(examGroupOf(x.q))! - rank.get(examGroupOf(y.q))! || x.i - y.i)
-      .map((x) => x.q)
+    // ES2022 sort is stable — original order within a group is preserved without a tiebreaker.
+    const ordered = fresh.slice().sort((x, y) => rank.get(examGroupOf(x))! - rank.get(examGroupOf(y))!)
     return [...ordered, ...review].slice(0, size)
   }
   return shuffle([...review, ...fresh], rng).slice(0, size)
