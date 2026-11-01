@@ -130,6 +130,7 @@ function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
     mode,
     session: createSession(questions),
     examResult: null,
+    examEndsAt: null,
     caseSlug: null,
     foundation: false,
     dailyDay: null,
@@ -287,6 +288,7 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'next': {
       if (!state.session) return state
+      if (state.view === 'results') return state
       const session = advance(state.session)
       // Otázka dne ends back home, where its card shows the result and the streak.
       if (isFinished(session) && state.mode === 'daily') {
