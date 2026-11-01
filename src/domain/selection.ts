@@ -41,9 +41,7 @@ export function buildPractice(opts: FilterOptions, rng: Rng, progress?: Progress
 }
 
 function questionsFor(ids: number[]): Question[] {
-  return ids
-    .map((id) => getQuestion(id))
-    .filter((q): q is Question => q !== undefined)
+  return ids.map(getQuestion).filter((q): q is Question => q !== undefined)
 }
 
 export function reviewQuestions(p: ProgressData): Question[] {
