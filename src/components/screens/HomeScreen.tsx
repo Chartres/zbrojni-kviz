@@ -7,6 +7,7 @@ import { weakCategories } from '@/domain/selection'
 import { LESSON_SIZE, isFoundationPhase } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
+import { roundProgress } from '@/domain/round'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { todayStr } from '@/lib/date'
 
@@ -24,6 +25,12 @@ export function HomeScreen() {
   const streak = liveStreak(state.progress.streak, todayStr())
   const rng = () => makeRng(timeSeed())
   const foundation = isFoundationPhase(state.progress)
+  const unfinished = state.rounds.lesson
+  const startNew = (props?: Record<string, unknown>) => {
+    const p = { ...(foundation ? { foundation: true } : {}), ...props }
+    track('start_lesson', Object.keys(p).length ? p : undefined)
+    dispatch({ type: 'startLesson', rng: rng() })
+  }
 
   return (
     <div className="mx-auto w-full max-w-xl px-4 pt-2">
@@ -47,30 +54,38 @@ export function HomeScreen() {
         </div>
       </header>
 
-      {/* Primary job: today's lesson */}
-      <button
-        type="button"
-        onClick={() => {
-          track('start_lesson', foundation ? { foundation: true } : undefined)
-          dispatch({ type: 'startLesson', rng: rng() })
-        }}
-        className="glow-brass instrument mb-3 block w-full rounded-card border border-brass-500/70 bg-brass-500/10 p-5 text-left transition-colors hover:bg-brass-500/20"
-      >
-        <div className="font-mono text-xs uppercase tracking-[0.2em] text-brass-400">
-          Dnešní lekce
-        </div>
-        <div className="mt-1 font-display text-2xl font-bold uppercase tracking-tight text-steel-50">
-          Procvičit {LESSON_SIZE} otázek
-        </div>
-        <div className="mt-1 text-sm text-steel-300">
-          {foundation
-            ? 'První lekce začínají bezpečnou manipulací se zbraní a první pomocí.'
-            : 'Krátká dávka na míru — opakování slabých míst i nové otázky.'}
-        </div>
-        <div className="mt-3 inline-flex items-center gap-2 rounded-card bg-brass-500 px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide text-steel-950">
-          Začít →
-        </div>
-      </button>
+      {/* Primary job: today's lesson — or the one left part-way, waiting where it stopped */}
+      {unfinished ? (
+        <UnfinishedLesson
+          {...roundProgress(unfinished)}
+          onResume={() => {
+            track('start_lesson', { resume: true, ...(unfinished.foundation ? { foundation: true } : {}) })
+            dispatch({ type: 'resumeLesson' })
+          }}
+          onNew={() => startNew({ replaced: true })}
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => startNew()}
+          className="glow-brass instrument mb-3 block w-full rounded-card border border-brass-500/70 bg-brass-500/10 p-5 text-left transition-colors hover:bg-brass-500/20"
+        >
+          <div className="font-mono text-xs uppercase tracking-[0.2em] text-brass-400">
+            Dnešní lekce
+          </div>
+          <div className="mt-1 font-display text-2xl font-bold uppercase tracking-tight text-steel-50">
+            Procvičit {LESSON_SIZE} otázek
+          </div>
+          <div className="mt-1 text-sm text-steel-300">
+            {foundation
+              ? 'První lekce začínají bezpečnou manipulací se zbraní a první pomocí.'
+              : 'Krátká dávka na míru — opakování slabých míst i nové otázky.'}
+          </div>
+          <div className="mt-3 inline-flex items-center gap-2 rounded-card bg-brass-500 px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide text-steel-950">
+            Začít →
+          </div>
+        </button>
+      )}
 
       {/* Quick review of weak spots */}
       {reviewCount > 0 && (
@@ -134,6 +149,58 @@ export function HomeScreen() {
         </div>
       </button>
     </div>
+  )
+}
+
+function UnfinishedLesson({
+  answered,
+  total,
+  onResume,
+  onNew,
+}: {
+  answered: number
+  total: number
+  onResume: () => void
+  onNew: () => void
+}) {
+  return (
+    <section
+      aria-labelledby="unfinished-h"
+      className="glow-brass instrument mb-3 rounded-card border border-brass-500/70 bg-brass-500/10 p-5"
+    >
+      <div className="font-mono text-xs uppercase tracking-[0.2em] text-brass-400">
+        Rozpracovaná lekce
+      </div>
+      <h2
+        id="unfinished-h"
+        className="mt-1 font-display text-2xl font-bold uppercase tracking-tight text-steel-50"
+      >
+        <span className="tabular-nums">
+          {answered} / {total}
+        </span>{' '}
+        zodpovězeno
+      </h2>
+      <p className="mt-1 text-sm text-steel-300">
+        Odpovědi se počítají. Pokračujte otázkou {Math.min(answered + 1, total)}, nebo začněte
+        nový trénink.
+      </p>
+      <div className="mt-3 flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={onResume}
+          className="inline-flex min-h-11 items-center gap-2 rounded-card bg-brass-500 px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide text-steel-950 hover:bg-brass-400"
+        >
+          Pokračovat →
+        </button>
+        <button
+          type="button"
+          onClick={onNew}
+          className="inline-flex min-h-11 items-center rounded-card border border-steel-600 px-4 py-2 font-display text-sm font-semibold uppercase tracking-wide text-steel-200 hover:border-brass-500 hover:text-brass-300"
+        >
+          Nový trénink
+        </button>
+      </div>
+    </section>
   )
 }
 

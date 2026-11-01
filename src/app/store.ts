@@ -31,6 +31,13 @@ import { buildLesson, isFoundationPhase } from '@/domain/lesson'
 import { caseBySlug } from '@/domain/cases'
 import { ALL_QUESTIONS } from '@/domain/questions'
 import { shuffle } from '@/domain/rng'
+import {
+  restoreSession,
+  roundKey,
+  snapshotRound,
+  type RoundKey,
+  type Rounds,
+} from '@/domain/round'
 
 // Bottom-tab destinations (persistent nav) + focused full-screen flows.
 export type TabView = 'home' | 'practice' | 'stats' | 'guide'
@@ -53,6 +60,8 @@ export interface AppState {
   /** The running lesson is a foundation lesson (bezpečnost first). */
   foundation: boolean
   progress: ProgressData
+  /** Unfinished lesson and cases on this device, to resume (round.ts). */
+  rounds: Rounds
   selectedCategories: Set<CategoryName>
   search: string
 }
@@ -67,6 +76,7 @@ export function initialState(): AppState {
     caseSlug: null,
     foundation: false,
     progress: emptyProgress(),
+    rounds: {},
     selectedCategories: new Set(),
     search: '',
   }
@@ -75,9 +85,11 @@ export function initialState(): AppState {
 export type Action =
   | { type: 'hydrate'; progress: ProgressData }
   | { type: 'mergeIn'; progress: ProgressData }
+  | { type: 'hydrateRounds'; rounds: Rounds }
   | { type: 'setCategories'; categories: Set<CategoryName> }
   | { type: 'setSearch'; search: string }
   | { type: 'startLesson'; rng: Rng }
+  | { type: 'resumeLesson' }
   | { type: 'startPractice'; rng: Rng }
   | { type: 'startReview' }
   | { type: 'startBookmarks'; rng: Rng }
@@ -113,6 +125,37 @@ function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
   }
 }
 
+function withoutRound(rounds: Rounds, key: RoundKey): Rounds {
+  if (!(key in rounds)) return rounds
+  const next = { ...rounds }
+  delete next[key]
+  return next
+}
+
+/** The slot of the running round, if it is one that can be resumed. */
+function currentRoundKey(state: AppState): RoundKey | null {
+  if (state.mode === 'lesson') return 'lesson'
+  if (state.mode === 'case' && state.caseSlug) return roundKey('case', state.caseSlug)
+  return null
+}
+
+/** Re-open a saved round, or null when there is none (or it no longer fits the bank). */
+function resume(state: AppState, key: RoundKey): AppState | null {
+  const snap = state.rounds[key]
+  const session = snap && restoreSession(snap)
+  if (!snap || !session) return null
+  return {
+    ...state,
+    mode: snap.mode,
+    session,
+    examResult: null,
+    examEndsAt: null,
+    caseSlug: snap.caseSlug,
+    foundation: snap.foundation,
+    view: 'quiz',
+  }
+}
+
 export function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case 'hydrate':
@@ -126,6 +169,9 @@ export function reducer(state: AppState, action: Action): AppState {
         : { ...state, progress }
     }
 
+    case 'hydrateRounds':
+      return { ...state, rounds: action.rounds }
+
     case 'setCategories':
       return { ...state, selectedCategories: action.categories }
 
@@ -133,15 +179,22 @@ export function reducer(state: AppState, action: Action): AppState {
       return { ...state, search: action.search }
 
     case 'startLesson':
+      // "Nový trénink": a new lesson replaces the unfinished one. Its answers stay in progress,
+      // so the new lesson's fresh questions skip them.
       return {
         ...begin(state, 'lesson', buildLesson(state.progress, action.rng)),
         foundation: isFoundationPhase(state.progress),
+        rounds: withoutRound(state.rounds, 'lesson'),
       }
+
+    case 'resumeLesson':
+      return resume(state, 'lesson') ?? { ...state, rounds: withoutRound(state.rounds, 'lesson') }
 
     case 'startPractice': {
       const qs = buildPractice(
         { categories: state.selectedCategories, search: state.search },
         action.rng,
+        state.progress,
       )
       return begin(state, 'practice', qs)
     }
@@ -165,8 +218,11 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'startCase': {
       // Served in the case's teaching order, not shuffled: definition, rule, then its limits.
+      // A case left part-way resumes where it stopped, so its answered questions are not re-served.
       const c = caseBySlug(action.slug)
       if (!c) return state
+      const resumed = resume(state, roundKey('case', c.slug))
+      if (resumed) return resumed
       return { ...begin(state, 'case', c.questions), caseSlug: c.slug }
     }
 
@@ -182,10 +238,20 @@ export function reducer(state: AppState, action: Action): AppState {
       if (!cur || isCurrentAnswered(state.session)) return state
       const session = answerCurrent(state.session, action.choice)
       const correct = action.choice === cur.correct
+      // The answer counts now, finished round or not; a lesson or case also keeps its place.
+      const key = currentRoundKey(state)
+      const snap =
+        key &&
+        snapshotRound(
+          session,
+          { mode: state.mode as 'lesson' | 'case', caseSlug: state.caseSlug, foundation: state.foundation },
+          action.now,
+        )
       return {
         ...state,
         session,
         progress: recordAnswer(state.progress, cur.id, correct, action.now),
+        rounds: key && snap ? { ...state.rounds, [key]: snap } : state.rounds,
       }
     }
 
@@ -201,12 +267,14 @@ export function reducer(state: AppState, action: Action): AppState {
         if (examResult) {
           progress = recordExamAttempt(progress, toExamAttempt(examResult, action.now))
         }
+        const key = currentRoundKey(state)
         return {
           ...state,
           session,
           view: 'results',
           examResult,
           progress,
+          rounds: key ? withoutRound(state.rounds, key) : state.rounds,
         }
       }
       return { ...state, session }

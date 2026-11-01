@@ -1,4 +1,5 @@
 import { emptyProgress, normalizeProgress, type ProgressData } from './progress'
+import { normalizeRounds, type Rounds } from './round'
 
 export const STORAGE_KEY = 'zbrojni-kviz:progress:v1'
 /** Id of the account the local progress belongs to (survives reloads and sign-out). */
@@ -45,6 +46,29 @@ export function loadOwner(): string | null {
 export function saveOwner(userId: string): void {
   try {
     storage()?.setItem(OWNER_KEY, userId)
+  } catch {
+    // see saveProgress
+  }
+}
+
+/** Unfinished rounds on this device (see round.ts). Never synced. */
+export const ROUNDS_KEY = 'zbrojni-kviz:rounds:v1'
+
+export function loadRounds(): Rounds {
+  try {
+    const raw = storage()?.getItem(ROUNDS_KEY)
+    return raw ? normalizeRounds(JSON.parse(raw)) : {}
+  } catch {
+    return {}
+  }
+}
+
+export function saveRounds(rounds: Rounds): void {
+  try {
+    const s = storage()
+    if (!s) return
+    if (Object.keys(rounds).length === 0) s.removeItem(ROUNDS_KEY)
+    else s.setItem(ROUNDS_KEY, JSON.stringify(rounds))
   } catch {
     // see saveProgress
   }
