@@ -7,7 +7,16 @@ import {
   type ReactNode,
 } from 'react'
 import { reducer, initialState, type AppState, type Action } from './store'
-import { loadOwner, loadProgress, OWNER_KEY, saveOwner, saveProgress, STORAGE_KEY } from '@/domain/storage'
+import {
+  loadOwner,
+  loadProgress,
+  loadRounds,
+  OWNER_KEY,
+  saveOwner,
+  saveProgress,
+  saveRounds,
+  STORAGE_KEY,
+} from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
 import { topicFromPath } from '@/lib/topics'
 import { makeRng, timeSeed } from '@/domain/rng'
@@ -42,6 +51,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // Hydrate persisted progress once on mount.
   useEffect(() => {
     dispatch({ type: 'hydrate', progress: loadProgress() })
+    dispatch({ type: 'hydrateRounds', rounds: loadRounds() })
     // SEO topic page (/okruh/<slug>/): start that okruh's practice directly.
     const topic = topicFromPath(window.location.pathname)
     if (topic) {
@@ -76,6 +86,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
     saveProgress(state.progress)
   }, [state.progress])
 
+  // Keep the unfinished lesson and cases on this device (round.ts). First render skipped, as above.
+  const roundsInitialized = useRef(false)
+  useEffect(() => {
+    if (!roundsInitialized.current) {
+      roundsInitialized.current = true
+      return
+    }
+    saveRounds(state.rounds)
+  }, [state.rounds])
+
   // Another tab or the installed PWA window saved: merge its progress in, so the
   // next local save does not overwrite its answers.
   useEffect(() => {
@@ -86,6 +106,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
         // Another tab signed in as a different account: adopt its data, never merge ours in.
         ownerRef.current = owner
         dispatch({ type: 'hydrate', progress: loadProgress() })
+        dispatch({ type: 'hydrateRounds', rounds: loadRounds() })
       } else if (e.key === STORAGE_KEY) {
         const incoming = loadProgress()
         otherTabRef.current = JSON.stringify(incoming)
@@ -110,6 +131,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (owner !== null && owner !== user.id) {
       saveProgress(emptyProgress())
       dispatch({ type: 'hydrate', progress: emptyProgress() })
+      // The previous account's unfinished rounds hold its answers: drop them too.
+      saveRounds({})
+      dispatch({ type: 'hydrateRounds', rounds: {} })
       syncInProgressRef.current = false
       justSyncedRef.current = false
     }

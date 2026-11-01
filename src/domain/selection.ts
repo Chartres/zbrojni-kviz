@@ -28,8 +28,16 @@ export function filterQuestions(opts: FilterOptions): Question[] {
   })
 }
 
-export function buildPractice(opts: FilterOptions, rng: Rng): Question[] {
-  return shuffle(filterQuestions(opts), rng)
+/**
+ * Practice set for the filter, shuffled. With progress, questions never answered come first, so
+ * starting again after leaving part-way does not re-serve what was already answered.
+ */
+export function buildPractice(opts: FilterOptions, rng: Rng, progress?: ProgressData): Question[] {
+  const all = shuffle(filterQuestions(opts), rng)
+  if (!progress) return all
+  const unseen = all.filter((q) => statFor(progress, q.id).seen === 0)
+  const seen = all.filter((q) => statFor(progress, q.id).seen > 0)
+  return [...unseen, ...seen]
 }
 
 function questionsFor(ids: number[]): Question[] {

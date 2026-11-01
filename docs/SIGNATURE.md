@@ -141,3 +141,27 @@ the source and show the learner where the mistake is.
 "Dont just blindly copy the pattern though." Here that means adapting, not copying: a port takes the
 reason behind a move (e.g. ad fontes: show the source text) and fits it to the other bank's subject,
 data and exam, and re-earns its metric there.
+
+### 2026-11-01 — Pavol's rule for all quiz apps: an answer counts when it is given
+
+His words: "For all quiz apps, remember the user's solution to a question even if they dont
+complete the round. Eg I start, complete 8 out of 12, then start again, I should [not] get another
+set of the first 8". Choosing all three options: "123 but without the half rule".
+
+1. **Every answer counts the moment it is given**, finished round or not (it always did here:
+   `recordAnswer` runs on the tap). A new lesson's fresh questions skip what was answered; the
+   spaced-repetition share (wrong or not yet mastered, at most 40 % of a lesson) may still bring
+   some back. Practice by okruh now serves never-answered questions first.
+2. **An unfinished lesson waits on the home screen** ("Rozpracovaná lekce · 8 / 12 zodpovězeno")
+   with Pokračovat and Nový trénink. Pokračovat resumes the same questions in the same order
+   (options are never shuffled in this bank) at the first unanswered one, and a foundation lesson
+   stays one. Nový trénink replaces it. The streak counts only a finished lesson; no partial
+   threshold. A case left part-way resumes the same way from Procvičovat › Případy
+   ("pokračovat 3/12").
+3. **A mock exam left early keeps the answers given**, records no exam attempt and no score, and
+   cannot be resumed (it is timed).
+
+The snapshot (`src/domain/round.ts`, key `zbrojni-kviz:rounds:v1`) is per device and not synced;
+progress shape and Supabase are unchanged. Events: no new names. `start_lesson {resume:true}` on
+Pokračovat, `start_lesson {replaced:true}` on Nový trénink, `start_practice {kind:'case',
+resume:true}` on a resumed case; `lesson_complete` still fires only on a finished lesson.
