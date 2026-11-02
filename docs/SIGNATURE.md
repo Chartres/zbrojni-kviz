@@ -165,3 +165,16 @@ The snapshot (`src/domain/round.ts`, key `zbrojni-kviz:rounds:v1`) is per device
 progress shape and Supabase are unchanged. Events: no new names. `start_lesson {resume:true}` on
 Pokračovat, `start_lesson {replaced:true}` on Nový trénink, `start_practice {kind:'case',
 resume:true}` on a resumed case; `lesson_complete` still fires only on a finished lesson.
+
+### 2026-11-02 — corrections inside approved work (decided by us, flywheel #119)
+
+1. **q323 citation: § 90 odst. 1 → § 80 odst. 2.** The question asks who may carry a registered
+   gun to protect life, health or property. § 80 odst. 2 answers it: outside the § 81 activities,
+   only the holder of an extended licence. The matcher had picked § 90 odst. 1 (people working
+   for a licence holder), with § 80 odst. 2 as runner-up. Checked against the act text, recorded
+   in `data/law/reviewed-overrides.json`, applied through `cite.py --override`.
+2. **/zkouska/ precision edits** from the 2026-10-30 review: the 12 months run from the
+   register entry that the applicant may prove competence (§ 24 odst. 1, now cited), and the
+   general vs extended answer adds that the shooting differs too (8 vs 6 hits, § 20 odst. 3
+   písm. c), now cited).
+3. **Cases 640 and 647 keep the official MV answer.** It is the exam's own key; no change.
