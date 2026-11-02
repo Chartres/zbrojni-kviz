@@ -30,13 +30,13 @@
     },
     {
       "q": "Co když neuspěji?",
-      "a": "Zkoušku je třeba složit do 12 měsíců od zápisu do centrálního registru zbraní a lze ji jednou opakovat. Kdo neuspěje ani při opakování, ale aspoň jednou prošel teoretickou částí, může jít na komisionální zkoušku.",
-      "cites": [{ "act": "2024-90", "unit": "p24-2", "whole": true }, { "act": "2024-90", "unit": "p24-3" }]
+      "a": "Zkoušku je třeba složit do 12 měsíců od zápisu do centrálního registru zbraní, že je žadatel oprávněn prokázat odbornou způsobilost (policie ho zapíše, když žadatel splňuje ostatní podmínky), a lze ji jednou opakovat. Kdo neuspěje ani při opakování, ale aspoň jednou prošel teoretickou částí, může jít na komisionální zkoušku.",
+      "cites": [{ "act": "2024-90", "unit": "p24-1" }, { "act": "2024-90", "unit": "p24-2", "whole": true }, { "act": "2024-90", "unit": "p24-3" }]
     },
     {
       "q": "Jaký je rozdíl mezi obecným a rozšířeným zbrojním oprávněním?",
-      "a": "Rozšířené oprávnění v sobě zahrnuje obecné a je potřeba tam, kde to zákon vyžaduje, například pro nošení zbraně podléhající registraci (s výjimkami podle § 81). U testu se liší jen hranice úspěchu: 28 místo 26 správných.",
-      "cites": [{ "act": "2024-90", "unit": "p12-2", "whole": true }, { "act": "2024-90", "unit": "p80-2" }]
+      "a": "Rozšířené oprávnění v sobě zahrnuje obecné a je potřeba tam, kde to zákon vyžaduje, například pro nošení zbraně podléhající registraci (s výjimkami podle § 81). U zkoušky se liší hranice úspěchu: v testu 28 místo 26 správných odpovědí, při střelbě 8 místo 6 zásahů.",
+      "cites": [{ "act": "2024-90", "unit": "p12-2", "whole": true }, { "act": "2024-90", "unit": "p80-2" }, { "act": "2024-90", "unit": "p20-3-c", "whole": true }]
     }
   ]
 }

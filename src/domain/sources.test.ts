@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest'
 import { sourceFor, citedCount } from './sources'
 import { ALL_QUESTIONS, getQuestion } from './questions'
+import law from '@data/law/2024-90.json'
+import overrides from '@data/law/reviewed-overrides.json'
 
 describe('sourceFor — ad fontes: the provision a question tests', () => {
   it('quotes the provision verbatim with a deep link to it', () => {
@@ -38,6 +40,26 @@ describe('sourceFor — ad fontes: the provision a question tests', () => {
     for (const q of ALL_QUESTIONS) {
       const s = sourceFor(q.id)
       if (s) expect(s.quote.length).toBeGreaterThan(10)
+    }
+  })
+
+  it('q323 (who may carry a registered gun to protect life, health or property) cites § 80 odst. 2', () => {
+    // The matcher picked § 90 odst. 1 (people working for a licence holder); a reviewer set the
+    // provision the question tests: only an extended-licence holder may carry, outside § 81.
+    const s = sourceFor(323)!
+    expect(s.label).toBe('§ 80 odst. 2')
+    expect(s.url).toBe('https://www.zakonyprolidi.cz/cs/2024-90#p80-2')
+    const unit = (law as { units: { id: string; text: string }[] }).units.find((u) => u.id === 'p80-2')!
+    expect(s.quote).toBe(unit.text)
+    expect(s.quote).toMatch(/pouze držitel rozšířeného zbrojního oprávnění/)
+  })
+
+  it('every reviewed override is a real provision, quoted verbatim', () => {
+    const units = new Map((law as { units: { id: string; text: string }[] }).units.map((u) => [u.id, u.text]))
+    for (const [id, o] of Object.entries(overrides as Record<string, { act: string; unit: string }>)) {
+      expect(o.act).toBe('2024-90')
+      expect(units.has(o.unit)).toBe(true)
+      expect(sourceFor(Number(id))!.quote).toContain(units.get(o.unit)!)
     }
   })
 })

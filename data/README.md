@@ -71,6 +71,9 @@ zákon č. 90/2024 Sb. they restate, with the provision quoted verbatim (statute
   under the final rule: **56 exact, 4 partial, 0 wrong**.
 - Questions without a confident link show no citation. A missing citation is honest; a wrong
   one is not.
+- `law/reviewed-overrides.json`: where a reviewer found the matcher's pick wrong, the provision
+  the question actually tests, with the reason (`cite.py --override`). q323 (2026-11-02): § 90
+  odst. 1 → § 80 odst. 2 (only an extended-licence holder may carry a registered gun).
 
 **Prováděcí and Jiné předpisy** (added 2026-10-27): 30 more links, to NV č. 238/2025 Sb.
 (exam rules), NV č. 187/2025 Sb. (technical requirements, storage in a vehicle), zákon
@@ -85,7 +88,7 @@ Regenerate (each act from https://www.zakonyprolidi.cz/cs/<act>, saved to /tmp/<
 python3 -I data/law.py /tmp/2024-90.html 2024-90 "Zákon č. 90/2024 Sb., o zbraních a střelivu" > data/law/2024-90.json
 # …same for 2025-238, 2025-187, 2009-40, 2021-14, 2021-255, 2000-156 (names in each law/*.json)
 cd data
-python3 -I cite.py --app questions.json "law/2024-90.json=Zákon o zbraních" > citations.json
+python3 -I cite.py --app --override law/reviewed-overrides.json questions.json "law/2024-90.json=Zákon o zbraních" > citations.json
 python3 -I cite.py --app --reviewed law/reviewed-secondary.json --merge citations.json questions.json \
   "law/2025-238.json=Prováděcí předpisy" "law/2025-187.json=Prováděcí předpisy" \
   "law/2024-90.json=Prováděcí předpisy|Jiné předpisy" "law/2009-40.json=Jiné předpisy" \

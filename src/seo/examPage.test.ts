@@ -41,4 +41,17 @@ describe('"jak probíhá zkouška" page', () => {
     const withBeacon = renderExamPage({ guide, acts: ACTS, origin: ORIGIN, cssHref: '/x.css', beaconSrc: '/fw-beacon.js' })
     expect(withBeacon).toContain('<script src="/fw-beacon.js" defer></script>')
   })
+
+  it('names what the central register records before the 12-month clock starts (§ 24 odst. 1)', () => {
+    const f = guide.faq.find((x) => x.q === 'Co když neuspěji?')!
+    expect(f.a).toMatch(/zápisu do centrálního registru zbraní, že je žadatel oprávněn prokázat odbornou způsobilost/)
+    expect(f.cites.map((c) => c.unit)).toContain('p24-1')
+  })
+
+  it('the general vs extended answer says the practical part differs too (6 vs 8 hits)', () => {
+    const f = guide.faq.find((x) => x.q.startsWith('Jaký je rozdíl'))!
+    expect(f.a).toMatch(/28 místo 26/)
+    expect(f.a).toMatch(/8 místo 6 zásahů/)
+    expect(f.cites.map((c) => c.unit)).toContain('p20-3-c')
+  })
 })

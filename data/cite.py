@@ -77,7 +77,9 @@ APP = '--app' in sys.argv  # emit only accepted links, in the shape the app impo
 
 def option(name: str) -> str | None:
     """--reviewed ids.json: keep only links a reviewer graded exact (a list of question ids).
-    --merge citations.json: add the result to an existing app file, leaving its links as they are."""
+    --merge citations.json: add the result to an existing app file, leaving its links as they are.
+    --override overrides.json: {question id: {act, unit, why}}: a reviewer's pick of the provision a
+    question tests, used where the matcher chose wrong; quoted verbatim from the act like any link."""
     if name in sys.argv:
         i = sys.argv.index(name)
         value = sys.argv[i + 1]
@@ -88,6 +90,7 @@ def option(name: str) -> str | None:
 
 REVIEWED = option('--reviewed')
 MERGE = option('--merge')
+OVERRIDE = option('--override')
 
 
 def main():
@@ -186,6 +189,16 @@ def main():
             'rival': second[5]['label'],
             'quote': u['quote'],
         }
+    overrides = json.load(open(OVERRIDE, encoding='utf-8')) if OVERRIDE else {}
+    for qid, o in overrides.items():
+        i = int(qid)
+        if i not in out:
+            continue  # question not in this pass's categories
+        hit = next((u for act, u, _ in units if act['act'] == o['act'] and u['id'] == o['unit'] and not u.get('whole')), None)
+        if hit is None:
+            sys.exit(f'--override: {o["act"]} has no provision {o["unit"]} (question {qid})')
+        out[i] = {**out[i], 'ok': True, 'override': True, 'act': o['act'], 'unit': hit['id'],
+                  'label': hit['label'], 'anchor': hit['anchor'], 'whole': False, 'quote': hit['quote']}
     if APP:
         reviewed = set(json.load(open(REVIEWED, encoding='utf-8'))) if REVIEWED else None
         out = {
@@ -193,7 +206,7 @@ def main():
             'questions': {
                 i: {'act': c['act'], 'label': c['label'], 'anchor': c['anchor'], 'quote': c['quote']}
                 for i, c in out.items()
-                if c['ok'] and (reviewed is None or i in reviewed)
+                if c['ok'] and (reviewed is None or i in reviewed or c.get('override'))
             },
         }
         if MERGE:
