@@ -11,49 +11,75 @@
   "decisions": [
     {
       "question": "Which rounds can be resumed?",
-      "options": ["daily lesson only", "lesson and cases", "lesson, cases and mock exam"],
+      "options": [
+        "daily lesson only",
+        "lesson and cases",
+        "lesson, cases and mock exam"
+      ],
       "default_taken": "lesson and cases; one slot for the lesson, one per case. The mock exam is not resumable (timed); leaving it keeps answers, records no attempt.",
       "why": "Cases are served in a fixed teaching order, so restarting one would re-serve exactly the answered questions, which the rule forbids. The exam's 40-minute timer makes resuming it a different exam."
     },
     {
       "question": "Where does an unfinished case appear?",
-      "options": ["home, next to the lesson", "on its own row in Procvičovat › Případy"],
+      "options": [
+        "home, next to the lesson",
+        "on its own row in Procvičovat › Případy"
+      ],
       "default_taken": "Procvičovat › Případy, the row reads 'pokračovat 3/12 →'",
       "why": "Pavol's rule puts the lesson on home; keeping the home screen to one primary card avoids clutter."
     },
     {
       "question": "When is a round saved?",
-      "options": ["on start", "after the first answer"],
+      "options": [
+        "on start",
+        "after the first answer"
+      ],
       "default_taken": "after the first answer; leaving before any answer leaves nothing to resume",
       "why": "A 0 / 12 'Pokračovat' would be the same as a new lesson."
     },
     {
       "question": "Does an unfinished lesson expire?",
-      "options": ["never", "at midnight", "after N days"],
+      "options": [
+        "never",
+        "at midnight",
+        "after N days"
+      ],
       "default_taken": "never; the streak counts on the day it is finished",
       "why": "The streak already counts only finished lessons, so an old snapshot cannot inflate it; expiry would throw away a place the learner chose to keep."
     },
     {
       "question": "Events for resume / replace",
-      "options": ["new event names", "props on existing names"],
+      "options": [
+        "new event names",
+        "props on existing names"
+      ],
       "default_taken": "start_lesson {resume:true}, start_lesson {replaced:true}, start_practice {kind:'case', resume:true}; lesson_complete unchanged and only on a finished lesson",
       "why": "No new names without a flywheel policy PR; props are enough to count resumes."
     },
     {
       "question": "Rule 1 outside lessons: practice by okruh",
-      "options": ["leave as a full shuffle", "never-answered questions first, then the rest"],
+      "options": [
+        "leave as a full shuffle",
+        "never-answered questions first, then the rest"
+      ],
       "default_taken": "never-answered first, then the rest (both shuffled)",
       "why": "Starting okruh practice again after leaving part-way otherwise re-serves answered questions. Weak drill, review and bookmarks re-ask by design and are unchanged."
     },
     {
       "question": "Review share in a new lesson after leaving at 8",
-      "options": ["exclude the just-answered questions", "keep the existing spaced-repetition share (max 40 %)"],
+      "options": [
+        "exclude the just-answered questions",
+        "keep the existing spaced-repetition share (max 40 %)"
+      ],
       "default_taken": "keep the existing share; at most 4 of 12 may be among the answered 8",
       "why": "Pavol's rule explicitly allows the review share as a minority; changing spacing is a separate decision."
     },
     {
       "question": "Account switch and two tabs",
-      "options": ["ignore", "clear rounds on account switch; tabs adopt each other's rounds"],
+      "options": [
+        "ignore",
+        "clear rounds on account switch; tabs adopt each other's rounds"
+      ],
       "default_taken": "clear on switch; tabs adopt via the storage event",
       "why": "Rounds hold the previous account's answers; the independent review flagged both paths (non-blocking), fixed before merge."
     }
@@ -66,5 +92,68 @@
   "screenshots": [
     "docs/review/shots/2026-11-02/home-pokracovat.png",
     "docs/review/shots/2026-11-02/lesson-resumed.png"
+  ],
+  "rounds": [
+    {
+      "round": 2,
+      "date": "2026-11-02",
+      "headline": "Corrections inside approved work: question 323 now cites § 80 odst. 2; /zkouska/ names the § 24 odst. 1 register entry and the 6 vs 8 hits; cases 640/647 unchanged.",
+      "shipped": [
+        {
+          "title": "fix(sources): q323 cites § 80 odst. 2; /zkouska/ precision edits",
+          "pr": "https://github.com/Chartres/zbrojni-kviz/pull/28",
+          "merged": true,
+          "live_checked": "2026-11-02, 390 px: https://zbrojnikviz.dravec.org/otazka/323/ shows § 80 odst. 2 and no § 90 odst. 1; /zkouska/ shows the § 24 odst. 1 wording and '8 místo 6 zásahů'"
+        }
+      ],
+      "decisions": [
+        {
+          "question": "Which provision does q323 test?",
+          "options": [
+            "§ 80 odst. 2",
+            "§ 81",
+            "§ 12 odst. 2 (concealed carry needs the extended licence)",
+            "§ 90 odst. 1 (as was)"
+          ],
+          "default_taken": "§ 80 odst. 2",
+          "why": "It states the answer outright: outside § 81 activities only the holder of an extended licence may carry a registered gun. Checked against data/law/2024-90.json; it was the matcher's runner-up. The independent review agreed."
+        },
+        {
+          "question": "How to correct one citation through the tool",
+          "options": [
+            "hand-edit citations.json",
+            "add a reviewed override to cite.py"
+          ],
+          "default_taken": "cite.py --override with data/law/reviewed-overrides.json (id → act, unit, reason)",
+          "why": "Regenerating keeps the fix; the quote still comes verbatim from the act; the regenerate commands reproduce citations.json byte for byte and change only q323."
+        },
+        {
+          "question": "/zkouska/ wording for § 24 odst. 1",
+          "options": [
+            "parenthetical after the register",
+            "its own clause naming what the police record"
+          ],
+          "default_taken": "'do 12 měsíců ode dne, kdy policie zapíše do centrálního registru zbraní, že žadatel splňuje ostatní podmínky a je oprávněn prokázat odbornou způsobilost'",
+          "why": "The review found the first draft overlong; this names the recorded fact plainly. § 24 odst. 1 is now cited."
+        },
+        {
+          "question": "Cases 640 and 647",
+          "options": [
+            "keep the MV answer",
+            "change it"
+          ],
+          "default_taken": "keep, no change",
+          "why": "It is the exam's own key."
+        }
+      ],
+      "proposals": [],
+      "still_with_pavol": [
+        "Reading aid for long options (A/B/C/none): not built; his pick comes from the decision page."
+      ],
+      "screenshots": [
+        "docs/review/shots/2026-11-02/q323-citation.png",
+        "docs/review/shots/2026-11-02/zkouska-6-vs-8.png"
+      ]
+    }
   ]
 }
