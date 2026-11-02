@@ -196,7 +196,9 @@ def main():
             continue  # question not in this pass's categories
         hit = next((u for act, u, _ in units if act['act'] == o['act'] and u['id'] == o['unit'] and not u.get('whole')), None)
         if hit is None:
-            sys.exit(f'--override: {o["act"]} has no provision {o["unit"]} (question {qid})')
+            loaded = {act['act'] for act, _, _ in units}
+            why = 'is not loaded in this pass' if o['act'] not in loaded else f'has no provision {o["unit"]}'
+            sys.exit(f'--override: act {o["act"]} {why} (question {qid})')
         out[i] = {**out[i], 'ok': True, 'override': True, 'act': o['act'], 'unit': hit['id'],
                   'label': hit['label'], 'anchor': hit['anchor'], 'whole': False, 'quote': hit['quote']}
     if APP:

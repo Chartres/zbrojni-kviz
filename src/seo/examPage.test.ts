@@ -44,7 +44,7 @@ describe('"jak probíhá zkouška" page', () => {
 
   it('names what the central register records before the 12-month clock starts (§ 24 odst. 1)', () => {
     const f = guide.faq.find((x) => x.q === 'Co když neuspěji?')!
-    expect(f.a).toMatch(/zápisu do centrálního registru zbraní, že je žadatel oprávněn prokázat odbornou způsobilost/)
+    expect(f.a).toMatch(/zapíše do centrálního registru zbraní, že žadatel splňuje ostatní podmínky a je oprávněn prokázat odbornou způsobilost/)
     expect(f.cites.map((c) => c.unit)).toContain('p24-1')
   })
 
