@@ -155,7 +155,8 @@
         "docs/review/shots/2026-11-02/zkouska-6-vs-8.png"
       ],
       "notes": [
-        "2026-11-03 signals: PR #30 vendors allow-list v2 (flywheel data/signals/allowlist.json, pending: []) and adds its 8 names to allowed-events.ts; the contract test now holds the mirror equal to the live set; this app sends none of the new names (taxonomy unchanged). Live read-back NOT done: the probe needed to insert one test row into the shared production events table, and this session's permission check refused that write. Pavol to decide whether to allow a labelled probe row or accept flywheel #117's read-back."
+        "2026-11-03 signals: PR #30 vendors allow-list v2 (flywheel data/signals/allowlist.json, pending: []) and adds its 8 names to allowed-events.ts; the contract test now holds the mirror equal to the live set; this app sends none of the new names (taxonomy unchanged). Live read-back NOT done: the probe needed to insert one test row into the shared production events table, and this session's permission check refused that write. Pavol to decide whether to allow a labelled probe row or accept flywheel #117's read-back.",
+        "2026-11-03 signals, closed: PR #30 merged (https://github.com/Chartres/zbrojni-kviz/pull/30). Live check rests on flywheel #117 (allow-list v2 policy applied and read back on 2026-11-01) plus the platform's daily signal health; no probe row was written to the shared events table (orchestrator's call under flywheel #119)."
       ]
     }
   ]
