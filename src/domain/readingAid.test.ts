@@ -58,4 +58,20 @@ describe('markDifferences — words not shared by all three options', () => {
     expect(marked(m[0])).toEqual(['rozšířeného'])
     expect(marked(m[2])).toEqual(['nebo zapsané autorizace.'])
   })
+  it('a word in all three options is never marked, whatever the word order (no alignment ties)', () => {
+    const m = markDifferences(['zbraň kategorie A', 'kategorie B zbraň', 'zbraň kategorie C'])!
+    expect(marked(m[0])).toEqual(['A'])
+    expect(marked(m[1])).toEqual(['B'])
+    expect(marked(m[2])).toEqual(['C'])
+  })
+
+  it('options that share only one word still get marked, not "nothing to compare"', () => {
+    const m = markDifferences([
+      'regulovanou součástí zbraně.',
+      'zákonem o zbraních a střelivu neregulovaným doplňkem zbraně.',
+      'regulovanou součástí zbraně za předpokladu, že o tom rozhodne úřad o vlnových délkách.',
+    ])!
+    expect(m).not.toBeNull()
+    expect(m[1].filter((x) => !x.changed).map((x) => x.text.trim())).toContain('zbraně.')
+  })
 })

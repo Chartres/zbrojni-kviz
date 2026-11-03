@@ -81,35 +81,18 @@ export function isNearMiss(wrongText: string, rightText: string): boolean {
   return overlap(wrongText, rightText) >= NEAR_MISS
 }
 
-/** Per token of `a`: true when the LCS alignment with `b` pairs it with a word of `b`. */
-function matchedIn(na: string[], nb: string[]): boolean[] {
-  const t = lcsTable(na, nb)
-  const hit = new Array<boolean>(na.length).fill(false)
-  let i = 0
-  let j = 0
-  while (i < na.length && j < nb.length) {
-    if (na[i] === nb[j]) {
-      hit[i++] = true
-      j++
-    } else if (t[i + 1][j] >= t[i][j + 1]) i++
-    else j++
-  }
-  return hit
-}
-
 /**
  * Reading aid "Zvýraznit rozdíly" (Pavol's pick A, 2026-11-03): for each option, the words that
- * are not shared by all the options, found by word alignment against each other option. It marks
+ * are not shared by all the options (a word counts as shared when every option has it, wherever
+it stands; an alignment would tie on reordered words and mark shared ones). It marks
  * where the options differ and says nothing about which one is right. Null when there is nothing
  * worth marking: no word common to all options, or no difference at all.
  */
 export function markDifferences(options: string[]): Segment[][] | null {
   const toks = options.map(tokens)
   const norms = toks.map((ts) => ts.map(norm))
-  const flags = toks.map((ts, i) => {
-    const hits = norms.map((other, j) => (j === i ? null : matchedIn(norms[i], other)))
-    return ts.map((_, k) => norms[i][k] !== '' && hits.some((h) => h !== null && !h[k]))
-  })
+  const sets = norms.map((ns) => new Set(ns.filter(Boolean)))
+  const flags = norms.map((ns) => ns.map((n) => n !== '' && sets.some((set) => !set.has(n))))
   const shared = flags.every((f, i) => f.some((changed, k) => !changed && norms[i][k] !== ''))
   const differs = flags.some((f) => f.some(Boolean))
   if (!shared || !differs) return null
