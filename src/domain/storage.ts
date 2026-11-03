@@ -73,3 +73,22 @@ export function saveRounds(rounds: Rounds): void {
     // see saveProgress
   }
 }
+
+/** Reading aid "Zvýraznit rozdíly": the learner's switch, on this device. Off unless set. */
+export const READING_AID_KEY = 'zbrojni-kviz:reading-aid'
+
+export function loadReadingAid(): boolean {
+  try {
+    return storage()?.getItem(READING_AID_KEY) === 'on'
+  } catch {
+    return false
+  }
+}
+
+export function saveReadingAid(on: boolean): void {
+  try {
+    storage()?.setItem(READING_AID_KEY, on ? 'on' : 'off')
+  } catch {
+    // see saveProgress
+  }
+}

@@ -17,7 +17,7 @@ function tokens(s: string): string[] {
 }
 
 function norm(t: string): string {
-  return t.trim().toLowerCase().replace(/[.,;:!?„“"()]+$/u, '').replace(/^[„"(]+/u, '')
+  return t.normalize('NFC').trim().toLowerCase().replace(/[.,;:!?„“"()]+$/u, '').replace(/^[„"(]+/u, '')
 }
 
 function lcsTable(a: string[], b: string[]): number[][] {
@@ -79,4 +79,22 @@ export const NEAR_MISS = 0.5
 
 export function isNearMiss(wrongText: string, rightText: string): boolean {
   return overlap(wrongText, rightText) >= NEAR_MISS
+}
+
+/**
+ * Reading aid "Zvýraznit rozdíly" (Pavol's pick A, 2026-11-03): for each option, the words that
+ * are not shared by all the options (a word counts as shared when every option has it, wherever
+it stands; an alignment would tie on reordered words and mark shared ones). It marks
+ * where the options differ and says nothing about which one is right. Null when there is nothing
+ * worth marking: no word common to all options, or no difference at all.
+ */
+export function markDifferences(options: string[]): Segment[][] | null {
+  const toks = options.map(tokens)
+  const norms = toks.map((ts) => ts.map(norm))
+  const sets = norms.map((ns) => new Set(ns.filter(Boolean)))
+  const flags = norms.map((ns) => ns.map((n) => n !== '' && sets.some((set) => !set.has(n))))
+  const shared = flags.every((f, i) => f.some((changed, k) => !changed && norms[i][k] !== ''))
+  const differs = flags.some((f) => f.some(Boolean))
+  if (!shared || !differs) return null
+  return toks.map((ts, i) => merge(ts.map((text, k) => ({ text, changed: flags[i][k] }))))
 }

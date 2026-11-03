@@ -1,4 +1,6 @@
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
+import { loadReadingAid, saveReadingAid } from '@/domain/storage'
+import { track } from '@/analytics'
 import { useApp } from '@/app/AppContext'
 import { currentChoice, currentQuestion } from '@/domain/session'
 import { isBookmarked } from '@/domain/progress'
@@ -25,6 +27,15 @@ export function QuizScreen() {
     () => dispatch({ type: 'finishExam', now: Date.now() }),
     [dispatch],
   )
+
+  // Reading aid (Pavol's pick A, 2026-11-03): off by default, remembered per device.
+  const [aidOn, setAidOn] = useState(loadReadingAid)
+  const toggleAid = useCallback(() => {
+    const next = !aidOn
+    setAidOn(next)
+    saveReadingAid(next)
+    track('key_action', { kind: 'diff_aid', on: next })
+  }, [aidOn])
 
   if (!session || !mode) return null
   const question = currentQuestion(session)
@@ -72,6 +83,8 @@ export function QuizScreen() {
       <QuestionCard
         key={question.id}
         question={question}
+        // Never in the mock exam: the real test prints three unmarked options.
+        aid={isExam ? undefined : { on: aidOn, onToggle: toggleAid }}
         caseOf={mode === 'case' && state.caseSlug ? caseBySlug(state.caseSlug) : undefined}
         reveal={!isExam}
         chosen={currentChoice(session)}
