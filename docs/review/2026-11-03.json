@@ -1,0 +1,56 @@
+{
+  "headline": "Pavol's reading-aid pick A is live: a 'Zvýraznit rozdíly' switch, off by default and remembered per device, dotted-underlines the words the three options don't share, before answering, in practice only, never in the mock exam.",
+  "shipped": [
+    {
+      "title": "feat(reading-aid): Zvýraznit rozdíly — dotted underline on the words the options don't share",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/32",
+      "merged": true,
+      "live_checked": "2026-11-03, https://zbrojnikviz.dravec.org/okruh/zakon-o-zbranich/ at 390 px: switch aria-pressed false → true, 44 px tall, 5 dotted marks on the first question, note 'Která je správná, neříká.'"
+    }
+  ],
+  "decisions": [
+    {
+      "question": "What counts as a differing word?",
+      "options": ["word alignment (LCS) against each other option", "a word missing from at least one other option"],
+      "default_taken": "missing from at least one other option (normalised: NFC, case-insensitive, edge punctuation ignored, diacritics significant)",
+      "why": "It is the definition Pavol picked ('words not shared by all three'). The review showed alignment ties marked shared words and sent 80 bank questions to 'nothing to compare'."
+    },
+    {
+      "question": "'Practice only' — which modes?",
+      "options": ["okruh practice only", "every mode except the mock exam"],
+      "default_taken": "every mode except the mock exam (lessons, okruh practice, review, cases, bookmarks, weak spots)",
+      "why": "The line Pavol drew is the exam; the real test prints three unmarked options."
+    },
+    {
+      "question": "When are the marks shown?",
+      "options": ["before answering only", "before and after"],
+      "default_taken": "before answering only; once answered, the existing near-miss marks take over",
+      "why": "Option A's wording ('before you answer'), and two kinds of marks at once would compete."
+    },
+    {
+      "question": "Where is the setting kept?",
+      "options": ["localStorage per device", "synced progress"],
+      "default_taken": "localStorage 'zbrojni-kviz:reading-aid', off unless set",
+      "why": "Progress shape and Supabase stay unchanged; a display preference is per device."
+    },
+    {
+      "question": "Metric",
+      "options": ["new event name", "key_action with props"],
+      "default_taken": "key_action {kind:'diff_aid', on}",
+      "why": "Existing taxonomy; success = mock-exam accuracy on near-miss questions for aid users no worse than for non-users (SIGNATURE.md)."
+    },
+    {
+      "question": "'Both themes'",
+      "options": ["add a light theme", "keep the single dark theme"],
+      "default_taken": "single dark theme; marks are text-decoration in brass-400, which also survives forced-colors mode",
+      "why": "The app has one theme; adding one is out of scope."
+    }
+  ],
+  "proposals": [],
+  "next": [
+    "After two weeks: share of practice sessions with diff_aid on, and mock-exam accuracy on near-miss questions, aid users vs non-users."
+  ],
+  "screenshots": [
+    "docs/review/shots/2026-11-03/reading-aid-live.png"
+  ]
+}
