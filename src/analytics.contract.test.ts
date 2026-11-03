@@ -46,13 +46,19 @@ describe('analytics contract with the shared events allow-list', () => {
 })
 
 describe('typed mirror vs the vendored kit allow-list (flywheel-events.json)', () => {
-  // The kit file also lists names still pending a policy migration; the database drops those
-  // today, so the typed mirror (what track() accepts) must stay the stricter of the two.
+  // The kit file may list names still pending a policy migration; the database drops those, so
+  // track() must never accept one. Since v2 (2026-11-01, pending: []) the mirror equals the live set.
   it('every name track() accepts is live in the kit allow-list, none pending', async () => {
     const kit = (await import('./platform/flywheel-events.json')).default as { events: string[]; pending: string[] }
     for (const name of ALLOWED_EVENTS) {
       expect(kit.events).toContain(name)
       expect(kit.pending).not.toContain(name)
     }
+  })
+
+  it('every name live in the kit allow-list is one track() accepts (mirror refreshed with the kit)', async () => {
+    const kit = (await import('./platform/flywheel-events.json')).default as { events: string[]; pending: string[] }
+    const live = kit.events.filter((n) => !kit.pending.includes(n))
+    expect([...ALLOWED_EVENTS].sort()).toEqual([...live].sort())
   })
 })
