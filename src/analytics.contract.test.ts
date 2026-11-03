@@ -55,4 +55,10 @@ describe('typed mirror vs the vendored kit allow-list (flywheel-events.json)', (
       expect(kit.pending).not.toContain(name)
     }
   })
+
+  it('every name live in the kit allow-list is one track() accepts (mirror refreshed with the kit)', async () => {
+    const kit = (await import('./platform/flywheel-events.json')).default as { events: string[]; pending: string[] }
+    const live = kit.events.filter((n) => !kit.pending.includes(n))
+    expect([...ALLOWED_EVENTS].sort()).toEqual([...live].sort())
+  })
 })
