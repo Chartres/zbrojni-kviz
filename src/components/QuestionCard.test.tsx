@@ -254,3 +254,46 @@ describe('QuestionCard in a case (case method)', () => {
     expect(ruleOf({ ...Q, q: 'Je to tak?', a: 'Ano.' })).toBe('Je to tak? Ano.')
   })
 })
+
+describe('QuestionCard reading aid "Zvýraznit rozdíly" (Pavol\'s pick A)', () => {
+  const marks = () => [...document.querySelectorAll('[data-diff-mark]')].map((m) => m.textContent?.trim())
+
+  it('offers a real switch, off by default: no marks until it is on', async () => {
+    const onToggle = vi.fn()
+    setup({ aid: { on: false, onToggle } })
+    const sw = screen.getByRole('button', { name: 'Zvýraznit rozdíly' })
+    expect(sw).toHaveAttribute('aria-pressed', 'false')
+    expect(sw.className).toMatch(/min-h-11/) // 44 px target
+    expect(marks()).toEqual([])
+    await userEvent.click(sw)
+    expect(onToggle).toHaveBeenCalledOnce()
+  })
+
+  it('when on, underlines only the words not shared by all three options, with no right or wrong cue', () => {
+    setup({ aid: { on: true, onToggle: vi.fn() } })
+    expect(screen.getByRole('button', { name: 'Zvýraznit rozdíly' })).toHaveAttribute('aria-pressed', 'true')
+    expect(marks()).toEqual(['regulovanou součástí', 'neregulovanou součástí', 'doplňkem'])
+    for (const m of document.querySelectorAll('[data-diff-mark]')) {
+      expect(m.className).toMatch(/decoration-dotted/)
+      expect(m.className).not.toMatch(/verdigris|rust/)
+    }
+    expect(screen.getByText(/Která je správná, neříká/)).toBeInTheDocument()
+    // the option's accessible name is still the plain sentence
+    expect(screen.getByRole('button', { name: /^aregulovanou součástí zbraně\.$/ })).toBeInTheDocument()
+  })
+
+  it('stays off the page in the mock exam (no aid prop) and after answering', () => {
+    setup({ reveal: false })
+    expect(screen.queryByRole('button', { name: 'Zvýraznit rozdíly' })).toBeNull()
+    cleanup()
+    setup({ aid: { on: true, onToggle: vi.fn() }, chosen: 'b' })
+    expect(screen.queryByRole('button', { name: 'Zvýraznit rozdíly' })).toBeNull()
+    expect(marks()).toEqual([])
+  })
+
+  it('says so when the options share no words to compare', () => {
+    setup({ aid: { on: true, onToggle: vi.fn() }, question: { ...Q, a: 'ano', b: 'ne', c: 'nevím' } })
+    expect(marks()).toEqual([])
+    expect(screen.getByText(/nemají společný text/)).toBeInTheDocument()
+  })
+})

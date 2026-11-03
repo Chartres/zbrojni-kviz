@@ -178,3 +178,14 @@ resume:true}` on a resumed case; `lesson_complete` still fires only on a finishe
    general vs extended answer adds that the shooting differs too (8 vs 6 hits, § 20 odst. 3
    písm. c), now cited).
 3. **Cases 640 and 647 keep the official MV answer.** It is the exam's own key; no change.
+
+### 2026-11-03 — Pavol's pick: reading aid for long options
+
+On the decision page (card zbrojni-kviz.s6, 2026-11-03 11:48 UTC) he chose **"A: a switch that
+underlines the words that differ"**, over the recommended C, with no note. Built as A:
+a "Zvýraznit rozdíly" switch above the options, off by default and remembered on the device.
+When on, before answering, the words not shared by all three options get a neutral dotted brass
+underline. It says where the options differ, never which is right, and gives way to the near-miss
+marks once answered. Offered in every practice mode (lessons, okruh practice, review, cases,
+bookmarks, weak spots), never in the mock exam. Metric: `key_action {kind:'diff_aid', on}`;
+success = mock-exam accuracy on near-miss questions for aid users no worse than for non-users.

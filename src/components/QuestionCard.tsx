@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef } from 'react'
 import type { Choice, Question } from '@/domain/types'
-import { differ, isNearMiss, type Segment } from '@/domain/difference'
+import { differ, isNearMiss, markDifferences, type Segment } from '@/domain/difference'
 import { sourceFor } from '@/domain/sources'
 import { imageUrl } from '@/lib/assets'
 import { SourceNote } from './SourceNote'
@@ -20,6 +20,8 @@ export interface QuestionCardProps {
   onToggleBookmark: () => void
   /** Case method: the situation comes first, then after answering the rule and the provision. */
   caseOf?: Case
+  /** Reading aid "Zvýraznit rozdíly" (practice only; the mock exam passes nothing). */
+  aid?: { on: boolean; onToggle: () => void }
 }
 
 const OPTIONS: Choice[] = ['a', 'b', 'c']
@@ -84,6 +86,33 @@ function Marked({ segments, as: Tag }: { segments: Segment[]; as: 'del' | 'ins' 
   )
 }
 
+// Reading aid: the words not shared by all three options, under a neutral dotted underline.
+// No colour of right or wrong; screen readers get the plain option (the marks are visual only).
+function Dotted({ segments }: { segments: Segment[] }) {
+  return (
+    <>
+      <span className="sr-only">{segments.map((s) => s.text).join('')}</span>
+      <span aria-hidden="true">
+        {segments.map((s, i) =>
+          s.changed ? (
+            <span key={i}>
+              <span
+                data-diff-mark
+                className="underline decoration-brass-400 decoration-dotted decoration-2 underline-offset-[5px]"
+              >
+                {s.text.trimEnd()}
+              </span>
+              {s.text.slice(s.text.trimEnd().length)}
+            </span>
+          ) : (
+            <span key={i}>{s.text}</span>
+          ),
+        )}
+      </span>
+    </>
+  )
+}
+
 // The rule a case question teaches: the stem with its correct answer, as the bank words them.
 export function ruleOf(q: Question): string {
   return `${q.q.trim()} ${q[q.correct]}`
@@ -108,8 +137,11 @@ export function QuestionCard({
   onNext,
   onToggleBookmark,
   caseOf,
+  aid,
 }: QuestionCardProps) {
   const answered = chosen !== undefined
+  const showAid = aid !== undefined && !answered
+  const aidMarks = showAid && aid.on ? markDifferences(OPTIONS.map((o) => question[o])) : null
   const isCorrect = answered && chosen === question.correct
   const nearMiss =
     reveal && answered && !isCorrect && isNearMiss(question[chosen], question[question.correct])
@@ -200,8 +232,26 @@ export function QuestionCard({
         </div>
       )}
 
+      {showAid && (
+        <div className="mb-3">
+          <button
+            type="button"
+            aria-pressed={aid.on}
+            onClick={aid.onToggle}
+            className={`inline-flex min-h-11 items-center gap-2 rounded-card border px-3 font-mono text-xs uppercase tracking-[0.12em] transition-colors ${
+              aid.on
+                ? 'border-brass-500 text-brass-300'
+                : 'border-steel-700 text-steel-400 hover:border-brass-400 hover:text-brass-300'
+            }`}
+          >
+            <span aria-hidden="true">{aid.on ? '◆' : '◇'}</span>
+            Zvýraznit rozdíly
+          </button>
+        </div>
+      )}
+
       <div role="group" aria-label="Možnosti odpovědi" className="flex flex-col gap-3">
-        {OPTIONS.map((opt) => {
+        {OPTIONS.map((opt, oi) => {
           const state = optionState(opt, question, chosen, reveal)
           return (
             <button
@@ -221,6 +271,8 @@ export function QuestionCard({
                   <Marked segments={diff.wrong} as="del" />
                 ) : diff && state === 'correct' ? (
                   <Marked segments={diff.right} as="ins" />
+                ) : aidMarks ? (
+                  <Dotted segments={aidMarks[oi]} />
                 ) : (
                   question[opt]
                 )}
@@ -234,6 +286,14 @@ export function QuestionCard({
           )
         })}
       </div>
+
+      {showAid && aid.on && (
+        <p className="mt-3 text-xs text-steel-400">
+          {aidMarks
+            ? 'Vyznačena jsou slova, ve kterých se možnosti liší. Která je správná, neříká.'
+            : 'Možnosti tu nemají společný text, není co zvýraznit.'}
+        </p>
+      )}
 
       {!answered && (
         <p className="mt-3 font-mono text-xs text-steel-600">
