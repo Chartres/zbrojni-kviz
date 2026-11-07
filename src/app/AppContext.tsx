@@ -13,6 +13,7 @@ import {
   loadRounds,
   OWNER_KEY,
   ROUNDS_KEY,
+  DAILY_KEY,
   saveOwner,
   saveProgress,
   saveRounds,
@@ -119,6 +120,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   // next local save does not overwrite its answers.
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
+      if (e.key === DAILY_KEY) {
+        // Another tab answered or switched Otázka dne: adopt it, so the day is not answered twice.
+        if (loadOwner() === ownerRef.current) dispatch({ type: 'hydrateDaily', daily: loadDaily() })
+        return
+      }
       if (e.key === ROUNDS_KEY) {
         // Another tab left or finished a round. Adopt the stored set (it already holds ours,
         // since every tab adopts on each change), so neither tab overwrites the other's.

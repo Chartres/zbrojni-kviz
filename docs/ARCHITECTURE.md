@@ -59,8 +59,11 @@ class not on that device can be taken over there. Events: `key_action` `class_cr
 
 ## Otázka dne (test D, `src/domain/daily.ts`)
 
-The bank in a fixed shuffled order (seeded), indexed by days since 2026-11-07, so everyone gets the
-same question on a day and none repeats for 837 days. The first answer of a day counts: it is
+The bank in a fixed order frozen as data (`data/daily-order.json`, written once by
+`scripts/daily-order.mjs`; new question ids are appended with `--append`, and a test fails if the
+bank has an id the order lacks), indexed by days since 2026-11-07. Everyone gets the same question
+on a day, whatever build they run, and none repeats for 837 days. Tabs adopt each other's daily
+state through the `storage` event, so a day is not answered twice. The first answer of a day counts: it is
 recorded in progress like any answer and in the daily state; the streak is consecutive days and
 resets quietly after a missed day. Events: `key_action` `qotd_optin`, `qotd_optout`,
 `qotd_answer {day, correct, streak}`. A learner who takes part sends their last 7 days

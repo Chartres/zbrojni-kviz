@@ -65,4 +65,10 @@ describe('the daily streak (on this device)', () => {
     expect(normalizeDaily({ optedIn: true, days: { '2026-11-07': 1 }, current: 1, best: 1, last: '2026-11-07' }).optedIn).toBe(true)
     expect(normalizeDaily({ optedIn: 'yes', days: 'x' })).toEqual(emptyDaily())
   })
+  it('the frozen order covers every question in the bank (append new ids with scripts/daily-order.mjs --append)', async () => {
+    const { ALL_QUESTIONS } = await import('./questions')
+    const order = (await import('@data/daily-order.json')).default.order as number[]
+    expect(new Set(order).size).toBe(order.length)
+    for (const q of ALL_QUESTIONS) expect(order).toContain(q.id)
+  })
 })

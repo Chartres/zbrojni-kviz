@@ -2,14 +2,15 @@
 // on a given day, so a ranking among participants can follow if Pavol approves its data route
 // (docs/PRD.md §5.4). One answer a day counts; a streak is kept on this device only, separate from
 // the lesson streak, and never nags: a missed day just starts it again.
-import { ALL_QUESTIONS } from './questions'
-import { makeRng, shuffle } from './rng'
+import rawOrder from '@data/daily-order.json'
+import { getQuestion } from './questions'
 
-/** A fixed order of the whole bank: day n of the cycle gets the n-th question, so no repeats for 837 days. */
-const ORDER = shuffle(
-  [...ALL_QUESTIONS].sort((a, b) => a.id - b.id).map((q) => q.id),
-  makeRng(20261107),
-)
+/**
+ * The order the bank is served in, frozen as data (data/daily-order.json, written once by
+ * scripts/daily-order.mjs; new ids appended): day n gets the n-th question, so a change to the bank
+ * never moves anyone's question of the day, and nothing repeats for 837 days.
+ */
+const ORDER = (rawOrder as { order: number[] }).order.filter((id) => getQuestion(id) !== undefined)
 const EPOCH = Date.UTC(2026, 10, 7)
 const DAY_MS = 86_400_000
 const KEEP_DAYS = 31

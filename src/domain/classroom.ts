@@ -148,7 +148,7 @@ function valid(s: Summary): boolean {
     Array.isArray(s.e) && s.e.length <= 5 &&
     s.e.every((x) => Array.isArray(x) && x.length === 4 && x.every(isNum)) &&
     (s.q === undefined ||
-      (s.q && isNum(s.q.a) && isNum(s.q.c) && s.q.a >= 0 && s.q.a <= 7 && s.q.c >= 0 && s.q.c <= s.q.a))
+      (s.q && Number.isInteger(s.q.a) && Number.isInteger(s.q.c) && s.q.a >= 0 && s.q.a <= 7 && s.q.c >= 0 && s.q.c <= s.q.a))
   )
 }
 
