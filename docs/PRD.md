@@ -117,9 +117,43 @@ Everything the legacy app did, ported and improved:
 - Free hosting on **GitHub Pages**; CI with tests + auto-deploy.
 
 ### 5.3 Non-goals (for now)
-- The practical/shooting part. · Native mobile apps. · Payments. · Social/leaderboards (runs counter
-  to the punishment-free ethos). · Authoring/admin UI for editing questions (data is generated from
-  the official source).
+- The practical/shooting part. · Native mobile apps. · Payments. · Authoring/admin UI for editing
+  questions (data is generated from the official source).
+- Public leaderboards. On 7 Nov 2026 Pavol marked a weekly ranking for "Otázka dne" to pursue as a
+  two-week test (§5.4, test D); until he approves its data route it is not built. Whatever is
+  built must stay punishment-free: no nagging, no losing streaks, opt-in only.
+
+### 5.4 Two-week tests (from 7 Nov 2026, Pavol's "After the App" marks)
+
+**Test C: exam prep through instructors and clubs.** Instructors and shooting clubs hold the
+learners. An instructor opens `/instruktor/`, creates a class code and gives learners a link
+(`/?trida=CODE`) or the code. A learner's Postup screen gets "Poslat instruktorovi": a link with
+the learner's chosen name, readiness per part, the pass estimate and recent mock exams, carried in
+the link itself (URL fragment). Opening it on the instructor's device adds the learner to the
+class, stored only on that device. No accounts, no new tables, nothing on a server.
+Offer drafts for 10 instructors or clubs are in `docs/outreach/`; Pavol sends them.
+*Stop rule:* fewer than 2 of the 10 bring 5 or more learners within 14 days of the offers going out
+(counted from `key_action` `class_create` with the offer's `ref`, and distinct `class_join` /
+`class_send` per class).
+
+**Test D: Otázka dne (question of the day), practised together.** Opt-in on the home screen. The
+same question for everyone on a given day, chosen from the bank by date. One answer a day; a
+streak kept on the device, separate from the lesson streak, never nagging. The answer counts in
+progress like any other.
+*Stop rule:* fewer than 30 opt-ins, or under 40 % of them still answering on day 14 (from
+`key_action` `qotd_optin` / `qotd_answer`).
+
+*Weekly ranking — design, waiting for Pavol.* The ranking needs data shared across learners.
+Routes, cheapest first:
+
+| route | how | needs Pavol |
+|---|---|---|
+| 1. In the class | Learners' summaries already carry their last 7 days of Otázka dne; the instructor page sorts by it. Ranking among one class only. | nothing (built with test C) |
+| 2. Nightly static JSON | Opted-in learners pick a nickname; `key_action {kind:'qotd_answer', day, correct, nick}` carries it; the nightly KPI job reads the events table, keeps the first answer per visitor per day, and publishes `ranking.json` (nickname, days, correct) to the site. | OK to store a chosen nickname in the shared events table and to publish it; a change to the nightly job in flywheel. No new table, no new event name. Forgery risk: the events insert is anonymous, so a determined user can inflate a score. |
+| 3. A Supabase table | `qotd_answers` with RLS (one row per user per day) and a ranking view; sign-in required. | a new table and policy, and sign-in for participants |
+
+Recommendation: route 1 now, route 2 if the opt-ins pass the stop rule and Pavol accepts the
+nickname and forgery trade-off.
 
 ---
 
