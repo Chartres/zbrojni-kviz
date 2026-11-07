@@ -1,5 +1,6 @@
 import { emptyProgress, normalizeProgress, type ProgressData } from './progress'
 import { normalizeRounds, type Rounds } from './round'
+import { normalizeDaily, type DailyState } from './daily'
 
 export const STORAGE_KEY = 'zbrojni-kviz:progress:v1'
 /** Id of the account the local progress belongs to (survives reloads and sign-out). */
@@ -88,6 +89,26 @@ export function loadReadingAid(): boolean {
 export function saveReadingAid(on: boolean): void {
   try {
     storage()?.setItem(READING_AID_KEY, on ? 'on' : 'off')
+  } catch {
+    // see saveProgress
+  }
+}
+
+/** Test D: Otázka dne opt-in, answers by day and the daily streak. Device only, never synced. */
+export const DAILY_KEY = 'zbrojni-kviz:daily:v1'
+
+export function loadDaily(): DailyState {
+  try {
+    const raw = storage()?.getItem(DAILY_KEY)
+    return normalizeDaily(raw ? JSON.parse(raw) : null)
+  } catch {
+    return normalizeDaily(null)
+  }
+}
+
+export function saveDaily(d: DailyState): void {
+  try {
+    storage()?.setItem(DAILY_KEY, JSON.stringify(d))
   } catch {
     // see saveProgress
   }

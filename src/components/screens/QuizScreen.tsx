@@ -9,6 +9,7 @@ import { ExamTimer } from '@/components/ExamTimer'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { todayStr } from '@/lib/date'
 import { caseBySlug } from '@/domain/cases'
+import { answeredOn, recordDaily } from '@/domain/daily'
 
 const MODE_LABEL: Record<string, string> = {
   lesson: 'Dnešní lekce',
@@ -18,6 +19,7 @@ const MODE_LABEL: Record<string, string> = {
   exam: 'Zkušební test',
   weakDrill: 'Slabá místa',
   case: 'Případ',
+  daily: 'Otázka dne',
 }
 
 export function QuizScreen() {
@@ -91,7 +93,15 @@ export function QuizScreen() {
         bookmarked={isBookmarked(state.progress, question.id)}
         index={session.index}
         total={session.questions.length}
-        onAnswer={(choice) => dispatch({ type: 'answer', choice, now: Date.now() })}
+        onAnswer={(choice) => {
+          // Test D metric: the day's first answer, with the streak it makes (device count).
+          if (mode === 'daily' && state.dailyDay && !answeredOn(state.daily, state.dailyDay)) {
+            const correct = choice === question.correct
+            const streak = recordDaily(state.daily, state.dailyDay, correct).current
+            track('key_action', { kind: 'qotd_answer', day: state.dailyDay, correct, streak })
+          }
+          dispatch({ type: 'answer', choice, now: Date.now() })
+        }}
         onNext={() => dispatch({ type: 'next', today: todayStr(), now: Date.now() })}
         onToggleBookmark={() =>
           dispatch({ type: 'toggleBookmark', id: question.id })

@@ -16,6 +16,8 @@ import {
   saveOwner,
   saveProgress,
   saveRounds,
+  loadDaily,
+  saveDaily,
   STORAGE_KEY,
 } from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
@@ -53,6 +55,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     dispatch({ type: 'hydrate', progress: loadProgress() })
     dispatch({ type: 'hydrateRounds', rounds: loadRounds() })
+    dispatch({ type: 'hydrateDaily', daily: loadDaily() })
     // SEO topic page (/okruh/<slug>/): start that okruh's practice directly.
     const topic = topicFromPath(window.location.pathname)
     if (topic) {
@@ -98,6 +101,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
     if (loadOwner() !== ownerRef.current) return
     saveRounds(state.rounds)
   }, [state.rounds])
+
+  // Otázka dne state on this device (test D). First render skipped, as above.
+  const dailyInitialized = useRef(false)
+  useEffect(() => {
+    if (!dailyInitialized.current) {
+      dailyInitialized.current = true
+      return
+    }
+    saveDaily(state.daily)
+  }, [state.daily])
 
   // Another tab or the installed PWA window saved: merge its progress in, so the
   // next local save does not overwrite its answers.

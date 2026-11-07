@@ -8,6 +8,7 @@ import { LESSON_SIZE, isFoundationPhase } from '@/domain/lesson'
 import { timeSeed, makeRng } from '@/domain/rng'
 import { track } from '@/analytics'
 import { roundProgress } from '@/domain/round'
+import { DailyCard } from '@/components/DailyCard'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { todayStr } from '@/lib/date'
 
@@ -86,6 +87,9 @@ export function HomeScreen() {
           </div>
         </button>
       )}
+
+      {/* Test D: Otázka dne (opt-in) */}
+      <DailyCard />
 
       {/* Quick review of weak spots */}
       {reviewCount > 0 && (
