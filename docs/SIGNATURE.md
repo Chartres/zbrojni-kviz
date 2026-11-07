@@ -189,3 +189,13 @@ underline. It says where the options differ, never which is right, and gives way
 marks once answered. Offered in every practice mode (lessons, okruh practice, review, cases,
 bookmarks, weak spots), never in the mock exam. Metric: `key_action {kind:'diff_aid', on}`;
 success = mock-exam accuracy on near-miss questions for aid users no worse than for non-users.
+
+### 2026-11-07 — two tests from "After the App"
+
+Pavol marked two directions to pursue as two-week tests (flywheel orchestrator, 7 Nov):
+**C, exam prep through instructors and clubs** (class code, "Poslat instruktorovi", instructor
+page on the instructor's device, no backend), and **D, Otázka dne practised together** (daily
+question, streak on the device; a weekly ranking waits for his OK on the data route). Both are
+specified in `docs/PRD.md` §5.4 with their stop rules. Tension noted for him: a ranking sits close
+to what §2 refuses ("toy gamification", "streak anxiety"); the design keeps it opt-in and
+non-punitive, and route 1 ranks only within a class.
