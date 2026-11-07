@@ -1,0 +1,149 @@
+{
+  "headline": "Two two-week tests are built and live, with no backend and nothing outward. C: instructors make a class code on /instruktor/; learners send a summary link from Postup; the class lives on the instructor's phone. D: opt-in Otázka dne on home, the same question for everyone, a streak on the device; the weekly ranking exists only within a class (route 1) until Pavol picks a data route.",
+  "tests": [
+    {
+      "id": "C",
+      "name": "Exam prep through instructors and clubs",
+      "built": "2026-11-07",
+      "starts": "the day Pavol sends the offers in docs/outreach/2026-11-instructors/ (not sent; drafts only)",
+      "ends": "14 days after sending",
+      "stop_rule": "fewer than 2 of the 10 recipients bring 5 or more learners (key_action class_create with their ref, then distinct class_join / class_send per class)",
+      "metric_events": [
+        "key_action class_create {class, ref}",
+        "key_action class_join {class, via}",
+        "key_action class_send {class}",
+        "key_action class_receive {class, learners}"
+      ]
+    },
+    {
+      "id": "D",
+      "name": "Otázka dne, practised together",
+      "built": "2026-11-07",
+      "starts": "2026-11-07 (live on merge)",
+      "day_14": "2026-11-21",
+      "stop_rule": "fewer than 30 opt-ins, or under 40 % of opt-ins still answering on day 14",
+      "metric_events": [
+        "key_action qotd_optin",
+        "key_action qotd_answer {day, correct, streak}",
+        "key_action qotd_optout"
+      ]
+    }
+  ],
+  "shipped": [
+    {
+      "title": "docs: tests C and D (PRD §5.4, ranking design), ARCHITECTURE.md, reverts log",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/34",
+      "merged": true,
+      "live_checked": "docs only"
+    },
+    {
+      "title": "feat(classes): test C — class code, Poslat instruktorovi, instructor page; no backend",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/35",
+      "merged": true,
+      "live_checked": "2026-11-07, 390 px, two browser contexts on https://zbrojnikviz.dravec.org: class created on /instruktor/, learner joined by /?trida= link, sent a summary, it landed on the instructor page ('Přidáno: … do třídy …'), page width 390, title 'Pro instruktory — Zbrojní kvíz'"
+    },
+    {
+      "title": "feat(daily): test D — Otázka dne (opt-in, one question a day, streak on the device)",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/36",
+      "merged": true,
+      "live_checked": "2026-11-07, 390 px on https://zbrojnikviz.dravec.org: card 'Otázka dne' shown, Zapojit se → Odpovědět → '01 / 1' → Dokončit → 'Dnes hotovo', '1 den v řadě', still done after reload, page width 390"
+    }
+  ],
+  "decisions": [
+    {
+      "question": "Living docs this repo lacked",
+      "options": [
+        "leave as is",
+        "add docs/ARCHITECTURE.md and docs/reverts.md"
+      ],
+      "default_taken": "added both (feature-sessions standard)",
+      "why": "The standard names a living architecture doc and a revert log for every repo."
+    },
+    {
+      "question": "PRD said 'Social/leaderboards' is a non-goal",
+      "options": [
+        "build the ranking anyway",
+        "change the docs first, defer the public ranking"
+      ],
+      "default_taken": "docs first (PR #34): public leaderboards wait for Pavol's OK; SIGNATURE log notes the tension with 'toy gamification'",
+      "why": "Feature-sessions standard: a change of direction goes into the living docs before code."
+    },
+    {
+      "question": "How the learner's summary reaches the instructor without a backend",
+      "options": [
+        "short code (needs storage)",
+        "link with the summary in the URL fragment"
+      ],
+      "default_taken": "fragment link /instruktor/#z1.<base64url JSON>, about 800 characters at most",
+      "why": "No server, no table; the fragment is never sent to a server."
+    },
+    {
+      "question": "Where the instructor's class lives",
+      "options": [
+        "localStorage on the instructor's device",
+        "Supabase table"
+      ],
+      "default_taken": "localStorage, with guidance on the page (same browser, not inside WhatsApp/Messenger; visit weekly because Safari can clear site data)",
+      "why": "No new tables. Known limit: no export yet."
+    },
+    {
+      "question": "Counting the offers",
+      "options": [
+        "no attribution",
+        "a ref per recipient in the offer link"
+      ],
+      "default_taken": "?ref=k01..k10 kept on the class and sent with class_create",
+      "why": "The stop rule needs per-recipient counts; refs carry no personal data. Names stay outside the public repo."
+    },
+    {
+      "question": "Otázka dne question selection",
+      "options": [
+        "hash of the date",
+        "a frozen order of the bank"
+      ],
+      "default_taken": "data/daily-order.json, frozen order, new ids appended",
+      "why": "Same question for everyone whatever build they run; no repeat for 837 days (review found the seeded shuffle depended on the build)."
+    },
+    {
+      "question": "Does Otázka dne touch the lesson streak?",
+      "options": [
+        "yes",
+        "no, its own streak"
+      ],
+      "default_taken": "its own streak on the device; the answer still counts in progress",
+      "why": "Quiz-rounds rule (answers count) without inflating the lesson streak."
+    },
+    {
+      "question": "Ranking",
+      "options": [
+        "route 1: within a class, from summaries",
+        "route 2: nightly static JSON with nicknames",
+        "route 3: Supabase table"
+      ],
+      "default_taken": "route 1 built; routes 2 and 3 not built",
+      "why": "Route 1 needs nothing from Pavol; the others need his OK (see proposals)."
+    }
+  ],
+  "proposals": [
+    {
+      "title": "Weekly Otázka dne ranking across all participants",
+      "needs_pavol": "Pick a route. Route 2 (recommended if the opt-ins pass the stop rule): learners choose a nickname, qotd_answer carries it in key_action props, the nightly flywheel KPI job publishes ranking.json to the site. Needs his OK to store a chosen nickname in the shared events table and to publish it, plus a flywheel job change; no new table, no new event name; anyone can forge entries since the insert is anonymous. Route 3: a qotd_answers table with RLS and sign-in for participants.",
+      "doc": "docs/PRD.md §5.4"
+    },
+    {
+      "title": "Send the instructor offers",
+      "needs_pavol": "Pick 10 recipients (4 instructors, 3 clubs, 3 ranges suggested), fill names outside the repo, send from docs/outreach/2026-11-instructors/. Test C starts that day.",
+      "doc": "docs/outreach/2026-11-instructors/README.md"
+    }
+  ],
+  "next": [
+    "Instructor page: export/import of a class (one file) so a class survives a cleared browser or a new phone.",
+    "Day 14 of D (2026-11-21): read qotd_optin / qotd_answer counts against the stop rule.",
+    "Home 'Opakovat chyby · 1 otázek' grammar (pre-existing; noticed during this round)."
+  ],
+  "reverts": "none (docs/reverts.md created, empty)",
+  "screenshots": [
+    "docs/review/shots/2026-11-07/instructor-live.png",
+    "docs/review/shots/2026-11-07/otazka-dne-live.png"
+  ]
+}
