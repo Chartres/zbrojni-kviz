@@ -1,6 +1,7 @@
 import { emptyProgress, normalizeProgress, type ProgressData } from './progress'
 import { normalizeRounds, type Rounds } from './round'
 import { normalizeDaily, type DailyState } from './daily'
+import { normalizeClass, type ClassRoom } from './classroom'
 
 export const STORAGE_KEY = 'zbrojni-kviz:progress:v1'
 /** Id of the account the local progress belongs to (survives reloads and sign-out). */
@@ -109,6 +110,61 @@ export function loadDaily(): DailyState {
 export function saveDaily(d: DailyState): void {
   try {
     storage()?.setItem(DAILY_KEY, JSON.stringify(d))
+  } catch {
+    // see saveProgress
+  }
+}
+
+/** Test C: the class this learner joined and the name they show their instructor. Device only. */
+export const CLASS_KEY = 'zbrojni-kviz:class:v1'
+export interface LearnerClass {
+  code: string
+  name: string
+  id: string
+}
+
+export function loadLearnerClass(): LearnerClass | null {
+  try {
+    const raw = storage()?.getItem(CLASS_KEY)
+    if (!raw) return null
+    const v = JSON.parse(raw) as Partial<LearnerClass>
+    return typeof v.code === 'string' && typeof v.name === 'string' && typeof v.id === 'string'
+      ? { code: v.code, name: v.name, id: v.id }
+      : null
+  } catch {
+    return null
+  }
+}
+
+export function saveLearnerClass(v: LearnerClass | null): void {
+  try {
+    const s = storage()
+    if (!s) return
+    if (v) s.setItem(CLASS_KEY, JSON.stringify(v))
+    else s.removeItem(CLASS_KEY)
+  } catch {
+    // see saveProgress
+  }
+}
+
+/** Test C: the instructor's classes and the summaries received, on the instructor's device only. */
+export const INSTRUCTOR_KEY = 'zbrojni-kviz:instructor:v1'
+
+export function loadInstructorClasses(): ClassRoom[] {
+  try {
+    const raw = storage()?.getItem(INSTRUCTOR_KEY)
+    const v = raw ? (JSON.parse(raw) as { classes?: unknown }) : null
+    return Array.isArray(v?.classes)
+      ? v.classes.map(normalizeClass).filter((c): c is ClassRoom => c !== null)
+      : []
+  } catch {
+    return []
+  }
+}
+
+export function saveInstructorClasses(classes: ClassRoom[]): void {
+  try {
+    storage()?.setItem(INSTRUCTOR_KEY, JSON.stringify({ classes }))
   } catch {
     // see saveProgress
   }

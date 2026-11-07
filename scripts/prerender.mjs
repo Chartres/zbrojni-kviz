@@ -156,6 +156,18 @@ const acts = Object.fromEntries(
 mkdirSync(`${root}dist${EXAM_PATH}`, { recursive: true })
 writeFileSync(`${root}dist${EXAM_PATH}index.html`, renderExamPage({ guide, acts, origin: ORIGIN, cssHref, beaconSrc }))
 
+// Test C: the instructor's page is the app shell at /instruktor/ (GitHub Pages has no SPA
+// fallback). A tool, not content: kept out of the index and the sitemap.
+mkdirSync(`${root}dist/instruktor`, { recursive: true })
+writeFileSync(
+  `${root}dist/instruktor/index.html`,
+  template
+    .replace(/<title>[^<]*<\/title>/, '<title>Pro instruktory — Zbrojní kvíz</title>')
+    .replace(/\s*<link rel="canonical"[^>]*>/, '')
+    .replace(/\s*<meta property="og:url"[^>]*>/, '')
+    .replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>'),
+)
+
 const today = new Date().toISOString().slice(0, 10)
 const urls = [
   '/',

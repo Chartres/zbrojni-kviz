@@ -22,6 +22,7 @@ import {
 } from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
 import { topicFromPath } from '@/lib/topics'
+import { takeJoinCode } from '@/lib/joinParam'
 import { makeRng, timeSeed } from '@/domain/rng'
 import { useAuth } from '@/auth/AuthContext'
 import { supabaseStore } from '@/auth/supabaseStore'
@@ -56,6 +57,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'hydrate', progress: loadProgress() })
     dispatch({ type: 'hydrateRounds', rounds: loadRounds() })
     dispatch({ type: 'hydrateDaily', daily: loadDaily() })
+    // Test C: an instructor's join link (/?trida=CODE) prefills the class code on Postup.
+    takeJoinCode()
     // SEO topic page (/okruh/<slug>/): start that okruh's practice directly.
     const topic = topicFromPath(window.location.pathname)
     if (topic) {
