@@ -31,6 +31,9 @@ export const ALLOWED_EVENTS = [
   'council_replied',
   'council_blocked',
   'scan_completed',
+  // v3, live since 2026-11-04 (not sent by this app)
+  'whats_new_seen',
+  'whats_new_dismissed',
 ] as const
 
 export type AllowedEvent = (typeof ALLOWED_EVENTS)[number]
