@@ -8,6 +8,7 @@ import { QuizScreen } from '@/components/screens/QuizScreen'
 import { ResultsScreen } from '@/components/screens/ResultsScreen'
 import { StudyScreen } from '@/components/screens/StudyScreen'
 import { StatsScreen } from '@/components/screens/StatsScreen'
+import { InstructorScreen } from '@/components/screens/InstructorScreen'
 
 function CurrentView() {
   const { state } = useApp()
@@ -29,8 +30,12 @@ function CurrentView() {
   }
 }
 
+// Test C: the instructor's page is a tool of its own, outside the learner's tabs.
+const isInstructorPath = () => typeof window !== 'undefined' && /^\/instruktor\/?$/.test(window.location.pathname)
+
 function Shell() {
   const { state } = useApp()
+  if (isInstructorPath()) return <InstructorScreen origin={window.location.origin} />
   const tabbed = isTabView(state.view)
   return (
     <div

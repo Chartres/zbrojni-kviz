@@ -5,6 +5,7 @@ import { bestExamAttempt, summary } from '@/domain/progress'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { InfoDot } from '@/components/ui/InfoDot'
 import { ReadinessCard } from '@/components/ReadinessCard'
+import { InstructorCard } from '@/components/InstructorCard'
 
 export function StatsScreen() {
   const { state } = useApp()
@@ -57,6 +58,8 @@ export function StatsScreen() {
       </div>
 
       <ReadinessCard progress={state.progress} />
+
+      <InstructorCard progress={state.progress} origin={window.location.origin} />
 
       <h2 className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-steel-400">
         Pokrok podle okruhů

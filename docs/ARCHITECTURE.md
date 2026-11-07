@@ -31,6 +31,8 @@ e2e/             Playwright persona journeys at 390 px
 | `zbrojni-kviz:owner` | account the local progress belongs to | no |
 | `zbrojni-kviz:rounds:v1` | unfinished lesson and cases, to resume | no |
 | `zbrojni-kviz:reading-aid` | "Zvýraznit rozdíly" switch | no |
+| `zbrojni-kviz:class:v1` | test C, learner: class code, chosen name, random learner id | no |
+| `zbrojni-kviz:instructor:v1` | test C, instructor: classes and the learner summaries received | no |
 | `fw:vid` / `fw:sid` (session) | anonymous analytics ids | no |
 
 Every answer is recorded into progress the moment it is given (quiz-rounds standard). The mock
@@ -39,12 +41,25 @@ exam keeps answers but records an attempt only when finished or timed out.
 ## Views
 
 One reducer (`src/app/store.ts`) drives the views: tabs `home | practice | stats | guide` and the
-flows `quiz | exam | results`. Boot paths: `/okruh/<slug>/` starts that okruh's practice.
+flows `quiz | exam | results`. Boot paths: `/okruh/<slug>/` starts that okruh's practice;
+`/?trida=CODE` prefills a class code (kept in sessionStorage until saved, then stripped from the
+address); `/instruktor/` renders the instructor page outside the tabs (`InstructorScreen`).
+
+## Instructor classes (test C, `src/domain/classroom.ts`)
+
+No server. A class code is 6 characters from an unambiguous alphabet. A learner's summary
+(`Summary`: chosen name, random learner id, readiness per exam part, pass estimates, last 5 mock
+exams) is JSON → UTF-8 → base64url, prefixed `z1.`, and carried in the URL fragment of
+`/instruktor/#z1.…`, which browsers never send to a server. Opening it on the instructor's device
+validates it and adds it to the matching class (newer summary per learner wins). A summary for a
+class not on that device can be taken over there. Events: `key_action` `class_create {class, ref}`,
+`class_join {class, via}`, `class_send {class}`, `class_receive {class, learners}`.
 
 ## Build and deploy
 
 `npm run build` = `tsc -b && vite build && node scripts/prerender.mjs`. Prerender writes a static,
-crawlable page per okruh, per question (`/otazka/<id>/`), `/zkouska/`, and the sitemap. CI
+crawlable page per okruh, per question (`/otazka/<id>/`), `/zkouska/`, the sitemap, and a
+noindex copy of the app shell at `/instruktor/` (Pages has no SPA fallback). CI
 (`.github/workflows/deploy.yml`) runs typecheck, unit tests, build and e2e on every PR, and deploys
 `dist/` to Pages on push to `main`.
 
