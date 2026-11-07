@@ -33,6 +33,18 @@ the filled-in list (names, contacts) **outside this repo**.
 Which message: `offer-instructor.md` for a person, `offer-club.md` for a club or range, and
 `offer-short.md` where only a short message fits (a contact form, a social-media message).
 
+## What the replies should tell us
+
+- **Falsifier.** Instructors may already use another tool, or not want learner progress at all
+  (many teach one-day courses). Every draft therefore asks how their candidates prepare now; a
+  reply counts even without a class. Two or more "one-day course, no prep needed" or "we use X"
+  answers out of the replies is a reason to stop early, whatever the counts say.
+- **Price.** The drafts say free and name no price. The market anchor, from driving schools: Nauč
+  se řídit charges a school 500 Kč a month or 5,000 Kč a year for a teacher zone, with pupils free
+  (naucseridit.cz, seen 7 Nov 2026); eTesty pro autoškoly also shows schools their pupils'
+  results. No instructor-facing trainer for the new firearms bank (Act 90/2024) was found.
+  Whether to charge after a free month is Pavol's call.
+
 ## How the test is read (stop rule, PRD §5.4)
 
 - Start: the day Pavol sends the offers. End: 14 days later.
