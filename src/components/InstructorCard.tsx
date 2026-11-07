@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { track } from '@/analytics'
 import { buildSummary, formatCode, parseCode, summaryLink } from '@/domain/classroom'
 import type { ProgressData } from '@/domain/progress'
+import type { DailyState } from '@/domain/daily'
+import { todayStr } from '@/lib/date'
 import { loadLearnerClass, saveLearnerClass, type LearnerClass } from '@/domain/storage'
 import { clearPendingJoinCode, pendingJoinCode } from '@/lib/joinParam'
 
@@ -22,7 +24,15 @@ const primary =
  * Test C (2026-11-07): the learner's side of the class code. Join with the instructor's code, then
  * send a summary of where you stand as a link. Nothing is uploaded: the link carries the summary.
  */
-export function InstructorCard({ progress, origin }: { progress: ProgressData; origin: string }) {
+export function InstructorCard({
+  progress,
+  origin,
+  daily,
+}: {
+  progress: ProgressData
+  origin: string
+  daily?: DailyState
+}) {
   const [joined, setJoined] = useState<LearnerClass | null>(loadLearnerClass)
   const pending = pendingJoinCode()
   const [editing, setEditing] = useState(joined === null || pending !== null)
@@ -48,7 +58,10 @@ export function InstructorCard({ progress, origin }: { progress: ProgressData; o
 
   const send = async () => {
     if (!joined) return
-    const url = summaryLink(origin, buildSummary(progress, joined, Date.now()))
+    const url = summaryLink(
+      origin,
+      buildSummary(progress, joined, Date.now(), daily ? { daily, today: todayStr() } : undefined),
+    )
     setLink(url)
     setCopied(false)
     track('key_action', { kind: 'class_send', class: joined.code })

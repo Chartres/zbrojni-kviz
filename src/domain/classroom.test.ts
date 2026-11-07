@@ -115,3 +115,19 @@ describe('review fixes', () => {
     expect(normalizeClass({ code: 'nope', learners: {} })).toBeNull()
   })
 })
+
+describe('Otázka dne in the summary (test D, ranking route 1: within a class, no shared data)', () => {
+  it('carries the last 7 days answered and correct when the learner takes part', async () => {
+    const { emptyDaily, recordDaily } = await import('./daily')
+    let d = { ...emptyDaily(), optedIn: true }
+    d = recordDaily(d, '2026-11-06', true)
+    d = recordDaily(d, '2026-11-07', false)
+    const now = Date.UTC(2026, 10, 7, 12)
+    const s = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'A', id: 'l-1' }, now, { daily: d, today: '2026-11-07' })
+    expect(s.q).toEqual({ a: 2, c: 1 })
+    expect(decodeSummary(encodeSummary(s))).toEqual(s)
+    const off = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'A', id: 'l-1' }, now, { daily: emptyDaily(), today: '2026-11-07' })
+    expect(off.q).toBeUndefined()
+    expect(decodeSummary(encodeSummary({ ...s, q: { a: 9, c: 1 } }))).toBeNull()
+  })
+})

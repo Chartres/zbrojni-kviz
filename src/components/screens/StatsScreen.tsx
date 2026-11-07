@@ -59,7 +59,7 @@ export function StatsScreen() {
 
       <ReadinessCard progress={state.progress} />
 
-      <InstructorCard progress={state.progress} origin={window.location.origin} />
+      <InstructorCard progress={state.progress} daily={state.daily} origin={window.location.origin} />
 
       <h2 className="mb-3 font-mono text-xs font-medium uppercase tracking-[0.2em] text-steel-400">
         Pokrok podle okruhů

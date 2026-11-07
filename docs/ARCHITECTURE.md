@@ -33,6 +33,7 @@ e2e/             Playwright persona journeys at 390 px
 | `zbrojni-kviz:reading-aid` | "Zvýraznit rozdíly" switch | no |
 | `zbrojni-kviz:class:v1` | test C, learner: class code, chosen name, random learner id | no |
 | `zbrojni-kviz:instructor:v1` | test C, instructor: classes and the learner summaries received | no |
+| `zbrojni-kviz:daily:v1` | test D, Otázka dne: opt-in, first answer per day (last 31 days), daily streak | no |
 | `fw:vid` / `fw:sid` (session) | anonymous analytics ids | no |
 
 Every answer is recorded into progress the moment it is given (quiz-rounds standard). The mock
@@ -41,7 +42,8 @@ exam keeps answers but records an attempt only when finished or timed out.
 ## Views
 
 One reducer (`src/app/store.ts`) drives the views: tabs `home | practice | stats | guide` and the
-flows `quiz | exam | results`. Boot paths: `/okruh/<slug>/` starts that okruh's practice;
+flows `quiz | exam | results`. Modes include `daily` (Otázka dne: one question, ends back home,
+updates `state.daily`, not the lesson streak). Boot paths: `/okruh/<slug>/` starts that okruh's practice;
 `/?trida=CODE` prefills a class code (kept in sessionStorage until saved, then stripped from the
 address); `/instruktor/` renders the instructor page outside the tabs (`InstructorScreen`).
 
@@ -54,6 +56,16 @@ exams) is JSON → UTF-8 → base64url, prefixed `z1.`, and carried in the URL f
 validates it and adds it to the matching class (newer summary per learner wins). A summary for a
 class not on that device can be taken over there. Events: `key_action` `class_create {class, ref}`,
 `class_join {class, via}`, `class_send {class}`, `class_receive {class, learners}`.
+
+## Otázka dne (test D, `src/domain/daily.ts`)
+
+The bank in a fixed shuffled order (seeded), indexed by days since 2026-11-07, so everyone gets the
+same question on a day and none repeats for 837 days. The first answer of a day counts: it is
+recorded in progress like any answer and in the daily state; the streak is consecutive days and
+resets quietly after a missed day. Events: `key_action` `qotd_optin`, `qotd_optout`,
+`qotd_answer {day, correct, streak}`. A learner who takes part sends their last 7 days
+(`Summary.q`) with "Poslat instruktorovi", and the instructor page can order a class by it
+(ranking route 1, PRD §5.4). No shared data beyond that.
 
 ## Build and deploy
 

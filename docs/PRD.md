@@ -148,7 +148,7 @@ Routes, cheapest first:
 
 | route | how | needs Pavol |
 |---|---|---|
-| 1. In the class | Learners' summaries already carry their last 7 days of Otázka dne; the instructor page sorts by it. Ranking among one class only. | nothing (built with test C) |
+| 1. In the class | Learners' summaries carry their last 7 days of Otázka dne; the instructor page can order the class by it. Ranking among one class only. | nothing (built with test D) |
 | 2. Nightly static JSON | Opted-in learners pick a nickname; `key_action {kind:'qotd_answer', day, correct, nick}` carries it; the nightly KPI job reads the events table, keeps the first answer per visitor per day, and publishes `ranking.json` (nickname, days, correct) to the site. | OK to store a chosen nickname in the shared events table and to publish it; a change to the nightly job in flywheel. No new table, no new event name. Forgery risk: the events insert is anonymous, so a determined user can inflate a score. |
 | 3. A Supabase table | `qotd_answers` with RLS (one row per user per day) and a ranking view; sign-in required. | a new table and policy, and sign-in for participants |
 

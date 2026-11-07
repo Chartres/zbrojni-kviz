@@ -126,3 +126,25 @@ describe('instructor page, review fixes', () => {
     expect(Object.keys(loadInstructorClasses()[0].learners)).toEqual(['l-7'])
   })
 })
+
+describe('instructor page: Otázka dne in the class', () => {
+  it('shows each learner\'s last 7 days and can order the class by it', async () => {
+    const { emptyDaily, recordDaily } = await import('@/domain/daily')
+    const { addToClass } = await import('@/domain/classroom')
+    let room: import('@/domain/classroom').ClassRoom = { code: 'K7QM2D', label: '', ref: null, createdAt: 1, learners: {} }
+    const mk = (name: string, id: string, days: string[]) => {
+      let d = { ...emptyDaily(), optedIn: true }
+      for (const day of days) d = recordDaily(d, day, true)
+      return buildSummary(emptyProgress(), { code: 'K7QM2D', name, id }, 10, { daily: d, today: '2026-11-07' })
+    }
+    room = addToClass(room, mk('Adam', 'l-a', ['2026-11-07']), 20)
+    room = addToClass(room, mk('Zuzana', 'l-z', ['2026-11-05', '2026-11-06', '2026-11-07']), 20)
+    saveInstructorClasses([room])
+    render(<InstructorScreen origin={ORIGIN} />)
+    const names = () => within(screen.getByRole('list', { name: 'Žáci třídy K7Q-M2D' })).getAllByTestId('learner-name').map((n) => n.textContent)
+    expect(names()).toEqual(['Adam', 'Zuzana'])
+    expect(screen.getAllByText(/Otázka dne \(7 dní\)/).length).toBe(2)
+    fireEvent.click(screen.getByRole('button', { name: 'Řadit podle Otázky dne' }))
+    expect(names()).toEqual(['Zuzana', 'Adam'])
+  })
+})
