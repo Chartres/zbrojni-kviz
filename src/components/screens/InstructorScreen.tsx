@@ -57,6 +57,7 @@ export function InstructorScreen({ origin }: { origin: string }) {
   const [paste, setPaste] = useState('')
   const [status, setStatus] = useState('')
   const [foreign, setForeign] = useState<Summary | null>(null)
+  const [byDaily, setByDaily] = useState(false)
   const ref = useMemo(refFromAddress, [])
 
   const store = (next: ClassRoom[]) => {
@@ -142,7 +143,11 @@ export function InstructorScreen({ origin }: { origin: string }) {
       )}
 
       {classes.map((room) => {
-        const learners = Object.values(room.learners).sort((a, b) => a.n.localeCompare(b.n, 'cs'))
+        const byName = (a: Summary, b: Summary) => a.n.localeCompare(b.n, 'cs')
+        // Ranking route 1 (PRD §5.4): within this class only, from what learners sent.
+        const daily = (s: Summary) => (s.q ? s.q.a * 10 + s.q.c : -1)
+        const learners = Object.values(room.learners).sort((a, b) => (byDaily ? daily(b) - daily(a) : 0) || byName(a, b))
+        const anyDaily = learners.some((s) => s.q)
         const link = joinLink(origin, room.code)
         return (
           <section key={room.code} aria-label={`Třída ${formatCode(room.code)}`} className="mt-6 rounded-card border border-steel-700 bg-steel-800/40 p-4">
@@ -169,11 +174,21 @@ export function InstructorScreen({ origin }: { origin: string }) {
               <p className="mt-1 text-sm text-steel-400">Zatím nikdo. Souhrny přibudou, až vám žáci pošlou odkaz.</p>
             ) : (
               <>
+                {anyDaily && (
+                  <button
+                    type="button"
+                    aria-pressed={byDaily}
+                    className="mt-2 min-h-11 font-mono text-xs uppercase tracking-[0.12em] text-steel-400 hover:text-brass-300"
+                    onClick={() => setByDaily((v) => !v)}
+                  >
+                    Řadit podle Otázky dne
+                  </button>
+                )}
                 <ul aria-label={`Žáci třídy ${formatCode(room.code)}`} className="mt-2 divide-y divide-steel-700/70">
                   {learners.map((s) => (
                     <li key={s.i} className="py-3">
                       <div className="flex items-baseline justify-between gap-3">
-                        <span className="min-w-0 break-words font-medium text-steel-100 [overflow-wrap:anywhere]">{s.n}</span>
+                        <span data-testid="learner-name" className="min-w-0 break-words font-medium text-steel-100 [overflow-wrap:anywhere]">{s.n}</span>
                         <span className="font-mono text-xs tabular-nums text-steel-500">{day(s.t)}</span>
                       </div>
                       <dl className="mt-1 grid grid-cols-2 gap-x-3 gap-y-1 text-sm">
@@ -183,6 +198,14 @@ export function InstructorScreen({ origin }: { origin: string }) {
                         <dd className="font-mono tabular-nums text-brass-300">{s.ok ? `${s.p26} % · ${s.p28} %` : '—'}</dd>
                         <dt className="text-steel-400">Nejslabší část</dt>
                         <dd className="text-steel-200">{weakest(s)}</dd>
+                        {s.q && (
+                          <>
+                            <dt className="text-steel-400">Otázka dne (7 dní)</dt>
+                            <dd className="font-mono tabular-nums text-steel-200">
+                              {s.q.a}/7 · správně {s.q.c}
+                            </dd>
+                          </>
+                        )}
                         <dt className="text-steel-400">Poslední test</dt>
                         <dd className="font-mono tabular-nums text-steel-200">
                           {s.e[0] ? `${s.e[0][1]}/${s.e[0][2]} ${s.e[0][3] ? 'prospěl(a)' : 'neprospěl(a)'}` : '—'}

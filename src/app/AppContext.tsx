@@ -13,9 +13,12 @@ import {
   loadRounds,
   OWNER_KEY,
   ROUNDS_KEY,
+  DAILY_KEY,
   saveOwner,
   saveProgress,
   saveRounds,
+  loadDaily,
+  saveDaily,
   STORAGE_KEY,
 } from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
@@ -54,6 +57,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     dispatch({ type: 'hydrate', progress: loadProgress() })
     dispatch({ type: 'hydrateRounds', rounds: loadRounds() })
+    dispatch({ type: 'hydrateDaily', daily: loadDaily() })
     // Test C: an instructor's join link (/?trida=CODE) prefills the class code on Postup.
     takeJoinCode()
     // SEO topic page (/okruh/<slug>/): start that okruh's practice directly.
@@ -102,10 +106,25 @@ export function AppProvider({ children }: { children: ReactNode }) {
     saveRounds(state.rounds)
   }, [state.rounds])
 
+  // Otázka dne state on this device (test D). First render skipped, as above.
+  const dailyInitialized = useRef(false)
+  useEffect(() => {
+    if (!dailyInitialized.current) {
+      dailyInitialized.current = true
+      return
+    }
+    saveDaily(state.daily)
+  }, [state.daily])
+
   // Another tab or the installed PWA window saved: merge its progress in, so the
   // next local save does not overwrite its answers.
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
+      if (e.key === DAILY_KEY) {
+        // Another tab answered or switched Otázka dne: adopt it, so the day is not answered twice.
+        if (loadOwner() === ownerRef.current) dispatch({ type: 'hydrateDaily', daily: loadDaily() })
+        return
+      }
       if (e.key === ROUNDS_KEY) {
         // Another tab left or finished a round. Adopt the stored set (it already holds ours,
         // since every tab adopts on each change), so neither tab overwrites the other's.

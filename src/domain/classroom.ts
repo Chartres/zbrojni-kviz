@@ -8,6 +8,7 @@ import { readiness } from './readiness'
 import { masteredCount, answeredCount, isMastered, statFor, type ProgressData } from './progress'
 import type { ExamGroup } from './types'
 import type { Rng } from './rng'
+import { recentDays, type DailyState } from './daily'
 
 /** No 0/O, 1/I/L: a code read aloud or copied by hand stays unambiguous. */
 const ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'
@@ -64,6 +65,8 @@ export interface Summary {
   p28: number
   ok: boolean
   e: ExamRow[]
+  /** Otázka dne in the last 7 days (answered, correct), when the learner takes part (test D). */
+  q?: { a: number; c: number }
 }
 
 export interface LearnerRef {
@@ -74,9 +77,16 @@ export interface LearnerRef {
 
 const pct = (x: number) => Math.round(x * 100)
 
-export function buildSummary(progress: ProgressData, who: LearnerRef, now: number): Summary {
+export function buildSummary(
+  progress: ProgressData,
+  who: LearnerRef,
+  now: number,
+  qotd?: { daily: DailyState; today: string },
+): Summary {
   const rd = readiness(progress)
+  const q = qotd && qotd.daily.optedIn ? recentDays(qotd.daily, qotd.today) : null
   return {
+    ...(q ? { q: { a: q.answered, c: q.correct } } : {}),
     v: 1,
     c: who.code,
     n: who.name.trim().slice(0, MAX_NAME),
@@ -136,7 +146,9 @@ function valid(s: Summary): boolean {
     Array.isArray(s.r) && s.r.length === GROUPS.length &&
     s.r.every((r, k) => r && r.g === GROUPS[k] && isNum(r.seen) && isNum(r.total) && isNum(r.mastered) && isPct(r.ch)) &&
     Array.isArray(s.e) && s.e.length <= 5 &&
-    s.e.every((x) => Array.isArray(x) && x.length === 4 && x.every(isNum))
+    s.e.every((x) => Array.isArray(x) && x.length === 4 && x.every(isNum)) &&
+    (s.q === undefined ||
+      (s.q && Number.isInteger(s.q.a) && Number.isInteger(s.q.c) && s.q.a >= 0 && s.q.a <= 7 && s.q.c >= 0 && s.q.c <= s.q.a))
   )
 }
 

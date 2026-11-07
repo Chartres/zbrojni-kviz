@@ -31,6 +31,8 @@ import { buildLesson, isFoundationPhase } from '@/domain/lesson'
 import { caseBySlug } from '@/domain/cases'
 import { ALL_QUESTIONS } from '@/domain/questions'
 import { shuffle } from '@/domain/rng'
+import { answeredOn, dailyQuestionId, emptyDaily, recordDaily, type DailyState } from '@/domain/daily'
+import { getQuestion } from '@/domain/questions'
 import {
   restoreSession,
   roundKey,
@@ -42,7 +44,7 @@ import {
 // Bottom-tab destinations (persistent nav) + focused full-screen flows.
 export type TabView = 'home' | 'practice' | 'stats' | 'guide'
 export type View = TabView | 'quiz' | 'exam' | 'results'
-export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam' | 'lesson' | 'weakDrill' | 'case'
+export type Mode = 'practice' | 'review' | 'bookmarks' | 'exam' | 'lesson' | 'weakDrill' | 'case' | 'daily'
 
 export const TAB_VIEWS: TabView[] = ['home', 'practice', 'stats', 'guide']
 export function isTabView(v: View): v is TabView {
@@ -62,6 +64,10 @@ export interface AppState {
   progress: ProgressData
   /** Unfinished lesson and cases on this device, to resume (round.ts). */
   rounds: Rounds
+  /** Otázka dne: opt-in, answers by day and the daily streak (device only). */
+  daily: DailyState
+  /** The day whose question the running daily round serves. */
+  dailyDay: string | null
   selectedCategories: Set<CategoryName>
   search: string
 }
@@ -77,6 +83,8 @@ export function initialState(): AppState {
     foundation: false,
     progress: emptyProgress(),
     rounds: {},
+    daily: emptyDaily(),
+    dailyDay: null,
     selectedCategories: new Set(),
     search: '',
   }
@@ -86,6 +94,9 @@ export type Action =
   | { type: 'hydrate'; progress: ProgressData }
   | { type: 'mergeIn'; progress: ProgressData }
   | { type: 'hydrateRounds'; rounds: Rounds }
+  | { type: 'hydrateDaily'; daily: DailyState }
+  | { type: 'setDailyOptIn'; on: boolean }
+  | { type: 'startDaily'; day: string }
   | { type: 'setCategories'; categories: Set<CategoryName> }
   | { type: 'setSearch'; search: string }
   | { type: 'startLesson'; rng: Rng }
@@ -121,6 +132,7 @@ function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
     examResult: null,
     caseSlug: null,
     foundation: false,
+    dailyDay: null,
     view: mode === 'exam' ? 'exam' : 'quiz',
   }
 }
@@ -171,6 +183,20 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'hydrateRounds':
       return { ...state, rounds: action.rounds }
+
+    case 'hydrateDaily':
+      return { ...state, daily: action.daily }
+
+    case 'setDailyOptIn':
+      return { ...state, daily: { ...state.daily, optedIn: action.on } }
+
+    case 'startDaily': {
+      // Otázka dne: the same question for everyone today; one answer a day counts.
+      if (!state.daily.optedIn || answeredOn(state.daily, action.day)) return state
+      const q = getQuestion(dailyQuestionId(action.day))
+      if (!q) return state
+      return { ...begin(state, 'daily', [q]), dailyDay: action.day }
+    }
 
     case 'setCategories':
       return { ...state, selectedCategories: action.categories }
@@ -252,12 +278,20 @@ export function reducer(state: AppState, action: Action): AppState {
         session,
         progress: recordAnswer(state.progress, cur.id, correct, action.now),
         rounds: key && snap ? { ...state.rounds, [key]: snap } : state.rounds,
+        daily:
+          state.mode === 'daily' && state.dailyDay
+            ? recordDaily(state.daily, state.dailyDay, correct)
+            : state.daily,
       }
     }
 
     case 'next': {
       if (!state.session) return state
       const session = advance(state.session)
+      // Otázka dne ends back home, where its card shows the result and the streak.
+      if (isFinished(session) && state.mode === 'daily') {
+        return { ...state, session: null, mode: null, dailyDay: null, view: 'home' }
+      }
       if (isFinished(session)) {
         const examResult = state.mode === 'exam' ? evaluateExam(session) : null
         let progress = state.progress
