@@ -95,3 +95,23 @@ describe('the instructor class', () => {
     expect(addToClass(room, other, 1)).toBe(room)
   })
 })
+
+describe('review fixes', () => {
+  it('a summary from a clock far ahead is pinned to now, so a later one still replaces it', async () => {
+    const { addToClass: add } = await import('./classroom')
+    const room = { code: 'K7QM2D', label: '', ref: null, createdAt: 1, learners: {} }
+    const future = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'X', id: 'l-9' }, 9e15)
+    const r = add(room, future, 1000)
+    expect(r.learners['l-9'].t).toBe(1000)
+    const later = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'X', id: 'l-9' }, 2000)
+    expect(add(r, later, 2000).learners['l-9'].t).toBe(2000)
+  })
+
+  it('a corrupt learner entry in storage is dropped, not fatal', async () => {
+    const { normalizeClass } = await import('./classroom')
+    const ok = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'A', id: 'l-1' }, 1)
+    const c = normalizeClass({ code: 'K7QM2D', label: 'x', ref: null, createdAt: 1, learners: { 'l-1': { ...ok, received: 1 }, bad: { n: 1 } } })!
+    expect(Object.keys(c.learners)).toEqual(['l-1'])
+    expect(normalizeClass({ code: 'nope', learners: {} })).toBeNull()
+  })
+})

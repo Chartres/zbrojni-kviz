@@ -110,3 +110,19 @@ describe('instructor page', () => {
     expect(screen.queryByRole('navigation', { name: 'Hlavní navigace' })).toBeNull()
   })
 })
+
+describe('instructor page, review fixes', () => {
+  it('a second learner link opened in the same tab (fragment change only) is still received', async () => {
+    const { act } = await import('@testing-library/react')
+    saveInstructorClasses([{ code: 'K7QM2D', label: '', ref: null, createdAt: 1, learners: {} }])
+    window.history.replaceState(null, '', '/instruktor/')
+    render(<InstructorScreen origin={ORIGIN} />)
+    const s = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'Druhý', id: 'l-7' }, 5)
+    act(() => {
+      window.history.replaceState(null, '', summaryLink('', s))
+      window.dispatchEvent(new HashChangeEvent('hashchange'))
+    })
+    expect(screen.getByRole('status').textContent).toMatch(/Druhý/)
+    expect(Object.keys(loadInstructorClasses()[0].learners)).toEqual(['l-7'])
+  })
+})

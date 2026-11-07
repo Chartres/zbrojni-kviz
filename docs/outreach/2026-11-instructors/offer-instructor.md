@@ -14,7 +14,8 @@ Nově v něm je něco pro instruktory, a rád bych vám to nabídl zdarma:
 - Žákům pošlete odkaz. Trénují v aplikaci jako dosud, bez registrace.
 - Když chtějí, pošlou vám tlačítkem „Poslat instruktorovi“ souhrn: jak jsou na tom v každé
   části testu, odhad šance složit test (26 i 28 správných z 30) a výsledky testů nanečisto.
-- Souhrny se ukládají jen ve vašem telefonu. Nikde se nenahrávají a já je nevidím.
+- Souhrny se ukládají jen ve vašem telefonu, na žádný server. Já je nevidím; vidím jen
+  anonymní počty (že třída vznikla a kolik souhrnů přišlo).
 
 Je to celé zdarma, bez účtů a bez reklam. Jde mi o to, jestli instruktorům takový přehled
 pomůže. Pokud to vyzkoušíte s jedním kurzem, budu rád za jakoukoli zpětnou vazbu, i kritickou.

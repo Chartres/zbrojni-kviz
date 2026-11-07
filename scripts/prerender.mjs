@@ -163,6 +163,8 @@ writeFileSync(
   `${root}dist/instruktor/index.html`,
   template
     .replace(/<title>[^<]*<\/title>/, '<title>Pro instruktory — Zbrojní kvíz</title>')
+    .replace(/\s*<link rel="canonical"[^>]*>/, '')
+    .replace(/\s*<meta property="og:url"[^>]*>/, '')
     .replace('</head>', '    <meta name="robots" content="noindex" />\n  </head>'),
 )
 

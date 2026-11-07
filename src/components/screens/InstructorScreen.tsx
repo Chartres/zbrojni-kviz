@@ -87,13 +87,18 @@ export function InstructorScreen({ origin }: { origin: string }) {
     if (updated !== room) track('key_action', { kind: 'class_receive', class: s.c, learners: Object.keys(updated.learners).length })
   }
 
-  // A learner's link opened on this device: take the summary from the fragment once, then clean the address.
+  // A learner's link opened on this device: take the summary from the fragment, then clean the
+  // address. Also when the page is already open and only the fragment changes (same tab, installed app).
   useEffect(() => {
-    if (window.location.hash.length > 1) {
-      receive(summaryFromText(window.location.hash), classes)
+    const take = () => {
+      if (window.location.hash.length <= 1) return
+      const hash = window.location.hash
       clearHash()
+      receive(summaryFromText(hash), loadInstructorClasses())
     }
-    // run once on arrival
+    take()
+    window.addEventListener('hashchange', take)
+    return () => window.removeEventListener('hashchange', take)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -119,7 +124,12 @@ export function InstructorScreen({ origin }: { origin: string }) {
         Zdarma pro instruktory a kluby. Vytvořte kód třídy a pošlete žákům odkaz. Žáci trénují ve
         Zbrojním kvízu a tlačítkem „Poslat instruktorovi“ vám pošlou, jak jsou připravení: po částech
         testu, odhad šance uspět a výsledky testů nanečisto. Bez účtů. Souhrny se ukládají jen v tomto
-        zařízení; my je nevidíme.
+        zařízení; my je nevidíme (vidíme jen anonymní počty: že třída vznikla a kolik souhrnů přišlo).
+      </p>
+      <p className="mt-2 text-xs leading-relaxed text-steel-400">
+        Odkazy od žáků otevírejte vždy ve stejném prohlížeči (ne v okně uvnitř WhatsAppu nebo
+        Messengeru), jinak třídu neuvidí. Prohlížeč může data webu po delší nečinnosti smazat; stránku
+        proto otevírejte aspoň jednou týdně.
       </p>
 
       <p role="status" className="mt-4 min-h-[1.25rem] text-sm text-brass-300">
@@ -163,12 +173,12 @@ export function InstructorScreen({ origin }: { origin: string }) {
                   {learners.map((s) => (
                     <li key={s.i} className="py-3">
                       <div className="flex items-baseline justify-between gap-3">
-                        <span className="font-medium text-steel-100">{s.n}</span>
+                        <span className="min-w-0 break-words font-medium text-steel-100 [overflow-wrap:anywhere]">{s.n}</span>
                         <span className="font-mono text-xs tabular-nums text-steel-500">{day(s.t)}</span>
                       </div>
                       <dl className="mt-1 grid grid-cols-2 gap-x-3 gap-y-1 text-sm">
                         <dt className="text-steel-400">Procvičeno</dt>
-                        <dd className="font-mono tabular-nums text-steel-200">{s.answered} / 837</dd>
+                        <dd className="font-mono tabular-nums text-steel-200">{s.answered} / {s.r.reduce((n, r) => n + r.total, 0)}</dd>
                         <dt className="text-steel-400">Šance 26/30 · 28/30</dt>
                         <dd className="font-mono tabular-nums text-brass-300">{s.ok ? `${s.p26} % · ${s.p28} %` : '—'}</dd>
                         <dt className="text-steel-400">Nejslabší část</dt>

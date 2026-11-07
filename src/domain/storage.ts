@@ -1,6 +1,6 @@
 import { emptyProgress, normalizeProgress, type ProgressData } from './progress'
 import { normalizeRounds, type Rounds } from './round'
-import type { ClassRoom } from './classroom'
+import { normalizeClass, type ClassRoom } from './classroom'
 
 export const STORAGE_KEY = 'zbrojni-kviz:progress:v1'
 /** Id of the account the local progress belongs to (survives reloads and sign-out). */
@@ -134,7 +134,7 @@ export function loadInstructorClasses(): ClassRoom[] {
     const raw = storage()?.getItem(INSTRUCTOR_KEY)
     const v = raw ? (JSON.parse(raw) as { classes?: unknown }) : null
     return Array.isArray(v?.classes)
-      ? (v.classes as ClassRoom[]).filter((c) => c && typeof c.code === 'string' && c.learners && typeof c.learners === 'object')
+      ? v.classes.map(normalizeClass).filter((c): c is ClassRoom => c !== null)
       : []
   } catch {
     return []

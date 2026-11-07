@@ -177,9 +177,29 @@ export interface ClassRoom {
   learners: Record<string, Summary & { received: number }>
 }
 
+/** A stored class as read back from the device: drops learner entries that are not valid summaries. */
+export function normalizeClass(raw: unknown): ClassRoom | null {
+  const c = raw as Partial<ClassRoom> | null
+  if (!c || typeof c.code !== 'string' || parseCode(c.code) !== c.code || !c.learners || typeof c.learners !== 'object') return null
+  const learners: ClassRoom['learners'] = {}
+  for (const [id, v] of Object.entries(c.learners)) {
+    const s = v as Summary & { received: number }
+    if (s && valid(s) && s.c === c.code && s.i === id) learners[id] = { ...s, received: Number(s.received) || s.t }
+  }
+  return {
+    code: c.code,
+    label: typeof c.label === 'string' ? c.label.slice(0, 60) : '',
+    ref: typeof c.ref === 'string' ? c.ref : null,
+    createdAt: Number(c.createdAt) || 0,
+    learners,
+  }
+}
+
 /** Add or update a learner; an older summary never replaces a newer one. Other classes' summaries are ignored. */
 export function addToClass(room: ClassRoom, s: Summary, now: number): ClassRoom {
   if (s.c !== room.code) return room
+  // A clock far ahead (or a forged time) must not pin an entry forever: no later than a day from now.
+  if (s.t > now + 86_400_000) s = { ...s, t: now }
   const had = room.learners[s.i]
   if (had && had.t >= s.t) return room
   return { ...room, learners: { ...room.learners, [s.i]: { ...s, received: now } } }

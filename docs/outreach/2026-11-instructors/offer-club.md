@@ -17,7 +17,8 @@ Pro kluby a střelnice, které vedou kurzy, je v něm nově přehled pro instruk
 3. Před kurzem nebo zkouškou pošlou instruktorovi souhrn: připravenost po částech testu, odhad
    šance uspět a výsledky testů nanečisto. Instruktor hned vidí, komu co chybí.
 
-Bez účtů, bez reklam, zdarma. Souhrny zůstávají v zařízení instruktora; nikam se nenahrávají.
+Bez účtů, bez reklam, zdarma. Souhrny zůstávají v zařízení instruktora, na žádný server se neukládají; autor vidí jen
+anonymní počty.
 
 Pokud byste to chtěli vyzkoušet s nejbližším kurzem, stačí otevřít odkaz výše. Rád odpovím na
 dotazy a uvítám, co by vám v přehledu chybělo.

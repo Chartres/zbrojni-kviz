@@ -73,7 +73,7 @@ export function InstructorCard({ progress, origin }: { progress: ProgressData; o
         <>
           <p className="mt-1 mb-3 text-sm text-steel-400">
             Chodíte na kurz? Zadejte kód třídy od instruktora. Pak mu můžete jedním tlačítkem poslat,
-            jak jste na tom. Posíláte jen odkaz; nic se nikam nenahrává.
+            jak jste na tom. Souhrn je v odkazu, který pošlete sami; na náš server se neukládá.
           </p>
           <label className="mb-3 block">
             <span className="mb-1 block text-sm text-steel-300">Kód třídy od instruktora</span>
