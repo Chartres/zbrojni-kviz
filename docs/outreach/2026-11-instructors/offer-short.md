@@ -4,4 +4,5 @@ Dobrý den, dělám bezplatný trenažér oficiálních testových otázek ke zb
 (zbrojnikviz.dravec.org). Nově umí přehled pro instruktory: vytvoříte si kód třídy, žáci vám
 jedním tlačítkem pošlou, jak jsou připravení po částech testu a jak jim jdou testy nanečisto.
 Zdarma, bez účtů, souhrny zůstávají ve vašem telefonu. Vyzkoušejte s jedním kurzem:
-https://zbrojnikviz.dravec.org/instruktor/?ref=[kNN] · Pavol [příjmení]
+https://zbrojnikviz.dravec.org/instruktor/?ref=[kNN] · A jak se vaši uchazeči připravují teď?
+Pavol [příjmení]

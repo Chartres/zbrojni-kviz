@@ -23,6 +23,9 @@ anonymní počty.
 Pokud byste to chtěli vyzkoušet s nejbližším kurzem, stačí otevřít odkaz výše. Rád odpovím na
 dotazy a uvítám, co by vám v přehledu chybělo.
 
+Zajímá mě i odpověď, kdybyste to zkoušet nechtěli: jak se u vás uchazeči na test připravují
+teď? Nějakou aplikací nebo webem, nebo stačí kurz?
+
 Je to neoficiální studijní pomůcka, ne zkouška a ne produkt ministerstva.
 
 S pozdravem
