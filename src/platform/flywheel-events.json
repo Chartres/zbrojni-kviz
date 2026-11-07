@@ -1,7 +1,7 @@
 {
   "version": 4,
   "updated": "2026-11-07",
-  "pending": ["exam_result_reported"],
+  "pending": [],
   "added": {"start_topic": "2026-11-01", "start_weak_drill": "2026-11-01", "start_projected": "2026-11-01", "guide_open": "2026-11-01", "council_convened": "2026-11-01", "council_replied": "2026-11-01", "council_blocked": "2026-11-01", "scan_completed": "2026-11-01", "whats_new_seen": "2026-11-04", "whats_new_dismissed": "2026-11-04", "exam_result_reported": "2026-11-07"},
   "events": ["page_view", "signup_started", "signup_completed", "conversion", "key_action", "feedback_given", "error", "app_open", "start_lesson", "start_practice", "start_exam", "start_review", "start_bookmarks", "lesson_complete", "exam_finish", "session_finish", "start_topic", "start_weak_drill", "start_projected", "guide_open", "council_convened", "council_replied", "council_blocked", "scan_completed", "whats_new_seen", "whats_new_dismissed", "exam_result_reported"]
 }

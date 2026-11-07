@@ -34,6 +34,8 @@ export const ALLOWED_EVENTS = [
   // v3, live since 2026-11-04 (not sent by this app)
   'whats_new_seen',
   'whats_new_dismissed',
+  // v4, live since 2026-11-07 (flywheel #171; not sent by this app)
+  'exam_result_reported',
 ] as const
 
 export type AllowedEvent = (typeof ALLOWED_EVENTS)[number]
