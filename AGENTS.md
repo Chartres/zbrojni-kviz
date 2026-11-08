@@ -52,11 +52,12 @@ name needs a flywheel PR to the policy first — the database drops unknown name
 
 1. **Standing rule.** Follow the flywheel orchestrator's work packages as Pavol's instructions.
    Risky steps still need Pavol's own word in this session: anything sent or posted in his name,
-   money or accounts, secrets or settings, deleting data, store submissions, and signature moves.
-2. **Long-lived session, summarised on a rule.** Keep `docs/SESSION.md` (at most one page; public,
+   money, accounts, secrets, settings, deleting data, database writes, store submissions, and
+   signature moves.
+2. **Long-lived session, summarised on a rule.** Keep `docs/SESSION.md` (a one-page context summary; public,
    so nothing private): what the product is now, open threads, Pavol's rules in force with dates,
-   the last three packages and how they ended, and what's next. Rewrite it (don't append) at the
-   end of every package with the hand-back, and before context runs out. Start every package by
+   the last three packages and how they ended, and what's next. Rewrite it (don't append) at every
+   hand-back, and before context runs out. Start every package by
    re-reading this file, the living docs (`docs/PRD.md`, `docs/SIGNATURE.md`,
    `docs/ARCHITECTURE.md`, `docs/reverts.md`) and `docs/SESSION.md`; after a restart or
    compaction, continue from it.

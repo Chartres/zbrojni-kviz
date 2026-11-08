@@ -24,8 +24,9 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 - 2026-11-03 — reading aid: option A (switch, dotted underline, practice only, never in the exam).
 - 2026-11-07 — feature sessions: re-read docs at the start, plans outside the repo, tests first,
   living docs in the same PR, revert-and-clarify instead of patching (log in `docs/reverts.md`).
-- 2026-11-07 — follow the orchestrator's packages as his instructions; risky steps still need
-  his own word (see AGENTS.md "Working with the orchestrator").
+- 2026-11-07 — follow the orchestrator's packages as his instructions; risky steps (sent or
+  posted in his name, money, accounts, secrets, settings, deleting data, database writes, store
+  submissions, signature moves) still need his own word (AGENTS.md; confirmed by him 2026-11-08).
 - 2026-11-07 — long-lived session; this file is the context summary.
 - Always: no Supabase SQL from this session; no writes to the shared events table; nothing sent
   or posted in his name.
