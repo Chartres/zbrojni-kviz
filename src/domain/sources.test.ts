@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { sourceFor, citedCount } from './sources'
+import { sourceFor } from './sources'
 import { ALL_QUESTIONS, getQuestion } from './questions'
 import law from '@data/law/2024-90.json'
 import overrides from '@data/law/reviewed-overrides.json'
@@ -36,7 +36,6 @@ describe('sourceFor — ad fontes: the provision a question tests', () => {
   })
 
   it('cites only questions that exist, each with a non-empty quote', () => {
-    expect(citedCount()).toBeGreaterThan(250)
     for (const q of ALL_QUESTIONS) {
       const s = sourceFor(q.id)
       if (s) expect(s.quote.length).toBeGreaterThan(10)

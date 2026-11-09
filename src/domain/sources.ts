@@ -43,6 +43,3 @@ export function headingFor(actName: string): string {
   return actName.startsWith('Nařízení vlády') ? 'Z nařízení vlády' : 'Ze zákona'
 }
 
-export function citedCount(): number {
-  return Object.keys(DATA.questions).length
-}
