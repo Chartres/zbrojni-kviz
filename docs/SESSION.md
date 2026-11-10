@@ -1,7 +1,7 @@
 # Session summary — zbrojni-kviz
 
 One page, rewritten (not appended) at the end of every package and before context runs out.
-Public repo: nothing private here. Last rewritten 2026-11-07.
+Public repo: nothing private here. Last rewritten 2026-11-10.
 
 ## What the product is now
 
@@ -32,11 +32,13 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 
 ## Last three packages
 
-1. **2026-11-07 tests C and D** (#34 docs, #35 classes, #36 Otázka dne, #37 hand-back, #38
+1. **2026-11-10 sweep** (PR #43, draft/needs-human-review): 5 cycles, 10 fixes, 7 refactors.
+   Key fixes: account-switch state leakage (DAILY_KEY, CLASS_KEY, in-flight session), cross-tab
+   sync race breaking FOUNDER-CASES #9, pre-sign-in answers not reaching cloud. Tests: 343 → 351.
+   3 sweep-guard flags need human review before merge (see PR body).
+2. **2026-11-07 tests C and D** (#34 docs, #35 classes, #36 Otázka dne, #37 hand-back, #38
    outreach question): merged, CI green, live at 390 px. Hand-back `docs/review/2026-11-07.json`.
-2. **2026-11-03 reading aid A** (#32, #33): merged, live.
-3. **2026-11-03 allow-list v2** (#30, #31): merged; live check rests on flywheel #117 + daily
-   signal health (no probe row).
+3. **2026-11-03 reading aid A** (#32, #33): merged, live.
 
 ## Open threads
 
@@ -46,7 +48,9 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 - Test D day 14 = 2026-11-21: read `qotd_optin` / `qotd_answer` against the stop rule
   (30 opt-ins; 40 % still answering).
 - Weekly public ranking for Otázka dne: waits for Pavol's pick of a data route (PRD §5.4).
+- PR #43 (sweep): 3 sweep-guard flags need human eyes before merge.
 
 ## Next
 
-Instructor class export/import (one file); fix "1 otázek" plural on home; read test D on day 14.
+Review PR #43 sweep-guard flags; instructor class export/import (one file); fix "1 otázek" plural
+on home; read test D on day 14 (2026-11-21).
