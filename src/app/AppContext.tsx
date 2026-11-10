@@ -142,6 +142,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
         ownerRef.current = owner
         dispatch({ type: 'hydrate', progress: loadProgress() })
         dispatch({ type: 'hydrateRounds', rounds: loadRounds() })
+        dispatch({ type: 'hydrateDaily', daily: loadDaily() })
+        // Clear any in-flight session so B's answers don't land in A's round.
+        dispatch({ type: 'goMenu' })
       } else if (e.key === STORAGE_KEY) {
         const incoming = loadProgress()
         otherTabRef.current = JSON.stringify(incoming)
