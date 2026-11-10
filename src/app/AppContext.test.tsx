@@ -22,7 +22,6 @@ const baseAuth = {
   configured: true,
   loading: false,
   user: null as null | { id: string; email?: string },
-  signInWithGoogle: vi.fn(),
   signInWithEmail: vi.fn(),
   signOut: vi.fn(),
 }
