@@ -32,7 +32,11 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 
 ## Last three packages
 
-1. **2026-11-18 sweep** (PR #44, open): 5 Czech plural fixes (streak dní→dny for 2–4, otázka/otázky/otázek), `src/lib/czech.ts` helpers. 343/343 green, sweep-guard clean.
+1. **2026-11-18 night review of sweeps** — #25 merged (5 fixes; dropped the lesson-mix rounding
+   change, the sv-SE todayStr and a stale rng inline; CI pinned to ubuntu-24.04 because
+   ubuntu-latest 26.04 has no Playwright Chromium). #44 merged (Czech plurals; the helpers gave
+   "0 dny", fixed with a test). #43 rebased, left draft: one sweep-guard flag (founder case 10
+   test, additive) waits for Pavol; citedCount assertion and signInWithGoogle kept. Tests 343 → 348.
 2. **2026-11-07 tests C and D** (#34 docs, #35 classes, #36 Otázka dne, #37 hand-back, #38
    outreach question): merged, CI green, live at 390 px. Hand-back `docs/review/2026-11-07.json`.
 3. **2026-11-03 reading aid A** (#32, #33): merged, live.
@@ -48,4 +52,4 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 
 ## Next
 
-Merge PR #44; instructor class export/import (one file); read test D on day 14 (2026-11-21).
+Pavol: accept the founder-case-10 test in #43, then merge it; instructor class export/import (one file); read test D on day 14 (2026-11-21).
