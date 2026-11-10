@@ -45,14 +45,12 @@ export function buildLesson(
   size = LESSON_SIZE,
 ): Question[] {
   const used = new Set<number>()
-  const take = (q: Question | undefined) => {
-    if (q && !used.has(q.id)) {
-      used.add(q.id)
-      const twin = TWIN_OF.get(q.id)
-      if (twin !== undefined) used.add(twin)
-      return true
-    }
-    return false
+  const take = (q: Question) => {
+    if (used.has(q.id)) return false
+    used.add(q.id)
+    const twin = TWIN_OF.get(q.id)
+    if (twin !== undefined) used.add(twin)
+    return true
   }
 
   // 1) Review: due weak-spots, capped.
