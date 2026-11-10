@@ -4,6 +4,7 @@ import { AppProvider, useApp } from './AppContext'
 import { emptyProgress, mergeProgress, recordAnswer, type ProgressData } from '@/domain/progress'
 import { DAILY_KEY, CLASS_KEY, OWNER_KEY, saveProgress, saveDaily, saveLearnerClass, STORAGE_KEY } from '@/domain/storage'
 import { emptyDaily, recordDaily } from '@/domain/daily'
+import { makeRng } from '@/domain/rng'
 
 vi.mock('@/auth/sync', () => ({ syncProgress: vi.fn() }))
 vi.mock('@/auth/supabaseStore', () => ({
@@ -537,6 +538,41 @@ describe('AppContext sync wiring', () => {
     expect(syncProgress).toHaveBeenCalledTimes(2)
 
     vi.useRealTimers()
+  })
+
+  it('another tab switching accounts clears the in-flight session', async () => {
+    function SessionObserver() {
+      const { state, dispatch } = useApp()
+      return (
+        <>
+          <div data-testid="mode">{state.mode ?? 'idle'}</div>
+          <div data-testid="session">{state.session ? 'active' : 'none'}</div>
+          <button onClick={() => dispatch({ type: 'startPractice', rng: makeRng(1) })}>start</button>
+        </>
+      )
+    }
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    render(
+      <AppProvider>
+        <SessionObserver />
+      </AppProvider>,
+    )
+    await act(flush)
+
+    // Open a session for account A
+    await act(async () => { fireEvent.click(screen.getByText('start')) })
+    expect(screen.getByTestId('mode').textContent).toBe('practice')
+    expect(screen.getByTestId('session').textContent).toBe('active')
+
+    // Another tab switches to account B
+    localStorage.setItem(OWNER_KEY, 'u2')
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: OWNER_KEY, newValue: 'u2' }))
+    })
+
+    expect(screen.getByTestId('mode').textContent).toBe('idle')
+    expect(screen.getByTestId('session').textContent).toBe('none')
   })
 
   it('an SEO topic page fires start_practice (seo-page origin + okruh) after app_open, once auth resolves', async () => {
