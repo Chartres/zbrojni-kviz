@@ -185,7 +185,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     syncInProgressRef.current = true
     const local = loadProgress()
     syncProgress(supabaseStore, user.id, local).then((merged) => {
-      if (!cancelled) {
+      if (!cancelled && ownerRef.current === user?.id) {
         // Re-merge with the latest local state to recover any answers
         // recorded while the sync was in flight (H1).
         const latest = loadProgress()

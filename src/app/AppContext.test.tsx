@@ -452,6 +452,33 @@ describe('AppContext sync wiring', () => {
     expect(vi.mocked(supabaseStore.save)).not.toHaveBeenCalled()
   })
 
+  it('ignores a sync for u1 that lands after another tab switched the owner to u2', async () => {
+    let finishU1!: (p: ProgressData) => void
+    vi.mocked(syncProgress).mockReturnValue(
+      new Promise<ProgressData>((resolve) => {
+        finishU1 = resolve
+      }),
+    )
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+
+    // another tab signs in as u2: wipes local progress, records itself as owner
+    const empty = JSON.stringify(emptyProgress())
+    localStorage.setItem(STORAGE_KEY, empty)
+    localStorage.setItem(OWNER_KEY, 'u2')
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: OWNER_KEY, newValue: 'u2' }))
+    })
+    expect(screen.getByTestId('count').textContent).toBe('0')
+
+    // u1's sync lands — must NOT hydrate u1's answers into u2's tab
+    await act(async () => {
+      finishU1(recordAnswer(emptyProgress(), 99, true, 100))
+      await flush()
+    })
+    expect(screen.getByTestId('count').textContent).toBe('0')
+  })
+
   it('fires app_open only after the session is known, so it carries the identity', async () => {
     vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: true })
     const { rerender } = render(app())
