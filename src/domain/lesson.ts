@@ -1,9 +1,8 @@
-import type { Question } from './types'
+import type { ExamGroup, Question } from './types'
 import { META, questionsForGroup, getQuestion, examGroupOf } from './questions'
 import { EXAM } from './exam'
 import { shuffle, type Rng } from './rng'
 import { answeredCount, dueForReview, isMastered, statFor, type ProgressData } from './progress'
-import type { ExamGroup } from './types'
 
 /** A daily lesson is short and always finishable — Duolingo-style. */
 export const LESSON_SIZE = 12
