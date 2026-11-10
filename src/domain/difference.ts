@@ -67,7 +67,7 @@ export function differ(wrongText: string, rightText: string): { wrong: Segment[]
 }
 
 /** Share of the correct option's words that the wrong option also has, in order. */
-export function overlap(wrongText: string, rightText: string): number {
+function overlap(wrongText: string, rightText: string): number {
   const na = tokens(wrongText).map(norm).filter(Boolean)
   const nb = tokens(rightText).map(norm).filter(Boolean)
   if (!na.length || !nb.length) return 0
@@ -75,7 +75,7 @@ export function overlap(wrongText: string, rightText: string): number {
 }
 
 /** Worth highlighting: the options share most of their words, so the difference is the lesson. */
-export const NEAR_MISS = 0.5
+const NEAR_MISS = 0.5
 
 export function isNearMiss(wrongText: string, rightText: string): boolean {
   return overlap(wrongText, rightText) >= NEAR_MISS

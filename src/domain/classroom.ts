@@ -162,7 +162,7 @@ export function decodeSummary(token: string): Summary | null {
   }
 }
 
-export const INSTRUCTOR_PATH = '/instruktor/'
+const INSTRUCTOR_PATH = '/instruktor/'
 
 /** The link a learner sends: the summary rides in the fragment, which browsers never send to a server. */
 export function summaryLink(origin: string, s: Summary): string {

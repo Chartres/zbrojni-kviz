@@ -1,9 +1,8 @@
-import type { Question } from './types'
+import type { ExamGroup, Question } from './types'
 import { META, questionsForGroup, getQuestion, examGroupOf } from './questions'
 import { EXAM } from './exam'
 import { shuffle, type Rng } from './rng'
 import { answeredCount, dueForReview, isMastered, statFor, type ProgressData } from './progress'
-import type { ExamGroup } from './types'
 
 /** A daily lesson is short and always finishable — Duolingo-style. */
 export const LESSON_SIZE = 12
@@ -45,14 +44,12 @@ export function buildLesson(
   size = LESSON_SIZE,
 ): Question[] {
   const used = new Set<number>()
-  const take = (q: Question | undefined) => {
-    if (q && !used.has(q.id)) {
-      used.add(q.id)
-      const twin = TWIN_OF.get(q.id)
-      if (twin !== undefined) used.add(twin)
-      return true
-    }
-    return false
+  const take = (q: Question) => {
+    if (used.has(q.id)) return false
+    used.add(q.id)
+    const twin = TWIN_OF.get(q.id)
+    if (twin !== undefined) used.add(twin)
+    return true
   }
 
   // 1) Review: due weak-spots, capped.
@@ -106,10 +103,8 @@ export function buildLesson(
   // A foundation lesson is served in mix order, safe handling first, with its review at the end.
   if (foundation) {
     const rank = new Map(FOUNDATION_MIX.map((p, i) => [p.group, i]))
-    const ordered = fresh
-      .map((q, i) => ({ q, i }))
-      .sort((x, y) => rank.get(examGroupOf(x.q))! - rank.get(examGroupOf(y.q))! || x.i - y.i)
-      .map((x) => x.q)
+    // ponytail: Array.prototype.sort is stable (ES2019), so ties keep pick order.
+    const ordered = fresh.sort((x, y) => rank.get(examGroupOf(x))! - rank.get(examGroupOf(y))!)
     return [...ordered, ...review].slice(0, size)
   }
   return shuffle([...review, ...fresh], rng).slice(0, size)

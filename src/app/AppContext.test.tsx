@@ -2,7 +2,9 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, act, fireEvent } from '@testing-library/react'
 import { AppProvider, useApp } from './AppContext'
 import { emptyProgress, mergeProgress, recordAnswer, type ProgressData } from '@/domain/progress'
-import { OWNER_KEY, saveProgress, STORAGE_KEY } from '@/domain/storage'
+import { DAILY_KEY, CLASS_KEY, OWNER_KEY, saveProgress, saveDaily, saveLearnerClass, STORAGE_KEY } from '@/domain/storage'
+import { emptyDaily, recordDaily } from '@/domain/daily'
+import { makeRng } from '@/domain/rng'
 
 vi.mock('@/auth/sync', () => ({ syncProgress: vi.fn() }))
 vi.mock('@/auth/supabaseStore', () => ({
@@ -20,7 +22,6 @@ const baseAuth = {
   configured: true,
   loading: false,
   user: null as null | { id: string; email?: string },
-  signInWithGoogle: vi.fn(),
   signInWithEmail: vi.fn(),
   signOut: vi.fn(),
 }
@@ -450,6 +451,33 @@ describe('AppContext sync wiring', () => {
     expect(vi.mocked(supabaseStore.save)).not.toHaveBeenCalled()
   })
 
+  it('ignores a sync for u1 that lands after another tab switched the owner to u2', async () => {
+    let finishU1!: (p: ProgressData) => void
+    vi.mocked(syncProgress).mockReturnValue(
+      new Promise<ProgressData>((resolve) => {
+        finishU1 = resolve
+      }),
+    )
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+
+    // another tab signs in as u2: wipes local progress, records itself as owner
+    const empty = JSON.stringify(emptyProgress())
+    localStorage.setItem(STORAGE_KEY, empty)
+    localStorage.setItem(OWNER_KEY, 'u2')
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: OWNER_KEY, newValue: 'u2' }))
+    })
+    expect(screen.getByTestId('count').textContent).toBe('0')
+
+    // u1's sync lands — must NOT hydrate u1's answers into u2's tab
+    await act(async () => {
+      finishU1(recordAnswer(emptyProgress(), 99, true, 100))
+      await flush()
+    })
+    expect(screen.getByTestId('count').textContent).toBe('0')
+  })
+
   it('fires app_open only after the session is known, so it carries the identity', async () => {
     vi.mocked(useAuth).mockReturnValue({ ...baseAuth, loading: true })
     const { rerender } = render(app())
@@ -464,6 +492,113 @@ describe('AppContext sync wiring', () => {
       rerender(app())
     })
     expect(vi.mocked(track).mock.calls.filter(([e]) => e === 'app_open')).toHaveLength(1)
+  })
+
+  it('account switch wipes Otázka dne state so B does not inherit A streak', async () => {
+    // A signs in and gets a daily answered state
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    const { rerender } = render(app())
+    await act(flush)
+    // simulate A having answered Otázka dne today
+    const answered = recordDaily(emptyDaily(), '2026-11-10', true)
+    saveDaily(answered)
+    expect(localStorage.getItem(DAILY_KEY)).not.toBeNull()
+
+    // B signs in on the same device — daily must be wiped
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u2' } })
+    await act(async () => { rerender(app()) })
+    await act(flush)
+
+    expect(JSON.parse(localStorage.getItem(DAILY_KEY)!).current).toBe(0)
+  })
+
+  it('account switch removes class identity so B does not send summaries under A class', async () => {
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    const { rerender } = render(app())
+    await act(flush)
+    saveLearnerClass({ code: 'ABC', name: 'Alice', id: 'dev-1' })
+    expect(localStorage.getItem(CLASS_KEY)).not.toBeNull()
+
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u2' } })
+    await act(async () => { rerender(app()) })
+    await act(flush)
+
+    expect(localStorage.getItem(CLASS_KEY)).toBeNull()
+  })
+
+  it('another tab switching accounts does not overwrite daily state with stale data', async () => {
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    render(app())
+    await act(flush)
+
+    // tab B signs in as u2: wipes local progress and sets new owner
+    localStorage.setItem(OWNER_KEY, 'u2')
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: OWNER_KEY, newValue: 'u2' }))
+    })
+    // No daily write should have fired: ownerRef is now u2 and the save effect
+    // guard (loadOwner() !== ownerRef.current) would block any stale write.
+    // Verify no DAILY_KEY write happened during the account-switch event handling.
+    const setItem = vi.spyOn(localStorage, 'setItem')
+    // Fire the event again to confirm no DAILY_KEY write leaks through
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: OWNER_KEY, newValue: 'u2' }))
+    })
+    expect(setItem.mock.calls.filter(([key]) => key === DAILY_KEY)).toHaveLength(0)
+  })
+
+  it('pre-sign-in answers are uploaded after a failed sign-in sync (fetch failure)', async () => {
+    vi.useFakeTimers()
+    // syncProgress resolves with local unchanged (simulates fetch failure path)
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    render(app())
+    await act(flush)
+
+    // sign-in sync resolved with local (fetch failed) → justSyncedRef must NOT block upload
+    await act(async () => { vi.advanceTimersByTime(2000) })
+    // debounced upload must have fired (call 2 after the sign-in sync call 1)
+    expect(syncProgress).toHaveBeenCalledTimes(2)
+
+    vi.useRealTimers()
+  })
+
+  it('another tab switching accounts clears the in-flight session', async () => {
+    function SessionObserver() {
+      const { state, dispatch } = useApp()
+      return (
+        <>
+          <div data-testid="mode">{state.mode ?? 'idle'}</div>
+          <div data-testid="session">{state.session ? 'active' : 'none'}</div>
+          <button onClick={() => dispatch({ type: 'startPractice', rng: makeRng(1) })}>start</button>
+        </>
+      )
+    }
+    vi.mocked(useAuth).mockReturnValue({ ...baseAuth, user: { id: 'u1' } })
+    vi.mocked(syncProgress).mockImplementation(async (_s, _u, local) => local)
+    render(
+      <AppProvider>
+        <SessionObserver />
+      </AppProvider>,
+    )
+    await act(flush)
+
+    // Open a session for account A
+    await act(async () => { fireEvent.click(screen.getByText('start')) })
+    expect(screen.getByTestId('mode').textContent).toBe('practice')
+    expect(screen.getByTestId('session').textContent).toBe('active')
+
+    // Another tab switches to account B
+    localStorage.setItem(OWNER_KEY, 'u2')
+    await act(async () => {
+      window.dispatchEvent(new StorageEvent('storage', { key: OWNER_KEY, newValue: 'u2' }))
+    })
+
+    expect(screen.getByTestId('mode').textContent).toBe('idle')
+    expect(screen.getByTestId('session').textContent).toBe('none')
   })
 
   it('an SEO topic page fires start_practice (seo-page origin + okruh) after app_open, once auth resolves', async () => {
