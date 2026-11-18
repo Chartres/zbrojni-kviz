@@ -56,9 +56,11 @@ export function differ(wrongText: string, rightText: string): { wrong: Segment[]
       wrong.push({ text: a[i++], changed: false })
       right.push({ text: b[j++], changed: false })
     } else if (t[i + 1][j] >= t[i][j + 1]) {
-      wrong.push({ text: a[i++], changed: na[i - 1] !== '' })
+      const idx = i++
+      wrong.push({ text: a[idx], changed: na[idx] !== '' })
     } else {
-      right.push({ text: b[j++], changed: nb[j - 1] !== '' })
+      const jdx = j++
+      right.push({ text: b[jdx], changed: nb[jdx] !== '' })
     }
   }
   while (i < a.length) wrong.push({ text: a[i++], changed: true })
@@ -67,7 +69,7 @@ export function differ(wrongText: string, rightText: string): { wrong: Segment[]
 }
 
 /** Share of the correct option's words that the wrong option also has, in order. */
-export function overlap(wrongText: string, rightText: string): number {
+function overlap(wrongText: string, rightText: string): number {
   const na = tokens(wrongText).map(norm).filter(Boolean)
   const nb = tokens(rightText).map(norm).filter(Boolean)
   if (!na.length || !nb.length) return 0
@@ -75,7 +77,7 @@ export function overlap(wrongText: string, rightText: string): number {
 }
 
 /** Worth highlighting: the options share most of their words, so the difference is the lesson. */
-export const NEAR_MISS = 0.5
+const NEAR_MISS = 0.5
 
 export function isNearMiss(wrongText: string, rightText: string): boolean {
   return overlap(wrongText, rightText) >= NEAR_MISS

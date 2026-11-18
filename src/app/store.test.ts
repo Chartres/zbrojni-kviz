@@ -117,6 +117,35 @@ describe('app store', () => {
     })
   })
 
+  it('next dispatched after exam already completed via next does not append a duplicate attempt', () => {
+    let s = start()
+    s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })
+    for (let i = 0; i < 30; i++) {
+      const cur = currentQuestion(s.session!)!
+      s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
+      s = reducer(s, { type: 'next', now: 12345 })
+    }
+    expect(s.view).toBe('results')
+    // key-repeat: next fires again while already in results
+    s = reducer(s, { type: 'next', now: 99999 })
+    expect(s.progress.examAttempts).toHaveLength(1)
+  })
+
+  it('finishExam dispatched after exam already completed via next does not record a duplicate attempt', () => {
+    let s = start()
+    s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })
+    for (let i = 0; i < 30; i++) {
+      const cur = currentQuestion(s.session!)!
+      s = reducer(s, { type: 'answer', choice: cur.correct, now: i })
+      s = reducer(s, { type: 'next', now: 12345 })
+    }
+    expect(s.view).toBe('results')
+    expect(s.examEndsAt).toBeNull()
+    // A timer tick arriving after the exam completes should be a no-op
+    s = reducer(s, { type: 'finishExam', now: 99999 })
+    expect(s.progress.examAttempts).toHaveLength(1)
+  })
+
   it('a timed-out exam puts unanswered questions into the review queue', () => {
     let s = start()
     s = reducer(s, { type: 'startExam', rng: makeRng(7), now: 0 })

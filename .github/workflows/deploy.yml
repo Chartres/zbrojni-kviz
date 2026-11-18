@@ -20,7 +20,8 @@ concurrency:
 jobs:
   # The gate: typecheck · test · build · e2e. Runs on push and every PR.
   test:
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest moved to 26.04, where Playwright has no Chromium build (Nov 2026).
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +38,7 @@ jobs:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
       # `--with-deps` runs apt and has hung for 15+ minutes on GitHub runners (27 Oct 2026).
-      # The browser download doesn't need apt; ubuntu-latest already carries Chromium's system
+      # The browser download doesn't need apt; ubuntu-24.04 already carries Chromium's system
       # libraries, so the deps step is capped and allowed to fail. If a library is ever really
       # missing, the E2E step fails with a clear launch error rather than hanging.
       - name: Install Playwright Chromium

@@ -130,6 +130,7 @@ function begin(state: AppState, mode: Mode, questions: Question[]): AppState {
     mode,
     session: createSession(questions),
     examResult: null,
+    examEndsAt: null,
     caseSlug: null,
     foundation: false,
     dailyDay: null,
@@ -287,6 +288,7 @@ export function reducer(state: AppState, action: Action): AppState {
 
     case 'next': {
       if (!state.session) return state
+      if (state.view === 'results') return state
       const session = advance(state.session)
       // Otázka dne ends back home, where its card shows the result and the streak.
       if (isFinished(session) && state.mode === 'daily') {
@@ -307,6 +309,7 @@ export function reducer(state: AppState, action: Action): AppState {
           session,
           view: 'results',
           examResult,
+          examEndsAt: null,
           progress,
           rounds: key ? withoutRound(state.rounds, key) : state.rounds,
         }
@@ -315,7 +318,7 @@ export function reducer(state: AppState, action: Action): AppState {
     }
 
     case 'finishExam': {
-      if (!state.session) return state
+      if (!state.session || !state.examEndsAt) return state
       const examResult = evaluateExam(state.session)
       // Unanswered at time-out count as wrong in the score, so they go to the review queue too.
       let progress = state.progress

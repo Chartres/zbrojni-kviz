@@ -54,7 +54,7 @@ export function advance(s: SessionState): SessionState {
 }
 
 export function score(s: SessionState): number {
-  return s.records.reduce((n, r) => n + (r.correct ? 1 : 0), 0)
+  return s.records.filter((r) => r.correct).length
 }
 
 /** Questions with no answer yet — at exam time-out these count as wrong. */
