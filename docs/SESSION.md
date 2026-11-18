@@ -1,7 +1,7 @@
 # Session summary — zbrojni-kviz
 
 One page, rewritten (not appended) at the end of every package and before context runs out.
-Public repo: nothing private here. Last rewritten 2026-11-07.
+Public repo: nothing private here. Last rewritten 2026-11-18.
 
 ## What the product is now
 
@@ -32,11 +32,10 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 
 ## Last three packages
 
-1. **2026-11-07 tests C and D** (#34 docs, #35 classes, #36 Otázka dne, #37 hand-back, #38
+1. **2026-11-18 sweep** (PR #44, open): 5 Czech plural fixes (streak dní→dny for 2–4, otázka/otázky/otázek), `src/lib/czech.ts` helpers. 343/343 green, sweep-guard clean.
+2. **2026-11-07 tests C and D** (#34 docs, #35 classes, #36 Otázka dne, #37 hand-back, #38
    outreach question): merged, CI green, live at 390 px. Hand-back `docs/review/2026-11-07.json`.
-2. **2026-11-03 reading aid A** (#32, #33): merged, live.
-3. **2026-11-03 allow-list v2** (#30, #31): merged; live check rests on flywheel #117 + daily
-   signal health (no probe row).
+3. **2026-11-03 reading aid A** (#32, #33): merged, live.
 
 ## Open threads
 
@@ -49,4 +48,4 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 
 ## Next
 
-Instructor class export/import (one file); fix "1 otázek" plural on home; read test D on day 14.
+Merge PR #44; instructor class export/import (one file); read test D on day 14 (2026-11-21).
