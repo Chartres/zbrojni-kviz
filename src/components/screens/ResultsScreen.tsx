@@ -8,6 +8,7 @@ import { makeRng, timeSeed } from '@/domain/rng'
 import { weakCategories } from '@/domain/selection'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { FeedbackCard } from '@/components/FeedbackCard'
+import { days } from '@/lib/czech'
 
 export function ResultsScreen() {
   const { state, dispatch } = useApp()
@@ -72,7 +73,7 @@ export function ResultsScreen() {
                 {state.progress.streak.current}
               </span>
               <span className="font-mono text-xs uppercase tracking-[0.15em] text-steel-400">
-                {state.progress.streak.current === 1 ? 'den' : state.progress.streak.current >= 2 && state.progress.streak.current <= 4 ? 'dny' : 'dní'} v řadě
+                {days(state.progress.streak.current)} v řadě
               </span>
             </div>
           </div>

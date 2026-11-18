@@ -2,11 +2,10 @@ import { useApp } from '@/app/AppContext'
 import { track } from '@/analytics'
 import { answeredOn, liveDailyStreak } from '@/domain/daily'
 import { todayStr } from '@/lib/date'
+import { days } from '@/lib/czech'
 
 const btn =
   'inline-flex min-h-11 items-center rounded-card px-4 font-display text-sm font-semibold uppercase tracking-wide'
-
-const days = (n: number) => (n === 1 ? 'den' : n >= 2 && n <= 4 ? 'dny' : 'dní')
 
 /**
  * Test D (2026-11-07): Otázka dne. Opt-in; the same question for everyone today; the streak lives
