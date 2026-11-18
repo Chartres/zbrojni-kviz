@@ -1,5 +1,4 @@
 import type { CategoryName, Choice, Question } from '@/domain/types'
-import type { Rng } from '@/domain/rng'
 import {
   createSession,
   answerCurrent,
@@ -29,10 +28,9 @@ import {
 } from '@/domain/progress'
 import { buildLesson, isFoundationPhase } from '@/domain/lesson'
 import { caseBySlug } from '@/domain/cases'
-import { ALL_QUESTIONS } from '@/domain/questions'
-import { shuffle } from '@/domain/rng'
+import { ALL_QUESTIONS, getQuestion } from '@/domain/questions'
+import { shuffle, type Rng } from '@/domain/rng'
 import { answeredOn, dailyQuestionId, emptyDaily, recordDaily, type DailyState } from '@/domain/daily'
-import { getQuestion } from '@/domain/questions'
 import {
   restoreSession,
   roundKey,

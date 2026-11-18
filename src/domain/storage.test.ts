@@ -73,4 +73,17 @@ describe('progress persistence', () => {
     saveProgress(p)
     expect(loadProgress()).toEqual(p)
   })
+
+  // Founder case 10: attempts survive a reload and stay newest-first.
+  it('exam attempts are listed newest-first after loadProgress', () => {
+    const older = { at: 1000, score: 24, total: 30, passed: false, byCategory: {} }
+    const newer = { at: 2000, score: 28, total: 30, passed: true, byCategory: {} }
+    let p = emptyProgress()
+    p = recordExamAttempt(p, older)
+    p = recordExamAttempt(p, newer)
+    saveProgress(p)
+    const loaded = loadProgress()
+    expect(loaded.examAttempts[0].at).toBe(2000)
+    expect(loaded.examAttempts[1].at).toBe(1000)
+  })
 })

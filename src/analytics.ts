@@ -46,8 +46,6 @@ export function track(event: AllowedEvent, props?: Record<string, unknown>): voi
 
 /** Tie subsequent events to the cross-product identity (call on auth change). */
 export const identify = fw.identify
-/** The aha moment (declarative conversion KPI). */
-export const conversion = fw.conversion
 /** Sean Ellis PMF + free text → shared feedback table. */
 export const feedback = fw.feedback
 /** Fire-and-forget error signal → events table. */
