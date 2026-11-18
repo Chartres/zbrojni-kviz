@@ -103,7 +103,7 @@ export function HomeScreen() {
         >
           <span className="font-medium text-steel-100">Opakovat chyby</span>
           <span className="font-mono text-sm text-rust-400 tabular-nums">
-            {reviewCount} otázek →
+            {reviewCount} {reviewCount === 1 ? 'otázka' : reviewCount <= 4 ? 'otázky' : 'otázek'} →
           </span>
         </button>
       )}

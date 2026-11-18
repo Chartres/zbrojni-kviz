@@ -108,7 +108,7 @@ export function PracticeScreen() {
         <p className="mt-3 text-xs text-steel-500">
           {selectedCount === 0 ? 'Všechny okruhy' : `Vybráno okruhů: ${selectedCount}`}
           {state.search.trim() && ' · filtr hledání'} ·{' '}
-          <span className="text-steel-300 tabular-nums">{practiceCount}</span> otázek
+          <span className="text-steel-300 tabular-nums">{practiceCount}</span> {practiceCount === 1 ? 'otázka' : practiceCount <= 4 ? 'otázky' : 'otázek'}
         </p>
 
         <button
@@ -174,7 +174,7 @@ export function PracticeScreen() {
       >
         <span className="font-medium text-steel-100">★ Záložky</span>
         <span className="font-mono text-sm text-steel-400 tabular-nums">
-          {bookmarkCount > 0 ? `${bookmarkCount} otázek →` : 'žádné'}
+          {bookmarkCount > 0 ? `${bookmarkCount} ${bookmarkCount === 1 ? 'otázka' : bookmarkCount <= 4 ? 'otázky' : 'otázek'} →` : 'žádné'}
         </span>
       </button>
     </div>
