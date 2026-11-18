@@ -72,7 +72,7 @@ export function ResultsScreen() {
                 {state.progress.streak.current}
               </span>
               <span className="font-mono text-xs uppercase tracking-[0.15em] text-steel-400">
-                {state.progress.streak.current === 1 ? 'den' : 'dní'} v řadě
+                {state.progress.streak.current === 1 ? 'den' : state.progress.streak.current >= 2 && state.progress.streak.current <= 4 ? 'dny' : 'dní'} v řadě
               </span>
             </div>
           </div>
