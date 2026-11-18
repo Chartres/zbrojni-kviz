@@ -48,7 +48,7 @@ export function HomeScreen() {
               {streak}
             </span>
             <span className="font-mono text-[0.65rem] uppercase tracking-wide text-steel-500">
-              {streak === 1 ? 'den' : 'dní'} v řadě
+              {streak === 1 ? 'den' : streak >= 2 && streak <= 4 ? 'dny' : 'dní'} v řadě
             </span>
           </div>
           <AuthPanel />
