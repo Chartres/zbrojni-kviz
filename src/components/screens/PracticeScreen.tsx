@@ -8,6 +8,7 @@ import { track } from '@/analytics'
 import type { CategoryName } from '@/domain/types'
 import { CASES } from '@/domain/cases'
 import { roundKey, roundProgress } from '@/domain/round'
+import { questions } from '@/lib/czech'
 
 export function PracticeScreen() {
   const { state, dispatch } = useApp()
@@ -108,7 +109,7 @@ export function PracticeScreen() {
         <p className="mt-3 text-xs text-steel-500">
           {selectedCount === 0 ? 'Všechny okruhy' : `Vybráno okruhů: ${selectedCount}`}
           {state.search.trim() && ' · filtr hledání'} ·{' '}
-          <span className="text-steel-300 tabular-nums">{practiceCount}</span> otázek
+          <span className="text-steel-300 tabular-nums">{practiceCount}</span> {questions(practiceCount)}
         </p>
 
         <button
@@ -174,7 +175,7 @@ export function PracticeScreen() {
       >
         <span className="font-medium text-steel-100">★ Záložky</span>
         <span className="font-mono text-sm text-steel-400 tabular-nums">
-          {bookmarkCount > 0 ? `${bookmarkCount} otázek →` : 'žádné'}
+          {bookmarkCount > 0 ? `${bookmarkCount} ${questions(bookmarkCount)} →` : 'žádné'}
         </span>
       </button>
     </div>

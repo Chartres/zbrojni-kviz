@@ -11,6 +11,7 @@ import { roundProgress } from '@/domain/round'
 import { DailyCard } from '@/components/DailyCard'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { todayStr } from '@/lib/date'
+import { days, questions } from '@/lib/czech'
 
 export function HomeScreen() {
   const { state, dispatch } = useApp()
@@ -48,7 +49,7 @@ export function HomeScreen() {
               {streak}
             </span>
             <span className="font-mono text-[0.65rem] uppercase tracking-wide text-steel-500">
-              {streak === 1 ? 'den' : 'dní'} v řadě
+              {days(streak)} v řadě
             </span>
           </div>
           <AuthPanel />
@@ -103,7 +104,7 @@ export function HomeScreen() {
         >
           <span className="font-medium text-steel-100">Opakovat chyby</span>
           <span className="font-mono text-sm text-rust-400 tabular-nums">
-            {reviewCount} otázek →
+            {reviewCount} {questions(reviewCount)} →
           </span>
         </button>
       )}
