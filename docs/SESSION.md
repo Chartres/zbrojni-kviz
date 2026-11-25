@@ -1,7 +1,7 @@
 # Session summary — zbrojni-kviz
 
 One page, rewritten (not appended) at the end of every package and before context runs out.
-Public repo: nothing private here. Last rewritten 2026-11-18.
+Public repo: nothing private here. Last rewritten 2026-11-25.
 
 ## What the product is now
 
@@ -9,8 +9,8 @@ A free, offline trainer for the Czech firearms-licence theory exam (837 official
 zákon 90/2024 Sb.) at https://zbrojnikviz.dravec.org. Daily lesson (bezpečnost first), practice by
 okruh, cases, mock exam (30 q / 40 min / 26 or 28). Signature: citations of the law verbatim
 (statute serif), near-miss marks, readiness estimate, reading aid "Zvýraznit rozdíly". Unfinished
-lessons and cases resume. Two two-week tests are live: **C** instructor class codes
-(`/instruktor/`, no backend) and **D** opt-in Otázka dne with a device streak.
+lessons and cases resume. Instructor class codes (`/instruktor/`, no backend, with a one-file
+class backup) and an opt-in Otázka dne with a device streak are live.
 Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 `docs/ARCHITECTURE.md` (how), `docs/reverts.md` (none yet).
 
@@ -32,20 +32,20 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 
 ## Last three packages
 
-1. **2026-11-18 sweep** (PR #44, open): 5 Czech plural fixes (streak dní→dny for 2–4, otázka/otázky/otázek), `src/lib/czech.ts` helpers. 343/343 green, sweep-guard clean.
-2. **2026-11-07 tests C and D** (#34 docs, #35 classes, #36 Otázka dne, #37 hand-back, #38
-   outreach question): merged, CI green, live at 390 px. Hand-back `docs/review/2026-11-07.json`.
-3. **2026-11-03 reading aid A** (#32, #33): merged, live.
+1. **2026-11-25 overnight**: Test D verdict recorded (`docs/review/2026-11-25.json`: **fail**,
+   1 opt-in of 30 needed; underpowered, 14 visitors in the window). Class backup download/load
+   (PR #45, merged, live).
+2. **2026-11-18 sweep** (PR #44): Czech plural fixes and `src/lib/czech.ts` helpers. Merged.
+3. **2026-11-07 tests C and D** (#34–#38): merged, live. Hand-back `docs/review/2026-11-07.json`.
 
 ## Open threads
 
-- Test C starts when Pavol's 10 offers go out (drafts: `docs/outreach/2026-11-instructors/`;
-  recipients and filled texts go to the orchestrator, never into this repo). Stop rule: fewer than
-  2 of 10 bring 5+ learners in 14 days, or replies show instructors don't want it.
-- Test D day 14 = 2026-11-21: read `qotd_optin` / `qotd_answer` against the stop rule
-  (30 opt-ins; 40 % still answering).
-- Weekly public ranking for Otázka dne: waits for Pavol's pick of a data route (PRD §5.4).
+- Test C starts when Pavol sends the 10 offers (in his Gmail drafts, unsent). Stop rule: fewer
+  than 2 of 10 bring 5+ learners in 14 days, or replies show instructors don't want it.
+- Otázka dne after the failed test: keep (default), remove, or rerun later — Pavol's call.
+- Weekly ranking: waits for Pavol's data route; not worth building at current traffic.
+- PR #43 (sweep 2026-11-10) open from another session.
 
 ## Next
 
-Merge PR #44; instructor class export/import (one file); read test D on day 14 (2026-11-21).
+Read test C once the offers go out; nothing else queued that needs no decision.
