@@ -7,3 +7,9 @@ export const days = (n: number): string => plural(n, 'den', 'dny', 'dní')
 
 /** Czech plural: questions (otázka/otázky/otázek). */
 export const questions = (n: number): string => plural(n, 'otázka', 'otázky', 'otázek')
+
+/** Czech plural: classes (třída/třídy/tříd). */
+export const classes = (n: number): string => plural(n, 'třída', 'třídy', 'tříd')
+
+/** Czech plural: learners (žák/žáci/žáků). */
+export const learners = (n: number): string => plural(n, 'žák', 'žáci', 'žáků')

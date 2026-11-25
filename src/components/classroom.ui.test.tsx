@@ -148,3 +148,45 @@ describe('instructor page: Otázka dne in the class', () => {
     expect(names()).toEqual(['Zuzana', 'Adam'])
   })
 })
+
+describe('instructor page: class backup', () => {
+  it('downloads all classes as one file', async () => {
+    saveInstructorClasses([{ code: 'K7QM2D', label: 'Kurz', ref: null, createdAt: 1, learners: {} }])
+    const blobs: Blob[] = []
+    const create = vi.fn((b: Blob) => (blobs.push(b), 'blob:x'))
+    Object.assign(URL, { createObjectURL: create, revokeObjectURL: vi.fn() })
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {})
+    render(<InstructorScreen origin={ORIGIN} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Stáhnout zálohu tříd' }))
+    expect(click).toHaveBeenCalled()
+    const text = await blobs[0].text()
+    expect(JSON.parse(text).classes[0].code).toBe('K7QM2D')
+    click.mockRestore()
+  })
+
+  it('loads a backup file on another device and says what was added', async () => {
+    const { exportClasses, addToClass } = await import('@/domain/classroom')
+    const s = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'Petr', id: 'l-1' }, 10)
+    const file = exportClasses([addToClass({ code: 'K7QM2D', label: 'Kurz', ref: null, createdAt: 1, learners: {} }, s, 20)], 30)
+    render(<InstructorScreen origin={ORIGIN} />)
+    const input = screen.getByLabelText('Nahrát zálohu tříd') as HTMLInputElement
+    const { act } = await import('@testing-library/react')
+    await act(async () => {
+      fireEvent.change(input, { target: { files: [new File([file], 'zaloha.json', { type: 'application/json' })] } })
+      await new Promise((r) => setTimeout(r, 0))
+    })
+    expect(screen.getByRole('status').textContent).toMatch(/Záloha nahrána: 1 třída, 1 žák/)
+    expect(loadInstructorClasses()[0].code).toBe('K7QM2D')
+    expect(within(screen.getByRole('list', { name: 'Žáci třídy K7Q-M2D' })).getByText('Petr')).toBeTruthy()
+  })
+
+  it('says so when the file is not a backup', async () => {
+    render(<InstructorScreen origin={ORIGIN} />)
+    const { act } = await import('@testing-library/react')
+    await act(async () => {
+      fireEvent.change(screen.getByLabelText('Nahrát zálohu tříd'), { target: { files: [new File(['hello'], 'x.txt')] } })
+      await new Promise((r) => setTimeout(r, 0))
+    })
+    expect(screen.getByRole('status').textContent).toMatch(/není záloha/)
+  })
+})

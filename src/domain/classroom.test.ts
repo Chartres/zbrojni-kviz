@@ -131,3 +131,35 @@ describe('Otázka dne in the summary (test D, ranking route 1: within a class, n
     expect(decodeSummary(encodeSummary({ ...s, q: { a: 9, c: 1 } }))).toBeNull()
   })
 })
+
+describe('class backup (one file): export and import on another device', () => {
+  it('round-trips the classes; importing merges, newer summary per learner wins, nothing is lost', async () => {
+    const { exportClasses, importClasses } = await import('./classroom')
+    const a = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'A', id: 'l-1' }, 100)
+    const aNewer = buildSummary(someProgress(), { code: 'K7QM2D', name: 'A', id: 'l-1' }, 200)
+    const b = buildSummary(emptyProgress(), { code: 'K7QM2D', name: 'B', id: 'l-2' }, 150)
+    const onPhone: ClassRoom[] = [addToClass({ code: 'K7QM2D', label: 'Kurz', ref: 'k01', createdAt: 1, learners: {} }, aNewer, 210)]
+    const backup: ClassRoom[] = [
+      addToClass(addToClass({ code: 'K7QM2D', label: 'Kurz', ref: 'k01', createdAt: 1, learners: {} }, a, 110), b, 160),
+      { code: 'ABCDEF', label: 'Druhý', ref: null, createdAt: 2, learners: {} },
+    ]
+    const file = exportClasses(backup, 5000)
+    expect(JSON.parse(file).kind).toBe('zbrojni-kviz-classes')
+    const r = importClasses(onPhone, file, 6000)!
+    expect(r.classes.map((c) => c.code)).toEqual(['K7QM2D', 'ABCDEF'])
+    const k = r.classes[0]
+    expect(Object.keys(k.learners).sort()).toEqual(['l-1', 'l-2'])
+    expect(k.learners['l-1'].t).toBe(200) // the phone's newer summary is kept
+    expect(r).toMatchObject({ classesAdded: 1, learnersAdded: 1 })
+  })
+
+  it('rejects a file that is not a backup, and drops broken entries inside one', async () => {
+    const { exportClasses, importClasses } = await import('./classroom')
+    expect(importClasses([], 'not json', 1)).toBeNull()
+    expect(importClasses([], JSON.stringify({ kind: 'something-else', classes: [] }), 1)).toBeNull()
+    const ok = JSON.parse(exportClasses([{ code: 'K7QM2D', label: '', ref: null, createdAt: 1, learners: {} }], 1))
+    ok.classes.push({ code: 'nope', learners: {} })
+    const r = importClasses([], JSON.stringify(ok), 1)!
+    expect(r.classes.map((c) => c.code)).toEqual(['K7QM2D'])
+  })
+})
