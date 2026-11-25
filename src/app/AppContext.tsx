@@ -19,9 +19,11 @@ import {
   saveRounds,
   loadDaily,
   saveDaily,
+  saveLearnerClass,
   STORAGE_KEY,
 } from '@/domain/storage'
 import { emptyProgress, mergeProgress } from '@/domain/progress'
+import { emptyDaily } from '@/domain/daily'
 import { topicFromPath } from '@/lib/topics'
 import { takeJoinCode } from '@/lib/joinParam'
 import { makeRng, timeSeed } from '@/domain/rng'
@@ -113,6 +115,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
       dailyInitialized.current = true
       return
     }
+    // Another tab switched accounts: these daily answers belong to the previous account.
+    if (loadOwner() !== ownerRef.current) return
     saveDaily(state.daily)
   }, [state.daily])
 
@@ -138,6 +142,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
         ownerRef.current = owner
         dispatch({ type: 'hydrate', progress: loadProgress() })
         dispatch({ type: 'hydrateRounds', rounds: loadRounds() })
+        dispatch({ type: 'hydrateDaily', daily: loadDaily() })
+        // Clear any in-flight session so B's answers don't land in A's round.
+        dispatch({ type: 'goMenu' })
       } else if (e.key === STORAGE_KEY) {
         const incoming = loadProgress()
         otherTabRef.current = JSON.stringify(incoming)
@@ -165,6 +172,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
       // The previous account's unfinished rounds hold its answers: drop them too.
       saveRounds({})
       dispatch({ type: 'hydrateRounds', rounds: {} })
+      // B must not inherit A's Otázka dne streak or class identity.
+      saveDaily(emptyDaily())
+      dispatch({ type: 'hydrateDaily', daily: emptyDaily() })
+      saveLearnerClass(null)
       syncInProgressRef.current = false
       justSyncedRef.current = false
     }
@@ -174,14 +185,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
     syncInProgressRef.current = true
     const local = loadProgress()
     syncProgress(supabaseStore, user.id, local).then((merged) => {
-      if (!cancelled) {
+      if (!cancelled && ownerRef.current === user?.id) {
         // Re-merge with the latest local state to recover any answers
         // recorded while the sync was in flight (H1).
         const latest = loadProgress()
         syncInProgressRef.current = false
-        // syncProgress already uploaded `merged`; skip the next upload only if
-        // nothing changed locally meanwhile, else those changes must go up too.
-        justSyncedRef.current = JSON.stringify(latest) === JSON.stringify(local)
+        // syncProgress uploaded `merged` only when fetch succeeded (merged ≠ local).
+        // If fetch failed, merged === local: don't skip the debounced upload — it
+        // must carry any pre-sign-in answers that were never uploaded.
+        justSyncedRef.current =
+          JSON.stringify(merged) !== JSON.stringify(local) &&
+          JSON.stringify(latest) === JSON.stringify(local)
         dispatch({ type: 'hydrate', progress: mergeProgress(merged, latest) })
       }
     }).catch(() => {

@@ -1,9 +1,8 @@
-import type { Question } from './types'
+import type { ExamGroup, Question } from './types'
 import { META, ALL_QUESTIONS, questionsForGroup, getQuestion, examGroupOf } from './questions'
 import { EXAM } from './exam'
 import { shuffle, type Rng } from './rng'
 import { answeredCount, dueForReview, isMastered, statFor, type ProgressData } from './progress'
-import type { ExamGroup } from './types'
 
 /** A daily lesson is short and always finishable — Duolingo-style. */
 export const LESSON_SIZE = 12
@@ -45,14 +44,12 @@ export function buildLesson(
   size = LESSON_SIZE,
 ): Question[] {
   const used = new Set<number>()
-  const take = (q: Question | undefined) => {
-    if (q && !used.has(q.id)) {
-      used.add(q.id)
-      const twin = TWIN_OF.get(q.id)
-      if (twin !== undefined) used.add(twin)
-      return true
-    }
-    return false
+  const take = (q: Question) => {
+    if (used.has(q.id)) return false
+    used.add(q.id)
+    const twin = TWIN_OF.get(q.id)
+    if (twin !== undefined) used.add(twin)
+    return true
   }
 
   // 1) Review: due weak-spots, capped.

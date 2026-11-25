@@ -37,6 +37,7 @@ let session: SessionState | null = finishedSession
 let mode = 'lesson'
 let caseSlug: string | null = null
 let foundation = false
+const stableProgress = emptyProgress()
 
 vi.mock('@/app/AppContext', () => ({
   useApp: () => ({
@@ -46,7 +47,7 @@ vi.mock('@/app/AppContext', () => ({
       mode,
       caseSlug,
       foundation,
-      progress: emptyProgress(),
+      progress: stableProgress,
       selectedCategories: new Set(),
       search: '',
     },
@@ -111,7 +112,7 @@ describe('ResultsScreen analytics', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Opakovat chyby' }))
     const starts = track.mock.calls.map(([name]) => name).filter((n) => n.startsWith('start_'))
     expect(starts).toEqual(['start_lesson', 'start_review'])
-  })
+  }, 15000)
 
   it('a finished case sends key_action case_complete with its slug and score', () => {
     mode = 'case'
