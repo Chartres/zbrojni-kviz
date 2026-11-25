@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react'
 import { track } from '@/analytics'
 import {
   addToClass,
+  exportClasses,
+  importClasses,
   formatCode,
   joinLink,
   makeClassCode,
@@ -12,6 +14,7 @@ import {
 import { EXAM } from '@/domain/exam'
 import { makeRng, timeSeed } from '@/domain/rng'
 import { loadInstructorClasses, saveInstructorClasses } from '@/domain/storage'
+import { classes as tridy, learners as zaci } from '@/lib/czech'
 
 const field =
   'w-full rounded-card border border-steel-700 bg-steel-900/60 px-3 py-2.5 text-steel-100 placeholder:text-steel-500 focus:border-brass-500 focus:outline-none'
@@ -238,6 +241,52 @@ export function InstructorScreen({ origin }: { origin: string }) {
         >
           Přidat
         </button>
+      </section>
+
+      <section aria-label="Záloha tříd" className="mt-6 rounded-card border border-steel-700 bg-steel-800/40 p-4">
+        <h2 className="font-display text-base font-semibold uppercase tracking-wide text-steel-100">Záloha</h2>
+        <p className="mt-1 text-sm text-steel-400">
+          Třídy jsou jen v tomto prohlížeči. Stáhněte si je do souboru a nahrajte na jiném zařízení,
+          nebo když prohlížeč data smaže.
+        </p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          <button
+            type="button"
+            className={secondary}
+            aria-label="Stáhnout zálohu tříd"
+            onClick={() => {
+              const url = URL.createObjectURL(new Blob([exportClasses(classes, Date.now())], { type: 'application/json' }))
+              const a = document.createElement('a')
+              a.href = url
+              a.download = `zbrojni-kviz-tridy-${new Date().toISOString().slice(0, 10)}.json`
+              a.click()
+              URL.revokeObjectURL(url)
+              setStatus('Záloha je stažená.')
+            }}
+          >
+            Stáhnout zálohu
+          </button>
+          <label className={`${secondary} cursor-pointer`}>
+            Nahrát zálohu
+            <input
+              type="file"
+              accept="application/json,.json"
+              aria-label="Nahrát zálohu tříd"
+              className="sr-only"
+              onChange={async (e) => {
+                const file = e.currentTarget.files?.[0]
+                e.currentTarget.value = ''
+                if (!file) return
+                const r = importClasses(loadInstructorClasses(), await file.text(), Date.now())
+                if (!r) return setStatus('Tento soubor není záloha tříd ze Zbrojního kvízu.')
+                store(r.classes)
+                setStatus(
+                  `Záloha nahrána: ${r.classesAdded} ${tridy(r.classesAdded)}, ${r.learnersAdded} ${zaci(r.learnersAdded)} navíc.`,
+                )
+              }}
+            />
+          </label>
+        </div>
       </section>
 
       <section aria-label="Nová třída" className="mt-6 rounded-card border border-steel-700 bg-steel-800/40 p-4">

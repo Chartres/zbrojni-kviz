@@ -54,7 +54,10 @@ No server. A class code is 6 characters from an unambiguous alphabet. A learner'
 exams) is JSON → UTF-8 → base64url, prefixed `z1.`, and carried in the URL fragment of
 `/instruktor/#z1.…`, which browsers never send to a server. Opening it on the instructor's device
 validates it and adds it to the matching class (newer summary per learner wins). A summary for a
-class not on that device can be taken over there. Events: `key_action` `class_create {class, ref}`,
+class not on that device can be taken over there. The page can download all classes as one JSON file
+(`exportClasses`, kind `zbrojni-kviz-classes`) and load one back (`importClasses`: classes matched
+by code, newer summary per learner wins, broken entries dropped), so a class survives a cleared
+browser or moves to another device. Events: `key_action` `class_create {class, ref}`,
 `class_join {class, via}`, `class_send {class}`, `class_receive {class, learners}`.
 
 ## Otázka dne (test D, `src/domain/daily.ts`)

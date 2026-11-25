@@ -216,3 +216,49 @@ export function addToClass(room: ClassRoom, s: Summary, now: number): ClassRoom 
   if (had && had.t >= s.t) return room
   return { ...room, learners: { ...room.learners, [s.i]: { ...s, received: now } } }
 }
+
+/** A class backup file: everything on the instructor's device, to keep or move to another device. */
+const BACKUP_KIND = 'zbrojni-kviz-classes'
+
+export function exportClasses(classes: ClassRoom[], now: number): string {
+  return JSON.stringify({ kind: BACKUP_KIND, v: 1, exported: now, classes }, null, 1)
+}
+
+/**
+ * Merge a backup into the classes on this device. Classes are matched by code; within one, the
+ * newer summary per learner wins (addToClass). Broken entries in the file are dropped. Null when
+ * the text is not a backup at all.
+ */
+export function importClasses(
+  current: ClassRoom[],
+  text: string,
+  now: number,
+): { classes: ClassRoom[]; classesAdded: number; learnersAdded: number } | null {
+  let raw: { kind?: unknown; classes?: unknown }
+  try {
+    raw = JSON.parse(text)
+  } catch {
+    return null
+  }
+  if (!raw || raw.kind !== BACKUP_KIND || !Array.isArray(raw.classes)) return null
+  const classes = [...current]
+  let classesAdded = 0
+  let learnersAdded = 0
+  for (const incoming of raw.classes.map(normalizeClass)) {
+    if (!incoming) continue
+    const i = classes.findIndex((c) => c.code === incoming.code)
+    if (i === -1) {
+      classes.push(incoming)
+      classesAdded++
+      learnersAdded += Object.keys(incoming.learners).length
+      continue
+    }
+    let room = classes[i]
+    for (const s of Object.values(incoming.learners)) {
+      if (!room.learners[s.i]) learnersAdded++
+      room = addToClass(room, s, now)
+    }
+    classes[i] = room
+  }
+  return { classes, classesAdded, learnersAdded }
+}
