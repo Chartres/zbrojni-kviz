@@ -1,0 +1,42 @@
+{
+  "headline": "Test D (Otázka dne) fails its stop rule: 1 opt-in against 30 needed. Overnight: class backup (download/load) for instructors, PR #45.",
+  "tests": [
+    {
+      "id": "D",
+      "name": "Otázka dne, practised together",
+      "window": "2026-11-07 to 2026-11-21 (day 14)",
+      "stop_rule": "fewer than 30 opt-ins, or under 40 % of opt-ins still answering on day 14",
+      "numbers": {
+        "qotd_optin_visitors": 1,
+        "qotd_optout": 0,
+        "qotd_answer_events": 6,
+        "qotd_answer_visitors": 1,
+        "qotd_answer_days": 6,
+        "answering_on_day_14": "1 of 1 (last answer 2026-11-21)",
+        "app_open_visitors_in_window": 14
+      },
+      "source": "read-only SELECT on public.events (app = 'zbrojni-kviz', key_action kinds qotd_*), run 2026-11-25; automated browsers are dropped by the client",
+      "verdict": "fail",
+      "why": "1 opt-in is far below the 30 the rule requires. The retention half (1 of 1 still answering) says nothing with one participant.",
+      "caveat": "The test was underpowered: only 14 distinct visitors opened the app in the window, so 30 opt-ins was out of reach whatever the feature did. The result says the audience is too small to test D, not that learners rejected it.",
+      "what_stays": "The feature stays live as it is (opt-in, costs nothing, no data beyond key_action). Removing it, or reviving the test once traffic grows, is a product call for Pavol."
+    },
+    {
+      "id": "C",
+      "name": "Exam prep through instructors and clubs",
+      "status": "not started: the 10 offers are in Pavol's Gmail drafts, unsent; no class_* events recorded"
+    }
+  ],
+  "shipped": [
+    {"title": "feat(classes): download and load a class backup on the instructor page", "pr": "https://github.com/Chartres/zbrojni-kviz/pull/45", "merged": "see hand-back message", "live_checked": "see hand-back message"}
+  ],
+  "decisions": [
+    {"question": "Test D verdict when the rule's opt-in bar exceeds total traffic", "options": ["fail by the rule", "inconclusive"], "default_taken": "fail, with the underpowered caveat recorded", "why": "The stop rule was set in advance; reporting it as written keeps the test honest. The caveat tells Pavol why."},
+    {"question": "Class backup format", "options": ["JSON file", "copyable text"], "default_taken": "one JSON file (kind zbrojni-kviz-classes), merged by class code, newer summary wins", "why": "Survives a cleared browser and moves between devices; no server."}
+  ],
+  "proposals": [
+    {"title": "Otázka dne after the failed test", "needs_pavol": "Keep it as a quiet opt-in feature, remove it, or rerun the test when traffic is higher (e.g. after test C brings classes). Default if he says nothing: keep, untouched."},
+    {"title": "Weekly ranking", "needs_pavol": "Unchanged: waits for his data-route pick; with 1 opt-in it is not worth building now."}
+  ],
+  "not_mine": ["PR #43 (sweep 2026-11-10) is open from another session; left untouched."]
+}
