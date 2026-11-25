@@ -28,15 +28,44 @@
     }
   ],
   "shipped": [
-    {"title": "feat(classes): download and load a class backup on the instructor page", "pr": "https://github.com/Chartres/zbrojni-kviz/pull/45", "merged": "see hand-back message", "live_checked": "see hand-back message"}
+    {
+      "title": "feat(classes): download and load a class backup on the instructor page",
+      "pr": "https://github.com/Chartres/zbrojni-kviz/pull/45",
+      "merged": true,
+      "live_checked": "2026-11-25, 390 px on https://zbrojnikviz.dravec.org/instruktor/: class created on one phone, 'Stáhnout zálohu' gave zbrojni-kviz-tridy-2026-11-25.json, loaded on a second phone ('Záloha nahrána: 1 třída, 0 žáků navíc.'), class shown there, page width 390"
+    }
   ],
   "decisions": [
-    {"question": "Test D verdict when the rule's opt-in bar exceeds total traffic", "options": ["fail by the rule", "inconclusive"], "default_taken": "fail, with the underpowered caveat recorded", "why": "The stop rule was set in advance; reporting it as written keeps the test honest. The caveat tells Pavol why."},
-    {"question": "Class backup format", "options": ["JSON file", "copyable text"], "default_taken": "one JSON file (kind zbrojni-kviz-classes), merged by class code, newer summary wins", "why": "Survives a cleared browser and moves between devices; no server."}
+    {
+      "question": "Test D verdict when the rule's opt-in bar exceeds total traffic",
+      "options": [
+        "fail by the rule",
+        "inconclusive"
+      ],
+      "default_taken": "fail, with the underpowered caveat recorded",
+      "why": "The stop rule was set in advance; reporting it as written keeps the test honest. The caveat tells Pavol why."
+    },
+    {
+      "question": "Class backup format",
+      "options": [
+        "JSON file",
+        "copyable text"
+      ],
+      "default_taken": "one JSON file (kind zbrojni-kviz-classes), merged by class code, newer summary wins",
+      "why": "Survives a cleared browser and moves between devices; no server."
+    }
   ],
   "proposals": [
-    {"title": "Otázka dne after the failed test", "needs_pavol": "Keep it as a quiet opt-in feature, remove it, or rerun the test when traffic is higher (e.g. after test C brings classes). Default if he says nothing: keep, untouched."},
-    {"title": "Weekly ranking", "needs_pavol": "Unchanged: waits for his data-route pick; with 1 opt-in it is not worth building now."}
+    {
+      "title": "Otázka dne after the failed test",
+      "needs_pavol": "Keep it as a quiet opt-in feature, remove it, or rerun the test when traffic is higher (e.g. after test C brings classes). Default if he says nothing: keep, untouched."
+    },
+    {
+      "title": "Weekly ranking",
+      "needs_pavol": "Unchanged: waits for his data-route pick; with 1 opt-in it is not worth building now."
+    }
   ],
-  "not_mine": ["PR #43 (sweep 2026-11-10) is open from another session; left untouched."]
+  "not_mine": [
+    "PR #43 (sweep 2026-11-10) is open from another session; left untouched."
+  ]
 }

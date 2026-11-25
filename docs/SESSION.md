@@ -34,7 +34,7 @@ Docs: `docs/PRD.md` (why, §5.4 tests), `docs/SIGNATURE.md` (decision log),
 
 1. **2026-11-25 overnight**: Test D verdict recorded (`docs/review/2026-11-25.json`: **fail**,
    1 opt-in of 30 needed; underpowered, 14 visitors in the window). Class backup download/load
-   (PR #45).
+   (PR #45, merged, live).
 2. **2026-11-18 sweep** (PR #44): Czech plural fixes and `src/lib/czech.ts` helpers. Merged.
 3. **2026-11-07 tests C and D** (#34–#38): merged, live. Hand-back `docs/review/2026-11-07.json`.
 
